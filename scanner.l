@@ -2,7 +2,7 @@
   Coloque aqui o identificador do grupo e dos seus membros
 
 
-  Antes das pedradas, entendas que meu git não coloca repositórios em private, então não tive como fazer isso, por isso estou fazendo aqui O-KA? ;3
+  Antes das pedradas, entendam que meu git não coloca repositórios em private, então não tive como fazer isso, por isso estou fazendo aqui O-KA? ;3
 
   Enquanto a gente não coloca, vou explicar um pouco do que eu fiz por enquanto, ou pelo menos acho que consegui fazer.
 
