@@ -42,7 +42,7 @@ int lineNumber = 1;
 LIT_INT 		[0-9]+
 LIT_FLOAT 		[0-9]+("."[0-9]+)?([eE][+-]?[0-9]+)?
 LIT_CHAR 		\'.\'
-LIT_STRING 		("\"")[^\"]*("\"")
+LIT_STRING    \"(\\.|[^\\"])*\"
 ID 					[A-Za-z_][A-Za-z_0-9]*
 SPECIAL 		[,;:(){}\[\]{}\+\-\*<>=!&$\/]
 
