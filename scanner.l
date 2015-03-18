@@ -64,16 +64,17 @@ const 				 return TK_PR_CONST;
 static				 return TK_PR_STATIC;
 
 
+  
 
-
-"<=" 				 return TK_OC_LE;
-">="				 return TK_OC_GE;
-"==" 				 return TK_OC_EQ; 
-"!=" 				 return TK_OC_NE; 
-"&&" 				 return TK_OC_AND;
-"||" 				 return TK_OC_OR;
-"\n"				 getLineNumber();
-"/*" 				 BEGIN(comment);
+"<=" 				       return TK_OC_LE;
+">="				       return TK_OC_GE;
+"==" 				       return TK_OC_EQ; 
+"!=" 				       return TK_OC_NE; 
+"&&" 				       return TK_OC_AND;
+"||" 				       return TK_OC_OR;
+"\n"				       getLineNumber();
+"SPECIAL"          return yytext[0];
+"/*" 				       BEGIN(comment);
 <comment>"*/" 		 BEGIN(INITIAL);
 
 .					 return TOKEN_ERRO;
