@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 struct comp_dict_item_t{  // item tabela de simbolos
     int line; // ultima linha de aparição do lexema

@@ -36,16 +36,16 @@ unsigned hash(char *s)
 }
 
 // Função dict_read: retorna simbolo correspondente ao lexema dado
-struct comp_dict *dict_read(struct comp_dict *hashtable, char *key)
+struct comp_dict_item_t *dict_read(struct comp_dict *hashtable, char *key)
 {
     struct comp_dict_item_t *node;
     for (node = hashtable->table[hash(key)]; node != NULL; node = node->next)
         if (strcmp(key, node->key) == 0)
         {
           printf("NODE FOUND: %s", node->key);
-          return node; /* found */
+          return node; /* encontrado */
         }
-    return NULL; /* not found */
+    return NULL; /* não encontrado */
 }
 
 // Função dict_insert: insere a key no dicionário, verificando se houve colisão de chaves e tratando da maneira necessária
