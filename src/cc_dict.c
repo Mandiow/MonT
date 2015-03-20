@@ -10,6 +10,7 @@
 */
 
 // Cria um dicionário vazio
+ int PASSO = 1;
 struct comp_dict *dict_create(int size) {
     struct comp_dict *hashtable = NULL;
     int i;
@@ -49,14 +50,18 @@ struct comp_dict_item_t *dict_read(struct comp_dict *hashtable, char *key)
 }
 
 // Função dict_insert: insere a key no dicionário, verificando se houve colisão de chaves e tratando da maneira necessária
-struct comp_dict *dict_insert(struct comp_dict *hashtable, char *key, char *token, int line)
+struct comp_dict_item_t *dict_insert(struct comp_dict *hashtable, char *key, char *token, int line)
 {
     struct comp_dict_item_t *node = dict_read(hashtable,key);
 
     unsigned hashval;
     hashval = hash(key);
 
-
+    if (PASSO==1)
+    {
+        hashtable = dict_create(100);
+        PASSO = 0;
+    }
     // Se o nodo não foi encontrado (na real se o primeiro elemento da posição na tabela hash é vazio), é só adicionar direto
     if (node == NULL) 
     {
