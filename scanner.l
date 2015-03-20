@@ -29,14 +29,12 @@
 %x comment
 
 %{
-#include "parser.h" //arquivo automaticamente gerado pelo bison
-#include "main.c"
-#include "cc_misc.c"
+		#include "parser.h" //arquivo automaticamente gerado pelo bison
+		#include "main.h"
+		#include "cc_misc.h"
+		int lineNumber;
+		struct comp_dict *hashtable;
 
-
-
-
-int lineNumber = 1;
 %}
 
 LIT_INT 		[0-9]+
@@ -76,6 +74,12 @@ static				 return TK_PR_STATIC;
 "SPECIAL"          return yytext[0];
 "/*" 				       BEGIN(comment);
 <comment>"*/" 		 BEGIN(INITIAL);
+"LIT_INT"						dict_insert(hashtable,yytext,TK_LIT_INT,lineNumber); return TK_LIT_INT;
+"LIT_FLOAT"						dict_insert(hashtable,yytext,TK_LIT_FLOAT,lineNumber); return TK_LIT_FLOAT;
+"LIT_CHAR"						dict_insert(hashtable,yytext,TK_LIT_CHAR,lineNumber); return TK_LIT_CHAR;
+"LIT_STRING"					dict_insert(hashtable,yytext,TK_LIT_STRING,lineNumber); return TK_LIT_STRING;
+"false"							dict_insert(hashtable,yytext,TK_LIT_FALSE,lineNumber); return TK_LIT_FALSE;
+"true"							dict_insert(hashtable,yytext,TK_LIT_TRUE,lineNumber); return TK_LIT_TRUE;
 
 .					 return TOKEN_ERRO;
 %%
