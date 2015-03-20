@@ -1,5 +1,8 @@
 #include "cc_misc.h"
 
+
+
+extern int lineNumber = 1;
 int getLineNumber (void)
 {
   lineNumber++;
