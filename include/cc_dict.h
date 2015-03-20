@@ -10,4 +10,5 @@ struct comp_dict_item_t{  // item tabela de simbolos
 
 struct comp_dict { /* tabela de simbolos */
     struct **comp_dict_item_t table; /* valor do item dessa chave */
+    int size;
 };
