@@ -26,6 +26,17 @@ struct comp_dict *dict_create(int size) {
     return hashtable;
 }
 
+void test_dict() {
+    comp_dict_t *testdict = dict_create();
+    
+    dict_insert(testdict, 0, "A",1);
+    dict_insert(testdict, 0, "B", 4);
+    //dict_insert(testdict, 0, "C",4);
+    
+    dict_read(testdict,"B");
+    dict_read(testdict,"A");
+}
+
 // Função Hash: cria posição de chave sem precisar criar colisão dada uma entrada s, que é a palavra
 unsigned hash(char *s)
 {
@@ -43,9 +54,10 @@ struct comp_dict_item_t *dict_read(struct comp_dict *hashtable, char *key)
     for (node = hashtable->table[hash(key)]; node != NULL; node = node->next)
         if (strcmp(key, node->key) == 0)
         {
-          printf("NODE FOUND: %s", node->key);
+          printf("Nodo Encontrado: %s", node->key);
           return node; /* encontrado */
         }
+    printf("Nodo encontrado ):");
     return NULL; /* não encontrado */
 }
 
@@ -70,8 +82,8 @@ struct comp_dict_item_t *dict_insert(struct comp_dict *hashtable, char *key, cha
         node->token = strdup(token);
         node->next = NULL;
         hashtable->table[hashval] = node;
+        printf("Nodo Adicionado");
     }
-
     //Agora caso eu já tenha pelo menos um nodo alocado naquela posição da Hash (Colisão), verificar se a key já está na lista ou não
     else 
     {
@@ -86,7 +98,6 @@ struct comp_dict_item_t *dict_insert(struct comp_dict *hashtable, char *key, cha
                     free(node->token);              // Libera o antigo e atualiza
                     node->token = strdup(token);
                     node->line = line;
-
                     nodeFound = 1;                  // Marca que o nodo foi encontrado e atualizado.
                 }
             }
@@ -101,6 +112,7 @@ struct comp_dict_item_t *dict_insert(struct comp_dict *hashtable, char *key, cha
                 node->line = line;
                 node->next = NULL;
                 aux->next = node;
+                printf("Nodo Adicionado");
             }
     }
     return node;
