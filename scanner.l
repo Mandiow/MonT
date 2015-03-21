@@ -1,5 +1,7 @@
 /*
-  Coloque aqui o identificador do grupo e dos seus membros
+  Caiã de Aragão
+  Gabriel Alves
+  Inatan Hertzog
 
 
   Antes das pedradas, entendam que meu git não coloca repositórios em private, então não tive como fazer isso, por isso estou fazendo aqui O-KA? ;3
