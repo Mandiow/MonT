@@ -6,7 +6,6 @@
  * É utilizada uma tabela hash (melhor tempo de acesso).
  * @authors Gabriel Alves <g04lves@gmail.com>, Inatan Hertzog <inatan.hertzog@gmail.com>
  * @debugged Caiã de Aragão Frazão <cafrazao@inf.ufrgs.br>
- Disclaimer: puta que me pariu =.= by Caiã
 */
 
 
@@ -14,7 +13,6 @@
 // Cria um dicionário vazio
 
 struct comp_dict_t *dict_create(int size) {
-    //struct comp_dict *hashtable = NULL;
     int i;
     if(size <= 0) return NULL;
     hashtable = malloc(sizeof(struct comp_dict_t));
@@ -23,7 +21,6 @@ struct comp_dict_t *dict_create(int size) {
         hashtable->table[i] = NULL;
     hashtable->size = size;
 
-    //printf("Dicionario Criado\n");
     hashsize = size;
     return hashtable;
 }
@@ -94,8 +91,6 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, c
         {
             if (strcmp(key, node->key) == 0) // As keys são as mesmas
             {
-                
-                    
                     node->line = line;
                     nodeFound = 1;                  // Marca que o nodo foi encontrado e atualizado.
                 
