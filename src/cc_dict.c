@@ -9,6 +9,8 @@
  Disclaimer: puta que me pariu =.= by Caiã
 */
 
+
+ int hashsize = 100;
 // Cria um dicionário vazio
 
 struct comp_dict_t *dict_create(int size) {
@@ -22,6 +24,7 @@ struct comp_dict_t *dict_create(int size) {
     hashtable->size = size;
 
     //printf("Dicionario Criado\n");
+    hashsize = size;
     return hashtable;
 }
 
@@ -34,7 +37,7 @@ unsigned hash(char *s)
     for (hashval = 0; *s != '\0'; s++)
       hashval = *s + 31 * hashval;
 
-    return hashval % HASHSIZE;
+    return hashval % hashsize;
 }
 
 // Função dict_read: retorna simbolo correspondente ao lexema dado
@@ -120,9 +123,9 @@ void dict_release (struct comp_dict_t* dict)
 {
     struct comp_dict_item_t *aux_item;
     struct comp_dict_item_t *next_item;
-    aux = dict->table[0];
+    aux_item = dict->table[0];
     int i;
-    for(i=0;i<dict->size;;i++)
+    for(i=0;i<=dict->size;i++)
     {
         while (aux_item != NULL) 
         {
@@ -131,4 +134,5 @@ void dict_release (struct comp_dict_t* dict)
             aux_item = next_item;
         }
     }
+    free(hashtable);
 }
