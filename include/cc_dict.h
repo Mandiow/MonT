@@ -9,7 +9,12 @@ struct comp_dict_item_t{  // item tabela de simbolos
     char *key; /* chave  para consultar o simbolo o lexical*/
 };
 
-struct comp_dict { /* tabela de simbolos */
-    struct **comp_dict_item_t table; /* valor do item dessa chave */
+struct comp_dict_t { /* tabela de simbolos */
+    struct comp_dict_item_t **table; /* valor do item dessa chave */
     int size;
 };
+
+
+struct comp_dict_t* hashtable;
+
+		
