@@ -23,6 +23,9 @@
 
   ESPERO QUE LEIAM SEUS LIMDOS ;3 
 
+
+  Tentei identar o máximo que consegui, só que o arquivo sisma em não colaborar comigo =.= desisti e vai ficar assim mesmo ok gente? ¬_¬
+
 */
 
 
@@ -31,9 +34,10 @@
 %{
 		#include "parser.h" //arquivo automaticamente gerado pelo bison
 		#include "main.h"
-		#include "cc_misc.h"
 		int lineNumber;
-		struct comp_dict *hashtable;
+		
+		
+		
 
 %}
 
@@ -42,44 +46,55 @@ LIT_FLOAT 		[0-9]+("."[0-9]+)?([eE][+-]?[0-9]+)?
 LIT_CHAR 		\'.\'
 LIT_STRING    \"(\\.|[^\\"])*\"
 ID 					[A-Za-z_][A-Za-z_0-9]*
-SPECIAL 		[,;:(){}\[\]{}\+\-\*<>=!&$\/]
+		
 
 %%
-int 				 return TK_PR_INT;
-float 				 return TK_PR_FLOAT;
-bool 				 return TK_PR_BOOL;
-char 				 return TK_PR_CHAR; 
-string 				 return TK_PR_STRING; 
-if 					 return TK_PR_IF; 
-then 				 return TK_PR_THEN;
-else 				 return TK_PR_ELSE; 
-while 				 return TK_PR_WHILE; 
-do 					 return TK_PR_DO; 
-input 				 return TK_PR_INPUT; 
-output 				 return TK_PR_OUTPUT; 
-return 				 return TK_PR_RETURN;
-const 				 return TK_PR_CONST;
-static				 return TK_PR_STATIC;
+
+int 				 {return TK_PR_INT;}
+float 				 {return TK_PR_FLOAT;}
+bool 				 {return TK_PR_BOOL;}
+char 				 {return TK_PR_CHAR; }
+string 				 {return TK_PR_STRING;} 
+if 					 {return TK_PR_IF; }
+then 				 {return TK_PR_THEN;}
+else 				 {return TK_PR_ELSE; }
+while 				 {return TK_PR_WHILE;} 
+do 					 {return TK_PR_DO; }
+input 				 {return TK_PR_INPUT; }
+output 				 {return TK_PR_OUTPUT; }
+return 				 {return TK_PR_RETURN;}
+const 				 {return TK_PR_CONST;}
+static				 {return TK_PR_STATIC;}
 
 
   
+" "               {}
+"\t"              {}
+"\f"              {}
+"\v"              {}
+"<=" 				       {return TK_OC_LE;}
+">="				       {return TK_OC_GE;}
+"==" 				       {return TK_OC_EQ; }
+"!=" 				       {return TK_OC_NE; }
+"&&" 				       {return TK_OC_AND;}
+"||" 				       {return TK_OC_OR;}
+"\n"				       {++lineNumber;}
 
-"<=" 				       return TK_OC_LE;
-">="				       return TK_OC_GE;
-"==" 				       return TK_OC_EQ; 
-"!=" 				       return TK_OC_NE; 
-"&&" 				       return TK_OC_AND;
-"||" 				       return TK_OC_OR;
-"\n"				       getLineNumber();
-"SPECIAL"          return yytext[0];
-"/*" 				       BEGIN(comment);
-<comment>"*/" 		 BEGIN(INITIAL);
-"LIT_INT"						dict_insert(hashtable,yytext,TK_LIT_INT,lineNumber); return TK_LIT_INT;
-"LIT_FLOAT"						dict_insert(hashtable,yytext,TK_LIT_FLOAT,lineNumber); return TK_LIT_FLOAT;
-"LIT_CHAR"						dict_insert(hashtable,yytext,TK_LIT_CHAR,lineNumber); return TK_LIT_CHAR;
-"LIT_STRING"					dict_insert(hashtable,yytext,TK_LIT_STRING,lineNumber); return TK_LIT_STRING;
-"false"							dict_insert(hashtable,yytext,TK_LIT_FALSE,lineNumber); return TK_LIT_FALSE;
-"true"							dict_insert(hashtable,yytext,TK_LIT_TRUE,lineNumber); return TK_LIT_TRUE;
+[,;:(){}\[\]{}\+\-\*<>=!&$\/]          		   {return yytext[0];}
+"/*" 				       {BEGIN(comment);}
+<comment>.          { }
+<comment>"\n"       {lineNumber++;}
+<comment>"*/"          {BEGIN(INITIAL);}
 
-.					 return TOKEN_ERRO;
+"//".*					   {}
+{LIT_INT}				   {dict_insert(hashtable,yytext,"LIT_INT",lineNumber); return TK_LIT_INT;}
+{LIT_FLOAT}				   {dict_insert(hashtable,yytext,"LIT_FLOAT",lineNumber); return TK_LIT_FLOAT;}
+{LIT_CHAR}				   {dict_insert(hashtable,yytext,"LIT_CHAR",lineNumber); return TK_LIT_CHAR;}
+{LIT_STRING}			   {dict_insert(hashtable,yytext,"LIT_STRING",lineNumber); return TK_LIT_STRING;}
+false					   {dict_insert(hashtable,yytext,"LIT_FALSE",lineNumber); return TK_LIT_FALSE;}
+true					   {dict_insert(hashtable,yytext,"LIT_TRUE",lineNumber); return TK_LIT_TRUE;}
+{ID}					   {dict_insert(hashtable,yytext,"IDENTIFICADOR",lineNumber); return TK_IDENTIFICADOR;}
+
+
+.					 	   {return TOKEN_ERRO;}
 %%
