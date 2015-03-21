@@ -22,6 +22,6 @@ void main_init (int argc, char **argv)
 
 void main_finalize (void)
 {
-  explode_tudo();
   //implemente esta função com rotinas de inicialização, se necessário
+  dict_release(hashtable);
 }

@@ -1,5 +1,4 @@
 #include "cc_dict.h"
-#define HASHSIZE 100
 
 /*
  * Arquivo com as funções que serão utilizadas para criação do dicionário que conterá 
@@ -115,4 +114,21 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, c
     return node;
 }
 
-// TODO: Funções de desalocar dicionários (destruir)... zzzzzzzz
+// Desaloca e libera a memória utilizada pelo dicionário
+// Entrada: dicionário a ser destruído
+void dict_release (struct comp_dict_t* dict) 
+{
+    struct comp_dict_item_t *aux_item;
+    struct comp_dict_item_t *next_item;
+    aux = dict->table[0];
+    int i;
+    for(i=0;i<dict->size;;i++)
+    {
+        while (aux_item != NULL) 
+        {
+            next_item = aux_item->next;
+            free(aux_item);
+            aux_item = next_item;
+        }
+    }
+}
