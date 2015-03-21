@@ -7,35 +7,26 @@
  * É utilizada uma tabela hash (melhor tempo de acesso).
  * @authors Gabriel Alves <g04lves@gmail.com>, Inatan Hertzog <inatan.hertzog@gmail.com>
  * @debugged Caiã de Aragão Frazão <cafrazao@inf.ufrgs.br>
+ Disclaimer: puta que me pariu =.= by Caiã
 */
 
 // Cria um dicionário vazio
- int PASSO = 1;
-struct comp_dict *dict_create(int size) {
-    struct comp_dict *hashtable = NULL;
-    int i;
 
+struct comp_dict_t *dict_create(int size) {
+    //struct comp_dict *hashtable = NULL;
+    int i;
     if(size <= 0) return NULL;
-    hashtable = malloc(sizeof(struct comp_dict));
+    hashtable = malloc(sizeof(struct comp_dict_t));
     hashtable->table = malloc(sizeof(struct comp_dict_item_t * ) * size);
     for(i = 0; i < size; i++)
         hashtable->table[i] = NULL;
     hashtable->size = size;
 
-    printf("Dicionario Criado\n");
+    //printf("Dicionario Criado\n");
     return hashtable;
 }
 
-void test_dict() {
-    comp_dict_t *testdict = dict_create();
-    
-    dict_insert(testdict, 0, "A",1);
-    dict_insert(testdict, 0, "B", 4);
-    //dict_insert(testdict, 0, "C",4);
-    
-    dict_read(testdict,"B");
-    dict_read(testdict,"A");
-}
+
 
 // Função Hash: cria posição de chave sem precisar criar colisão dada uma entrada s, que é a palavra
 unsigned hash(char *s)
@@ -48,41 +39,49 @@ unsigned hash(char *s)
 }
 
 // Função dict_read: retorna simbolo correspondente ao lexema dado
-struct comp_dict_item_t *dict_read(struct comp_dict *hashtable, char *key)
+struct comp_dict_item_t *dict_read(struct comp_dict_t *hashtable, char *key)
 {
-    struct comp_dict_item_t *node;
-    for (node = hashtable->table[hash(key)]; node != NULL; node = node->next)
-        if (strcmp(key, node->key) == 0)
+    struct comp_dict_item_t *node = NULL;
+    if(hashtable != NULL) 
+    {
+        node = hashtable->table[hash(key)];    
+        if(node != NULL) 
         {
-          printf("Nodo Encontrado: %s", node->key);
-          return node; /* encontrado */
-        }
-    printf("Nodo encontrado ):");
-    return NULL; /* não encontrado */
+          
+            for(; node != NULL; node = node->next) 
+                if(node->key != NULL)
+                    if(strcmp(key, node->key) == 0)
+                    {
+                    
+                        return node;
+                    }
+        } 
+    }
+
+    return NULL;
 }
 
 // Função dict_insert: insere a key no dicionário, verificando se houve colisão de chaves e tratando da maneira necessária
-struct comp_dict_item_t *dict_insert(struct comp_dict *hashtable, char *key, char *token, int line)
+struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, char *token, int line)
 {
+    
+   
     struct comp_dict_item_t *node = dict_read(hashtable,key);
-
     unsigned hashval;
     hashval = hash(key);
-
-    if (PASSO==1)
-    {
-        hashtable = dict_create(100);
-        PASSO = 0;
-    }
+    
     // Se o nodo não foi encontrado (na real se o primeiro elemento da posição na tabela hash é vazio), é só adicionar direto
     if (node == NULL) 
     {
         node = malloc(sizeof(struct comp_dict_item_t));
+ 
         node->line = line;
+        node->key = strdup(key);
         node->token = strdup(token);
         node->next = NULL;
+
         hashtable->table[hashval] = node;
-        printf("Nodo Adicionado");
+
     }
     //Agora caso eu já tenha pelo menos um nodo alocado naquela posição da Hash (Colisão), verificar se a key já está na lista ou não
     else 
@@ -93,18 +92,16 @@ struct comp_dict_item_t *dict_insert(struct comp_dict *hashtable, char *key, cha
         {
             if (strcmp(key, node->key) == 0) // As keys são as mesmas
             {
-                if(strcmp(token, node->token) != 0)  // Mas os tokens foram diferentes
-                {
-                    free(node->token);              // Libera o antigo e atualiza
-                    node->token = strdup(token);
+                
+                    
                     node->line = line;
                     nodeFound = 1;                  // Marca que o nodo foi encontrado e atualizado.
-                }
+                
             }
             aux = node;
             node = node->next; 
         }
-        if(nodeFound = 0) //Como o nodo não foi encontrado, nenhum valor foi atualizado, logo ele tem que ser adicionado na lista
+        if(nodeFound == 0) //Como o nodo não foi encontrado, nenhum valor foi atualizado, logo ele tem que ser adicionado na lista
             { 
                 node = malloc(sizeof(struct comp_dict_item_t));
                 node->token = strdup(token);
@@ -112,7 +109,7 @@ struct comp_dict_item_t *dict_insert(struct comp_dict *hashtable, char *key, cha
                 node->line = line;
                 node->next = NULL;
                 aux->next = node;
-                printf("Nodo Adicionado");
+               
             }
     }
     return node;
