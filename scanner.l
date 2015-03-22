@@ -36,7 +36,7 @@
 %{
 		#include "parser.h" //arquivo automaticamente gerado pelo bison
 		#include "main.h"
-		int lineNumber;
+		int lineNumber = 1;
 		
 		
 		
