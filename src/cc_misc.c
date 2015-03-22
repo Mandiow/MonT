@@ -1,11 +1,10 @@
 #include "cc_misc.h"
 #include "cc_dict.h"
 
-extern int lineNumber = 1;
+extern lineNumber;
 
 int getLineNumber (void)
 {
-  //++lineNumber;
   return lineNumber;
 }
 
