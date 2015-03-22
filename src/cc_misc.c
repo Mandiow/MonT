@@ -1,9 +1,11 @@
 #include "cc_misc.h"
+#include "cc_dict.h"
+
+extern lineNumber;
 
 int getLineNumber (void)
 {
-  lineNumber++;
-  return -1;
+  return lineNumber;
 }
 
 void yyerror (char const *mensagem)
@@ -14,9 +16,11 @@ void yyerror (char const *mensagem)
 void main_init (int argc, char **argv)
 {
   //implemente esta função com rotinas de inicialização, se necessário
+	hashtable = dict_create(100);
 }
 
 void main_finalize (void)
 {
   //implemente esta função com rotinas de inicialização, se necessário
+  dict_release(hashtable);
 }
