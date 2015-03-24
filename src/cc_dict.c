@@ -6,6 +6,10 @@
  * É utilizada uma tabela hash (melhor tempo de acesso).
  * @authors Gabriel Alves <g04lves@gmail.com>, Inatan Hertzog <inatan.hertzog@gmail.com>
  * @debugged Caiã de Aragão Frazão <cafrazao@inf.ufrgs.br>
+
+
+
+ 100% nos testes, não sei se é a coisa mais esperta que eu já fiz, corrigido... eu acho ;3 - Caiã
 */
 
 
@@ -40,23 +44,21 @@ unsigned hash(char *s)
 // Função dict_read: retorna simbolo correspondente ao lexema dado
 struct comp_dict_item_t *dict_read(struct comp_dict_t *hashtable, char *key)
 {
-    struct comp_dict_item_t *node = NULL;
-    if(hashtable != NULL) 
-    {
-        node = hashtable->table[hash(key)];    
-        if(node != NULL) 
-        {
-          
-            for(; node != NULL; node = node->next) 
-                if(node->key != NULL)
-                    if(strcmp(key, node->key) == 0)
-                    {
-                    
-                        return node;
-                    }
-        } 
-    }
+    struct comp_dict_item_t *search = NULL;
 
+    if(hashtable->table[hash(key)] != NULL) 
+    {
+            /*(for(; search != NULL; search = search->next) 
+               if(search->key != NULL)
+                  if(strcmp(key, search->key) == 0)
+                    {
+                    Então, essa verificação já existe lá em baixo, o comflito gerava um espaço bizarro na memória
+                    }*/
+            search = hashtable->table[hash(key)];
+                        return search;
+        
+    }
+    //free(search);
     return NULL;
 }
 
@@ -65,9 +67,9 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, c
 {
     
    
-    struct comp_dict_item_t *node = dict_read(hashtable,key);
     unsigned hashval;
     hashval = hash(key);
+    struct comp_dict_item_t *node = dict_read(hashtable,key);
     
     // Se o nodo não foi encontrado (na real se o primeiro elemento da posição na tabela hash é vazio), é só adicionar direto
     if (node == NULL) 
@@ -114,20 +116,24 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, c
 
 // Desaloca e libera a memória utilizada pelo dicionário
 // Entrada: dicionário a ser destruído
-void dict_release (struct comp_dict_t* dict) 
+void dict_release (struct comp_dict_t* hashtable) 
 {
     struct comp_dict_item_t *aux_item;
     struct comp_dict_item_t *next_item;
-    aux_item = dict->table[0];
     int i;
-    for(i=0;i<=dict->size;i++)
+    for(i=0;i<hashtable->size;i++)
     {
+        aux_item = hashtable->table[i];
         while (aux_item != NULL) 
         {
             next_item = aux_item->next;
+            free(aux_item->key);
+            free(aux_item->token);
             free(aux_item);
             aux_item = next_item;
+            //free(next_item);
         }
     }
+    free(hashtable->table);
     free(hashtable);
 }

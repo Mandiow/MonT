@@ -16,7 +16,7 @@ void yyerror (char const *mensagem)
 void main_init (int argc, char **argv)
 {
   //implemente esta função com rotinas de inicialização, se necessário
-	hashtable = dict_create(100);
+	dict_create(100);
 }
 
 void main_finalize (void)
