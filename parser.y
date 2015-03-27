@@ -3,7 +3,16 @@
 */
 %{
 #include <stdio.h>
+
+
 %}
+
+%union
+{
+	struct comp_dict_item_t *valor_simbolo_lexico;
+}
+
+
 
 /* Declaração dos tokens da linguagem */
 %token TK_PR_INT
@@ -39,12 +48,27 @@
 %%
 /* Regras (e ações) da gramática */
 
-programa: ;
 
+programa
+	: lista_declaracao_global declarar_funcao 
+	| declarar_funcao
+	;
 
-declaracao
-	: declaracao_global
-	| declaracao_local
+literal
+	: TK_LIT_INT
+	| TK_LIT_FLOAT
+	| TK_LIT_FALSE
+	| TK_LIT_TRUE
+	| TK_LIT_CHAR
+	| TK_LIT_STRING
+	;
+
+especificador_tipo
+	: TK_PR_INT
+	| TK_PR_FLOAT
+	| TK_PR_BOOL
+	| TK_PR_CHAR
+	| TK_PR_STRING
 	;
 
 declaracao_global
@@ -63,6 +87,7 @@ declaracao_local
 	| qualificador_tipo especificador_tipo  TK_IDENTIFICADOR "<=" valor ';'
 	;
 
+
 valor
 	: literal
 	| TK_IDENTIFICADOR
@@ -77,24 +102,6 @@ lista_declaracao_global
 	: declaracao_global
 	| lista_declaracao_global declaracao_global
 	;
-
-lireral
-	: TK_LIT_INT
-	| TK_LIT_FLOAT
-	| TK_LIT_FALSE
-	| TK_LIT_TRUE
-	| TK_LIT_CHAR
-	| TK_LIT_STRING
-	;
-
-especificador_tipo
-	: TK_PR_INT
-	| TK_PR_FLOAT
-	| TK_PR_BOOL
-	| TK_PR_CHAR
-	| TK_PR_STRING
-	;
-
 
 atribuicao
 	: TK_IDENTIFICADOR '=' expressao
@@ -135,6 +142,7 @@ comando
     | controle_fluxo
 	| execucao_iteracao
 	| lista_declaracao_local
+	| declaracao_local
 	| bloco_comando
 	| terminador
 	;
@@ -224,8 +232,8 @@ expressao_logica
 	| valor operador_logico valor
 	;
 
-expressao_aritmetico
-	: expressao_aritmetico operador_aritmetico valor
+expressao_aritmetica
+	: expressao_aritmetica operador_aritmetico valor
 	| valor operador_aritmetico valor
 	;
 

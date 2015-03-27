@@ -89,13 +89,13 @@ static				 {return TK_PR_STATIC;}
 <comment>"*/"          {BEGIN(INITIAL);}
 
 "//".*					   {}
-{LIT_INT}				   {dict_insert(hashtable,yytext,"LIT_INT",lineNumber); return TK_LIT_INT;}
-{LIT_FLOAT}				   {dict_insert(hashtable,yytext,"LIT_FLOAT",lineNumber); return TK_LIT_FLOAT;}
-{LIT_CHAR}				   {dict_insert(hashtable,yytext,"LIT_CHAR",lineNumber); return TK_LIT_CHAR;}
-{LIT_STRING}			   {dict_insert(hashtable,yytext,"LIT_STRING",lineNumber); return TK_LIT_STRING;}
-false					   {dict_insert(hashtable,yytext,"LIT_FALSE",lineNumber); return TK_LIT_FALSE;}
-true					   {dict_insert(hashtable,yytext,"LIT_TRUE",lineNumber); return TK_LIT_TRUE;}
-{ID}					   {dict_insert(hashtable,yytext,"IDENTIFICADOR",lineNumber); return TK_IDENTIFICADOR;}
+{LIT_INT}				   {yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,"LIT_INT",lineNumber); return TK_LIT_INT;}
+{LIT_FLOAT}				   {yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,"LIT_FLOAT",lineNumber); return TK_LIT_FLOAT;}
+{LIT_CHAR}				   {yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,"LIT_CHAR",lineNumber); return TK_LIT_CHAR;}
+{LIT_STRING}			   {yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,"LIT_STRING",lineNumber); return TK_LIT_STRING;}
+false					   {yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,"LIT_FALSE",lineNumber); return TK_LIT_FALSE;}
+true					   {yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,"LIT_TRUE",lineNumber); return TK_LIT_TRUE;}
+{ID}					   {yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,"IDENTIFICADOR",lineNumber); return TK_IDENTIFICADOR;}
 
 
 .					 	   {return TOKEN_ERRO;}
