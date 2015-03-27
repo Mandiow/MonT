@@ -1,5 +1,6 @@
 #include "cc_dict.h"
 
+
 /*
  * Arquivo com as funções que serão utilizadas para criação do dicionário que conterá 
  * todas as informaçoes necessárias para a implementação inicial do projeto: os tokens, as chaves e sua ultima linha de aparição. 
@@ -63,7 +64,7 @@ struct comp_dict_item_t *dict_read(struct comp_dict_t *hashtable, char *key)
 }
 
 // Função dict_insert: insere a key no dicionário, verificando se houve colisão de chaves e tratando da maneira necessária
-struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, char *token, int line)
+struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, int TK_some_symbol_comes, int line)
 {
     
    
@@ -78,7 +79,29 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, c
  
         node->line = line;
         node->key = strdup(key);
-        node->token = strdup(token);
+                    switch(TK_some_symbol_comes) 
+                    {
+                        case SIMBOLO_LITERAL_INT:
+                            node->token.integer = atoi(key);
+                            break;
+                        case SIMBOLO_LITERAL_FLOAT:
+                            node->token.floating_point = atof(key);
+                            break;
+                        case SIMBOLO_LITERAL_CHAR:
+                            node->token.single_char = strdup(key);
+                            break;
+                        case SIMBOLO_LITERAL_STRING:
+                            node->token.string = strdup(key);
+                            break;
+                        case SIMBOLO_LITERAL_BOOL:
+                            node->token.boolean = strdup(key);
+                            break;
+                        case SIMBOLO_IDENTIFICADOR:
+                            node->token.string = strdup(key);
+                            break;
+                        default:
+                            break;
+                        }
         node->next = NULL;
 
         hashtable->table[hashval] = node;
@@ -103,7 +126,29 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, c
         if(nodeFound == 0) //Como o nodo não foi encontrado, nenhum valor foi atualizado, logo ele tem que ser adicionado na lista
             { 
                 node = malloc(sizeof(struct comp_dict_item_t));
-                node->token = strdup(token);
+                switch(TK_some_symbol_comes) 
+                    {
+                        case SIMBOLO_LITERAL_INT:
+                            node->token.integer = atoi(key);
+                            break;
+                        case SIMBOLO_LITERAL_FLOAT:
+                            node->token.floating_point = atof(key);
+                            break;
+                        case SIMBOLO_LITERAL_CHAR:
+                            node->token.single_char = strdup(key);
+                            break;
+                        case SIMBOLO_LITERAL_STRING:
+                            node->token.string = strdup(key);
+                            break;
+                        case SIMBOLO_LITERAL_BOOL:
+                            node->token.boolean = strdup(key);
+                            break;
+                        case SIMBOLO_IDENTIFICADOR:
+                            node->token.string = strdup(key);
+                            break;
+                        default:
+                            break;
+                        }
                 node->key = strdup(key);
                 node->line = line;
                 node->next = NULL;
@@ -128,7 +173,9 @@ void dict_release (struct comp_dict_t* hashtable)
         {
             next_item = aux_item->next;
             free(aux_item->key);
-            free(aux_item->token);
+
+            //free(aux_item->token);      // 
+            
             free(aux_item);
             aux_item = next_item;
             //free(next_item);

@@ -142,8 +142,11 @@ comando
     | controle_fluxo
 	| execucao_iteracao
 	| lista_declaracao_local
-	| declaracao_local
 	| bloco_comando
+	| entrada
+	| atribuicao
+	| chamada_funcao
+	| saida
 	| terminador
 	;
 
