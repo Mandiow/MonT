@@ -181,6 +181,7 @@ void dict_release (struct comp_dict_t* hashtable)
             //free(next_item);
         }
     }
+    //free(valor_simbolo_lexico); 
     free(hashtable->table);
     free(hashtable);
 }

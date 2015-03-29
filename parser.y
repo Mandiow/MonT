@@ -50,8 +50,9 @@
 
 
 programa
-	: lista_declaracao_global declarar_funcao 
-	| declarar_funcao
+	: declaracao programa
+	| declarar_funcao programa
+	| /* NADA */
 	;
 
 literal
@@ -71,17 +72,12 @@ especificador_tipo
 	| TK_PR_STRING
 	;
 
-declaracao_global
+declaracao
 	: especificador_tipo TK_IDENTIFICADOR ';'
 	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR';'
-	| especificador_tipo TK_IDENTIFICADOR '[' expressao ']' ';'
-	| especificador_classe_armazenamento especificador_tipo TK_IDENTIFICADOR '[' expressao ']' ';'
-	;
-
-declaracao_local
-	: especificador_tipo TK_IDENTIFICADOR ';'
-	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR';'
-	| especificador_tipo TK_IDENTIFICADOR "<=" valor ';'
+	| especificador_tipo TK_IDENTIFICADOR '[' valor ']'';'
+	| especificador_classe_armazenamento especificador_tipo TK_IDENTIFICADOR '[' valor ']' ';'
+	| especificador_tipo TK_IDENTIFICADOR "<=" valor';'
 	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR "<=" valor
 	| especificador_classe_armazenamento qualificador_tipo especificador_tipo  TK_IDENTIFICADOR "<=" valor ';'
 	| qualificador_tipo especificador_tipo  TK_IDENTIFICADOR "<=" valor ';'
@@ -91,26 +87,27 @@ declaracao_local
 valor
 	: literal
 	| TK_IDENTIFICADOR
+	| TK_IDENTIFICADOR '[' expressao ']'
 	;
 
 lista_declaracao_local
-	: declaracao_local
-	| lista_declaracao_local declaracao_local
+	: declaracao
+	| declaracao lista_declaracao_local
 	;
 
-lista_declaracao_global
-	: declaracao_global
-	| lista_declaracao_global declaracao_global
-	;
+
 
 atribuicao
-	: TK_IDENTIFICADOR '=' expressao
-	| TK_IDENTIFICADOR '[' expressao ']' '=' expressao
+	: TK_IDENTIFICADOR '=' expressao';'
+	| TK_IDENTIFICADOR '[' expressao ']' '=' expressao';'
+	| TK_IDENTIFICADOR '[' expressao ']' '=' TK_IDENTIFICADOR '[' expressao ']' ';'
 	;
+
 
 retorno
 	: TK_PR_RETURN ';'
 	| TK_PR_RETURN TK_IDENTIFICADOR ';'
+	| TK_PR_RETURN TK_IDENTIFICADOR '[' expressao ']' ';'
 	| TK_PR_RETURN expressao ';'
 	;
 
@@ -122,9 +119,6 @@ qualificador_tipo
 	: TK_PR_CONST
 	;
 
-terminador
-	: ';'
-	;
 
 lista_comando
 	: comando
@@ -133,22 +127,22 @@ lista_comando
 
 bloco_comando
 	: '{' lista_comando '}'
-	| '{' '}'
 	;
 
 comando
-	:
-    | retorno
-    | controle_fluxo
-	| execucao_iteracao
-	| lista_declaracao_local
-	| bloco_comando
-	| entrada
-	| atribuicao
-	| chamada_funcao
-	| saida
-	| terminador
+	: retorno comando
+    | controle_fluxo comando
+	| execucao_iteracao comando
+	| lista_declaracao_local comando
+	| bloco_comando comando
+	| entrada comando
+	| atribuicao comando
+	| chamada_funcao comando
+	| saida comando
+	| 
 	;
+
+
 
 parametros
 	: '(' lista_parametros ')'
@@ -163,33 +157,38 @@ lista_parametros
 parametro
 	: especificador_tipo TK_IDENTIFICADOR
 	| qualificador_tipo especificador_tipo TK_IDENTIFICADOR
+	| valor
 	;
 
 entrada
-	: TK_PR_INPUT expressao "=>" expressao
+	: TK_PR_INPUT expressao "=>" expressao ';'
 	;
 
 saida
-	: TK_PR_OUTPUT lista_expressoes
+	: TK_PR_OUTPUT lista_expressoes	';'
 	;
+
+lista_vazia
+	: lista_expressoes
+	|
 
 lista_expressoes
-	: expressao
-	| lista_expressoes ',' expressao
+	: expressao ',' lista_expressoes
+	| expressao
 	;
+
 
 controle_fluxo
-	: TK_PR_IF '(' expressao ')' comando
-	| TK_PR_IF '(' expressao ')' comando TK_PR_ELSE comando
+	: TK_PR_IF '(' expressao ')' TK_PR_THEN comando
+	| TK_PR_IF '(' expressao ')' TK_PR_THEN comando TK_PR_ELSE comando
 	;
-
 
 execucao_iteracao
-	: TK_PR_WHILE '(' expressao ')' comando
-	| TK_PR_DO comando TK_PR_WHILE '(' expressao ')' ';'
+	: TK_PR_WHILE '(' expressao ')' TK_PR_DO comando
+	| TK_PR_DO comando TK_PR_WHILE '(' expressao ')'
 	;
 
-declarar_funcao
+declarar_funcao	
 	: especificador_tipo TK_IDENTIFICADOR parametros  bloco_comando
 	| especificador_classe_armazenamento especificador_tipo TK_IDENTIFICADOR parametros bloco_comando
 	;
@@ -223,22 +222,23 @@ operador_logico
 	| TK_OC_NE
 	| TK_OC_AND
 	| TK_OC_OR
+	| '<'
+	| '>'
 	;
 	
 expressao
-	: expressao_logica
-	| expressao_aritmetica
+	: operador_logico expressao 
+	| valor expressao
+	| operador_aritmetico expressao
+	| '(' expressao ')'
+	| expressao_de_funcao
+	| valor
 	;
 
-expressao_logica
-	: expressao_logica operador_logico valor
-	| valor operador_logico valor
+expressao_de_funcao
+	: TK_IDENTIFICADOR '(' lista_vazia ')' lista_vazia
 	;
 
-expressao_aritmetica
-	: expressao_aritmetica operador_aritmetico valor
-	| valor operador_aritmetico valor
-	;
 
 
 %%
