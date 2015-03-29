@@ -50,9 +50,18 @@
 
 
 programa
-	: declaracao programa
+	: declaracao_global programa
 	| declarar_funcao programa
 	| /* NADA */
+	;
+
+declaracao_global
+	: especificador_tipo TK_IDENTIFICADOR ';'
+	| especificador_tipo TK_IDENTIFICADOR '[' valor ']' ';'
+	| qualificador_tipo especificador_tipo  TK_IDENTIFICADOR ';'
+	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR ';'
+	| especificador_classe_armazenamento especificador_tipo TK_IDENTIFICADOR '[' valor ']' ';'
+	| especificador_classe_armazenamento qualificador_tipo especificador_tipo  TK_IDENTIFICADOR ';'
 	;
 
 literal
@@ -72,15 +81,15 @@ especificador_tipo
 	| TK_PR_STRING
 	;
 
-declaracao
-	: especificador_tipo TK_IDENTIFICADOR ';'
-	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR';'
-	| especificador_tipo TK_IDENTIFICADOR '[' valor ']'';'
-	| especificador_classe_armazenamento especificador_tipo TK_IDENTIFICADOR '[' valor ']' ';'
-	| especificador_tipo TK_IDENTIFICADOR "<=" valor';'
-	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR "<=" valor
-	| especificador_classe_armazenamento qualificador_tipo especificador_tipo  TK_IDENTIFICADOR "<=" valor ';'
-	| qualificador_tipo especificador_tipo  TK_IDENTIFICADOR "<=" valor ';'
+declaracao_local
+	: especificador_tipo TK_IDENTIFICADOR  terminador
+	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR terminador
+	| especificador_tipo TK_IDENTIFICADOR '[' valor ']' terminador
+	| especificador_classe_armazenamento especificador_tipo TK_IDENTIFICADOR '[' valor ']' terminador
+	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor terminador
+	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor terminador
+	| especificador_classe_armazenamento qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor terminador
+	| qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor terminador
 	;
 
 
@@ -90,25 +99,22 @@ valor
 	| TK_IDENTIFICADOR '[' expressao ']'
 	;
 
-lista_declaracao_local
-	: declaracao
-	| declaracao lista_declaracao_local
-	;
+
 
 
 
 atribuicao
-	: TK_IDENTIFICADOR '=' expressao';'
-	| TK_IDENTIFICADOR '[' expressao ']' '=' expressao';'
-	| TK_IDENTIFICADOR '[' expressao ']' '=' TK_IDENTIFICADOR '[' expressao ']' ';'
+	: TK_IDENTIFICADOR '=' expressao terminador
+	| TK_IDENTIFICADOR '[' expressao ']' '=' expressao terminador
+	| TK_IDENTIFICADOR '[' expressao ']' '=' TK_IDENTIFICADOR '[' expressao ']' terminador 
 	;
 
 
 retorno
-	: TK_PR_RETURN ';'
-	| TK_PR_RETURN TK_IDENTIFICADOR ';'
-	| TK_PR_RETURN TK_IDENTIFICADOR '[' expressao ']' ';'
-	| TK_PR_RETURN expressao ';'
+	: TK_PR_RETURN terminador
+	| TK_PR_RETURN TK_IDENTIFICADOR terminador
+	| TK_PR_RETURN TK_IDENTIFICADOR '[' expressao ']' terminador
+	| TK_PR_RETURN expressao terminador
 	;
 
 especificador_classe_armazenamento
@@ -129,17 +135,26 @@ bloco_comando
 	: '{' lista_comando '}'
 	;
 
+bloco_interno
+	:'{' lista_comando '}' 
+	;
+
+terminador
+	: ';'
+	;
+
 comando
 	: retorno comando
+	| declaracao_local comando
     | controle_fluxo comando
 	| execucao_iteracao comando
-	| lista_declaracao_local comando
-	| bloco_comando comando
+	| bloco_interno comando
 	| entrada comando
 	| atribuicao comando
 	| chamada_funcao comando
 	| saida comando
-	| 
+	| terminador comando
+	|
 	;
 
 
@@ -161,11 +176,11 @@ parametro
 	;
 
 entrada
-	: TK_PR_INPUT expressao "=>" expressao ';'
+	: TK_PR_INPUT expressao "=>" expressao terminador
 	;
 
 saida
-	: TK_PR_OUTPUT lista_expressoes	';'
+	: TK_PR_OUTPUT lista_expressoes	terminador
 	;
 
 lista_vazia
@@ -204,7 +219,7 @@ lista_valores
 	;
 
 chamada_funcao
-	: TK_IDENTIFICADOR entrada_funcao ';'
+	: TK_IDENTIFICADOR entrada_funcao terminador
 	;
 
 operador_aritmetico
