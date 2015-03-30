@@ -13,8 +13,6 @@
  100% nos testes, não sei se é a coisa mais esperta que eu já fiz, corrigido... eu acho ;3 - Caiã
 */
 
-
- int hashsize = 100;
 // Cria um dicionário vazio
 
 struct comp_dict_t *dict_create(int size) {
@@ -26,14 +24,13 @@ struct comp_dict_t *dict_create(int size) {
         hashtable->table[i] = NULL;
     hashtable->size = size;
 
-    hashsize = size;
     return hashtable;
 }
 
 
 
 // Função Hash: cria posição de chave sem precisar criar colisão dada uma entrada s, que é a palavra
-unsigned hash(char *s)
+unsigned hash(char *s, int hashsize)
 {
     unsigned hashval;
     for (hashval = 0; *s != '\0'; s++)
@@ -47,7 +44,7 @@ struct comp_dict_item_t *dict_read(struct comp_dict_t *hashtable, char *key)
 {
     struct comp_dict_item_t *search = NULL;
 
-    if(hashtable->table[hash(key)] != NULL) 
+    if(hashtable->table[hash(key, hashtable->size)] != NULL) 
     {
             /*(for(; search != NULL; search = search->next) 
                if(search->key != NULL)
@@ -55,7 +52,7 @@ struct comp_dict_item_t *dict_read(struct comp_dict_t *hashtable, char *key)
                     {
                     Então, essa verificação já existe lá em baixo, o comflito gerava um espaço bizarro na memória
                     }*/
-            search = hashtable->table[hash(key)];
+            search = hashtable->table[hash(key, hashtable->size)];
                         return search;
         
     }
@@ -69,7 +66,7 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
     
    
     unsigned hashval;
-    hashval = hash(key);
+    hashval = hash(key, hashtable->size);
     struct comp_dict_item_t *node = dict_read(hashtable,key);
     
     // Se o nodo não foi encontrado (na real se o primeiro elemento da posição na tabela hash é vazio), é só adicionar direto
@@ -92,9 +89,13 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             break;
                         case SIMBOLO_LITERAL_STRING:
                             node->token.string = strdup(key);
+                            node->teste = 1;
                             break;
                         case SIMBOLO_LITERAL_BOOL:
-                            node->token.boolean = strdup(key);
+                            if(strcmp(key,"true"))
+                                node->token.boolean = 1; //Caso Token Boolean = True
+                            else    
+                                node->token.boolean = 0; //Caso Token Boolean = False
                             break;
                         case SIMBOLO_IDENTIFICADOR:
                             node->token.string = strdup(key);
@@ -139,9 +140,13 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             break;
                         case SIMBOLO_LITERAL_STRING:
                             node->token.string = strdup(key);
+                            node->teste = 1;
                             break;
                         case SIMBOLO_LITERAL_BOOL:
-                            node->token.boolean = strdup(key);
+                            if(strcmp(key,"true"))
+                                node->token.boolean = 1; //Caso Token Boolean = True
+                            else    
+                                node->token.boolean = 0; //Caso Token Boolean = False
                             break;
                         case SIMBOLO_IDENTIFICADOR:
                             node->token.string = strdup(key);
@@ -172,11 +177,11 @@ void dict_release (struct comp_dict_t* hashtable)
         while (aux_item != NULL) 
         {
             next_item = aux_item->next;
-            free(aux_item->key);
 
-            //free(aux_item->token);      // 
-            
+            if(aux_item->token.string != NULL) free(aux_item->token.string);      //
+            free(aux_item->key);
             free(aux_item);
+            
             aux_item = next_item;
             //free(next_item);
         }

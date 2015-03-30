@@ -14,14 +14,14 @@ union magic_token{
 		float	floating_point;
 		char 	single_char;
 		char 	*string;
-		char 	*boolean;
+		int 	boolean;
 
 	}magic_token; // DEPOIS EU MUDO =.=
 
 
 struct comp_dict_item_t{  // item tabela de simbolos
     int line; // ultima linha de aparição do lexema
-    																		//char *token; // token do lexema  // ETAPA 2 Isso tem que vazar pro union aparecer
+    int teste;																		//char *token; // token do lexema  // ETAPA 2 Isso tem que vazar pro union aparecer
     union magic_token token;
     struct comp_dict_item_t *next; /* prox item da tabela de simbols */
     char *key; /* chave  para consultar o simbolo o lexical*/

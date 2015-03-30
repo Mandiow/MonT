@@ -82,14 +82,14 @@ especificador_tipo
 	;
 
 declaracao_local
-	: especificador_tipo TK_IDENTIFICADOR  terminador
-	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR terminador
-	| especificador_tipo TK_IDENTIFICADOR '[' valor ']' terminador
-	| especificador_classe_armazenamento especificador_tipo TK_IDENTIFICADOR '[' valor ']' terminador
-	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor terminador
-	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor terminador
-	| especificador_classe_armazenamento qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor terminador
-	| qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor terminador
+	: especificador_tipo TK_IDENTIFICADOR  
+	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR 
+	| especificador_tipo TK_IDENTIFICADOR '[' valor ']' 
+	| especificador_classe_armazenamento especificador_tipo TK_IDENTIFICADOR '[' valor ']' 
+	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor 
+	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
+	| especificador_classe_armazenamento qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
+	| qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
 	;
 
 
@@ -104,17 +104,16 @@ valor
 
 
 atribuicao
-	: TK_IDENTIFICADOR '=' expressao terminador
-	| TK_IDENTIFICADOR '[' expressao ']' '=' expressao terminador
-	| TK_IDENTIFICADOR '[' expressao ']' '=' TK_IDENTIFICADOR '[' expressao ']' terminador 
+	: TK_IDENTIFICADOR '=' expressao 
+	| TK_IDENTIFICADOR '[' expressao ']' '=' expressao 
+	| TK_IDENTIFICADOR '[' expressao ']' '=' valor
 	;
 
 
 retorno
-	: TK_PR_RETURN terminador
-	| TK_PR_RETURN TK_IDENTIFICADOR terminador
-	| TK_PR_RETURN TK_IDENTIFICADOR '[' expressao ']' terminador
-	| TK_PR_RETURN expressao terminador
+	: TK_PR_RETURN valor
+	| TK_PR_RETURN expressao 
+	| TK_PR_RETURN 
 	;
 
 especificador_classe_armazenamento
@@ -126,61 +125,56 @@ qualificador_tipo
 	;
 
 
-lista_comando
-	: comando
-	| lista_comando comando
-	;
+
 
 bloco_comando
-	: '{' lista_comando '}'
+	:  comando ';' bloco_comando 
+	|  comando
+	| 
 	;
 
 bloco_interno
-	:'{' lista_comando '}' 
+	: comando ';' bloco_interno
+	| comando 
+	|
 	;
-
-terminador
-	: ';'
-	;
+	
 
 comando
-	: retorno comando
-	| declaracao_local comando
-    | controle_fluxo comando
-	| execucao_iteracao comando
-	| bloco_interno comando
-	| entrada comando
-	| atribuicao comando
-	| chamada_funcao comando
-	| saida comando
-	| terminador comando
+	: retorno 
+	| atribuicao
+	| declaracao_local 
+    | controle_fluxo 
+	| execucao_iteracao 
+	| '{' bloco_interno '}' 
+	| entrada
+	| chamada_funcao 
+	| saida 
+	| ';'
+	;
+
+parametros_vazio
+	: parametros
 	|
 	;
 
-
-
 parametros
-	: '(' lista_parametros ')'
-	| '(' ')'
+	: lista_parametros ',' parametros
+	| lista_parametros
 	;
 	
-lista_parametros
-	: parametro
-	| lista_parametros ',' parametro
-	;
-
-parametro
-	: especificador_tipo TK_IDENTIFICADOR
-	| qualificador_tipo especificador_tipo TK_IDENTIFICADOR
-	| valor
+lista_parametros 
+	: especificador_tipo TK_IDENTIFICADOR 
+	| qualificador_tipo especificador_tipo TK_IDENTIFICADOR 
+	| valor 
 	;
 
 entrada
-	: TK_PR_INPUT expressao "=>" expressao terminador
+	: TK_PR_INPUT expressao "=>" expressao 
 	;
 
 saida
-	: TK_PR_OUTPUT lista_expressoes	terminador
+	: TK_PR_OUTPUT lista_expressoes	
 	;
 
 lista_vazia
@@ -204,22 +198,18 @@ execucao_iteracao
 	;
 
 declarar_funcao	
-	: especificador_tipo TK_IDENTIFICADOR parametros  bloco_comando
-	| especificador_classe_armazenamento especificador_tipo TK_IDENTIFICADOR parametros bloco_comando
+	: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}'
+	| especificador_classe_armazenamento especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}'
 	;
 
 entrada_funcao
-	: '(' lista_valores ')'
+	: '(' expressao ')'
 	| '(' ')'
 	;
 
-lista_valores
-	: valor
-	| lista_valores valor
-	;
 
 chamada_funcao
-	: TK_IDENTIFICADOR entrada_funcao terminador
+	: TK_IDENTIFICADOR entrada_funcao 
 	;
 
 operador_aritmetico
