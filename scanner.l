@@ -99,4 +99,5 @@ true					   {yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_
 
 
 .					 	   {return TOKEN_ERRO;}
+%destructor    {free(yylval.valor_simbolo_lexico);}
 %%

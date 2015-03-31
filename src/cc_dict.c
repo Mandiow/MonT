@@ -53,10 +53,9 @@ struct comp_dict_item_t *dict_read(struct comp_dict_t *hashtable, char *key)
                     Então, essa verificação já existe lá em baixo, o comflito gerava um espaço bizarro na memória
                     }*/
             search = hashtable->table[hash(key, hashtable->size)];
-                        return search;
+            return search;
         
     }
-    //free(search);
     return NULL;
 }
 
@@ -68,40 +67,44 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
     unsigned hashval;
     hashval = hash(key, hashtable->size);
     struct comp_dict_item_t *node = dict_read(hashtable,key);
-    
     // Se o nodo não foi encontrado (na real se o primeiro elemento da posição na tabela hash é vazio), é só adicionar direto
     if (node == NULL) 
     {
         node = malloc(sizeof(struct comp_dict_item_t));
- 
+        node->token.string = strdup(key);
         node->line = line;
         node->key = strdup(key);
                     switch(TK_some_symbol_comes) 
                     {
                         case SIMBOLO_LITERAL_INT:
                             node->token.integer = atoi(key);
+                            node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_FLOAT:
                             node->token.floating_point = atof(key);
+                            node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_CHAR:
                             node->token.single_char = strdup(key);
+                            node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_STRING:
                             node->token.string = strdup(key);
-                            node->teste = 1;
+                            node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_BOOL:
+                            node->tipo = TK_some_symbol_comes;
                             if(strcmp(key,"true"))
                                 node->token.boolean = 1; //Caso Token Boolean = True
+
                             else    
                                 node->token.boolean = 0; //Caso Token Boolean = False
                             break;
                         case SIMBOLO_IDENTIFICADOR:
+                            node->tipo = TK_some_symbol_comes;
                             node->token.string = strdup(key);
                             break;
-                        default:
-                            break;
+
                         }
         node->next = NULL;
 
@@ -131,27 +134,31 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                     {
                         case SIMBOLO_LITERAL_INT:
                             node->token.integer = atoi(key);
+                            node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_FLOAT:
                             node->token.floating_point = atof(key);
+                            node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_CHAR:
                             node->token.single_char = strdup(key);
+                            node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_STRING:
                             node->token.string = strdup(key);
-                            node->teste = 1;
+                            node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_BOOL:
+                            node->tipo = TK_some_symbol_comes;
                             if(strcmp(key,"true"))
                                 node->token.boolean = 1; //Caso Token Boolean = True
+
                             else    
                                 node->token.boolean = 0; //Caso Token Boolean = False
                             break;
                         case SIMBOLO_IDENTIFICADOR:
+                            node->tipo = TK_some_symbol_comes;
                             node->token.string = strdup(key);
-                            break;
-                        default:
                             break;
                         }
                 node->key = strdup(key);
@@ -178,15 +185,25 @@ void dict_release (struct comp_dict_t* hashtable)
         {
             next_item = aux_item->next;
 
-            if(aux_item->token.string != NULL) free(aux_item->token.string);      //
             free(aux_item->key);
+            
+            switch(aux_item->tipo) 
+                    {
+                        case SIMBOLO_LITERAL_STRING:
+                            free(aux_item->token.string);
+                            break;
+                        case SIMBOLO_IDENTIFICADOR:
+                            free(aux_item->token.string);
+                            break;
+                        }
+
             free(aux_item);
             
             aux_item = next_item;
             //free(next_item);
         }
     }
-    //free(valor_simbolo_lexico); 
     free(hashtable->table);
     free(hashtable);
 }
+

@@ -21,7 +21,7 @@ union magic_token{
 
 struct comp_dict_item_t{  // item tabela de simbolos
     int line; // ultima linha de aparição do lexema
-    int teste;																		//char *token; // token do lexema  // ETAPA 2 Isso tem que vazar pro union aparecer
+    int tipo;																		//char *token; // token do lexema  // ETAPA 2 Isso tem que vazar pro union aparecer
     union magic_token token;
     struct comp_dict_item_t *next; /* prox item da tabela de simbols */
     char *key; /* chave  para consultar o simbolo o lexical*/
@@ -34,5 +34,4 @@ struct comp_dict_t { /* tabela de simbolos */
 
 
 struct comp_dict_t* hashtable;
-
 		
