@@ -1,0 +1,92 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/cc_dict.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+
+../include/cc_list.h
+
+../include/cc_misc.h
+stdio.h
+-
+
+../include/cc_tree.h
+
+../include/main.h
+stdio.h
+-
+cc_dict.h
+../include/cc_dict.h
+cc_list.h
+../include/cc_list.h
+cc_tree.h
+../include/cc_tree.h
+parser.h
+../include/parser.h
+
+/home/mandiow/Área de Trabalho/MonT/build/parser.c
+stdio.h
+-
+cc_dict.h
+/home/mandiow/Área de Trabalho/MonT/build/cc_dict.h
+stddef.h
+-
+libintl.h
+-
+alloca.h
+-
+malloc.h
+-
+stdlib.h
+-
+stdlib.h
+-
+stdio.h
+-
+
+/home/mandiow/Área de Trabalho/MonT/build/parser.h
+
+/home/mandiow/Área de Trabalho/MonT/build/scanner.c
+stdio.h
+-
+string.h
+-
+errno.h
+-
+stdlib.h
+-
+inttypes.h
+-
+parser.h
+/home/mandiow/Área de Trabalho/MonT/build/parser.h
+main.h
+/home/mandiow/Área de Trabalho/MonT/build/main.h
+unistd.h
+-
+
+/home/mandiow/Área de Trabalho/MonT/src/cc_dict.c
+cc_dict.h
+/home/mandiow/Área de Trabalho/MonT/src/cc_dict.h
+
+/home/mandiow/Área de Trabalho/MonT/src/cc_misc.c
+cc_misc.h
+/home/mandiow/Área de Trabalho/MonT/src/cc_misc.h
+cc_dict.h
+/home/mandiow/Área de Trabalho/MonT/src/cc_dict.h
+
+/home/mandiow/Área de Trabalho/MonT/src/main.c
+main.h
+/home/mandiow/Área de Trabalho/MonT/src/main.h
+
+parser.h
+
