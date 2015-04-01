@@ -71,7 +71,7 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
     if (node == NULL) 
     {
         node = malloc(sizeof(struct comp_dict_item_t));
-        node->token.string = strdup(key);
+        //node->token.string = strdup(key);
         node->line = line;
         node->key = strdup(key);
                     switch(TK_some_symbol_comes) 
@@ -85,7 +85,7 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_CHAR:
-                            node->token.single_char = strdup(key);
+                            node->token.single_char = key[0];
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_STRING:
@@ -141,7 +141,7 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_CHAR:
-                            node->token.single_char = strdup(key);
+                            node->token.single_char = key;
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_STRING:
