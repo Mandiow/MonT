@@ -45,6 +45,15 @@
 %token TK_IDENTIFICADOR
 %token TOKEN_ERRO
 
+
+
+
+%nonassoc LOWER_THAN_ELSE
+%nonassoc TK_PR_ELSE
+%nonassoc PARENTESIS
+%nonassoc COLCHETES
+%nonassoc VAZIO
+
 %%
 /* Regras (e ações) da gramática */
 
@@ -56,10 +65,8 @@ programa
 	;
 
 declaracao_global
-	: especificador_tipo valor ';'
-	| qualificador_tipo especificador_tipo  TK_IDENTIFICADOR ';'
-	| especificador_classe_armazenamento especificador_tipo  valor ';'
-	| especificador_classe_armazenamento qualificador_tipo especificador_tipo  TK_IDENTIFICADOR ';'
+	: especificador_tipo ID ';'
+	| especificador_classe_armazenamento especificador_tipo  ID ';'
 	;
 
 literal
@@ -80,8 +87,8 @@ especificador_tipo
 	;
 
 declaracao_local
-	: especificador_tipo valor  
-	| especificador_classe_armazenamento especificador_tipo valor 
+	: especificador_tipo ID  
+	| especificador_classe_armazenamento especificador_tipo ID 
 	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor 
 	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
 	| especificador_classe_armazenamento qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
@@ -91,8 +98,12 @@ declaracao_local
 
 valor
 	: literal
-	| TK_IDENTIFICADOR
-	| TK_IDENTIFICADOR '[' expressao ']'
+	| ID
+	;
+
+ID
+	: TK_IDENTIFICADOR 
+	| TK_IDENTIFICADOR  '[' expressao ']' 
 	;
 
 
@@ -100,8 +111,8 @@ valor
 
 
 atribuicao
-	: valor '=' expressao 
-	| valor '=' valor
+	: ID '=' expressao 
+	| ID '=' valor
 	;
 
 
@@ -178,8 +189,8 @@ lista_expressoes
 
 
 controle_fluxo
-	: TK_PR_IF '(' expressao ')' TK_PR_THEN comando
-	| TK_PR_IF '(' expressao ')' TK_PR_THEN comando TK_PR_ELSE comando
+	: TK_PR_IF '(' expressao ')' TK_PR_THEN comando TK_PR_ELSE comando
+	|TK_PR_IF '(' expressao ')' TK_PR_THEN comando %prec LOWER_THAN_ELSE
 	| TK_PR_WHILE '(' expressao ')' TK_PR_DO comando
 	| TK_PR_DO comando TK_PR_WHILE '(' expressao ')'
 	;
@@ -191,9 +202,12 @@ declarar_funcao
 
 
 
+
+
+
 chamada_funcao
-	: TK_IDENTIFICADOR '(' lista_vazia ')'
-	| TK_IDENTIFICADOR '(' lista_vazia ')' expressao
+	: TK_IDENTIFICADOR  '(' lista_vazia ')' 
+	| TK_IDENTIFICADOR  '(' lista_vazia ')' expressao 
 	;
 
 operador_aritmetico

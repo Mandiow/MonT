@@ -45,6 +45,15 @@
 %token TK_IDENTIFICADOR
 %token TOKEN_ERRO
 
+
+
+
+%nonassoc LOWER_THAN_ELSE
+%nonassoc TK_PR_ELSE
+%nonassoc PARENTESIS
+%nonassoc COLCHETES
+%nonassoc VAZIO
+
 %%
 /* Regras (e ações) da gramática */
 
@@ -93,8 +102,8 @@ valor
 	;
 
 ID
-	: TK_IDENTIFICADOR
-	| TK_IDENTIFICADOR '[' expressao ']'
+	: TK_IDENTIFICADOR %prec VAZIO
+	| TK_IDENTIFICADOR  '[' expressao ']' %prec COLCHETES
 	;
 
 
@@ -180,8 +189,8 @@ lista_expressoes
 
 
 controle_fluxo
-	: TK_PR_IF '(' expressao ')' TK_PR_THEN comando
-	| TK_PR_IF '(' expressao ')' TK_PR_THEN comando TK_PR_ELSE comando
+	: TK_PR_IF '(' expressao ')' TK_PR_THEN comando TK_PR_ELSE comando
+	|TK_PR_IF '(' expressao ')' TK_PR_THEN comando %prec LOWER_THAN_ELSE
 	| TK_PR_WHILE '(' expressao ')' TK_PR_DO comando
 	| TK_PR_DO comando TK_PR_WHILE '(' expressao ')'
 	;
@@ -193,9 +202,12 @@ declarar_funcao
 
 
 
+
+
+
 chamada_funcao
-	: TK_IDENTIFICADOR '(' lista_vazia ')'
-	| TK_IDENTIFICADOR '(' lista_vazia ')' expressao
+	: TK_IDENTIFICADOR  '(' lista_vazia ')' %prec PARENTESIS
+	| TK_IDENTIFICADOR  '(' lista_vazia ')' expressao %prec PARENTESIS
 	;
 
 operador_aritmetico
