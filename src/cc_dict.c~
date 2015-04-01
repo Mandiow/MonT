@@ -71,7 +71,7 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
     if (node == NULL) 
     {
         node = malloc(sizeof(struct comp_dict_item_t));
-        //node->token.string = strdup(key);
+        node->token.string = strdup(key);
         node->line = line;
         node->key = strdup(key);
                     switch(TK_some_symbol_comes) 
