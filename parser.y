@@ -56,11 +56,9 @@ programa
 	;
 
 declaracao_global
-	: especificador_tipo TK_IDENTIFICADOR ';'
-	| especificador_tipo TK_IDENTIFICADOR '[' valor ']' ';'
+	: especificador_tipo valor ';'
 	| qualificador_tipo especificador_tipo  TK_IDENTIFICADOR ';'
-	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR ';'
-	| especificador_classe_armazenamento especificador_tipo TK_IDENTIFICADOR '[' valor ']' ';'
+	| especificador_classe_armazenamento especificador_tipo  valor ';'
 	| especificador_classe_armazenamento qualificador_tipo especificador_tipo  TK_IDENTIFICADOR ';'
 	;
 
@@ -82,10 +80,8 @@ especificador_tipo
 	;
 
 declaracao_local
-	: especificador_tipo TK_IDENTIFICADOR  
-	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR 
-	| especificador_tipo TK_IDENTIFICADOR '[' valor ']' 
-	| especificador_classe_armazenamento especificador_tipo TK_IDENTIFICADOR '[' valor ']' 
+	: especificador_tipo valor  
+	| especificador_classe_armazenamento especificador_tipo valor 
 	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor 
 	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
 	| especificador_classe_armazenamento qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
@@ -104,9 +100,8 @@ valor
 
 
 atribuicao
-	: TK_IDENTIFICADOR '=' expressao 
-	| TK_IDENTIFICADOR '[' expressao ']' '=' expressao 
-	| TK_IDENTIFICADOR '[' expressao ']' '=' valor
+	: valor '=' expressao 
+	| valor '=' valor
 	;
 
 
@@ -130,7 +125,7 @@ qualificador_tipo
 bloco_comando
 	:  comando ';' bloco_comando 
 	|  comando
-	| 
+	|
 	;
 
 bloco_interno
@@ -144,8 +139,7 @@ comando
 	: retorno 
 	| atribuicao
 	| declaracao_local 
-    | controle_fluxo 
-	| execucao_iteracao 
+    	| controle_fluxo 
 	| '{' bloco_interno '}' 
 	| entrada
 	| chamada_funcao 
@@ -180,6 +174,7 @@ saida
 lista_vazia
 	: lista_expressoes
 	|
+	;
 
 lista_expressoes
 	: expressao ',' lista_expressoes
@@ -190,10 +185,7 @@ lista_expressoes
 controle_fluxo
 	: TK_PR_IF '(' expressao ')' TK_PR_THEN comando
 	| TK_PR_IF '(' expressao ')' TK_PR_THEN comando TK_PR_ELSE comando
-	;
-
-execucao_iteracao
-	: TK_PR_WHILE '(' expressao ')' TK_PR_DO comando
+	| TK_PR_WHILE '(' expressao ')' TK_PR_DO comando
 	| TK_PR_DO comando TK_PR_WHILE '(' expressao ')'
 	;
 
@@ -202,14 +194,11 @@ declarar_funcao
 	| especificador_classe_armazenamento especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}'
 	;
 
-entrada_funcao
-	: '(' expressao ')'
-	| '(' ')'
-	;
 
 
 chamada_funcao
-	: TK_IDENTIFICADOR entrada_funcao 
+	: TK_IDENTIFICADOR '(' lista_vazia ')'
+	| TK_IDENTIFICADOR '(' lista_vazia ')' expressao
 	;
 
 operador_aritmetico
@@ -236,13 +225,11 @@ expressao
 	| valor expressao
 	| operador_aritmetico expressao
 	| '(' expressao ')'
-	| expressao_de_funcao
+	| chamada_funcao
 	| valor
 	;
 
-expressao_de_funcao
-	: TK_IDENTIFICADOR '(' lista_vazia ')' lista_vazia
-	;
+
 
 
 
