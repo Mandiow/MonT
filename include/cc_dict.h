@@ -33,5 +33,4 @@ struct comp_dict_t { /* tabela de simbolos */
 };
 
 
-struct comp_dict_t* hashtable;
-		
+struct comp_dict_t* hashtable;	

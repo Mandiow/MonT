@@ -62,7 +62,7 @@ programa
 	;
 
 declaracao_global
-	: especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT ']' ';'
+	: especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT ']' ';' 
 	| especificador_tipo TK_IDENTIFICADOR ';'
 	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR '[' TK_LIT_INT ']' ';'
 	;

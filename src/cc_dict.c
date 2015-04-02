@@ -85,11 +85,11 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_CHAR:
-                            node->token.single_char = key[0];
+                            node->token.single_char = key[1];
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_STRING:
-                            node->token.string = strdup(key);
+                            node->token.string = strtok(key,"\"");
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_BOOL:
@@ -102,7 +102,7 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             break;
                         case SIMBOLO_IDENTIFICADOR:
                             node->tipo = TK_some_symbol_comes;
-                            node->token.string = strdup(key);
+                            node->token.string = strtok(key,"\"");
                             break;
 
                         }
@@ -141,11 +141,11 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_CHAR:
-                            node->token.single_char = key[0];
+                            node->token.single_char = key[1];
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_STRING:
-                            node->token.string = strdup(key);
+                            node->token.string = strtok(key,"\"");
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_BOOL:
@@ -158,7 +158,7 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             break;
                         case SIMBOLO_IDENTIFICADOR:
                             node->tipo = TK_some_symbol_comes;
-                            node->token.string = strdup(key);
+                            node->token.string = strtok(key,"\"");
                             break;
                         }
                 node->key = strdup(key);
@@ -184,23 +184,9 @@ void dict_release (struct comp_dict_t* hashtable)
         while (aux_item != NULL) 
         {
             next_item = aux_item->next;
-
             free(aux_item->key);
-            
-            switch(aux_item->tipo) 
-                    {
-                        case SIMBOLO_LITERAL_STRING:
-                            free(aux_item->token.string);
-                            break;
-                        case SIMBOLO_IDENTIFICADOR:
-                            free(aux_item->token.string);
-                            break;
-                        }
-
             free(aux_item);
-            
             aux_item = next_item;
-            //free(next_item);
         }
     }
     free(hashtable->table);
