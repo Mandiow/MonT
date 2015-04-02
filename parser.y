@@ -50,9 +50,6 @@
 
 %nonassoc LOWER_THAN_ELSE
 %nonassoc TK_PR_ELSE
-%nonassoc PARENTESIS
-%nonassoc COLCHETES
-%nonassoc VAZIO
 
 %%
 /* Regras (e ações) da gramática */
@@ -65,8 +62,9 @@ programa
 	;
 
 declaracao_global
-	: especificador_tipo ID ';'
-	| especificador_classe_armazenamento especificador_tipo  ID ';'
+	: especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT ']' ';'
+	| especificador_tipo TK_IDENTIFICADOR ';'
+	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR '[' TK_LIT_INT ']' ';'
 	;
 
 literal
@@ -87,23 +85,22 @@ especificador_tipo
 	;
 
 declaracao_local
-	: especificador_tipo ID  
-	| especificador_classe_armazenamento especificador_tipo ID 
+	: especificador_tipo TK_IDENTIFICADOR  
 	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor 
+	| especificador_classe_armazenamento especificador_tipo TK_IDENTIFICADOR 
 	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
 	| especificador_classe_armazenamento qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
 	| qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
 	;
 
-
 valor
 	: literal
-	| ID
+	| TK_IDENTIFICADOR
 	;
 
 ID
-	: TK_IDENTIFICADOR %prec VAZIO
-	| TK_IDENTIFICADOR  '[' expressao ']' %prec COLCHETES
+	: TK_IDENTIFICADOR 
+	| TK_IDENTIFICADOR  '[' expressao ']' 
 	;
 
 
@@ -111,14 +108,13 @@ ID
 
 
 atribuicao
-	: ID '=' expressao 
-	| ID '=' valor
+	: ID '=' '-' expressao
+	| ID '=' expressao
 	;
 
 
 retorno
-	: TK_PR_RETURN valor
-	| TK_PR_RETURN expressao 
+	: TK_PR_RETURN expressao 
 	| TK_PR_RETURN 
 	;
 
@@ -146,7 +142,7 @@ comando
 	: retorno 
 	| atribuicao
 	| declaracao_local 
-    	| controle_fluxo 
+    | controle_fluxo 
 	| '{' bloco_comando '}' 
 	| entrada
 	| chamada_funcao 
@@ -166,7 +162,6 @@ parametros
 lista_parametros 
 	: especificador_tipo TK_IDENTIFICADOR 
 	| qualificador_tipo especificador_tipo TK_IDENTIFICADOR 
-	| valor 
 	;
 
 entrada
@@ -183,16 +178,20 @@ lista_vazia
 	;
 
 lista_expressoes
-	: expressao ',' lista_expressoes
-	| expressao
+	: expressao mais_de_uma 
+	;
+
+mais_de_uma
+	: ',' lista_expressoes
+	|
 	;
 
 
 controle_fluxo
-	: TK_PR_IF '(' expressao ')' TK_PR_THEN comando TK_PR_ELSE comando
-	|TK_PR_IF '(' expressao ')' TK_PR_THEN comando %prec LOWER_THAN_ELSE
-	| TK_PR_WHILE '(' expressao ')' TK_PR_DO comando
-	| TK_PR_DO comando TK_PR_WHILE '(' expressao ')'
+	: TK_PR_IF '(' expressao_controle ')'  TK_PR_THEN comando TK_PR_ELSE comando
+	| TK_PR_IF '(' expressao_controle ')'  TK_PR_THEN comando %prec LOWER_THAN_ELSE
+	| TK_PR_WHILE '(' expressao_controle ')' TK_PR_DO comando
+	| TK_PR_DO comando TK_PR_WHILE '(' expressao_controle ')'
 	;
 
 declarar_funcao	
@@ -206,8 +205,7 @@ declarar_funcao
 
 
 chamada_funcao
-	: TK_IDENTIFICADOR  '(' lista_vazia ')' %prec PARENTESIS
-	| TK_IDENTIFICADOR  '(' lista_vazia ')' expressao %prec PARENTESIS
+	: TK_IDENTIFICADOR  '(' lista_vazia ')' 
 	;
 
 operador_aritmetico
@@ -229,17 +227,25 @@ operador_logico
 	| '>'
 	;
 	
-expressao
-	: operador_logico expressao 
-	| valor expressao
-	| operador_aritmetico expressao
-	| '(' expressao ')'
-	| chamada_funcao
-	| valor
+expressao 
+	: literal tem_operador
+	| ID tem_operador
+	| chamada_funcao tem_operador
+	;
+
+tem_operador
+	: operador_aritmetico expressao
+	| operador_aritmetico '(' expressao ')'
+	|
 	;
 
 
 
+
+expressao_controle
+	: expressao operador_logico expressao expressao_controle
+	| 
+	;
 
 
 %%
