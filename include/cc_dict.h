@@ -34,3 +34,10 @@ struct comp_dict_t { /* tabela de simbolos */
 
 
 struct comp_dict_t* hashtable;	
+
+
+
+
+struct comp_dict_item_t *dict_read(struct comp_dict_t *hashtable, char *key);
+unsigned hash(char *s, int hashsize);
+

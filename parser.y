@@ -3,8 +3,7 @@
 */
 %{
 #include <stdio.h>
-#include "cc_dict.h"
-
+#include "main.h"
 %}
 
 %union
@@ -57,14 +56,16 @@
 
 programa
 	: declaracao_global programa
-	| declarar_funcao programa
-	| /* NADA */
+	| declarar_funcao programa 
+	| 
 	;
 
 declaracao_global
 	: especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT ']' ';' 
 	| especificador_tipo TK_IDENTIFICADOR ';'
 	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR '[' TK_LIT_INT ']' ';'
+	| especificador_tipo {yyerror("Declaração global sem identificador"); return SINTATICA_ERRO;}
+	| especificador_tipo TK_IDENTIFICADOR {yyerror("Declaração global incorreta, sem ;");return SINTATICA_ERRO;}
 	;
 
 literal
@@ -91,6 +92,8 @@ declaracao_local
 	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
 	| especificador_classe_armazenamento qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
 	| qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
+	| especificador_tipo {yyerror("Declaração local sem identificador");return SINTATICA_ERRO;}
+	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE {yyerror("atribuicao invalida na declaração local");return SINTATICA_ERRO;}
 	;
 
 valor
