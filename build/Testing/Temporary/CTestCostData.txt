@@ -1,0 +1,184 @@
+e3_avaliacao_01 0 0
+e3_avaliacao_02 0 0
+e3_avaliacao_03 2 0
+e3_avaliacao_04 0 0
+e3_avaliacao_05 0 0
+e3_avaliacao_06 0 0
+e3_avaliacao_07 0 0
+e3_avaliacao_08 0 0
+e3_avaliacao_09 0 0
+e3_avaliacao_10 0 0
+e3_avaliacao_11 0 0
+e3_avaliacao_12 0 0
+e3_avaliacao_13 0 0
+e3_avaliacao_14 0 0
+e3_avaliacao_15 0 0
+e3_avaliacao_16 0 0
+e3_avaliacao_17 0 0
+e3_avaliacao_18 0 0
+e3_avaliacao_19 0 0
+e3_avaliacao_20 0 0
+e3_avaliacao_21 0 0
+e3_avaliacao_22 0 0
+e3_avaliacao_23 0 0
+e3_avaliacao_24 0 0
+e3_avaliacao_25 0 0
+e3_avaliacao_26 0 0
+e3_avaliacao_27 0 0
+e3_avaliacao_28 0 0
+e3_avaliacao_29 0 0
+e3_avaliacao_30 0 0
+e3_avaliacao_31 0 0
+e3_avaliacao_32 0 0
+e3_avaliacao_33 0 0
+e3_avaliacao_34 0 0
+e3_avaliacao_35 0 0
+e3_avaliacao_36 0 0
+e3_avaliacao_37 0 0
+e3_avaliacao_38 0 0
+e3_avaliacao_39 0 0
+e3_avaliacao_40 0 0
+e3_avaliacao_41 0 0
+e3_avaliacao_42 0 0
+e3_avaliacao_43 0 0
+e3_avaliacao_44 0 0
+e3_avaliacao_45 0 0
+e3_avaliacao_46 0 0
+e3_avaliacao_47 0 0
+e3_avaliacao_48 0 0
+e3_avaliacao_49 0 0
+e3_avaliacao_50 0 0
+e3_avaliacao_51 0 0
+e3_valgrind_01 1 0.41918
+e3_valgrind_02 1 0.422975
+e3_valgrind_03 0 0
+e3_valgrind_04 0 0
+e3_valgrind_05 0 0
+e3_valgrind_06 3 0.152644
+e3_valgrind_07 3 0.148296
+e3_valgrind_08 3 0.148972
+e3_valgrind_09 3 0.147497
+e3_valgrind_10 3 0.147211
+e3_valgrind_11 0 0
+e3_valgrind_12 0 0
+e3_valgrind_13 0 0
+e3_valgrind_14 0 0
+e3_valgrind_15 0 0
+e3_valgrind_16 0 0
+e3_valgrind_17 0 0
+e3_valgrind_18 0 0
+e3_valgrind_19 0 0
+e3_valgrind_20 0 0
+e3_valgrind_21 0 0
+e3_valgrind_22 0 0
+e3_valgrind_23 0 0
+e3_valgrind_24 0 0
+e3_valgrind_25 0 0
+e3_valgrind_26 0 0
+e3_valgrind_27 3 0.145609
+e3_valgrind_28 3 0.147406
+e3_valgrind_29 3 0.145398
+e3_valgrind_30 3 0.143382
+e3_valgrind_31 3 0.143269
+e3_valgrind_32 3 0.144541
+e3_valgrind_33 3 0.147242
+e3_valgrind_34 3 0.146718
+e3_valgrind_35 3 0.14705
+e3_valgrind_36 0 0
+e3_valgrind_37 0 0
+e3_valgrind_38 0 0
+e3_valgrind_39 0 0
+e3_valgrind_40 0 0
+e3_valgrind_41 0 0
+e3_valgrind_42 3 0.146894
+e3_valgrind_43 3 0.146634
+e3_valgrind_44 0 0
+e3_valgrind_45 0 0
+e3_valgrind_46 3 0.142155
+e3_valgrind_47 3 0.14952
+e3_valgrind_48 1 0.438132
+e3_valgrind_49 0 0
+e3_valgrind_50 0 0
+e3_valgrind_51 0 0
+---
+e3_avaliacao_01
+e3_avaliacao_02
+e3_avaliacao_03
+e3_avaliacao_04
+e3_avaliacao_05
+e3_avaliacao_06
+e3_avaliacao_07
+e3_avaliacao_08
+e3_avaliacao_09
+e3_avaliacao_10
+e3_avaliacao_11
+e3_avaliacao_12
+e3_avaliacao_13
+e3_avaliacao_14
+e3_avaliacao_15
+e3_avaliacao_16
+e3_avaliacao_17
+e3_avaliacao_18
+e3_avaliacao_19
+e3_avaliacao_20
+e3_avaliacao_21
+e3_avaliacao_22
+e3_avaliacao_23
+e3_avaliacao_24
+e3_avaliacao_25
+e3_avaliacao_26
+e3_avaliacao_27
+e3_avaliacao_28
+e3_avaliacao_29
+e3_avaliacao_30
+e3_avaliacao_31
+e3_avaliacao_32
+e3_avaliacao_33
+e3_avaliacao_34
+e3_avaliacao_35
+e3_avaliacao_36
+e3_avaliacao_37
+e3_avaliacao_38
+e3_avaliacao_39
+e3_avaliacao_40
+e3_avaliacao_41
+e3_avaliacao_42
+e3_avaliacao_43
+e3_avaliacao_44
+e3_avaliacao_45
+e3_avaliacao_46
+e3_avaliacao_47
+e3_avaliacao_48
+e3_avaliacao_49
+e3_avaliacao_50
+e3_avaliacao_51
+e3_valgrind_03
+e3_valgrind_04
+e3_valgrind_05
+e3_valgrind_11
+e3_valgrind_12
+e3_valgrind_13
+e3_valgrind_14
+e3_valgrind_15
+e3_valgrind_16
+e3_valgrind_17
+e3_valgrind_18
+e3_valgrind_19
+e3_valgrind_20
+e3_valgrind_21
+e3_valgrind_22
+e3_valgrind_23
+e3_valgrind_24
+e3_valgrind_25
+e3_valgrind_26
+e3_valgrind_36
+e3_valgrind_37
+e3_valgrind_38
+e3_valgrind_39
+e3_valgrind_40
+e3_valgrind_41
+e3_valgrind_44
+e3_valgrind_45
+e3_valgrind_49
+e3_valgrind_50
+e3_valgrind_51

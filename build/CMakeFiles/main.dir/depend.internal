@@ -8,7 +8,7 @@ CMakeFiles/main.dir/parser.c.o
  ../include/cc_list.h
  ../include/cc_tree.h
  ../include/main.h
- /home/v0id/Desktop/Compil-TF2015/MonT/build/parser.c
+ /home/mandiow/Área de Trabalho/MonT/build/parser.c
  parser.h
 CMakeFiles/main.dir/scanner.c.o
  ../include/cc_ast.h
@@ -17,26 +17,26 @@ CMakeFiles/main.dir/scanner.c.o
  ../include/cc_list.h
  ../include/cc_tree.h
  ../include/main.h
- /home/v0id/Desktop/Compil-TF2015/MonT/build/parser.h
- /home/v0id/Desktop/Compil-TF2015/MonT/build/scanner.c
+ /home/mandiow/Área de Trabalho/MonT/build/parser.h
+ /home/mandiow/Área de Trabalho/MonT/build/scanner.c
 CMakeFiles/main.dir/src/cc_dict.c.o
  ../include/cc_dict.h
- /home/v0id/Desktop/Compil-TF2015/MonT/src/cc_dict.c
+ /home/mandiow/Área de Trabalho/MonT/src/cc_dict.c
 CMakeFiles/main.dir/src/cc_gv.c.o
  ../include/cc_ast.h
- /home/v0id/Desktop/Compil-TF2015/MonT/src/cc_gv.c
+ /home/mandiow/Área de Trabalho/MonT/src/cc_gv.c
 CMakeFiles/main.dir/src/cc_list.c.o
- /home/v0id/Desktop/Compil-TF2015/MonT/src/cc_list.c
+ /home/mandiow/Área de Trabalho/MonT/src/cc_list.c
 CMakeFiles/main.dir/src/cc_misc.c.o
  ../include/cc_dict.h
  ../include/cc_misc.h
- /home/v0id/Desktop/Compil-TF2015/MonT/src/cc_misc.c
+ /home/mandiow/Área de Trabalho/MonT/src/cc_misc.c
 CMakeFiles/main.dir/src/cc_tree.c.o
  ../include/cc_ast.h
  ../include/cc_dict.h
  ../include/cc_gv.h
  ../include/cc_tree.h
- /home/v0id/Desktop/Compil-TF2015/MonT/src/cc_tree.c
+ /home/mandiow/Área de Trabalho/MonT/src/cc_tree.c
 CMakeFiles/main.dir/src/main.c.o
  ../include/cc_ast.h
  ../include/cc_dict.h
@@ -44,5 +44,5 @@ CMakeFiles/main.dir/src/main.c.o
  ../include/cc_list.h
  ../include/cc_tree.h
  ../include/main.h
- /home/v0id/Desktop/Compil-TF2015/MonT/src/main.c
+ /home/mandiow/Área de Trabalho/MonT/src/main.c
  parser.h

@@ -1,0 +1,4 @@
+digraph G {
+node_0x24c74d0 [label="f"]
+node_0x24c7520 -> node_0x24c74d0
+}

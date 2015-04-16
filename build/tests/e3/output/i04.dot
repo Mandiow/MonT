@@ -1,0 +1,5 @@
+digraph G {
+node_0xf83570 [label="programa"]
+node_0xf83520 [label="f"]
+node_0xf83570 -> node_0xf83520
+}

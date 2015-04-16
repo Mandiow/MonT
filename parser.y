@@ -4,68 +4,122 @@
 %{
 #include <stdio.h>
 #include "main.h"
+#include <time.h>
+clock_t sec;
+
 %}
 
 %union
 {
+	struct comp_tree_t *syntaxTree;
 	struct comp_dict_item_t *valor_simbolo_lexico;
+
 }
 
 
 
 /* Declaração dos tokens da linguagem */
 %token TK_PR_INT
-%token TK_PR_FLOAT
-%token TK_PR_BOOL
-%token TK_PR_CHAR
-%token TK_PR_STRING
-%token TK_PR_IF
-%token TK_PR_THEN
-%token TK_PR_ELSE
-%token TK_PR_WHILE
-%token TK_PR_DO
-%token TK_PR_INPUT
-%token TK_PR_OUTPUT
-%token TK_PR_RETURN
-%token TK_PR_STATIC
-%token TK_PR_CONST
-%token TK_OC_LE
-%token TK_OC_GE
-%token TK_OC_EQ
-%token TK_OC_NE
-%token TK_OC_AND
-%token TK_OC_OR
-%token TK_LIT_INT
-%token TK_LIT_FLOAT
-%token TK_LIT_FALSE
-%token TK_LIT_TRUE
-%token TK_LIT_CHAR
-%token TK_LIT_STRING
-%token TK_IDENTIFICADOR
+%token<syntaxTree> TK_PR_FLOAT
+%token<syntaxTree> TK_PR_BOOL
+%token<syntaxTree> TK_PR_CHAR
+%token<syntaxTree> TK_PR_STRING
+%token<syntaxTree> TK_PR_IF
+%token<syntaxTree> TK_PR_THEN
+%token<syntaxTree> TK_PR_ELSE
+%token<syntaxTree> TK_PR_WHILE
+%token<syntaxTree> TK_PR_DO
+%token<syntaxTree> TK_PR_INPUT
+%token<syntaxTree> TK_PR_OUTPUT
+%token<syntaxTree> TK_PR_RETURN
+%token<syntaxTree> TK_PR_STATIC
+%token<syntaxTree> TK_PR_CONST
+%token<syntaxTree> TK_OC_LE
+%token<syntaxTree> TK_OC_GE
+%token<syntaxTree> TK_OC_EQ
+%token<syntaxTree> TK_OC_NE
+%token<syntaxTree> TK_OC_AND
+%token<syntaxTree> TK_OC_OR
+%token<syntaxTree> TK_LIT_INT
+%token<syntaxTree> TK_LIT_FLOAT
+%token<syntaxTree> TK_LIT_FALSE
+%token<syntaxTree> TK_LIT_TRUE
+%token<syntaxTree> TK_LIT_CHAR
+%token<syntaxTree> TK_LIT_STRING
+%token<valor_simbolo_lexico> TK_IDENTIFICADOR
 %token TOKEN_ERRO
 
 
+/*Declaração dos tipos das estruturas*/
+%type<syntaxTree> start
+%type<syntaxTree> programa
+%type<syntaxTree> declaracao_global	
+%type<syntaxTree> qualificador_tipo
+%type<syntaxTree> declarar_funcao
+%type<syntaxTree> declaracao_local
+%type<syntaxTree> bloco_comando
+%type<syntaxTree> comando
+%type<syntaxTree> ID
+%type<syntaxTree> atribuicao
+%type<syntaxTree> expressao_controle
+%type<syntaxTree> controle_fluxo
+%type<syntaxTree> chamada_funcao
+%type<syntaxTree> operador_logico
+%type<syntaxTree> operador_aritmetico
+%type<syntaxTree> expressao
+%type<syntaxTree> tem_operador
+%type<syntaxTree> retorno
+%type<syntaxTree> entrada
+%type<syntaxTree> saida
+%type<syntaxTree> '%'
+%type<syntaxTree> '+'
+%type<syntaxTree> '-'
+%type<syntaxTree> '>'
+%type<syntaxTree> '<'
+%type<syntaxTree> '*'
+%type<syntaxTree> '/'
+%type<syntaxTree> ';'
+%type<syntaxTree> '{'
+%type<syntaxTree> '}'
 
+%type<syntaxTree> literal
+%type<valor_simbolo_lexico> parametros
+%type<valor_simbolo_lexico> parametros_vazio
+%type<valor_simbolo_lexico> lista_parametros
 
 %nonassoc LOWER_THAN_ELSE
 %nonassoc TK_PR_ELSE
 
 %%
 /* Regras (e ações) da gramática */
-
-
+/* $$ = start 
+   $1 = programa
+*/
+start: programa {$$ = createNode(AST_PROGRAMA,NULL);printf("%d, final\n",sec = clock());gv_create_initial_tree($$);gv_create_subtree($$,$1); syntaxTree = $$; printf("OI!\n");}
+	;
+/* $$ = programa 
+   $1 = declaracao_global
+   $2 = ';' 
+   $3 = programa(eu acho, não sei, muito confuso eu sei =.=)
+   $1 = declarar_funcao
+   $2 = programa
+   sim, demorei algum bom tempo pra me tocar disso =.=
+*/
 programa
-	: declaracao_global programa
-	| declarar_funcao programa 
-	| 
+	: declaracao_global ';' programa {$$=$1;}
+	| declarar_funcao programa {$$ = $1;printf("%d, %s\n",sec = clock(),$1->tableItem->key);gv_create_subtree($$,$2);}
+	| {$$ = NULL;} 
 	;
 
 declaracao_global
-	: especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT ']' ';' 
-	| especificador_tipo TK_IDENTIFICADOR ';'
-	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR '[' TK_LIT_INT ']' ';'
-	| especificador_tipo {yyerror("Declaração global sem identificador"); return SINTATICA_ERRO;}
-	| especificador_tipo TK_IDENTIFICADOR {yyerror("Declaração global incorreta, sem ;");return SINTATICA_ERRO;}
+	: especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT ']'
+	| especificador_tipo TK_IDENTIFICADOR 
+	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR '[' TK_LIT_INT ']'
+	;
+
+declarar_funcao	
+	: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}' {$$ = createNode(AST_FUNCAO,$2);appendNewNode($$,$7);}
+	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}'
 	;
 
 literal
@@ -88,13 +142,12 @@ especificador_tipo
 declaracao_local
 	: especificador_tipo TK_IDENTIFICADOR  
 	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor 
-	| especificador_classe_armazenamento especificador_tipo TK_IDENTIFICADOR 
-	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
-	| especificador_classe_armazenamento qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
+	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR 
+	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
+	| TK_PR_STATIC qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
 	| qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
-	| especificador_tipo {yyerror("Declaração local sem identificador");return SINTATICA_ERRO;}
-	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE {yyerror("atribuicao invalida na declaração local");return SINTATICA_ERRO;}
 	;
+
 
 valor
 	: literal
@@ -121,10 +174,6 @@ retorno
 	| TK_PR_RETURN 
 	;
 
-especificador_classe_armazenamento
-	:TK_PR_STATIC
-	;
-
 qualificador_tipo
 	: TK_PR_CONST
 	;
@@ -133,10 +182,10 @@ qualificador_tipo
 
 
 bloco_comando
-	:  comando ';' bloco_comando 
-	|  comando
-	| ';' 
-	|
+	:  comando ';' bloco_comando {$$ = $1};
+	|  comando {$$ = $1;}
+	| ';' {$$ = $1;}
+	|{$$ = NULL;}
 	;
 
 	
@@ -146,7 +195,7 @@ comando
 	| atribuicao
 	| declaracao_local 
     | controle_fluxo 
-	| '{' bloco_comando '}' 
+	| '{' bloco_comando '}' { $$ = createNode(AST_BLOCO, NULL); gv_create_subtree($$,$2);}
 	| entrada
 	| chamada_funcao 
 	| saida 
@@ -154,7 +203,7 @@ comando
 
 parametros_vazio
 	: parametros
-	|
+	| {$$ = NULL;}
 	;
 
 parametros
@@ -197,10 +246,6 @@ controle_fluxo
 	| TK_PR_DO comando TK_PR_WHILE '(' expressao_controle ')'
 	;
 
-declarar_funcao	
-	: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}'
-	| especificador_classe_armazenamento especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}'
-	;
 
 
 
@@ -239,7 +284,7 @@ expressao
 tem_operador
 	: operador_aritmetico expressao
 	| operador_aritmetico '(' expressao ')'
-	|
+	| {$$ = NULL;}
 	;
 
 
@@ -247,7 +292,7 @@ tem_operador
 
 expressao_controle
 	: expressao operador_logico expressao expressao_controle
-	| 
+	| {$$ = NULL;}
 	;
 
 

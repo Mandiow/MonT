@@ -1,0 +1,2313 @@
+Start testing: Apr 16 00:08 BRT
+----------------------------------------------------------
+146/345 Testing: e3_avaliacao_01
+146/345 Test: e3_avaliacao_01
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_01.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_01" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_01'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_01:3] ./tests/e3/verify main tests/e3/input/i00.iks tests/e3/expected/i00.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_01.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_01.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_01.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_01.tesh:3> as requested)
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_01" end time: Apr 16 00:08 BRT
+"e3_avaliacao_01" time elapsed: 00:00:00
+----------------------------------------------------------
+
+147/345 Testing: e3_avaliacao_02
+147/345 Test: e3_avaliacao_02
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_02.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_02" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_02'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_02:3] ./tests/e3/verify main tests/e3/input/i01.iks tests/e3/expected/i01.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_02.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_02.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_02.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_02.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_02" end time: Apr 16 00:08 BRT
+"e3_avaliacao_02" time elapsed: 00:00:00
+----------------------------------------------------------
+
+148/345 Testing: e3_avaliacao_03
+148/345 Test: e3_avaliacao_03
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_03.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_03" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_03'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_03:3] ./tests/e3/verify main tests/e3/input/i02.iks tests/e3/expected/i02.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_03.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_03.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_03.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_03.tesh:3> as requested)
+<end of output>
+Test time =   0.18 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_03" end time: Apr 16 00:08 BRT
+"e3_avaliacao_03" time elapsed: 00:00:00
+----------------------------------------------------------
+
+149/345 Testing: e3_avaliacao_04
+149/345 Test: e3_avaliacao_04
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_04.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_04" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_04'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_04:3] ./tests/e3/verify main tests/e3/input/i03.iks tests/e3/expected/i03.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_04.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_04.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_04.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_04.tesh:3> as requested)
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_04" end time: Apr 16 00:08 BRT
+"e3_avaliacao_04" time elapsed: 00:00:00
+----------------------------------------------------------
+
+150/345 Testing: e3_avaliacao_05
+150/345 Test: e3_avaliacao_05
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_05.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_05" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_05'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_05:3] ./tests/e3/verify main tests/e3/input/i04.iks tests/e3/expected/i04.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_05.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_05.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_05.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_05.tesh:3> as requested)
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_05" end time: Apr 16 00:08 BRT
+"e3_avaliacao_05" time elapsed: 00:00:00
+----------------------------------------------------------
+
+151/345 Testing: e3_avaliacao_06
+151/345 Test: e3_avaliacao_06
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_06.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_06" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_06'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_06:3] ./tests/e3/verify main tests/e3/input/i05.iks tests/e3/expected/i05.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_06.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_06.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_06.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_06.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_06" end time: Apr 16 00:08 BRT
+"e3_avaliacao_06" time elapsed: 00:00:00
+----------------------------------------------------------
+
+152/345 Testing: e3_avaliacao_07
+152/345 Test: e3_avaliacao_07
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_07.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_07" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_07'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_07:3] ./tests/e3/verify main tests/e3/input/i06.iks tests/e3/expected/i06.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_07.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_07.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_07.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_07.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_07" end time: Apr 16 00:08 BRT
+"e3_avaliacao_07" time elapsed: 00:00:00
+----------------------------------------------------------
+
+153/345 Testing: e3_avaliacao_08
+153/345 Test: e3_avaliacao_08
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_08.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_08" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_08'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_08:3] ./tests/e3/verify main tests/e3/input/i07.iks tests/e3/expected/i07.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_08.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_08.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_08.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_08.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_08" end time: Apr 16 00:08 BRT
+"e3_avaliacao_08" time elapsed: 00:00:00
+----------------------------------------------------------
+
+154/345 Testing: e3_avaliacao_09
+154/345 Test: e3_avaliacao_09
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_09.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_09" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_09'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_09:3] ./tests/e3/verify main tests/e3/input/i08.iks tests/e3/expected/i08.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_09.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_09.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_09.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_09.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_09" end time: Apr 16 00:08 BRT
+"e3_avaliacao_09" time elapsed: 00:00:00
+----------------------------------------------------------
+
+155/345 Testing: e3_avaliacao_10
+155/345 Test: e3_avaliacao_10
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_10.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_10" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_10'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_10:3] ./tests/e3/verify main tests/e3/input/i09.iks tests/e3/expected/i09.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_10.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_10.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_10.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_10.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_10" end time: Apr 16 00:08 BRT
+"e3_avaliacao_10" time elapsed: 00:00:00
+----------------------------------------------------------
+
+156/345 Testing: e3_avaliacao_11
+156/345 Test: e3_avaliacao_11
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_11.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_11" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_11'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_11:3] ./tests/e3/verify main tests/e3/input/i10.iks tests/e3/expected/i10.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_11.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_11.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_11.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_11.tesh:3> as requested)
+<end of output>
+Test time =   0.21 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_11" end time: Apr 16 00:08 BRT
+"e3_avaliacao_11" time elapsed: 00:00:00
+----------------------------------------------------------
+
+157/345 Testing: e3_avaliacao_12
+157/345 Test: e3_avaliacao_12
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_12.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_12" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_12'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_12:3] ./tests/e3/verify main tests/e3/input/i11.iks tests/e3/expected/i11.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_12.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_12.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_12.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_12.tesh:3> as requested)
+<end of output>
+Test time =   0.21 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_12" end time: Apr 16 00:08 BRT
+"e3_avaliacao_12" time elapsed: 00:00:00
+----------------------------------------------------------
+
+158/345 Testing: e3_avaliacao_13
+158/345 Test: e3_avaliacao_13
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_13.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_13" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_13'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_13:3] ./tests/e3/verify main tests/e3/input/i12.iks tests/e3/expected/i12.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_13.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_13.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_13.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_13.tesh:3> as requested)
+<end of output>
+Test time =   0.20 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_13" end time: Apr 16 00:08 BRT
+"e3_avaliacao_13" time elapsed: 00:00:00
+----------------------------------------------------------
+
+159/345 Testing: e3_avaliacao_14
+159/345 Test: e3_avaliacao_14
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_14.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_14" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_14'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_14:3] ./tests/e3/verify main tests/e3/input/i13.iks tests/e3/expected/i13.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_14.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_14.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_14.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_14.tesh:3> as requested)
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_14" end time: Apr 16 00:08 BRT
+"e3_avaliacao_14" time elapsed: 00:00:00
+----------------------------------------------------------
+
+160/345 Testing: e3_avaliacao_15
+160/345 Test: e3_avaliacao_15
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_15.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_15" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_15'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_15:3] ./tests/e3/verify main tests/e3/input/i14.iks tests/e3/expected/i14.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_15.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_15.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_15.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_15.tesh:3> as requested)
+<end of output>
+Test time =   0.20 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_15" end time: Apr 16 00:08 BRT
+"e3_avaliacao_15" time elapsed: 00:00:00
+----------------------------------------------------------
+
+161/345 Testing: e3_avaliacao_16
+161/345 Test: e3_avaliacao_16
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_16.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_16" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_16'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_16:3] ./tests/e3/verify main tests/e3/input/i15.iks tests/e3/expected/i15.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_16.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_16.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_16.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_16.tesh:3> as requested)
+<end of output>
+Test time =   0.20 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_16" end time: Apr 16 00:08 BRT
+"e3_avaliacao_16" time elapsed: 00:00:00
+----------------------------------------------------------
+
+162/345 Testing: e3_avaliacao_17
+162/345 Test: e3_avaliacao_17
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_17.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_17" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_17'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_17:3] ./tests/e3/verify main tests/e3/input/i16.iks tests/e3/expected/i16.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_17.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_17.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_17.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_17.tesh:3> as requested)
+<end of output>
+Test time =   0.20 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_17" end time: Apr 16 00:08 BRT
+"e3_avaliacao_17" time elapsed: 00:00:00
+----------------------------------------------------------
+
+163/345 Testing: e3_avaliacao_18
+163/345 Test: e3_avaliacao_18
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_18.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_18" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_18'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_18:3] ./tests/e3/verify main tests/e3/input/i17.iks tests/e3/expected/i17.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_18.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_18.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_18.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_18.tesh:3> as requested)
+<end of output>
+Test time =   0.18 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_18" end time: Apr 16 00:08 BRT
+"e3_avaliacao_18" time elapsed: 00:00:00
+----------------------------------------------------------
+
+164/345 Testing: e3_avaliacao_19
+164/345 Test: e3_avaliacao_19
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_19.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_19" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_19'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_19:3] ./tests/e3/verify main tests/e3/input/i18.iks tests/e3/expected/i18.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_19.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_19.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_19.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_19.tesh:3> as requested)
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_19" end time: Apr 16 00:08 BRT
+"e3_avaliacao_19" time elapsed: 00:00:00
+----------------------------------------------------------
+
+165/345 Testing: e3_avaliacao_20
+165/345 Test: e3_avaliacao_20
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_20.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_20" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_20'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_20:3] ./tests/e3/verify main tests/e3/input/i19.iks tests/e3/expected/i19.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_20.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_20.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_20.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_20.tesh:3> as requested)
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_20" end time: Apr 16 00:08 BRT
+"e3_avaliacao_20" time elapsed: 00:00:00
+----------------------------------------------------------
+
+166/345 Testing: e3_avaliacao_21
+166/345 Test: e3_avaliacao_21
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_21.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_21" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_21'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_21:3] ./tests/e3/verify main tests/e3/input/i20.iks tests/e3/expected/i20.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_21.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_21.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_21.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_21.tesh:3> as requested)
+<end of output>
+Test time =   0.20 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_21" end time: Apr 16 00:08 BRT
+"e3_avaliacao_21" time elapsed: 00:00:00
+----------------------------------------------------------
+
+167/345 Testing: e3_avaliacao_22
+167/345 Test: e3_avaliacao_22
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_22.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_22" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_22'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_22:3] ./tests/e3/verify main tests/e3/input/i21.iks tests/e3/expected/i21.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_22.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_22.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_22.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_22.tesh:3> as requested)
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_22" end time: Apr 16 00:08 BRT
+"e3_avaliacao_22" time elapsed: 00:00:00
+----------------------------------------------------------
+
+168/345 Testing: e3_avaliacao_23
+168/345 Test: e3_avaliacao_23
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_23.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_23" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_23'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_23:3] ./tests/e3/verify main tests/e3/input/i22.iks tests/e3/expected/i22.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_23.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_23.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_23.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_23.tesh:3> as requested)
+<end of output>
+Test time =   0.20 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_23" end time: Apr 16 00:08 BRT
+"e3_avaliacao_23" time elapsed: 00:00:00
+----------------------------------------------------------
+
+169/345 Testing: e3_avaliacao_24
+169/345 Test: e3_avaliacao_24
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_24.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_24" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_24'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_24:3] ./tests/e3/verify main tests/e3/input/i23.iks tests/e3/expected/i23.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_24.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_24.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_24.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_24.tesh:3> as requested)
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_24" end time: Apr 16 00:08 BRT
+"e3_avaliacao_24" time elapsed: 00:00:00
+----------------------------------------------------------
+
+170/345 Testing: e3_avaliacao_25
+170/345 Test: e3_avaliacao_25
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_25.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_25" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_25'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_25:3] ./tests/e3/verify main tests/e3/input/i24.iks tests/e3/expected/i24.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_25.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_25.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_25.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_25.tesh:3> as requested)
+<end of output>
+Test time =   0.20 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_25" end time: Apr 16 00:08 BRT
+"e3_avaliacao_25" time elapsed: 00:00:00
+----------------------------------------------------------
+
+171/345 Testing: e3_avaliacao_26
+171/345 Test: e3_avaliacao_26
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_26.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_26" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_26'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_26:3] ./tests/e3/verify main tests/e3/input/i25.iks tests/e3/expected/i25.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_26.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_26.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_26.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_26.tesh:3> as requested)
+<end of output>
+Test time =   0.21 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_26" end time: Apr 16 00:08 BRT
+"e3_avaliacao_26" time elapsed: 00:00:00
+----------------------------------------------------------
+
+172/345 Testing: e3_avaliacao_27
+172/345 Test: e3_avaliacao_27
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_27.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_27" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_27'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_27:3] ./tests/e3/verify main tests/e3/input/i26.iks tests/e3/expected/i26.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_27.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_27.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_27.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_27.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_27" end time: Apr 16 00:08 BRT
+"e3_avaliacao_27" time elapsed: 00:00:00
+----------------------------------------------------------
+
+173/345 Testing: e3_avaliacao_28
+173/345 Test: e3_avaliacao_28
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_28.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_28" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_28'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_28:3] ./tests/e3/verify main tests/e3/input/i27.iks tests/e3/expected/i27.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_28.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_28.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_28.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_28.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_28" end time: Apr 16 00:08 BRT
+"e3_avaliacao_28" time elapsed: 00:00:00
+----------------------------------------------------------
+
+174/345 Testing: e3_avaliacao_29
+174/345 Test: e3_avaliacao_29
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_29.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_29" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_29'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_29:3] ./tests/e3/verify main tests/e3/input/i28.iks tests/e3/expected/i28.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_29.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_29.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_29.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_29.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_29" end time: Apr 16 00:08 BRT
+"e3_avaliacao_29" time elapsed: 00:00:00
+----------------------------------------------------------
+
+175/345 Testing: e3_avaliacao_30
+175/345 Test: e3_avaliacao_30
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_30.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_30" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_30'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_30:3] ./tests/e3/verify main tests/e3/input/i29.iks tests/e3/expected/i29.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_30.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_30.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_30.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_30.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_30" end time: Apr 16 00:08 BRT
+"e3_avaliacao_30" time elapsed: 00:00:00
+----------------------------------------------------------
+
+176/345 Testing: e3_avaliacao_31
+176/345 Test: e3_avaliacao_31
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_31.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_31" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_31'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_31:3] ./tests/e3/verify main tests/e3/input/i30.iks tests/e3/expected/i30.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_31.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_31.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_31.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_31.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_31" end time: Apr 16 00:08 BRT
+"e3_avaliacao_31" time elapsed: 00:00:00
+----------------------------------------------------------
+
+177/345 Testing: e3_avaliacao_32
+177/345 Test: e3_avaliacao_32
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_32.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_32" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_32'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_32:3] ./tests/e3/verify main tests/e3/input/i31.iks tests/e3/expected/i31.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_32.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_32.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_32.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_32.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_32" end time: Apr 16 00:08 BRT
+"e3_avaliacao_32" time elapsed: 00:00:00
+----------------------------------------------------------
+
+178/345 Testing: e3_avaliacao_33
+178/345 Test: e3_avaliacao_33
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_33.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_33" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_33'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_33:3] ./tests/e3/verify main tests/e3/input/i32.iks tests/e3/expected/i32.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_33.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_33.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_33.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_33.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_33" end time: Apr 16 00:08 BRT
+"e3_avaliacao_33" time elapsed: 00:00:00
+----------------------------------------------------------
+
+179/345 Testing: e3_avaliacao_34
+179/345 Test: e3_avaliacao_34
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_34.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_34" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_34'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_34:3] ./tests/e3/verify main tests/e3/input/i33.iks tests/e3/expected/i33.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_34.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_34.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_34.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_34.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_34" end time: Apr 16 00:08 BRT
+"e3_avaliacao_34" time elapsed: 00:00:00
+----------------------------------------------------------
+
+180/345 Testing: e3_avaliacao_35
+180/345 Test: e3_avaliacao_35
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_35.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_35" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_35'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_35:3] ./tests/e3/verify main tests/e3/input/i34.iks tests/e3/expected/i34.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_35.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_35.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_35.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_35.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_35" end time: Apr 16 00:08 BRT
+"e3_avaliacao_35" time elapsed: 00:00:00
+----------------------------------------------------------
+
+181/345 Testing: e3_avaliacao_36
+181/345 Test: e3_avaliacao_36
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_36.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_36" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_36'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_36:3] ./tests/e3/verify main tests/e3/input/i35.iks tests/e3/expected/i35.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_36.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_36.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_36.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_36.tesh:3> as requested)
+<end of output>
+Test time =   0.20 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_36" end time: Apr 16 00:08 BRT
+"e3_avaliacao_36" time elapsed: 00:00:00
+----------------------------------------------------------
+
+182/345 Testing: e3_avaliacao_37
+182/345 Test: e3_avaliacao_37
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_37.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_37" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_37'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_37:3] ./tests/e3/verify main tests/e3/input/i36.iks tests/e3/expected/i36.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_37.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_37.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_37.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_37.tesh:3> as requested)
+<end of output>
+Test time =   0.18 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_37" end time: Apr 16 00:08 BRT
+"e3_avaliacao_37" time elapsed: 00:00:00
+----------------------------------------------------------
+
+183/345 Testing: e3_avaliacao_38
+183/345 Test: e3_avaliacao_38
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_38.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_38" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_38'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_38:3] ./tests/e3/verify main tests/e3/input/i37.iks tests/e3/expected/i37.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_38.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_38.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_38.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_38.tesh:3> as requested)
+<end of output>
+Test time =   0.21 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_38" end time: Apr 16 00:08 BRT
+"e3_avaliacao_38" time elapsed: 00:00:00
+----------------------------------------------------------
+
+184/345 Testing: e3_avaliacao_39
+184/345 Test: e3_avaliacao_39
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_39.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_39" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_39'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_39:3] ./tests/e3/verify main tests/e3/input/i38.iks tests/e3/expected/i38.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_39.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_39.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_39.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_39.tesh:3> as requested)
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_39" end time: Apr 16 00:08 BRT
+"e3_avaliacao_39" time elapsed: 00:00:00
+----------------------------------------------------------
+
+185/345 Testing: e3_avaliacao_40
+185/345 Test: e3_avaliacao_40
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_40.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_40" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_40'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_40:3] ./tests/e3/verify main tests/e3/input/i39.iks tests/e3/expected/i39.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_40.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_40.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_40.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_40.tesh:3> as requested)
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_40" end time: Apr 16 00:08 BRT
+"e3_avaliacao_40" time elapsed: 00:00:00
+----------------------------------------------------------
+
+186/345 Testing: e3_avaliacao_41
+186/345 Test: e3_avaliacao_41
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_41.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_41" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_41'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_41:3] ./tests/e3/verify main tests/e3/input/i40.iks tests/e3/expected/i40.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_41.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_41.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_41.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_41.tesh:3> as requested)
+<end of output>
+Test time =   0.18 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_41" end time: Apr 16 00:08 BRT
+"e3_avaliacao_41" time elapsed: 00:00:00
+----------------------------------------------------------
+
+187/345 Testing: e3_avaliacao_42
+187/345 Test: e3_avaliacao_42
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_42.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_42" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_42'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_42:3] ./tests/e3/verify main tests/e3/input/i41.iks tests/e3/expected/i41.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_42.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_42.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_42.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_42.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_42" end time: Apr 16 00:08 BRT
+"e3_avaliacao_42" time elapsed: 00:00:00
+----------------------------------------------------------
+
+188/345 Testing: e3_avaliacao_43
+188/345 Test: e3_avaliacao_43
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_43.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_43" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_43'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_43:3] ./tests/e3/verify main tests/e3/input/i42.iks tests/e3/expected/i42.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_43.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_43.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_43.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_43.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_43" end time: Apr 16 00:08 BRT
+"e3_avaliacao_43" time elapsed: 00:00:00
+----------------------------------------------------------
+
+189/345 Testing: e3_avaliacao_44
+189/345 Test: e3_avaliacao_44
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_44.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_44" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_44'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_44:3] ./tests/e3/verify main tests/e3/input/i43.iks tests/e3/expected/i43.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_44.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_44.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_44.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_44.tesh:3> as requested)
+<end of output>
+Test time =   0.21 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_44" end time: Apr 16 00:08 BRT
+"e3_avaliacao_44" time elapsed: 00:00:00
+----------------------------------------------------------
+
+190/345 Testing: e3_avaliacao_45
+190/345 Test: e3_avaliacao_45
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_45.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_45" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_45'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_45:3] ./tests/e3/verify main tests/e3/input/i44.iks tests/e3/expected/i44.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_45.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_45.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_45.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_45.tesh:3> as requested)
+<end of output>
+Test time =   0.22 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_45" end time: Apr 16 00:08 BRT
+"e3_avaliacao_45" time elapsed: 00:00:00
+----------------------------------------------------------
+
+191/345 Testing: e3_avaliacao_46
+191/345 Test: e3_avaliacao_46
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_46.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_46" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_46'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_46:3] ./tests/e3/verify main tests/e3/input/i45.iks tests/e3/expected/i45.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_46.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_46.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_46.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_46.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_46" end time: Apr 16 00:08 BRT
+"e3_avaliacao_46" time elapsed: 00:00:00
+----------------------------------------------------------
+
+192/345 Testing: e3_avaliacao_47
+192/345 Test: e3_avaliacao_47
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_47.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_47" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_47'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_47:3] ./tests/e3/verify main tests/e3/input/i46.iks tests/e3/expected/i46.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_47.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_47.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_47.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_47.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_47" end time: Apr 16 00:08 BRT
+"e3_avaliacao_47" time elapsed: 00:00:00
+----------------------------------------------------------
+
+193/345 Testing: e3_avaliacao_48
+193/345 Test: e3_avaliacao_48
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_48.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_48" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_48'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_48:3] ./tests/e3/verify main tests/e3/input/i47.iks tests/e3/expected/i47.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_48.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_48.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_48.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_48.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_48" end time: Apr 16 00:08 BRT
+"e3_avaliacao_48" time elapsed: 00:00:00
+----------------------------------------------------------
+
+194/345 Testing: e3_avaliacao_49
+194/345 Test: e3_avaliacao_49
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_49.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_49" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_49'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_49:3] ./tests/e3/verify main tests/e3/input/i48.iks tests/e3/expected/i48.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_49.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_49.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_49.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_49.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_49" end time: Apr 16 00:08 BRT
+"e3_avaliacao_49" time elapsed: 00:00:00
+----------------------------------------------------------
+
+195/345 Testing: e3_avaliacao_50
+195/345 Test: e3_avaliacao_50
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_50.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_50" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_50'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_50:3] ./tests/e3/verify main tests/e3/input/i49.iks tests/e3/expected/i49.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_50.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_50.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_50.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_50.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_50" end time: Apr 16 00:08 BRT
+"e3_avaliacao_50" time elapsed: 00:00:00
+----------------------------------------------------------
+
+196/345 Testing: e3_avaliacao_51
+196/345 Test: e3_avaliacao_51
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_51.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_avaliacao_51" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_51'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_51:3] ./tests/e3/verify main tests/e3/input/i50.iks tests/e3/expected/i50.dot tests/e3/output
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_51.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_51.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_51.tesh:3> so far:
+||
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_51.tesh:3> as requested)
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Failed.
+"e3_avaliacao_51" end time: Apr 16 00:08 BRT
+"e3_avaliacao_51" time elapsed: 00:00:00
+----------------------------------------------------------
+
+197/345 Testing: e3_valgrind_01
+197/345 Test: e3_valgrind_01
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_01.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_01" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_01'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_01:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i00.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_01.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_01' OK
+<end of output>
+Test time =   0.42 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_01" end time: Apr 16 00:08 BRT
+"e3_valgrind_01" time elapsed: 00:00:00
+----------------------------------------------------------
+
+198/345 Testing: e3_valgrind_02
+198/345 Test: e3_valgrind_02
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_02.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_02" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_02'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_02:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i01.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_02.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_02' OK
+<end of output>
+Test time =   0.42 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_02" end time: Apr 16 00:08 BRT
+"e3_valgrind_02" time elapsed: 00:00:00
+----------------------------------------------------------
+
+199/345 Testing: e3_valgrind_03
+199/345 Test: e3_valgrind_03
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_03.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_03" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_03'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_03:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i02.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_03.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_03.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_03.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_03.tesh:3> as requested)
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_03" end time: Apr 16 00:08 BRT
+"e3_valgrind_03" time elapsed: 00:00:00
+----------------------------------------------------------
+
+200/345 Testing: e3_valgrind_04
+200/345 Test: e3_valgrind_04
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_04.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_04" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_04'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_04:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i03.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_04.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_04.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_04.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 2
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_04.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_04" end time: Apr 16 00:08 BRT
+"e3_valgrind_04" time elapsed: 00:00:00
+----------------------------------------------------------
+
+201/345 Testing: e3_valgrind_05
+201/345 Test: e3_valgrind_05
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_05.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_05" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_05'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_05:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i04.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_05.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_05.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_05.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_05.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_05" end time: Apr 16 00:08 BRT
+"e3_valgrind_05" time elapsed: 00:00:00
+----------------------------------------------------------
+
+202/345 Testing: e3_valgrind_06
+202/345 Test: e3_valgrind_06
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_06.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_06" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_06'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_06:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i05.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_06.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_06' OK
+<end of output>
+Test time =   0.46 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_06" end time: Apr 16 00:08 BRT
+"e3_valgrind_06" time elapsed: 00:00:00
+----------------------------------------------------------
+
+203/345 Testing: e3_valgrind_07
+203/345 Test: e3_valgrind_07
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_07.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_07" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_07'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_07:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i06.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_07.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_07' OK
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_07" end time: Apr 16 00:08 BRT
+"e3_valgrind_07" time elapsed: 00:00:00
+----------------------------------------------------------
+
+204/345 Testing: e3_valgrind_08
+204/345 Test: e3_valgrind_08
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_08.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_08" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_08'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_08:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i07.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_08.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_08' OK
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_08" end time: Apr 16 00:08 BRT
+"e3_valgrind_08" time elapsed: 00:00:00
+----------------------------------------------------------
+
+205/345 Testing: e3_valgrind_09
+205/345 Test: e3_valgrind_09
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_09.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_09" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_09'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_09:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i08.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_09.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_09' OK
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_09" end time: Apr 16 00:08 BRT
+"e3_valgrind_09" time elapsed: 00:00:00
+----------------------------------------------------------
+
+206/345 Testing: e3_valgrind_10
+206/345 Test: e3_valgrind_10
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_10.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_10" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_10'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_10:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i09.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_10.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_10' OK
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_10" end time: Apr 16 00:08 BRT
+"e3_valgrind_10" time elapsed: 00:00:00
+----------------------------------------------------------
+
+207/345 Testing: e3_valgrind_11
+207/345 Test: e3_valgrind_11
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_11.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_11" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_11'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_11:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i10.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_11.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_11.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_11.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_11.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_11" end time: Apr 16 00:08 BRT
+"e3_valgrind_11" time elapsed: 00:00:00
+----------------------------------------------------------
+
+208/345 Testing: e3_valgrind_12
+208/345 Test: e3_valgrind_12
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_12.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_12" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_12'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_12:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i11.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_12.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_12.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_12.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_12.tesh:3> as requested)
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_12" end time: Apr 16 00:08 BRT
+"e3_valgrind_12" time elapsed: 00:00:00
+----------------------------------------------------------
+
+209/345 Testing: e3_valgrind_13
+209/345 Test: e3_valgrind_13
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_13.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_13" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_13'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_13:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i12.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_13.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_13.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_13.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_13.tesh:3> as requested)
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_13" end time: Apr 16 00:08 BRT
+"e3_valgrind_13" time elapsed: 00:00:00
+----------------------------------------------------------
+
+210/345 Testing: e3_valgrind_14
+210/345 Test: e3_valgrind_14
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_14.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_14" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_14'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_14:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i13.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_14.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_14.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_14.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_14.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_14" end time: Apr 16 00:08 BRT
+"e3_valgrind_14" time elapsed: 00:00:00
+----------------------------------------------------------
+
+211/345 Testing: e3_valgrind_15
+211/345 Test: e3_valgrind_15
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_15.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_15" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_15'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_15:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i14.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_15.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_15.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_15.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_15.tesh:3> as requested)
+<end of output>
+Test time =   0.48 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_15" end time: Apr 16 00:08 BRT
+"e3_valgrind_15" time elapsed: 00:00:00
+----------------------------------------------------------
+
+212/345 Testing: e3_valgrind_16
+212/345 Test: e3_valgrind_16
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_16.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_16" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_16'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_16:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i15.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_16.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_16.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_16.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_16.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_16" end time: Apr 16 00:08 BRT
+"e3_valgrind_16" time elapsed: 00:00:00
+----------------------------------------------------------
+
+213/345 Testing: e3_valgrind_17
+213/345 Test: e3_valgrind_17
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_17.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_17" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_17'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_17:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i16.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_17.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_17.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_17.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_17.tesh:3> as requested)
+<end of output>
+Test time =   0.47 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_17" end time: Apr 16 00:08 BRT
+"e3_valgrind_17" time elapsed: 00:00:00
+----------------------------------------------------------
+
+214/345 Testing: e3_valgrind_18
+214/345 Test: e3_valgrind_18
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_18.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_18" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_18'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_18:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i17.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_18.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_18.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_18.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_18.tesh:3> as requested)
+<end of output>
+Test time =   0.46 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_18" end time: Apr 16 00:08 BRT
+"e3_valgrind_18" time elapsed: 00:00:00
+----------------------------------------------------------
+
+215/345 Testing: e3_valgrind_19
+215/345 Test: e3_valgrind_19
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_19.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_19" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_19'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_19:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i18.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_19.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_19.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_19.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_19.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_19" end time: Apr 16 00:08 BRT
+"e3_valgrind_19" time elapsed: 00:00:00
+----------------------------------------------------------
+
+216/345 Testing: e3_valgrind_20
+216/345 Test: e3_valgrind_20
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_20.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_20" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_20'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_20:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i19.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_20.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_20.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_20.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_20.tesh:3> as requested)
+<end of output>
+Test time =   0.46 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_20" end time: Apr 16 00:08 BRT
+"e3_valgrind_20" time elapsed: 00:00:00
+----------------------------------------------------------
+
+217/345 Testing: e3_valgrind_21
+217/345 Test: e3_valgrind_21
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_21.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_21" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_21'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_21:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i20.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_21.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_21.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_21.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_21.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_21" end time: Apr 16 00:08 BRT
+"e3_valgrind_21" time elapsed: 00:00:00
+----------------------------------------------------------
+
+218/345 Testing: e3_valgrind_22
+218/345 Test: e3_valgrind_22
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_22.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_22" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_22'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_22:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i21.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_22.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_22.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_22.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_22.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_22" end time: Apr 16 00:08 BRT
+"e3_valgrind_22" time elapsed: 00:00:00
+----------------------------------------------------------
+
+219/345 Testing: e3_valgrind_23
+219/345 Test: e3_valgrind_23
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_23.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_23" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_23'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_23:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i22.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_23.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_23.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_23.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_23.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_23" end time: Apr 16 00:08 BRT
+"e3_valgrind_23" time elapsed: 00:00:00
+----------------------------------------------------------
+
+220/345 Testing: e3_valgrind_24
+220/345 Test: e3_valgrind_24
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_24.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_24" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_24'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_24:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i23.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_24.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_24.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_24.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_24.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_24" end time: Apr 16 00:08 BRT
+"e3_valgrind_24" time elapsed: 00:00:00
+----------------------------------------------------------
+
+221/345 Testing: e3_valgrind_25
+221/345 Test: e3_valgrind_25
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_25.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_25" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_25'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_25:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i24.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_25.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_25.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_25.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_25.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_25" end time: Apr 16 00:08 BRT
+"e3_valgrind_25" time elapsed: 00:00:00
+----------------------------------------------------------
+
+222/345 Testing: e3_valgrind_26
+222/345 Test: e3_valgrind_26
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_26.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_26" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_26'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_26:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i25.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_26.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_26.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_26.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_26.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_26" end time: Apr 16 00:08 BRT
+"e3_valgrind_26" time elapsed: 00:00:00
+----------------------------------------------------------
+
+223/345 Testing: e3_valgrind_27
+223/345 Test: e3_valgrind_27
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_27.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_27" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_27'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_27:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i26.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_27.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_27' OK
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_27" end time: Apr 16 00:08 BRT
+"e3_valgrind_27" time elapsed: 00:00:00
+----------------------------------------------------------
+
+224/345 Testing: e3_valgrind_28
+224/345 Test: e3_valgrind_28
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_28.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_28" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_28'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_28:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i27.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_28.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_28' OK
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_28" end time: Apr 16 00:08 BRT
+"e3_valgrind_28" time elapsed: 00:00:00
+----------------------------------------------------------
+
+225/345 Testing: e3_valgrind_29
+225/345 Test: e3_valgrind_29
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_29.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_29" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_29'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_29:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i28.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_29.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_29' OK
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_29" end time: Apr 16 00:08 BRT
+"e3_valgrind_29" time elapsed: 00:00:00
+----------------------------------------------------------
+
+226/345 Testing: e3_valgrind_30
+226/345 Test: e3_valgrind_30
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_30.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_30" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_30'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_30:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i29.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_30.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_30' OK
+<end of output>
+Test time =   0.43 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_30" end time: Apr 16 00:08 BRT
+"e3_valgrind_30" time elapsed: 00:00:00
+----------------------------------------------------------
+
+227/345 Testing: e3_valgrind_31
+227/345 Test: e3_valgrind_31
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_31.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_31" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_31'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_31:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i30.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_31.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_31' OK
+<end of output>
+Test time =   0.43 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_31" end time: Apr 16 00:08 BRT
+"e3_valgrind_31" time elapsed: 00:00:00
+----------------------------------------------------------
+
+228/345 Testing: e3_valgrind_32
+228/345 Test: e3_valgrind_32
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_32.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_32" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_32'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_32:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i31.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_32.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_32' OK
+<end of output>
+Test time =   0.43 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_32" end time: Apr 16 00:08 BRT
+"e3_valgrind_32" time elapsed: 00:00:00
+----------------------------------------------------------
+
+229/345 Testing: e3_valgrind_33
+229/345 Test: e3_valgrind_33
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_33.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_33" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_33'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_33:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i32.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_33.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_33' OK
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_33" end time: Apr 16 00:08 BRT
+"e3_valgrind_33" time elapsed: 00:00:00
+----------------------------------------------------------
+
+230/345 Testing: e3_valgrind_34
+230/345 Test: e3_valgrind_34
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_34.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_34" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_34'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_34:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i33.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_34.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_34' OK
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_34" end time: Apr 16 00:08 BRT
+"e3_valgrind_34" time elapsed: 00:00:00
+----------------------------------------------------------
+
+231/345 Testing: e3_valgrind_35
+231/345 Test: e3_valgrind_35
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_35.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_35" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_35'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_35:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i34.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_35.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_35' OK
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_35" end time: Apr 16 00:08 BRT
+"e3_valgrind_35" time elapsed: 00:00:00
+----------------------------------------------------------
+
+232/345 Testing: e3_valgrind_36
+232/345 Test: e3_valgrind_36
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_36.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_36" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_36'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_36:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i35.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_36.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_36.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_36.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_36.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_36" end time: Apr 16 00:08 BRT
+"e3_valgrind_36" time elapsed: 00:00:00
+----------------------------------------------------------
+
+233/345 Testing: e3_valgrind_37
+233/345 Test: e3_valgrind_37
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_37.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_37" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_37'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_37:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i36.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_37.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_37.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_37.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_37.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_37" end time: Apr 16 00:08 BRT
+"e3_valgrind_37" time elapsed: 00:00:00
+----------------------------------------------------------
+
+234/345 Testing: e3_valgrind_38
+234/345 Test: e3_valgrind_38
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_38.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_38" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_38'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_38:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i37.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_38.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_38.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_38.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_38.tesh:3> as requested)
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_38" end time: Apr 16 00:08 BRT
+"e3_valgrind_38" time elapsed: 00:00:00
+----------------------------------------------------------
+
+235/345 Testing: e3_valgrind_39
+235/345 Test: e3_valgrind_39
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_39.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_39" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_39'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_39:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i38.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_39.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_39.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_39.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_39.tesh:3> as requested)
+<end of output>
+Test time =   0.46 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_39" end time: Apr 16 00:08 BRT
+"e3_valgrind_39" time elapsed: 00:00:00
+----------------------------------------------------------
+
+236/345 Testing: e3_valgrind_40
+236/345 Test: e3_valgrind_40
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_40.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_40" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_40'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_40:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i39.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_40.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_40.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_40.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_40.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_40" end time: Apr 16 00:08 BRT
+"e3_valgrind_40" time elapsed: 00:00:00
+----------------------------------------------------------
+
+237/345 Testing: e3_valgrind_41
+237/345 Test: e3_valgrind_41
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_41.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_41" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_41'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_41:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i40.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_41.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_41.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_41.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_41.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_41" end time: Apr 16 00:08 BRT
+"e3_valgrind_41" time elapsed: 00:00:00
+----------------------------------------------------------
+
+238/345 Testing: e3_valgrind_42
+238/345 Test: e3_valgrind_42
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_42.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_42" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_42'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_42:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i41.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_42.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_42' OK
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_42" end time: Apr 16 00:08 BRT
+"e3_valgrind_42" time elapsed: 00:00:00
+----------------------------------------------------------
+
+239/345 Testing: e3_valgrind_43
+239/345 Test: e3_valgrind_43
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_43.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_43" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_43'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_43:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i42.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_43.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_43' OK
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_43" end time: Apr 16 00:08 BRT
+"e3_valgrind_43" time elapsed: 00:00:00
+----------------------------------------------------------
+
+240/345 Testing: e3_valgrind_44
+240/345 Test: e3_valgrind_44
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_44.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_44" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_44'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_44:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i43.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_44.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_44.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_44.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_44.tesh:3> as requested)
+<end of output>
+Test time =   0.47 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_44" end time: Apr 16 00:08 BRT
+"e3_valgrind_44" time elapsed: 00:00:00
+----------------------------------------------------------
+
+241/345 Testing: e3_valgrind_45
+241/345 Test: e3_valgrind_45
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_45.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_45" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_45'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_45:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i44.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_45.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_45.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_45.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_45.tesh:3> as requested)
+<end of output>
+Test time =   0.46 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_45" end time: Apr 16 00:08 BRT
+"e3_valgrind_45" time elapsed: 00:00:00
+----------------------------------------------------------
+
+242/345 Testing: e3_valgrind_46
+242/345 Test: e3_valgrind_46
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_46.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_46" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_46'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_46:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i45.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_46.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_46' OK
+<end of output>
+Test time =   0.43 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_46" end time: Apr 16 00:08 BRT
+"e3_valgrind_46" time elapsed: 00:00:00
+----------------------------------------------------------
+
+243/345 Testing: e3_valgrind_47
+243/345 Test: e3_valgrind_47
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_47.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_47" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_47'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_47:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i46.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_47.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_47' OK
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_47" end time: Apr 16 00:08 BRT
+"e3_valgrind_47" time elapsed: 00:00:00
+----------------------------------------------------------
+
+244/345 Testing: e3_valgrind_48
+244/345 Test: e3_valgrind_48
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_48.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_48" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_48'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_48:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i47.iks
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_48.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_48' OK
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Passed.
+"e3_valgrind_48" end time: Apr 16 00:08 BRT
+"e3_valgrind_48" time elapsed: 00:00:00
+----------------------------------------------------------
+
+245/345 Testing: e3_valgrind_49
+245/345 Test: e3_valgrind_49
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_49.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_49" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_49'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_49:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i48.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_49.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_49.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_49.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 0
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_49.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_49" end time: Apr 16 00:08 BRT
+"e3_valgrind_49" time elapsed: 00:00:00
+----------------------------------------------------------
+
+246/345 Testing: e3_valgrind_50
+246/345 Test: e3_valgrind_50
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_50.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_50" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_50'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_50:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i49.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_50.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_50.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_50.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 1
+|| lost bytes:
+|| 0
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_50.tesh:3> as requested)
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_50" end time: Apr 16 00:08 BRT
+"e3_valgrind_50" time elapsed: 00:00:00
+----------------------------------------------------------
+
+247/345 Testing: e3_valgrind_51
+247/345 Test: e3_valgrind_51
+Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_51.tesh"
+Directory: /home/mandiow/Área de Trabalho/MonT/build
+"e3_valgrind_51" start time: Apr 16 00:08 BRT
+Output:
+----------------------------------------------------------
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_51'
+[/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_51:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i50.iks
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_51.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_51.tesh:3> returned code 1)
+Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_51.tesh:3> so far:
+|| invalid writes:
+|| 0
+|| invalid read:
+|| 0
+|| jumps/moves depending on uninitialized values:
+|| 0
+|| lost bytes:
+|| 32
+(ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_51.tesh:3> as requested)
+<end of output>
+Test time =   0.47 sec
+----------------------------------------------------------
+Test Failed.
+"e3_valgrind_51" end time: Apr 16 00:08 BRT
+"e3_valgrind_51" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Apr 16 00:08 BRT
