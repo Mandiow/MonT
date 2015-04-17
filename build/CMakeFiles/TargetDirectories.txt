@@ -1,1 +1,1 @@
-/home/mandiow/Área de Trabalho/MonT/build/CMakeFiles/main.dir
+/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/CMakeFiles/main.dir

@@ -34,18 +34,19 @@ clock_t sec;
 %token<syntaxTree> TK_PR_RETURN
 %token<syntaxTree> TK_PR_STATIC
 %token<syntaxTree> TK_PR_CONST
-%token<syntaxTree> TK_OC_LE
-%token<syntaxTree> TK_OC_GE
-%token<syntaxTree> TK_OC_EQ
-%token<syntaxTree> TK_OC_NE
-%token<syntaxTree> TK_OC_AND
-%token<syntaxTree> TK_OC_OR
-%token<syntaxTree> TK_LIT_INT
-%token<syntaxTree> TK_LIT_FLOAT
-%token<syntaxTree> TK_LIT_FALSE
-%token<syntaxTree> TK_LIT_TRUE
-%token<syntaxTree> TK_LIT_CHAR
-%token<syntaxTree> TK_LIT_STRING
+%token<valor_simbolo_lexico> TK_OC_LE
+%token<valor_simbolo_lexico> TK_OC_GE
+%token<valor_simbolo_lexico> TK_OC_EQ
+%token<valor_simbolo_lexico> TK_OC_NE
+%token<valor_simbolo_lexico> TK_OC_AND
+%token<valor_simbolo_lexico> TK_OC_OR
+%token<valor_simbolo_lexico> TK_OC_NOT
+%token<valor_simbolo_lexico> TK_LIT_INT
+%token<valor_simbolo_lexico> TK_LIT_FLOAT
+%token<valor_simbolo_lexico> TK_LIT_FALSE
+%token<valor_simbolo_lexico> TK_LIT_TRUE
+%token<valor_simbolo_lexico> TK_LIT_CHAR
+%token<valor_simbolo_lexico> TK_LIT_STRING
 %token<valor_simbolo_lexico> TK_IDENTIFICADOR
 %token TOKEN_ERRO
 
@@ -61,7 +62,6 @@ clock_t sec;
 %type<syntaxTree> comando
 %type<syntaxTree> ID
 %type<syntaxTree> atribuicao
-%type<syntaxTree> expressao_controle
 %type<syntaxTree> controle_fluxo
 %type<syntaxTree> chamada_funcao
 %type<syntaxTree> operador_logico
@@ -71,18 +71,20 @@ clock_t sec;
 %type<syntaxTree> retorno
 %type<syntaxTree> entrada
 %type<syntaxTree> saida
-%type<syntaxTree> '%'
-%type<syntaxTree> '+'
-%type<syntaxTree> '-'
-%type<syntaxTree> '>'
-%type<syntaxTree> '<'
-%type<syntaxTree> '*'
-%type<syntaxTree> '/'
+%type<valor_simbolo_lexico> '%'
+%type<valor_simbolo_lexico> '+'
+%type<valor_simbolo_lexico> '-'
+%type<valor_simbolo_lexico> '>'
+%type<valor_simbolo_lexico> '<'
+%type<valor_simbolo_lexico> '*'
+%type<valor_simbolo_lexico> '/'
+%type<valor_simbolo_lexico> '='
 %type<syntaxTree> ';'
 %type<syntaxTree> '{'
 %type<syntaxTree> '}'
-
-%type<syntaxTree> literal
+%type<valor_simbolo_lexico> '!'
+%type<syntaxTree> inverte
+%type<valor_simbolo_lexico> literal
 %type<valor_simbolo_lexico> parametros
 %type<valor_simbolo_lexico> parametros_vazio
 %type<valor_simbolo_lexico> lista_parametros
@@ -95,7 +97,7 @@ clock_t sec;
 /* $$ = start 
    $1 = programa
 */
-start: programa {$$ = createNode(AST_PROGRAMA,NULL);printf("%d, final\n",sec = clock());gv_create_initial_tree($$);gv_create_subtree($$,$1); syntaxTree = $$; printf("OI!\n");}
+start: programa {$$ = createNode(AST_PROGRAMA,NULL);appendChildNode($$,$1);gv_create_initial_tree($$); syntaxTree = $$;}
 	;
 /* $$ = programa 
    $1 = declaracao_global
@@ -107,7 +109,7 @@ start: programa {$$ = createNode(AST_PROGRAMA,NULL);printf("%d, final\n",sec = c
 */
 programa
 	: declaracao_global ';' programa {$$=$1;}
-	| declarar_funcao programa {$$ = $1;printf("%d, %s\n",sec = clock(),$1->tableItem->key);gv_create_subtree($$,$2);}
+	| declarar_funcao programa {$$ = $1;appendChildNode($$,$2);}
 	| {$$ = NULL;} 
 	;
 
@@ -118,7 +120,7 @@ declaracao_global
 	;
 
 declarar_funcao	
-	: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}' {$$ = createNode(AST_FUNCAO,$2);appendNewNode($$,$7);}
+	: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}' {$$ = createNode(AST_FUNCAO,$2);appendChildNode($$,$7);}
 	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}'
 	;
 
@@ -155,8 +157,8 @@ valor
 	;
 
 ID
-	: TK_IDENTIFICADOR 
-	| TK_IDENTIFICADOR  '[' expressao ']' 
+	: TK_IDENTIFICADOR {$$ = createNode(AST_IDENTIFICADOR,$1);}
+	| TK_IDENTIFICADOR  '[' expressao ']' {$$ = createNode(AST_VETOR_INDEXADO,$1); appendChildNode($$,$3);}
 	;
 
 
@@ -164,8 +166,11 @@ ID
 
 
 atribuicao
-	: ID '=' '-' expressao
-	| ID '=' expressao
+	: ID '=' inverte expressao {$$ = createNode(AST_ATRIBUICAO,$2); appendChildNode($$,$1);appendChildNode($$,$3);appendChildNode($3,$4);}
+	| ID '=' expressao {$$ = createNode(AST_ATRIBUICAO,$2); appendChildNode($$,$1);appendChildNode($$,$3);}
+	;
+inverte
+	: '-' {$$ = createNode(AST_ARIM_INVERSAO,NULL);}
 	;
 
 
@@ -182,7 +187,7 @@ qualificador_tipo
 
 
 bloco_comando
-	:  comando ';' bloco_comando {$$ = $1};
+	:  comando ';' bloco_comando {$$ = $1; appendChildNode($$,$3);} 
 	|  comando {$$ = $1;}
 	| ';' {$$ = $1;}
 	|{$$ = NULL;}
@@ -194,9 +199,9 @@ comando
 	: retorno 
 	| atribuicao
 	| declaracao_local 
-    | controle_fluxo 
-	| '{' bloco_comando '}' { $$ = createNode(AST_BLOCO, NULL); gv_create_subtree($$,$2);}
-	| entrada
+    | controle_fluxo {$$ = $1;}
+	| '{' bloco_comando '}' { $$ = createNode(AST_BLOCO, NULL);appendChildNode($$,$2);}
+	| entrada {$$ = $1;}
 	| chamada_funcao 
 	| saida 
 	;
@@ -217,7 +222,7 @@ lista_parametros
 	;
 
 entrada
-	: TK_PR_INPUT expressao "=>" expressao 
+	: TK_PR_INPUT expressao '=''>' expressao {$$ = createNode(AST_INPUT, NULL); appendChildNode($$,$2);appendChildNode($$,$5);}
 	;
 
 saida
@@ -240,10 +245,10 @@ mais_de_uma
 
 
 controle_fluxo
-	: TK_PR_IF '(' expressao_controle ')'  TK_PR_THEN comando TK_PR_ELSE comando
-	| TK_PR_IF '(' expressao_controle ')'  TK_PR_THEN comando %prec LOWER_THAN_ELSE
-	| TK_PR_WHILE '(' expressao_controle ')' TK_PR_DO comando
-	| TK_PR_DO comando TK_PR_WHILE '(' expressao_controle ')'
+	: TK_PR_IF '(' expressao ')'  TK_PR_THEN comando TK_PR_ELSE comando {$$ = createNode(AST_IF_ELSE,NULL); appendChildNode($$,$3);appendChildNode($$,$6);appendChildNode($$,$8);}
+	| TK_PR_IF '(' expressao ')'  TK_PR_THEN comando %prec LOWER_THAN_ELSE {$$ = createNode(AST_IF_ELSE,NULL); appendChildNode($$,$3);appendChildNode($$,$6);}
+	| TK_PR_WHILE '(' expressao ')' TK_PR_DO comando {$$ = createNode(AST_WHILE_DO,NULL); appendChildNode($$,$3);appendChildNode($$,$6);}
+	| TK_PR_DO comando TK_PR_WHILE '(' expressao ')' {$$ = createNode(AST_DO_WHILE,NULL); appendChildNode($$,$2);appendChildNode($$,$5);}
 	;
 
 
@@ -257,26 +262,27 @@ chamada_funcao
 	;
 
 operador_aritmetico
-	: '+'
-	| '-'
-	| '*'
-	| '/'
-	| '%'
+	: '+' {$$ = createNode(AST_ARIM_SOMA, NULL);}
+	| '-' {$$ = createNode(AST_ARIM_SUBTRACAO, NULL);}
+	| '*' {$$ = createNode(AST_ARIM_MULTIPLICACAO, NULL);}
+	| '/' {$$ = createNode(AST_ARIM_DIVISAO, NULL);}
+	| '%' {$$ = createNode(AST_LOGICO_COMP_LE, NULL);}
 	;
 
 operador_logico
-	: TK_OC_LE
-	| TK_OC_GE
-	| TK_OC_EQ
-	| TK_OC_NE
-	| TK_OC_AND
-	| TK_OC_OR
-	| '<'
-	| '>'
+	: TK_OC_LE  {$$ = createNode(AST_LOGICO_COMP_LE, NULL);}
+	| TK_OC_GE  {$$ = createNode(AST_LOGICO_COMP_GE, NULL);}
+	| TK_OC_EQ  {$$ = createNode(AST_LOGICO_COMP_IGUAL, NULL);}
+	| TK_OC_NE  {$$ = createNode(AST_LOGICO_COMP_DIF, NULL);}
+	| TK_OC_AND {$$ = createNode(AST_LOGICO_E, NULL);}
+	| TK_OC_OR  {$$ = createNode(AST_LOGICO_OU, NULL);}
+	| '<'       {$$ = createNode(AST_LOGICO_COMP_L, NULL);}
+	| '>'       {$$ = createNode(AST_LOGICO_COMP_G, NULL);}
+	| '!'		{$$ = createNode(AST_LOGICO_COMP_NEGACAO, NULL);}
 	;
 	
 expressao 
-	: literal tem_operador
+	: literal tem_operador {$$ = createNode(AST_LITERAL, $1);} 
 	| ID tem_operador
 	| chamada_funcao tem_operador
 	;
@@ -284,16 +290,15 @@ expressao
 tem_operador
 	: operador_aritmetico expressao
 	| operador_aritmetico '(' expressao ')'
+	| operador_logico expressao
+	| operador_logico '(' expressao ')'
 	| {$$ = NULL;}
 	;
 
 
 
 
-expressao_controle
-	: expressao operador_logico expressao expressao_controle
-	| {$$ = NULL;}
-	;
+
 
 
 %%

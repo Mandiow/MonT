@@ -30,8 +30,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-#ifndef YY_YY_HOME_MANDIOW_REA_DE_TRABALHO_MONT_BUILD_PARSER_H_INCLUDED
-# define YY_YY_HOME_MANDIOW_REA_DE_TRABALHO_MONT_BUILD_PARSER_H_INCLUDED
+#ifndef YY_YY_HOME_DOKIE_DESKTOP_COMP_TF_2015_1_MONT_BUILD_PARSER_H_INCLUDED
+# define YY_YY_HOME_DOKIE_DESKTOP_COMP_TF_2015_1_MONT_BUILD_PARSER_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -66,15 +66,16 @@ extern int yydebug;
     TK_OC_NE = 276,
     TK_OC_AND = 277,
     TK_OC_OR = 278,
-    TK_LIT_INT = 279,
-    TK_LIT_FLOAT = 280,
-    TK_LIT_FALSE = 281,
-    TK_LIT_TRUE = 282,
-    TK_LIT_CHAR = 283,
-    TK_LIT_STRING = 284,
-    TK_IDENTIFICADOR = 285,
-    TOKEN_ERRO = 286,
-    LOWER_THAN_ELSE = 287
+    TK_OC_NOT = 279,
+    TK_LIT_INT = 280,
+    TK_LIT_FLOAT = 281,
+    TK_LIT_FALSE = 282,
+    TK_LIT_TRUE = 283,
+    TK_LIT_CHAR = 284,
+    TK_LIT_STRING = 285,
+    TK_IDENTIFICADOR = 286,
+    TOKEN_ERRO = 287,
+    LOWER_THAN_ELSE = 288
   };
 #endif
 
@@ -89,7 +90,7 @@ union YYSTYPE
 	struct comp_dict_item_t *valor_simbolo_lexico;
 
 
-#line 93 "/home/mandiow/Área de Trabalho/MonT/build/parser.h" /* yacc.c:1909  */
+#line 94 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.h" /* yacc.c:1909  */
 };
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
@@ -100,4 +101,4 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_HOME_MANDIOW_REA_DE_TRABALHO_MONT_BUILD_PARSER_H_INCLUDED  */
+#endif /* !YY_YY_HOME_DOKIE_DESKTOP_COMP_TF_2015_1_MONT_BUILD_PARSER_H_INCLUDED  */

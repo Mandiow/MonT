@@ -1,6 +1,6 @@
-#line 2 "/home/mandiow/Área de Trabalho/MonT/build/scanner.c"
+#line 2 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/scanner.c"
 
-#line 4 "/home/mandiow/Área de Trabalho/MonT/build/scanner.c"
+#line 4 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/scanner.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -369,8 +369,8 @@ static void yy_fatal_error (yyconst char msg[]  );
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
 
-#define YY_NUM_RULES 42
-#define YY_END_OF_BUFFER 43
+#define YY_NUM_RULES 43
+#define YY_END_OF_BUFFER 44
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -380,20 +380,20 @@ struct yy_trans_info
 	};
 static yyconst flex_int16_t yy_accept[129] =
     {   0,
-        0,    0,    0,    0,   43,   40,   17,   26,   19,   18,
-       16,   27,   40,   27,   40,   27,   40,   27,   33,   27,
-       27,   27,   39,   39,   39,   39,   39,   39,   39,   39,
-       39,   39,   39,   39,   40,   29,   30,   29,   23,    0,
-       36,    0,    0,   24,    0,   28,   32,    0,   33,    0,
-       20,   22,   21,   39,   39,   39,   39,   10,   39,   39,
-       39,    6,   39,   39,   39,   39,   39,   39,   39,   25,
-       31,    0,   35,   32,   34,    0,   34,   39,   39,   39,
-       39,   39,   39,   39,    1,   39,   39,   39,   39,   39,
-       39,   39,    0,    3,    4,   39,    8,   39,   39,   39,
+        0,    0,    0,    0,   44,   41,   17,   26,   19,   18,
+       16,   27,   41,   28,   41,   28,   41,   28,   34,   28,
+       28,   28,   40,   40,   40,   40,   40,   40,   40,   40,
+       40,   40,   40,   40,   41,   30,   31,   30,   23,    0,
+       37,    0,    0,   24,    0,   29,   33,    0,   34,    0,
+       20,   22,   21,   40,   40,   40,   40,   10,   40,   40,
+       40,    6,   40,   40,   40,   40,   40,   40,   40,   25,
+       32,    0,   36,   33,   35,    0,   35,   40,   40,   40,
+       40,   40,   40,   40,    1,   40,   40,   40,   40,   40,
+       40,   40,    0,    3,    4,   40,    8,   40,   40,   40,
 
-       39,   39,   39,   39,    7,   38,   39,    0,   14,   37,
-        2,   11,   39,   39,   39,   39,    9,    0,   12,   13,
-       15,    5,    0,    0,    0,    0,   41,    0
+       40,   40,   40,   40,    7,   39,   40,    0,   14,   38,
+        2,   11,   40,   40,   40,   40,    9,    0,   12,   13,
+       15,    5,    0,    0,    0,    0,   42,    0
     } ;
 
 static yyconst flex_int32_t yy_ec[256] =
@@ -582,7 +582,7 @@ char *yytext;
 		
 		
 
-#line 586 "/home/mandiow/Área de Trabalho/MonT/build/scanner.c"
+#line 586 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/scanner.c"
 
 #define INITIAL 0
 #define comment 1
@@ -773,7 +773,7 @@ YY_DECL
 #line 53 "scanner.l"
 
 
-#line 777 "/home/mandiow/Área de Trabalho/MonT/build/scanner.c"
+#line 777 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/scanner.c"
 
 	if ( !(yy_init) )
 		{
@@ -989,87 +989,92 @@ YY_RULE_SETUP
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 85 "scanner.l"
-{return yytext[0];}
+#line 84 "scanner.l"
+{return TK_OC_NOT;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
 #line 86 "scanner.l"
-{BEGIN(comment);}
+{return yytext[0];}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
 #line 87 "scanner.l"
-{ }
+{BEGIN(comment);}
 	YY_BREAK
 case 30:
-/* rule 30 can match eol */
 YY_RULE_SETUP
 #line 88 "scanner.l"
-{lineNumber++;}
+{ }
 	YY_BREAK
 case 31:
+/* rule 31 can match eol */
 YY_RULE_SETUP
 #line 89 "scanner.l"
-{BEGIN(INITIAL);}
+{lineNumber++;}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 91 "scanner.l"
-{}
+#line 90 "scanner.l"
+{BEGIN(INITIAL);}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
 #line 92 "scanner.l"
-{yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_INT,lineNumber); return TK_LIT_INT;}
+{}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
 #line 93 "scanner.l"
-{yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_FLOAT,lineNumber); return TK_LIT_FLOAT;}
+{yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_INT,lineNumber); return TK_LIT_INT;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
 #line 94 "scanner.l"
-{yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_CHAR,lineNumber); return TK_LIT_CHAR;}
+{yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_FLOAT,lineNumber); return TK_LIT_FLOAT;}
 	YY_BREAK
 case 36:
-/* rule 36 can match eol */
 YY_RULE_SETUP
 #line 95 "scanner.l"
-{yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext, SIMBOLO_LITERAL_STRING,lineNumber); return TK_LIT_STRING;}
+{yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_CHAR,lineNumber); return TK_LIT_CHAR;}
 	YY_BREAK
 case 37:
+/* rule 37 can match eol */
 YY_RULE_SETUP
 #line 96 "scanner.l"
-{yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_BOOL,lineNumber); return TK_LIT_FALSE;}
+{yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext, SIMBOLO_LITERAL_STRING,lineNumber); return TK_LIT_STRING;}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
 #line 97 "scanner.l"
-{yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_BOOL,lineNumber); return TK_LIT_TRUE;}
+{yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_BOOL,lineNumber); return TK_LIT_FALSE;}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
 #line 98 "scanner.l"
-{yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_IDENTIFICADOR,lineNumber); return TK_IDENTIFICADOR;}
+{yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_BOOL,lineNumber); return TK_LIT_TRUE;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 101 "scanner.l"
-{return TOKEN_ERRO;}
+#line 99 "scanner.l"
+{yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_IDENTIFICADOR,lineNumber); return TK_IDENTIFICADOR;}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
 #line 102 "scanner.l"
-{free(yylval.valor_simbolo_lexico);}
+{return TOKEN_ERRO;}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
 #line 103 "scanner.l"
+{free(yylval.valor_simbolo_lexico);}
+	YY_BREAK
+case 43:
+YY_RULE_SETUP
+#line 104 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 1073 "/home/mandiow/Área de Trabalho/MonT/build/scanner.c"
+#line 1078 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/scanner.c"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(comment):
 	yyterminate();
@@ -2068,7 +2073,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 103 "scanner.l"
+#line 104 "scanner.l"
 
 
 

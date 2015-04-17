@@ -1,4 +1,7 @@
 digraph G {
-node_0x254f570 [label="f"]
-node_0x254f5c0 -> node_0x254f570
+node_0xdc75c0 [label="programa"]
+node_0xdc7570 [label="f"]
+node_0xdc75c0 -> node_0xdc7570
+node_0xdc7430 [label="whiledo"]
+node_0xdc7570 -> node_0xdc7430
 }

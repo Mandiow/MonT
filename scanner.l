@@ -81,6 +81,7 @@ static				 {return TK_PR_STATIC;}
 "&&" 				       {return TK_OC_AND;}
 "||" 				       {return TK_OC_OR;}
 "\n"				       {++lineNumber;}
+"!"               {return TK_OC_NOT;}
 
 [,;:(){}\[\]{}\+\-\*<>=!&$\/]          		   {return yytext[0];}
 "/*" 				       {BEGIN(comment);}

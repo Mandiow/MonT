@@ -1,4 +1,19 @@
 digraph G {
-node_0x1f8f520 [label="f"]
-node_0x1f8f570 -> node_0x1f8f520
+node_0x1aaf6f0 [label="programa"]
+node_0x1aaf6a0 [label="	"]
+node_0x1aaf6f0 -> node_0x1aaf6a0
+node_0x1aaf590 [label="block"]
+node_0x1aaf6a0 -> node_0x1aaf590
+node_0x1aaf480 [label="block"]
+node_0x1aaf590 -> node_0x1aaf480
+node_0x1aaf3e0 [label="ifelse"]
+node_0x1aaf480 -> node_0x1aaf3e0
+node_0x1aaf520 [label="block"]
+node_0x1aaf480 -> node_0x1aaf520
+node_0x1aaf430 [label="whiledo"]
+node_0x1aaf520 -> node_0x1aaf430
+node_0x1aaf630 [label="block"]
+node_0x1aaf590 -> node_0x1aaf630
+node_0x1aaf4d0 [label="whiledo"]
+node_0x1aaf630 -> node_0x1aaf4d0
 }

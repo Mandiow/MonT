@@ -40,11 +40,11 @@ cc_tree.h
 parser.h
 ../include/parser.h
 
-/home/mandiow/Área de Trabalho/MonT/build/parser.c
+/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c
 stdio.h
 -
 main.h
-/home/mandiow/Área de Trabalho/MonT/build/main.h
+/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/main.h
 time.h
 -
 stddef.h
@@ -62,9 +62,9 @@ stdlib.h
 stdio.h
 -
 
-/home/mandiow/Área de Trabalho/MonT/build/parser.h
+/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.h
 
-/home/mandiow/Área de Trabalho/MonT/build/scanner.c
+/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/scanner.c
 stdio.h
 -
 string.h
@@ -76,15 +76,15 @@ stdlib.h
 inttypes.h
 -
 parser.h
-/home/mandiow/Área de Trabalho/MonT/build/parser.h
+/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.h
 main.h
-/home/mandiow/Área de Trabalho/MonT/build/main.h
+/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/main.h
 unistd.h
 -
 
-/home/mandiow/Área de Trabalho/MonT/src/main.c
+/home/dokie/Desktop/Comp-TF-2015-1/MonT/src/main.c
 main.h
-/home/mandiow/Área de Trabalho/MonT/src/main.h
+/home/dokie/Desktop/Comp-TF-2015-1/MonT/src/main.h
 
 parser.h
 
