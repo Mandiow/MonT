@@ -1,7 +1,13 @@
 digraph G {
-node_0x84a570 [label="programa"]
-node_0x84a520 [label=""]
-node_0x84a570 -> node_0x84a520
-node_0x84a3e0 [label="ifelse"]
-node_0x84a520 -> node_0x84a3e0
+node_0x18616b0 [label="programa"]
+node_0x1861660 [label="f"]
+node_0x18616b0 -> node_0x1861660
+node_0x1861610 [label="output"]
+node_0x1861660 -> node_0x1861610
+node_0x1861480 [label="x"]
+node_0x1861610 -> node_0x1861480
+node_0x1861520 [label="y"]
+node_0x1861480 -> node_0x1861520
+node_0x18615c0 [label="z"]
+node_0x1861520 -> node_0x18615c0
 }

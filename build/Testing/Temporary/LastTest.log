@@ -1,10 +1,10 @@
-Start testing: Apr 16 18:44 BRT
+Start testing: Apr 17 03:39 BRT
 ----------------------------------------------------------
 146/345 Testing: e3_avaliacao_01
 146/345 Test: e3_avaliacao_01
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_01.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_01" start time: Apr 16 18:44 BRT
+"e3_avaliacao_01" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_01'
@@ -15,7 +15,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_01' OK
 Test time =   0.16 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_01" end time: Apr 16 18:44 BRT
+"e3_avaliacao_01" end time: Apr 17 03:39 BRT
 "e3_avaliacao_01" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -23,7 +23,7 @@ Test Passed.
 147/345 Test: e3_avaliacao_02
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_02.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_02" start time: Apr 16 18:44 BRT
+"e3_avaliacao_02" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_02'
@@ -31,10 +31,10 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_02'
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_02.tesh:3> as requested)
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_02' OK
 <end of output>
-Test time =   0.14 sec
+Test time =   0.12 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_02" end time: Apr 16 18:44 BRT
+"e3_avaliacao_02" end time: Apr 17 03:39 BRT
 "e3_avaliacao_02" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -42,7 +42,7 @@ Test Passed.
 148/345 Test: e3_avaliacao_03
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_03.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_03" start time: Apr 16 18:44 BRT
+"e3_avaliacao_03" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_03'
@@ -50,10 +50,10 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_03'
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_03.tesh:3> as requested)
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_03' OK
 <end of output>
-Test time =   0.20 sec
+Test time =   0.13 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_03" end time: Apr 16 18:44 BRT
+"e3_avaliacao_03" end time: Apr 17 03:39 BRT
 "e3_avaliacao_03" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -61,7 +61,7 @@ Test Passed.
 149/345 Test: e3_avaliacao_04
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_04.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_04" start time: Apr 16 18:44 BRT
+"e3_avaliacao_04" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_04'
@@ -69,10 +69,10 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_04'
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_04.tesh:3> as requested)
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_04' OK
 <end of output>
-Test time =   0.15 sec
+Test time =   0.17 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_04" end time: Apr 16 18:44 BRT
+"e3_avaliacao_04" end time: Apr 17 03:39 BRT
 "e3_avaliacao_04" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -80,7 +80,7 @@ Test Passed.
 150/345 Test: e3_avaliacao_05
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_05.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_05" start time: Apr 16 18:44 BRT
+"e3_avaliacao_05" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_05'
@@ -91,7 +91,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_05' OK
 Test time =   0.19 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_05" end time: Apr 16 18:44 BRT
+"e3_avaliacao_05" end time: Apr 17 03:39 BRT
 "e3_avaliacao_05" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -99,20 +99,18 @@ Test Passed.
 151/345 Test: e3_avaliacao_06
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_06.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_06" start time: Apr 16 18:44 BRT
+"e3_avaliacao_06" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_06'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_06:3] ./tests/e3/verify main tests/e3/input/i05.iks tests/e3/expected/i05.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_06.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_06.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_06.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_06.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_06' OK
 <end of output>
-Test time =   0.06 sec
+Test time =   0.20 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_06" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_06" end time: Apr 17 03:39 BRT
 "e3_avaliacao_06" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -120,20 +118,18 @@ Test Failed.
 152/345 Test: e3_avaliacao_07
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_07.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_07" start time: Apr 16 18:44 BRT
+"e3_avaliacao_07" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_07'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_07:3] ./tests/e3/verify main tests/e3/input/i06.iks tests/e3/expected/i06.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_07.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_07.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_07.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_07.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_07' OK
 <end of output>
-Test time =   0.05 sec
+Test time =   0.18 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_07" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_07" end time: Apr 17 03:39 BRT
 "e3_avaliacao_07" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -141,20 +137,18 @@ Test Failed.
 153/345 Test: e3_avaliacao_08
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_08.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_08" start time: Apr 16 18:44 BRT
+"e3_avaliacao_08" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_08'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_08:3] ./tests/e3/verify main tests/e3/input/i07.iks tests/e3/expected/i07.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_08.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_08.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_08.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_08.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_08' OK
 <end of output>
-Test time =   0.04 sec
+Test time =   0.14 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_08" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_08" end time: Apr 17 03:39 BRT
 "e3_avaliacao_08" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -162,20 +156,18 @@ Test Failed.
 154/345 Test: e3_avaliacao_09
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_09.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_09" start time: Apr 16 18:44 BRT
+"e3_avaliacao_09" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_09'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_09:3] ./tests/e3/verify main tests/e3/input/i08.iks tests/e3/expected/i08.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_09.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_09.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_09.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_09.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_09' OK
 <end of output>
-Test time =   0.05 sec
+Test time =   0.16 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_09" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_09" end time: Apr 17 03:39 BRT
 "e3_avaliacao_09" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -183,20 +175,18 @@ Test Failed.
 155/345 Test: e3_avaliacao_10
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_10.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_10" start time: Apr 16 18:44 BRT
+"e3_avaliacao_10" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_10'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_10:3] ./tests/e3/verify main tests/e3/input/i09.iks tests/e3/expected/i09.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_10.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_10.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_10.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_10.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_10' OK
 <end of output>
-Test time =   0.05 sec
+Test time =   0.20 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_10" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_10" end time: Apr 17 03:39 BRT
 "e3_avaliacao_10" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -204,20 +194,18 @@ Test Failed.
 156/345 Test: e3_avaliacao_11
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_11.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_11" start time: Apr 16 18:44 BRT
+"e3_avaliacao_11" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_11'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_11:3] ./tests/e3/verify main tests/e3/input/i10.iks tests/e3/expected/i10.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_11.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_11.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_11.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_11.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_11' OK
 <end of output>
-Test time =   0.17 sec
+Test time =   0.15 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_11" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_11" end time: Apr 17 03:39 BRT
 "e3_avaliacao_11" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -225,20 +213,18 @@ Test Failed.
 157/345 Test: e3_avaliacao_12
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_12.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_12" start time: Apr 16 18:44 BRT
+"e3_avaliacao_12" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_12'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_12:3] ./tests/e3/verify main tests/e3/input/i11.iks tests/e3/expected/i11.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_12.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_12.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_12.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_12.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_12' OK
 <end of output>
-Test time =   0.19 sec
+Test time =   0.17 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_12" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_12" end time: Apr 17 03:39 BRT
 "e3_avaliacao_12" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -246,20 +232,18 @@ Test Failed.
 158/345 Test: e3_avaliacao_13
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_13.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_13" start time: Apr 16 18:44 BRT
+"e3_avaliacao_13" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_13'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_13:3] ./tests/e3/verify main tests/e3/input/i12.iks tests/e3/expected/i12.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_13.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_13.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_13.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_13.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_13' OK
 <end of output>
-Test time =   0.16 sec
+Test time =   0.21 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_13" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_13" end time: Apr 17 03:39 BRT
 "e3_avaliacao_13" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -267,20 +251,18 @@ Test Failed.
 159/345 Test: e3_avaliacao_14
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_14.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_14" start time: Apr 16 18:44 BRT
+"e3_avaliacao_14" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_14'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_14:3] ./tests/e3/verify main tests/e3/input/i13.iks tests/e3/expected/i13.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_14.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_14.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_14.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_14.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_14' OK
 <end of output>
-Test time =   0.16 sec
+Test time =   0.15 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_14" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_14" end time: Apr 17 03:39 BRT
 "e3_avaliacao_14" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -288,20 +270,18 @@ Test Failed.
 160/345 Test: e3_avaliacao_15
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_15.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_15" start time: Apr 16 18:44 BRT
+"e3_avaliacao_15" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_15'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_15:3] ./tests/e3/verify main tests/e3/input/i14.iks tests/e3/expected/i14.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_15.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_15.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_15.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_15.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_15' OK
 <end of output>
-Test time =   0.14 sec
+Test time =   0.15 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_15" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_15" end time: Apr 17 03:39 BRT
 "e3_avaliacao_15" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -309,20 +289,18 @@ Test Failed.
 161/345 Test: e3_avaliacao_16
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_16.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_16" start time: Apr 16 18:44 BRT
+"e3_avaliacao_16" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_16'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_16:3] ./tests/e3/verify main tests/e3/input/i15.iks tests/e3/expected/i15.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_16.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_16.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_16.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_16.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_16' OK
 <end of output>
-Test time =   0.17 sec
+Test time =   0.16 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_16" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_16" end time: Apr 17 03:39 BRT
 "e3_avaliacao_16" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -330,20 +308,18 @@ Test Failed.
 162/345 Test: e3_avaliacao_17
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_17.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_17" start time: Apr 16 18:44 BRT
+"e3_avaliacao_17" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_17'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_17:3] ./tests/e3/verify main tests/e3/input/i16.iks tests/e3/expected/i16.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_17.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_17.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_17.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_17.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_17' OK
 <end of output>
-Test time =   0.20 sec
+Test time =   0.17 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_17" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_17" end time: Apr 17 03:39 BRT
 "e3_avaliacao_17" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -351,20 +327,18 @@ Test Failed.
 163/345 Test: e3_avaliacao_18
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_18.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_18" start time: Apr 16 18:44 BRT
+"e3_avaliacao_18" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_18'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_18:3] ./tests/e3/verify main tests/e3/input/i17.iks tests/e3/expected/i17.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_18.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_18.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_18.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_18.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_18' OK
 <end of output>
-Test time =   0.18 sec
+Test time =   0.19 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_18" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_18" end time: Apr 17 03:39 BRT
 "e3_avaliacao_18" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -372,20 +346,18 @@ Test Failed.
 164/345 Test: e3_avaliacao_19
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_19.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_19" start time: Apr 16 18:44 BRT
+"e3_avaliacao_19" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_19'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_19:3] ./tests/e3/verify main tests/e3/input/i18.iks tests/e3/expected/i18.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_19.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_19.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_19.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_19.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_19' OK
 <end of output>
-Test time =   0.19 sec
+Test time =   0.17 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_19" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_19" end time: Apr 17 03:39 BRT
 "e3_avaliacao_19" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -393,20 +365,18 @@ Test Failed.
 165/345 Test: e3_avaliacao_20
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_20.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_20" start time: Apr 16 18:44 BRT
+"e3_avaliacao_20" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_20'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_20:3] ./tests/e3/verify main tests/e3/input/i19.iks tests/e3/expected/i19.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_20.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_20.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_20.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_20.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_20' OK
 <end of output>
-Test time =   0.16 sec
+Test time =   0.22 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_20" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_20" end time: Apr 17 03:39 BRT
 "e3_avaliacao_20" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -414,20 +384,18 @@ Test Failed.
 166/345 Test: e3_avaliacao_21
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_21.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_21" start time: Apr 16 18:44 BRT
+"e3_avaliacao_21" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_21'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_21:3] ./tests/e3/verify main tests/e3/input/i20.iks tests/e3/expected/i20.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_21.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_21.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_21.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_21.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_21' OK
 <end of output>
-Test time =   0.12 sec
+Test time =   0.20 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_21" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_21" end time: Apr 17 03:39 BRT
 "e3_avaliacao_21" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -435,20 +403,18 @@ Test Failed.
 167/345 Test: e3_avaliacao_22
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_22.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_22" start time: Apr 16 18:44 BRT
+"e3_avaliacao_22" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_22'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_22:3] ./tests/e3/verify main tests/e3/input/i21.iks tests/e3/expected/i21.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_22.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_22.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_22.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_22.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_22' OK
 <end of output>
-Test time =   0.15 sec
+Test time =   0.18 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_22" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_22" end time: Apr 17 03:39 BRT
 "e3_avaliacao_22" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -456,20 +422,18 @@ Test Failed.
 168/345 Test: e3_avaliacao_23
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_23.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_23" start time: Apr 16 18:44 BRT
+"e3_avaliacao_23" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_23'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_23:3] ./tests/e3/verify main tests/e3/input/i22.iks tests/e3/expected/i22.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_23.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_23.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_23.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_23.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_23' OK
 <end of output>
-Test time =   0.19 sec
+Test time =   0.20 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_23" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_23" end time: Apr 17 03:39 BRT
 "e3_avaliacao_23" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -477,20 +441,18 @@ Test Failed.
 169/345 Test: e3_avaliacao_24
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_24.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_24" start time: Apr 16 18:44 BRT
+"e3_avaliacao_24" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_24'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_24:3] ./tests/e3/verify main tests/e3/input/i23.iks tests/e3/expected/i23.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_24.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_24.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_24.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_24.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_24' OK
 <end of output>
-Test time =   0.20 sec
+Test time =   0.22 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_24" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_24" end time: Apr 17 03:39 BRT
 "e3_avaliacao_24" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -498,20 +460,18 @@ Test Failed.
 170/345 Test: e3_avaliacao_25
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_25.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_25" start time: Apr 16 18:44 BRT
+"e3_avaliacao_25" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_25'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_25:3] ./tests/e3/verify main tests/e3/input/i24.iks tests/e3/expected/i24.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_25.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_25.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_25.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_25.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_25' OK
 <end of output>
-Test time =   0.16 sec
+Test time =   0.19 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_25" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_25" end time: Apr 17 03:39 BRT
 "e3_avaliacao_25" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -519,20 +479,18 @@ Test Failed.
 171/345 Test: e3_avaliacao_26
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_26.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_26" start time: Apr 16 18:44 BRT
+"e3_avaliacao_26" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_26'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_26:3] ./tests/e3/verify main tests/e3/input/i25.iks tests/e3/expected/i25.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_26.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_26.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_26.tesh:3> so far:
-|| stat: cannot stat ‘tests/e3/expected/i25.png’: No such file or directory
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_26.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_26' OK
 <end of output>
-Test time =   0.22 sec
+Test time =   0.17 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_26" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_26" end time: Apr 17 03:39 BRT
 "e3_avaliacao_26" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -540,20 +498,18 @@ Test Failed.
 172/345 Test: e3_avaliacao_27
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_27.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_27" start time: Apr 16 18:44 BRT
+"e3_avaliacao_27" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_27'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_27:3] ./tests/e3/verify main tests/e3/input/i26.iks tests/e3/expected/i26.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_27.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_27.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_27.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_27.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_27' OK
 <end of output>
-Test time =   0.05 sec
+Test time =   0.13 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_27" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_27" end time: Apr 17 03:39 BRT
 "e3_avaliacao_27" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -561,20 +517,18 @@ Test Failed.
 173/345 Test: e3_avaliacao_28
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_28.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_28" start time: Apr 16 18:44 BRT
+"e3_avaliacao_28" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_28'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_28:3] ./tests/e3/verify main tests/e3/input/i27.iks tests/e3/expected/i27.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_28.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_28.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_28.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_28.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_28' OK
 <end of output>
-Test time =   0.04 sec
+Test time =   0.14 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_28" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_28" end time: Apr 17 03:39 BRT
 "e3_avaliacao_28" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -582,20 +536,18 @@ Test Failed.
 174/345 Test: e3_avaliacao_29
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_29.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_29" start time: Apr 16 18:44 BRT
+"e3_avaliacao_29" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_29'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_29:3] ./tests/e3/verify main tests/e3/input/i28.iks tests/e3/expected/i28.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_29.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_29.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_29.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_29.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_29' OK
 <end of output>
-Test time =   0.04 sec
+Test time =   0.15 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_29" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_29" end time: Apr 17 03:39 BRT
 "e3_avaliacao_29" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -603,20 +555,18 @@ Test Failed.
 175/345 Test: e3_avaliacao_30
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_30.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_30" start time: Apr 16 18:44 BRT
+"e3_avaliacao_30" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_30'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_30:3] ./tests/e3/verify main tests/e3/input/i29.iks tests/e3/expected/i29.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_30.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_30.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_30.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_30.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_30' OK
 <end of output>
-Test time =   0.03 sec
+Test time =   0.18 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_30" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_30" end time: Apr 17 03:39 BRT
 "e3_avaliacao_30" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -624,20 +574,18 @@ Test Failed.
 176/345 Test: e3_avaliacao_31
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_31.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_31" start time: Apr 16 18:44 BRT
+"e3_avaliacao_31" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_31'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_31:3] ./tests/e3/verify main tests/e3/input/i30.iks tests/e3/expected/i30.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_31.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_31.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_31.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_31.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_31' OK
 <end of output>
-Test time =   0.03 sec
+Test time =   0.19 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_31" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_31" end time: Apr 17 03:39 BRT
 "e3_avaliacao_31" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -645,20 +593,18 @@ Test Failed.
 177/345 Test: e3_avaliacao_32
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_32.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_32" start time: Apr 16 18:44 BRT
+"e3_avaliacao_32" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_32'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_32:3] ./tests/e3/verify main tests/e3/input/i31.iks tests/e3/expected/i31.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_32.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_32.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_32.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_32.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_32' OK
 <end of output>
-Test time =   0.03 sec
+Test time =   0.18 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_32" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_32" end time: Apr 17 03:39 BRT
 "e3_avaliacao_32" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -666,20 +612,18 @@ Test Failed.
 178/345 Test: e3_avaliacao_33
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_33.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_33" start time: Apr 16 18:44 BRT
+"e3_avaliacao_33" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_33'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_33:3] ./tests/e3/verify main tests/e3/input/i32.iks tests/e3/expected/i32.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_33.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_33.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_33.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_33.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_33' OK
 <end of output>
-Test time =   0.03 sec
+Test time =   0.21 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_33" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_33" end time: Apr 17 03:39 BRT
 "e3_avaliacao_33" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -687,20 +631,18 @@ Test Failed.
 179/345 Test: e3_avaliacao_34
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_34.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_34" start time: Apr 16 18:44 BRT
+"e3_avaliacao_34" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_34'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_34:3] ./tests/e3/verify main tests/e3/input/i33.iks tests/e3/expected/i33.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_34.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_34.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_34.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_34.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_34' OK
 <end of output>
-Test time =   0.05 sec
+Test time =   0.19 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_34" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_34" end time: Apr 17 03:39 BRT
 "e3_avaliacao_34" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -708,20 +650,18 @@ Test Failed.
 180/345 Test: e3_avaliacao_35
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_35.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_35" start time: Apr 16 18:44 BRT
+"e3_avaliacao_35" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_35'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_35:3] ./tests/e3/verify main tests/e3/input/i34.iks tests/e3/expected/i34.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_35.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_35.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_35.tesh:3> so far:
-||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_35.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_35' OK
 <end of output>
-Test time =   0.04 sec
+Test time =   0.19 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_35" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_35" end time: Apr 17 03:39 BRT
 "e3_avaliacao_35" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -729,20 +669,18 @@ Test Failed.
 181/345 Test: e3_avaliacao_36
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_36.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_36" start time: Apr 16 18:44 BRT
+"e3_avaliacao_36" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_36'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_36:3] ./tests/e3/verify main tests/e3/input/i35.iks tests/e3/expected/i35.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_36.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_36.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_36.tesh:3> so far:
-|| stat: cannot stat ‘tests/e3/expected/i35.png’: No such file or directory
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_36.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_36' OK
 <end of output>
-Test time =   0.19 sec
+Test time =   0.18 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_36" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_36" end time: Apr 17 03:39 BRT
 "e3_avaliacao_36" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -750,20 +688,18 @@ Test Failed.
 182/345 Test: e3_avaliacao_37
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_37.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_37" start time: Apr 16 18:44 BRT
+"e3_avaliacao_37" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_37'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_37:3] ./tests/e3/verify main tests/e3/input/i36.iks tests/e3/expected/i36.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_37.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_37.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_37.tesh:3> so far:
-|| stat: cannot stat ‘tests/e3/expected/i36.png’: No such file or directory
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_37.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_37' OK
 <end of output>
 Test time =   0.21 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_37" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_37" end time: Apr 17 03:39 BRT
 "e3_avaliacao_37" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -771,20 +707,18 @@ Test Failed.
 183/345 Test: e3_avaliacao_38
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_38.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_38" start time: Apr 16 18:44 BRT
+"e3_avaliacao_38" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_38'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_38:3] ./tests/e3/verify main tests/e3/input/i37.iks tests/e3/expected/i37.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_38.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_38.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_38.tesh:3> so far:
-|| stat: cannot stat ‘tests/e3/expected/i37.png’: No such file or directory
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_38.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_38' OK
 <end of output>
-Test time =   0.19 sec
+Test time =   0.18 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_38" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_38" end time: Apr 17 03:39 BRT
 "e3_avaliacao_38" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -792,20 +726,18 @@ Test Failed.
 184/345 Test: e3_avaliacao_39
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_39.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_39" start time: Apr 16 18:44 BRT
+"e3_avaliacao_39" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_39'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_39:3] ./tests/e3/verify main tests/e3/input/i38.iks tests/e3/expected/i38.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_39.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_39.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_39.tesh:3> so far:
-|| stat: cannot stat ‘tests/e3/expected/i38.png’: No such file or directory
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_39.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_39' OK
 <end of output>
-Test time =   0.15 sec
+Test time =   0.17 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_39" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_39" end time: Apr 17 03:39 BRT
 "e3_avaliacao_39" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -813,20 +745,18 @@ Test Failed.
 185/345 Test: e3_avaliacao_40
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_40.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_40" start time: Apr 16 18:44 BRT
+"e3_avaliacao_40" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_40'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_40:3] ./tests/e3/verify main tests/e3/input/i39.iks tests/e3/expected/i39.dot tests/e3/output
-Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_40.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_40.tesh:3> returned code 1)
-Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_40.tesh:3> so far:
-|| stat: cannot stat ‘tests/e3/expected/i39.png’: No such file or directory
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_40.tesh:3> as requested)
+Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_40' OK
 <end of output>
-Test time =   0.21 sec
+Test time =   0.17 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_40" end time: Apr 16 18:44 BRT
+Test Passed.
+"e3_avaliacao_40" end time: Apr 17 03:39 BRT
 "e3_avaliacao_40" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -834,20 +764,20 @@ Test Failed.
 186/345 Test: e3_avaliacao_41
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_41.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_41" start time: Apr 16 18:44 BRT
+"e3_avaliacao_41" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_41'
 [/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_41:3] ./tests/e3/verify main tests/e3/input/i40.iks tests/e3/expected/i40.dot tests/e3/output
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_41.tesh': NOK (</home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_41.tesh:3> returned code 1)
 Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_41.tesh:3> so far:
-|| stat: cannot stat ‘tests/e3/expected/i40.png’: No such file or directory
+||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_41.tesh:3> as requested)
 <end of output>
-Test time =   0.20 sec
+Test time =   0.16 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_41" end time: Apr 16 18:44 BRT
+"e3_avaliacao_41" end time: Apr 17 03:39 BRT
 "e3_avaliacao_41" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -855,7 +785,7 @@ Test Failed.
 187/345 Test: e3_avaliacao_42
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_42.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_42" start time: Apr 16 18:44 BRT
+"e3_avaliacao_42" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_42'
@@ -865,10 +795,10 @@ Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_42.tesh:3
 ||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_42.tesh:3> as requested)
 <end of output>
-Test time =   0.05 sec
+Test time =   0.06 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_42" end time: Apr 16 18:44 BRT
+"e3_avaliacao_42" end time: Apr 17 03:39 BRT
 "e3_avaliacao_42" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -876,7 +806,7 @@ Test Failed.
 188/345 Test: e3_avaliacao_43
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_43.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_43" start time: Apr 16 18:44 BRT
+"e3_avaliacao_43" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_43'
@@ -886,10 +816,10 @@ Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_43.tesh:3
 ||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_43.tesh:3> as requested)
 <end of output>
-Test time =   0.04 sec
+Test time =   0.06 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_43" end time: Apr 16 18:44 BRT
+"e3_avaliacao_43" end time: Apr 17 03:39 BRT
 "e3_avaliacao_43" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -897,7 +827,7 @@ Test Failed.
 189/345 Test: e3_avaliacao_44
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_44.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_44" start time: Apr 16 18:44 BRT
+"e3_avaliacao_44" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_44'
@@ -907,10 +837,10 @@ Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_44.tesh:3
 ||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_44.tesh:3> as requested)
 <end of output>
-Test time =   0.12 sec
+Test time =   0.15 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_44" end time: Apr 16 18:44 BRT
+"e3_avaliacao_44" end time: Apr 17 03:39 BRT
 "e3_avaliacao_44" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -918,7 +848,7 @@ Test Failed.
 190/345 Test: e3_avaliacao_45
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_45.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_45" start time: Apr 16 18:44 BRT
+"e3_avaliacao_45" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_45'
@@ -928,10 +858,10 @@ Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_45.tesh:3
 ||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_45.tesh:3> as requested)
 <end of output>
-Test time =   0.16 sec
+Test time =   0.15 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_45" end time: Apr 16 18:44 BRT
+"e3_avaliacao_45" end time: Apr 17 03:39 BRT
 "e3_avaliacao_45" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -939,7 +869,7 @@ Test Failed.
 191/345 Test: e3_avaliacao_46
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_46.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_46" start time: Apr 16 18:44 BRT
+"e3_avaliacao_46" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_46'
@@ -949,10 +879,10 @@ Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_46.tesh:3
 ||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_46.tesh:3> as requested)
 <end of output>
-Test time =   0.06 sec
+Test time =   0.13 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_46" end time: Apr 16 18:44 BRT
+"e3_avaliacao_46" end time: Apr 17 03:39 BRT
 "e3_avaliacao_46" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -960,7 +890,7 @@ Test Failed.
 192/345 Test: e3_avaliacao_47
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_47.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_47" start time: Apr 16 18:44 BRT
+"e3_avaliacao_47" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_47'
@@ -970,10 +900,10 @@ Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_47.tesh:3
 ||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_47.tesh:3> as requested)
 <end of output>
-Test time =   0.05 sec
+Test time =   0.15 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_47" end time: Apr 16 18:44 BRT
+"e3_avaliacao_47" end time: Apr 17 03:39 BRT
 "e3_avaliacao_47" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -981,7 +911,7 @@ Test Failed.
 193/345 Test: e3_avaliacao_48
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_48.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_48" start time: Apr 16 18:44 BRT
+"e3_avaliacao_48" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_48'
@@ -991,10 +921,10 @@ Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_48.tesh:3
 ||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_48.tesh:3> as requested)
 <end of output>
-Test time =   0.13 sec
+Test time =   0.17 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_48" end time: Apr 16 18:44 BRT
+"e3_avaliacao_48" end time: Apr 17 03:39 BRT
 "e3_avaliacao_48" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1002,7 +932,7 @@ Test Failed.
 194/345 Test: e3_avaliacao_49
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_49.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_49" start time: Apr 16 18:44 BRT
+"e3_avaliacao_49" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_49'
@@ -1015,7 +945,7 @@ Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_49.tesh:3
 Test time =   0.12 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_49" end time: Apr 16 18:44 BRT
+"e3_avaliacao_49" end time: Apr 17 03:39 BRT
 "e3_avaliacao_49" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1023,7 +953,7 @@ Test Failed.
 195/345 Test: e3_avaliacao_50
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_50.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_50" start time: Apr 16 18:44 BRT
+"e3_avaliacao_50" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_50'
@@ -1036,7 +966,7 @@ Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_50.tesh:3
 Test time =   0.14 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_50" end time: Apr 16 18:44 BRT
+"e3_avaliacao_50" end time: Apr 17 03:39 BRT
 "e3_avaliacao_50" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1044,7 +974,7 @@ Test Failed.
 196/345 Test: e3_avaliacao_51
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_51.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_avaliacao_51" start time: Apr 16 18:44 BRT
+"e3_avaliacao_51" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_51'
@@ -1054,10 +984,10 @@ Output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_51.tesh:3
 ||
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//avaliacao_51.tesh:3> as requested)
 <end of output>
-Test time =   0.03 sec
+Test time =   0.05 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_51" end time: Apr 16 18:44 BRT
+"e3_avaliacao_51" end time: Apr 17 03:39 BRT
 "e3_avaliacao_51" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1065,7 +995,7 @@ Test Failed.
 197/345 Test: e3_valgrind_01
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_01.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_01" start time: Apr 16 18:44 BRT
+"e3_valgrind_01" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_01'
@@ -1073,10 +1003,10 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_01'
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_01.tesh:3> as requested)
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_01' OK
 <end of output>
-Test time =   0.04 sec
+Test time =   0.05 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_01" end time: Apr 16 18:44 BRT
+"e3_valgrind_01" end time: Apr 17 03:39 BRT
 "e3_valgrind_01" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1084,7 +1014,7 @@ Test Passed.
 198/345 Test: e3_valgrind_02
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_02.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_02" start time: Apr 16 18:44 BRT
+"e3_valgrind_02" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_02'
@@ -1095,7 +1025,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_02' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_02" end time: Apr 16 18:44 BRT
+"e3_valgrind_02" end time: Apr 17 03:39 BRT
 "e3_valgrind_02" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1103,7 +1033,7 @@ Test Passed.
 199/345 Test: e3_valgrind_03
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_03.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_03" start time: Apr 16 18:44 BRT
+"e3_valgrind_03" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_03'
@@ -1111,10 +1041,10 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_03'
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_03.tesh:3> as requested)
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_03' OK
 <end of output>
-Test time =   0.04 sec
+Test time =   0.05 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_03" end time: Apr 16 18:44 BRT
+"e3_valgrind_03" end time: Apr 17 03:39 BRT
 "e3_valgrind_03" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1122,7 +1052,7 @@ Test Passed.
 200/345 Test: e3_valgrind_04
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_04.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_04" start time: Apr 16 18:44 BRT
+"e3_valgrind_04" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_04'
@@ -1133,7 +1063,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_04' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_04" end time: Apr 16 18:44 BRT
+"e3_valgrind_04" end time: Apr 17 03:39 BRT
 "e3_valgrind_04" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1141,7 +1071,7 @@ Test Passed.
 201/345 Test: e3_valgrind_05
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_05.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_05" start time: Apr 16 18:44 BRT
+"e3_valgrind_05" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_05'
@@ -1152,7 +1082,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_05' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_05" end time: Apr 16 18:44 BRT
+"e3_valgrind_05" end time: Apr 17 03:39 BRT
 "e3_valgrind_05" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1160,7 +1090,7 @@ Test Passed.
 202/345 Test: e3_valgrind_06
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_06.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_06" start time: Apr 16 18:44 BRT
+"e3_valgrind_06" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_06'
@@ -1171,7 +1101,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_06' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_06" end time: Apr 16 18:44 BRT
+"e3_valgrind_06" end time: Apr 17 03:39 BRT
 "e3_valgrind_06" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1179,7 +1109,7 @@ Test Passed.
 203/345 Test: e3_valgrind_07
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_07.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_07" start time: Apr 16 18:44 BRT
+"e3_valgrind_07" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_07'
@@ -1190,7 +1120,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_07' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_07" end time: Apr 16 18:44 BRT
+"e3_valgrind_07" end time: Apr 17 03:39 BRT
 "e3_valgrind_07" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1198,7 +1128,7 @@ Test Passed.
 204/345 Test: e3_valgrind_08
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_08.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_08" start time: Apr 16 18:44 BRT
+"e3_valgrind_08" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_08'
@@ -1209,7 +1139,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_08' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_08" end time: Apr 16 18:44 BRT
+"e3_valgrind_08" end time: Apr 17 03:39 BRT
 "e3_valgrind_08" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1217,7 +1147,7 @@ Test Passed.
 205/345 Test: e3_valgrind_09
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_09.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_09" start time: Apr 16 18:44 BRT
+"e3_valgrind_09" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_09'
@@ -1228,7 +1158,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_09' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_09" end time: Apr 16 18:44 BRT
+"e3_valgrind_09" end time: Apr 17 03:39 BRT
 "e3_valgrind_09" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1236,7 +1166,7 @@ Test Passed.
 206/345 Test: e3_valgrind_10
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_10.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_10" start time: Apr 16 18:44 BRT
+"e3_valgrind_10" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_10'
@@ -1247,7 +1177,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_10' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_10" end time: Apr 16 18:44 BRT
+"e3_valgrind_10" end time: Apr 17 03:39 BRT
 "e3_valgrind_10" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1255,7 +1185,7 @@ Test Passed.
 207/345 Test: e3_valgrind_11
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_11.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_11" start time: Apr 16 18:44 BRT
+"e3_valgrind_11" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_11'
@@ -1266,7 +1196,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_11' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_11" end time: Apr 16 18:44 BRT
+"e3_valgrind_11" end time: Apr 17 03:39 BRT
 "e3_valgrind_11" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1274,7 +1204,7 @@ Test Passed.
 208/345 Test: e3_valgrind_12
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_12.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_12" start time: Apr 16 18:44 BRT
+"e3_valgrind_12" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_12'
@@ -1285,7 +1215,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_12' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_12" end time: Apr 16 18:44 BRT
+"e3_valgrind_12" end time: Apr 17 03:39 BRT
 "e3_valgrind_12" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1293,7 +1223,7 @@ Test Passed.
 209/345 Test: e3_valgrind_13
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_13.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_13" start time: Apr 16 18:44 BRT
+"e3_valgrind_13" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_13'
@@ -1304,7 +1234,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_13' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_13" end time: Apr 16 18:44 BRT
+"e3_valgrind_13" end time: Apr 17 03:39 BRT
 "e3_valgrind_13" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1312,7 +1242,7 @@ Test Passed.
 210/345 Test: e3_valgrind_14
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_14.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_14" start time: Apr 16 18:44 BRT
+"e3_valgrind_14" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_14'
@@ -1323,7 +1253,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_14' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_14" end time: Apr 16 18:44 BRT
+"e3_valgrind_14" end time: Apr 17 03:39 BRT
 "e3_valgrind_14" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1331,7 +1261,7 @@ Test Passed.
 211/345 Test: e3_valgrind_15
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_15.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_15" start time: Apr 16 18:44 BRT
+"e3_valgrind_15" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_15'
@@ -1342,7 +1272,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_15' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_15" end time: Apr 16 18:44 BRT
+"e3_valgrind_15" end time: Apr 17 03:39 BRT
 "e3_valgrind_15" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1350,7 +1280,7 @@ Test Passed.
 212/345 Test: e3_valgrind_16
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_16.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_16" start time: Apr 16 18:44 BRT
+"e3_valgrind_16" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_16'
@@ -1361,7 +1291,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_16' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_16" end time: Apr 16 18:44 BRT
+"e3_valgrind_16" end time: Apr 17 03:39 BRT
 "e3_valgrind_16" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1369,7 +1299,7 @@ Test Passed.
 213/345 Test: e3_valgrind_17
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_17.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_17" start time: Apr 16 18:44 BRT
+"e3_valgrind_17" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_17'
@@ -1377,10 +1307,10 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_17'
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_17.tesh:3> as requested)
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_17' OK
 <end of output>
-Test time =   0.05 sec
+Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_17" end time: Apr 16 18:44 BRT
+"e3_valgrind_17" end time: Apr 17 03:39 BRT
 "e3_valgrind_17" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1388,7 +1318,7 @@ Test Passed.
 214/345 Test: e3_valgrind_18
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_18.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_18" start time: Apr 16 18:44 BRT
+"e3_valgrind_18" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_18'
@@ -1399,7 +1329,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_18' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_18" end time: Apr 16 18:44 BRT
+"e3_valgrind_18" end time: Apr 17 03:39 BRT
 "e3_valgrind_18" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1407,7 +1337,7 @@ Test Passed.
 215/345 Test: e3_valgrind_19
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_19.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_19" start time: Apr 16 18:44 BRT
+"e3_valgrind_19" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_19'
@@ -1418,7 +1348,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_19' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_19" end time: Apr 16 18:44 BRT
+"e3_valgrind_19" end time: Apr 17 03:39 BRT
 "e3_valgrind_19" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1426,7 +1356,7 @@ Test Passed.
 216/345 Test: e3_valgrind_20
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_20.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_20" start time: Apr 16 18:44 BRT
+"e3_valgrind_20" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_20'
@@ -1437,7 +1367,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_20' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_20" end time: Apr 16 18:44 BRT
+"e3_valgrind_20" end time: Apr 17 03:39 BRT
 "e3_valgrind_20" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1445,7 +1375,7 @@ Test Passed.
 217/345 Test: e3_valgrind_21
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_21.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_21" start time: Apr 16 18:44 BRT
+"e3_valgrind_21" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_21'
@@ -1456,7 +1386,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_21' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_21" end time: Apr 16 18:44 BRT
+"e3_valgrind_21" end time: Apr 17 03:39 BRT
 "e3_valgrind_21" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1464,7 +1394,7 @@ Test Passed.
 218/345 Test: e3_valgrind_22
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_22.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_22" start time: Apr 16 18:44 BRT
+"e3_valgrind_22" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_22'
@@ -1475,7 +1405,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_22' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_22" end time: Apr 16 18:44 BRT
+"e3_valgrind_22" end time: Apr 17 03:39 BRT
 "e3_valgrind_22" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1483,7 +1413,7 @@ Test Passed.
 219/345 Test: e3_valgrind_23
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_23.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_23" start time: Apr 16 18:44 BRT
+"e3_valgrind_23" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_23'
@@ -1494,7 +1424,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_23' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_23" end time: Apr 16 18:44 BRT
+"e3_valgrind_23" end time: Apr 17 03:39 BRT
 "e3_valgrind_23" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1502,7 +1432,7 @@ Test Passed.
 220/345 Test: e3_valgrind_24
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_24.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_24" start time: Apr 16 18:44 BRT
+"e3_valgrind_24" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_24'
@@ -1513,7 +1443,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_24' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_24" end time: Apr 16 18:44 BRT
+"e3_valgrind_24" end time: Apr 17 03:39 BRT
 "e3_valgrind_24" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1521,7 +1451,7 @@ Test Passed.
 221/345 Test: e3_valgrind_25
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_25.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_25" start time: Apr 16 18:44 BRT
+"e3_valgrind_25" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_25'
@@ -1532,7 +1462,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_25' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_25" end time: Apr 16 18:44 BRT
+"e3_valgrind_25" end time: Apr 17 03:39 BRT
 "e3_valgrind_25" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1540,7 +1470,7 @@ Test Passed.
 222/345 Test: e3_valgrind_26
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_26.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_26" start time: Apr 16 18:44 BRT
+"e3_valgrind_26" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_26'
@@ -1551,7 +1481,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_26' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_26" end time: Apr 16 18:44 BRT
+"e3_valgrind_26" end time: Apr 17 03:39 BRT
 "e3_valgrind_26" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1559,7 +1489,7 @@ Test Passed.
 223/345 Test: e3_valgrind_27
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_27.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_27" start time: Apr 16 18:44 BRT
+"e3_valgrind_27" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_27'
@@ -1570,7 +1500,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_27' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_27" end time: Apr 16 18:44 BRT
+"e3_valgrind_27" end time: Apr 17 03:39 BRT
 "e3_valgrind_27" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1578,7 +1508,7 @@ Test Passed.
 224/345 Test: e3_valgrind_28
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_28.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_28" start time: Apr 16 18:44 BRT
+"e3_valgrind_28" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_28'
@@ -1589,7 +1519,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_28' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_28" end time: Apr 16 18:44 BRT
+"e3_valgrind_28" end time: Apr 17 03:39 BRT
 "e3_valgrind_28" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1597,7 +1527,7 @@ Test Passed.
 225/345 Test: e3_valgrind_29
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_29.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_29" start time: Apr 16 18:44 BRT
+"e3_valgrind_29" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_29'
@@ -1608,7 +1538,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_29' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_29" end time: Apr 16 18:44 BRT
+"e3_valgrind_29" end time: Apr 17 03:39 BRT
 "e3_valgrind_29" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1616,7 +1546,7 @@ Test Passed.
 226/345 Test: e3_valgrind_30
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_30.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_30" start time: Apr 16 18:44 BRT
+"e3_valgrind_30" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_30'
@@ -1627,7 +1557,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_30' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_30" end time: Apr 16 18:44 BRT
+"e3_valgrind_30" end time: Apr 17 03:39 BRT
 "e3_valgrind_30" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1635,7 +1565,7 @@ Test Passed.
 227/345 Test: e3_valgrind_31
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_31.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_31" start time: Apr 16 18:44 BRT
+"e3_valgrind_31" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_31'
@@ -1646,7 +1576,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_31' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_31" end time: Apr 16 18:44 BRT
+"e3_valgrind_31" end time: Apr 17 03:39 BRT
 "e3_valgrind_31" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1654,7 +1584,7 @@ Test Passed.
 228/345 Test: e3_valgrind_32
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_32.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_32" start time: Apr 16 18:44 BRT
+"e3_valgrind_32" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_32'
@@ -1665,7 +1595,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_32' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_32" end time: Apr 16 18:44 BRT
+"e3_valgrind_32" end time: Apr 17 03:39 BRT
 "e3_valgrind_32" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1673,7 +1603,7 @@ Test Passed.
 229/345 Test: e3_valgrind_33
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_33.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_33" start time: Apr 16 18:44 BRT
+"e3_valgrind_33" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_33'
@@ -1684,7 +1614,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_33' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_33" end time: Apr 16 18:44 BRT
+"e3_valgrind_33" end time: Apr 17 03:39 BRT
 "e3_valgrind_33" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1692,7 +1622,7 @@ Test Passed.
 230/345 Test: e3_valgrind_34
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_34.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_34" start time: Apr 16 18:44 BRT
+"e3_valgrind_34" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_34'
@@ -1703,7 +1633,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_34' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_34" end time: Apr 16 18:44 BRT
+"e3_valgrind_34" end time: Apr 17 03:39 BRT
 "e3_valgrind_34" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1711,7 +1641,7 @@ Test Passed.
 231/345 Test: e3_valgrind_35
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_35.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_35" start time: Apr 16 18:44 BRT
+"e3_valgrind_35" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_35'
@@ -1722,7 +1652,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_35' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_35" end time: Apr 16 18:44 BRT
+"e3_valgrind_35" end time: Apr 17 03:39 BRT
 "e3_valgrind_35" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1730,7 +1660,7 @@ Test Passed.
 232/345 Test: e3_valgrind_36
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_36.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_36" start time: Apr 16 18:44 BRT
+"e3_valgrind_36" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_36'
@@ -1741,7 +1671,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_36' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_36" end time: Apr 16 18:44 BRT
+"e3_valgrind_36" end time: Apr 17 03:39 BRT
 "e3_valgrind_36" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1749,7 +1679,7 @@ Test Passed.
 233/345 Test: e3_valgrind_37
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_37.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_37" start time: Apr 16 18:44 BRT
+"e3_valgrind_37" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_37'
@@ -1760,7 +1690,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_37' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_37" end time: Apr 16 18:44 BRT
+"e3_valgrind_37" end time: Apr 17 03:39 BRT
 "e3_valgrind_37" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1768,7 +1698,7 @@ Test Passed.
 234/345 Test: e3_valgrind_38
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_38.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_38" start time: Apr 16 18:44 BRT
+"e3_valgrind_38" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_38'
@@ -1776,10 +1706,10 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_38'
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_38.tesh:3> as requested)
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_38' OK
 <end of output>
-Test time =   0.04 sec
+Test time =   0.05 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_38" end time: Apr 16 18:44 BRT
+"e3_valgrind_38" end time: Apr 17 03:39 BRT
 "e3_valgrind_38" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1787,7 +1717,7 @@ Test Passed.
 235/345 Test: e3_valgrind_39
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_39.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_39" start time: Apr 16 18:44 BRT
+"e3_valgrind_39" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_39'
@@ -1798,7 +1728,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_39' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_39" end time: Apr 16 18:44 BRT
+"e3_valgrind_39" end time: Apr 17 03:39 BRT
 "e3_valgrind_39" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1806,7 +1736,7 @@ Test Passed.
 236/345 Test: e3_valgrind_40
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_40.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_40" start time: Apr 16 18:44 BRT
+"e3_valgrind_40" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_40'
@@ -1817,7 +1747,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_40' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_40" end time: Apr 16 18:44 BRT
+"e3_valgrind_40" end time: Apr 17 03:39 BRT
 "e3_valgrind_40" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1825,7 +1755,7 @@ Test Passed.
 237/345 Test: e3_valgrind_41
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_41.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_41" start time: Apr 16 18:44 BRT
+"e3_valgrind_41" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_41'
@@ -1833,10 +1763,10 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_41'
 (ignoring the output of </home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_41.tesh:3> as requested)
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_41' OK
 <end of output>
-Test time =   0.04 sec
+Test time =   0.05 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_41" end time: Apr 16 18:44 BRT
+"e3_valgrind_41" end time: Apr 17 03:39 BRT
 "e3_valgrind_41" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1844,7 +1774,7 @@ Test Passed.
 238/345 Test: e3_valgrind_42
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_42.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_42" start time: Apr 16 18:44 BRT
+"e3_valgrind_42" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_42'
@@ -1855,7 +1785,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_42' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_42" end time: Apr 16 18:44 BRT
+"e3_valgrind_42" end time: Apr 17 03:39 BRT
 "e3_valgrind_42" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1863,7 +1793,7 @@ Test Passed.
 239/345 Test: e3_valgrind_43
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_43.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_43" start time: Apr 16 18:44 BRT
+"e3_valgrind_43" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_43'
@@ -1874,7 +1804,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_43' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_43" end time: Apr 16 18:44 BRT
+"e3_valgrind_43" end time: Apr 17 03:39 BRT
 "e3_valgrind_43" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1882,7 +1812,7 @@ Test Passed.
 240/345 Test: e3_valgrind_44
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_44.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_44" start time: Apr 16 18:44 BRT
+"e3_valgrind_44" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_44'
@@ -1893,7 +1823,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_44' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_44" end time: Apr 16 18:44 BRT
+"e3_valgrind_44" end time: Apr 17 03:39 BRT
 "e3_valgrind_44" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1901,7 +1831,7 @@ Test Passed.
 241/345 Test: e3_valgrind_45
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_45.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_45" start time: Apr 16 18:44 BRT
+"e3_valgrind_45" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_45'
@@ -1912,7 +1842,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_45' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_45" end time: Apr 16 18:44 BRT
+"e3_valgrind_45" end time: Apr 17 03:39 BRT
 "e3_valgrind_45" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1920,7 +1850,7 @@ Test Passed.
 242/345 Test: e3_valgrind_46
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_46.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_46" start time: Apr 16 18:44 BRT
+"e3_valgrind_46" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_46'
@@ -1931,7 +1861,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_46' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_46" end time: Apr 16 18:44 BRT
+"e3_valgrind_46" end time: Apr 17 03:39 BRT
 "e3_valgrind_46" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1939,7 +1869,7 @@ Test Passed.
 243/345 Test: e3_valgrind_47
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_47.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_47" start time: Apr 16 18:44 BRT
+"e3_valgrind_47" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_47'
@@ -1950,7 +1880,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_47' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_47" end time: Apr 16 18:44 BRT
+"e3_valgrind_47" end time: Apr 17 03:39 BRT
 "e3_valgrind_47" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1958,7 +1888,7 @@ Test Passed.
 244/345 Test: e3_valgrind_48
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_48.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_48" start time: Apr 16 18:44 BRT
+"e3_valgrind_48" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_48'
@@ -1969,7 +1899,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_48' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_48" end time: Apr 16 18:44 BRT
+"e3_valgrind_48" end time: Apr 17 03:39 BRT
 "e3_valgrind_48" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1977,7 +1907,7 @@ Test Passed.
 245/345 Test: e3_valgrind_49
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_49.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_49" start time: Apr 16 18:44 BRT
+"e3_valgrind_49" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_49'
@@ -1988,7 +1918,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_49' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_49" end time: Apr 16 18:44 BRT
+"e3_valgrind_49" end time: Apr 17 03:39 BRT
 "e3_valgrind_49" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1996,7 +1926,7 @@ Test Passed.
 246/345 Test: e3_valgrind_50
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_50.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_50" start time: Apr 16 18:44 BRT
+"e3_valgrind_50" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_50'
@@ -2007,7 +1937,7 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_50' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_50" end time: Apr 16 18:44 BRT
+"e3_valgrind_50" end time: Apr 17 03:39 BRT
 "e3_valgrind_50" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -2015,7 +1945,7 @@ Test Passed.
 247/345 Test: e3_valgrind_51
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_51.tesh"
 Directory: /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
-"e3_valgrind_51" start time: Apr 16 18:44 BRT
+"e3_valgrind_51" start time: Apr 17 03:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_51'
@@ -2026,8 +1956,8 @@ Test suite `/home/dokie/Desktop/Comp-TF-2015-1/MonT/tests/e3//valgrind_51' OK
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_51" end time: Apr 16 18:44 BRT
+"e3_valgrind_51" end time: Apr 17 03:39 BRT
 "e3_valgrind_51" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Apr 16 18:44 BRT
+End testing: Apr 17 03:39 BRT

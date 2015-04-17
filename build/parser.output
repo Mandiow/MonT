@@ -1,7 +1,7 @@
 Terminals unused in grammar
 
-   TK_OC_NOT
    TOKEN_ERRO
+   '!'
 
 
 Grammar
@@ -38,8 +38,8 @@ Grammar
    22                 | especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor
    23                 | TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR
    24                 | TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor
-   25                 | TK_PR_STATIC qualificador_tipo especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor
-   26                 | qualificador_tipo especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor
+   25                 | TK_PR_STATIC TK_PR_CONST especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor
+   26                 | TK_PR_CONST especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor
 
    27 valor: literal
    28      | TK_IDENTIFICADOR
@@ -55,49 +55,49 @@ Grammar
    34 retorno: TK_PR_RETURN expressao
    35        | TK_PR_RETURN
 
-   36 qualificador_tipo: TK_PR_CONST
+   36 bloco_comando: comando ';' bloco_comando
+   37              | comando
+   38              | ';'
+   39              | %empty
 
-   37 bloco_comando: comando ';' bloco_comando
-   38              | comando
-   39              | ';'
-   40              | %empty
+   40 comando: retorno
+   41        | atribuicao
+   42        | declaracao_local
+   43        | controle_fluxo
+   44        | '{' bloco_comando '}'
+   45        | entrada
+   46        | chamada_funcao
+   47        | saida
 
-   41 comando: retorno
-   42        | atribuicao
-   43        | declaracao_local
-   44        | controle_fluxo
-   45        | '{' bloco_comando '}'
-   46        | entrada
-   47        | chamada_funcao
-   48        | saida
+   48 parametros_vazio: parametros
+   49                 | %empty
 
-   49 parametros_vazio: parametros
-   50                 | %empty
+   50 parametros: lista_parametros ',' parametros
+   51           | lista_parametros
 
-   51 parametros: lista_parametros ',' parametros
-   52           | lista_parametros
+   52 lista_parametros: especificador_tipo TK_IDENTIFICADOR
+   53                 | TK_PR_CONST especificador_tipo TK_IDENTIFICADOR
 
-   53 lista_parametros: especificador_tipo TK_IDENTIFICADOR
-   54                 | qualificador_tipo especificador_tipo TK_IDENTIFICADOR
+   54 entrada: TK_PR_INPUT expressao '=' '>' expressao
 
-   55 entrada: TK_PR_INPUT expressao '=' '>' expressao
+   55 saida: TK_PR_OUTPUT lista_expressoes
 
-   56 saida: TK_PR_OUTPUT lista_expressoes
+   56 lista_vazia: lista_expressoes
+   57            | %empty
 
-   57 lista_vazia: lista_expressoes
-   58            | %empty
+   58 lista_expressoes: expressao mais_de_uma
 
-   59 lista_expressoes: expressao mais_de_uma
+   59 mais_de_uma: ',' lista_expressoes
+   60            | %empty
 
-   60 mais_de_uma: ',' lista_expressoes
-   61            | %empty
+   61 controle_fluxo: TK_PR_IF '(' expressao ')' TK_PR_THEN comando TK_PR_ELSE comando
+   62               | TK_PR_IF '(' expressao ')' TK_PR_THEN comando
+   63               | TK_PR_WHILE '(' expressao ')' TK_PR_DO comando
+   64               | TK_PR_DO comando TK_PR_WHILE '(' expressao ')'
 
-   62 controle_fluxo: TK_PR_IF '(' expressao ')' TK_PR_THEN comando TK_PR_ELSE comando
-   63               | TK_PR_IF '(' expressao ')' TK_PR_THEN comando
-   64               | TK_PR_WHILE '(' expressao ')' TK_PR_DO comando
-   65               | TK_PR_DO comando TK_PR_WHILE '(' expressao ')'
+   65 chamada_funcao: nome '(' lista_vazia ')'
 
-   66 chamada_funcao: TK_IDENTIFICADOR '(' lista_vazia ')'
+   66 nome: TK_IDENTIFICADOR
 
    67 operador_aritmetico: '+'
    68                    | '-'
@@ -113,11 +113,11 @@ Grammar
    77                | TK_OC_OR
    78                | '<'
    79                | '>'
-   80                | '!'
 
-   81 expressao: literal tem_operador
-   82          | ID tem_operador
-   83          | chamada_funcao tem_operador
+   80 expressao: literal tem_operador
+   81          | ID tem_operador
+   82          | chamada_funcao tem_operador
+   83          | TK_OC_NOT expressao
 
    84 tem_operador: operador_aritmetico expressao
    85             | operador_aritmetico '(' expressao ')'
@@ -129,53 +129,53 @@ Grammar
 Terminals, with rules where they appear
 
 $end (0) 0
-'!' (33) 80
+'!' (33)
 '%' (37) 71
-'(' (40) 8 9 62 63 64 65 66 85 87
-')' (41) 8 9 62 63 64 65 66 85 87
+'(' (40) 8 9 61 62 63 64 65 85 87
+')' (41) 8 9 61 62 63 64 65 85 87
 '*' (42) 69
 '+' (43) 67
-',' (44) 51 60
+',' (44) 50 59
 '-' (45) 33 68
 '/' (47) 70
-';' (59) 2 37 39
+';' (59) 2 36 38
 '<' (60) 78
-'=' (61) 31 32 55
-'>' (62) 55 79
+'=' (61) 31 32 54
+'>' (62) 54 79
 '[' (91) 5 7 30
 ']' (93) 5 7 30
-'{' (123) 8 9 45
-'}' (125) 8 9 45
+'{' (123) 8 9 44
+'}' (125) 8 9 44
 error (256)
 TK_PR_INT (258) 16
 TK_PR_FLOAT (259) 17
 TK_PR_BOOL (260) 18
 TK_PR_CHAR (261) 19
 TK_PR_STRING (262) 20
-TK_PR_IF (263) 62 63
-TK_PR_THEN (264) 62 63
-TK_PR_ELSE (265) 62
-TK_PR_WHILE (266) 64 65
-TK_PR_DO (267) 64 65
-TK_PR_INPUT (268) 55
-TK_PR_OUTPUT (269) 56
+TK_PR_IF (263) 61 62
+TK_PR_THEN (264) 61 62
+TK_PR_ELSE (265) 61
+TK_PR_WHILE (266) 63 64
+TK_PR_DO (267) 63 64
+TK_PR_INPUT (268) 54
+TK_PR_OUTPUT (269) 55
 TK_PR_RETURN (270) 34 35
 TK_PR_STATIC (271) 7 9 23 24 25
-TK_PR_CONST (272) 36
+TK_PR_CONST (272) 25 26 53
 TK_OC_LE (273) 22 24 25 26 72
 TK_OC_GE (274) 73
 TK_OC_EQ (275) 74
 TK_OC_NE (276) 75
 TK_OC_AND (277) 76
 TK_OC_OR (278) 77
-TK_OC_NOT (279)
+TK_OC_NOT (279) 83
 TK_LIT_INT (280) 5 7 10
 TK_LIT_FLOAT (281) 11
 TK_LIT_FALSE (282) 12
 TK_LIT_TRUE (283) 13
 TK_LIT_CHAR (284) 14
 TK_LIT_STRING (285) 15
-TK_IDENTIFICADOR (286) 5 6 7 8 9 21 22 23 24 25 26 28 29 30 53 54 66
+TK_IDENTIFICADOR (286) 5 6 7 8 9 21 22 23 24 25 26 28 29 30 52 53 66
 TOKEN_ERRO (287)
 LOWER_THAN_ELSE (288)
 
@@ -193,57 +193,57 @@ declaracao_global (54)
 declarar_funcao (55)
     on left: 8 9, on right: 3
 literal (56)
-    on left: 10 11 12 13 14 15, on right: 27 81
+    on left: 10 11 12 13 14 15, on right: 27 80
 especificador_tipo (57)
     on left: 16 17 18 19 20, on right: 5 6 7 8 9 21 22 23 24 25 26
-    53 54
+    52 53
 declaracao_local (58)
-    on left: 21 22 23 24 25 26, on right: 43
+    on left: 21 22 23 24 25 26, on right: 42
 valor (59)
     on left: 27 28, on right: 22 24 25 26
 ID (60)
-    on left: 29 30, on right: 31 32 82
+    on left: 29 30, on right: 31 32 81
 atribuicao (61)
-    on left: 31 32, on right: 42
+    on left: 31 32, on right: 41
 inverte (62)
     on left: 33, on right: 31
 retorno (63)
-    on left: 34 35, on right: 41
-qualificador_tipo (64)
-    on left: 36, on right: 25 26 54
-bloco_comando (65)
-    on left: 37 38 39 40, on right: 8 9 37 45
-comando (66)
-    on left: 41 42 43 44 45 46 47 48, on right: 37 38 62 63 64 65
-parametros_vazio (67)
-    on left: 49 50, on right: 8 9
-parametros (68)
-    on left: 51 52, on right: 49 51
-lista_parametros (69)
-    on left: 53 54, on right: 51 52
-entrada (70)
-    on left: 55, on right: 46
-saida (71)
-    on left: 56, on right: 48
-lista_vazia (72)
-    on left: 57 58, on right: 66
-lista_expressoes (73)
-    on left: 59, on right: 56 57 60
-mais_de_uma (74)
-    on left: 60 61, on right: 59
-controle_fluxo (75)
-    on left: 62 63 64 65, on right: 44
-chamada_funcao (76)
-    on left: 66, on right: 47 83
+    on left: 34 35, on right: 40
+bloco_comando (64)
+    on left: 36 37 38 39, on right: 8 9 36 44
+comando (65)
+    on left: 40 41 42 43 44 45 46 47, on right: 36 37 61 62 63 64
+parametros_vazio (66)
+    on left: 48 49, on right: 8 9
+parametros (67)
+    on left: 50 51, on right: 48 50
+lista_parametros (68)
+    on left: 52 53, on right: 50 51
+entrada (69)
+    on left: 54, on right: 45
+saida (70)
+    on left: 55, on right: 47
+lista_vazia (71)
+    on left: 56 57, on right: 65
+lista_expressoes (72)
+    on left: 58, on right: 55 56 59
+mais_de_uma (73)
+    on left: 59 60, on right: 58
+controle_fluxo (74)
+    on left: 61 62 63 64, on right: 43
+chamada_funcao (75)
+    on left: 65, on right: 46 82
+nome (76)
+    on left: 66, on right: 65
 operador_aritmetico (77)
     on left: 67 68 69 70 71, on right: 84 85
 operador_logico (78)
-    on left: 72 73 74 75 76 77 78 79 80, on right: 86 87
+    on left: 72 73 74 75 76 77 78 79, on right: 86 87
 expressao (79)
-    on left: 81 82 83, on right: 30 31 32 34 55 59 62 63 64 65 84 85
-    86 87
+    on left: 80 81 82 83, on right: 30 31 32 34 54 58 61 62 63 64 83
+    84 85 86 87
 tem_operador (80)
-    on left: 84 85 86 87 88, on right: 81 82 83
+    on left: 84 85 86 87 88, on right: 80 81 82
 
 
 State 0
@@ -451,20 +451,19 @@ State 20
     TK_PR_STRING  shift, and go to state 5
     TK_PR_CONST   shift, and go to state 24
 
-    $default  reduce using rule 50 (parametros_vazio)
+    $default  reduce using rule 49 (parametros_vazio)
 
     especificador_tipo  go to state 25
-    qualificador_tipo   go to state 26
-    parametros_vazio    go to state 27
-    parametros          go to state 28
-    lista_parametros    go to state 29
+    parametros_vazio    go to state 26
+    parametros          go to state 27
+    lista_parametros    go to state 28
 
 
 State 21
 
     7 declaracao_global: TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '[' . TK_LIT_INT ']'
 
-    TK_LIT_INT  shift, and go to state 30
+    TK_LIT_INT  shift, and go to state 29
 
 
 State 22
@@ -478,39 +477,24 @@ State 22
     TK_PR_STRING  shift, and go to state 5
     TK_PR_CONST   shift, and go to state 24
 
-    $default  reduce using rule 50 (parametros_vazio)
+    $default  reduce using rule 49 (parametros_vazio)
 
     especificador_tipo  go to state 25
-    qualificador_tipo   go to state 26
-    parametros_vazio    go to state 31
-    parametros          go to state 28
-    lista_parametros    go to state 29
+    parametros_vazio    go to state 30
+    parametros          go to state 27
+    lista_parametros    go to state 28
 
 
 State 23
 
     5 declaracao_global: especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT . ']'
 
-    ']'  shift, and go to state 32
+    ']'  shift, and go to state 31
 
 
 State 24
 
-   36 qualificador_tipo: TK_PR_CONST .
-
-    $default  reduce using rule 36 (qualificador_tipo)
-
-
-State 25
-
-   53 lista_parametros: especificador_tipo . TK_IDENTIFICADOR
-
-    TK_IDENTIFICADOR  shift, and go to state 33
-
-
-State 26
-
-   54 lista_parametros: qualificador_tipo . especificador_tipo TK_IDENTIFICADOR
+   53 lista_parametros: TK_PR_CONST . especificador_tipo TK_IDENTIFICADOR
 
     TK_PR_INT     shift, and go to state 1
     TK_PR_FLOAT   shift, and go to state 2
@@ -518,78 +502,85 @@ State 26
     TK_PR_CHAR    shift, and go to state 4
     TK_PR_STRING  shift, and go to state 5
 
-    especificador_tipo  go to state 34
+    especificador_tipo  go to state 32
+
+
+State 25
+
+   52 lista_parametros: especificador_tipo . TK_IDENTIFICADOR
+
+    TK_IDENTIFICADOR  shift, and go to state 33
+
+
+State 26
+
+    8 declarar_funcao: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio . ')' '{' bloco_comando '}'
+
+    ')'  shift, and go to state 34
 
 
 State 27
 
-    8 declarar_funcao: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio . ')' '{' bloco_comando '}'
+   48 parametros_vazio: parametros .
 
-    ')'  shift, and go to state 35
+    $default  reduce using rule 48 (parametros_vazio)
 
 
 State 28
 
-   49 parametros_vazio: parametros .
+   50 parametros: lista_parametros . ',' parametros
+   51           | lista_parametros .
 
-    $default  reduce using rule 49 (parametros_vazio)
+    ','  shift, and go to state 35
+
+    $default  reduce using rule 51 (parametros)
 
 
 State 29
 
-   51 parametros: lista_parametros . ',' parametros
-   52           | lista_parametros .
+    7 declaracao_global: TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT . ']'
 
-    ','  shift, and go to state 36
-
-    $default  reduce using rule 52 (parametros)
+    ']'  shift, and go to state 36
 
 
 State 30
 
-    7 declaracao_global: TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT . ']'
+    9 declarar_funcao: TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio . ')' '{' bloco_comando '}'
 
-    ']'  shift, and go to state 37
+    ')'  shift, and go to state 37
 
 
 State 31
-
-    9 declarar_funcao: TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio . ')' '{' bloco_comando '}'
-
-    ')'  shift, and go to state 38
-
-
-State 32
 
     5 declaracao_global: especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT ']' .
 
     $default  reduce using rule 5 (declaracao_global)
 
 
+State 32
+
+   53 lista_parametros: TK_PR_CONST especificador_tipo . TK_IDENTIFICADOR
+
+    TK_IDENTIFICADOR  shift, and go to state 38
+
+
 State 33
 
-   53 lista_parametros: especificador_tipo TK_IDENTIFICADOR .
+   52 lista_parametros: especificador_tipo TK_IDENTIFICADOR .
 
-    $default  reduce using rule 53 (lista_parametros)
+    $default  reduce using rule 52 (lista_parametros)
 
 
 State 34
 
-   54 lista_parametros: qualificador_tipo especificador_tipo . TK_IDENTIFICADOR
+    8 declarar_funcao: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' . '{' bloco_comando '}'
 
-    TK_IDENTIFICADOR  shift, and go to state 39
+    '{'  shift, and go to state 39
 
 
 State 35
 
-    8 declarar_funcao: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' . '{' bloco_comando '}'
-
-    '{'  shift, and go to state 40
-
-
-State 36
-
-   51 parametros: lista_parametros ',' . parametros
+   50 parametros: lista_parametros ',' . parametros
 
     TK_PR_INT     shift, and go to state 1
     TK_PR_FLOAT   shift, and go to state 2
@@ -599,33 +590,32 @@ State 36
     TK_PR_CONST   shift, and go to state 24
 
     especificador_tipo  go to state 25
-    qualificador_tipo   go to state 26
-    parametros          go to state 41
-    lista_parametros    go to state 29
+    parametros          go to state 40
+    lista_parametros    go to state 28
 
 
-State 37
+State 36
 
     7 declaracao_global: TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT ']' .
 
     $default  reduce using rule 7 (declaracao_global)
 
 
-State 38
+State 37
 
     9 declarar_funcao: TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' . '{' bloco_comando '}'
 
-    '{'  shift, and go to state 42
+    '{'  shift, and go to state 41
+
+
+State 38
+
+   53 lista_parametros: TK_PR_CONST especificador_tipo TK_IDENTIFICADOR .
+
+    $default  reduce using rule 53 (lista_parametros)
 
 
 State 39
-
-   54 lista_parametros: qualificador_tipo especificador_tipo TK_IDENTIFICADOR .
-
-    $default  reduce using rule 54 (lista_parametros)
-
-
-State 40
 
     8 declarar_funcao: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' . bloco_comando '}'
 
@@ -634,42 +624,42 @@ State 40
     TK_PR_BOOL        shift, and go to state 3
     TK_PR_CHAR        shift, and go to state 4
     TK_PR_STRING      shift, and go to state 5
-    TK_PR_IF          shift, and go to state 43
-    TK_PR_WHILE       shift, and go to state 44
-    TK_PR_DO          shift, and go to state 45
-    TK_PR_INPUT       shift, and go to state 46
-    TK_PR_OUTPUT      shift, and go to state 47
-    TK_PR_RETURN      shift, and go to state 48
-    TK_PR_STATIC      shift, and go to state 49
-    TK_PR_CONST       shift, and go to state 24
+    TK_PR_IF          shift, and go to state 42
+    TK_PR_WHILE       shift, and go to state 43
+    TK_PR_DO          shift, and go to state 44
+    TK_PR_INPUT       shift, and go to state 45
+    TK_PR_OUTPUT      shift, and go to state 46
+    TK_PR_RETURN      shift, and go to state 47
+    TK_PR_STATIC      shift, and go to state 48
+    TK_PR_CONST       shift, and go to state 49
     TK_IDENTIFICADOR  shift, and go to state 50
     ';'               shift, and go to state 51
     '{'               shift, and go to state 52
 
-    $default  reduce using rule 40 (bloco_comando)
+    $default  reduce using rule 39 (bloco_comando)
 
     especificador_tipo  go to state 53
     declaracao_local    go to state 54
     ID                  go to state 55
     atribuicao          go to state 56
     retorno             go to state 57
-    qualificador_tipo   go to state 58
-    bloco_comando       go to state 59
-    comando             go to state 60
-    entrada             go to state 61
-    saida               go to state 62
-    controle_fluxo      go to state 63
-    chamada_funcao      go to state 64
+    bloco_comando       go to state 58
+    comando             go to state 59
+    entrada             go to state 60
+    saida               go to state 61
+    controle_fluxo      go to state 62
+    chamada_funcao      go to state 63
+    nome                go to state 64
+
+
+State 40
+
+   50 parametros: lista_parametros ',' parametros .
+
+    $default  reduce using rule 50 (parametros)
 
 
 State 41
-
-   51 parametros: lista_parametros ',' parametros .
-
-    $default  reduce using rule 51 (parametros)
-
-
-State 42
 
     9 declarar_funcao: TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' . bloco_comando '}'
 
@@ -678,66 +668,66 @@ State 42
     TK_PR_BOOL        shift, and go to state 3
     TK_PR_CHAR        shift, and go to state 4
     TK_PR_STRING      shift, and go to state 5
-    TK_PR_IF          shift, and go to state 43
-    TK_PR_WHILE       shift, and go to state 44
-    TK_PR_DO          shift, and go to state 45
-    TK_PR_INPUT       shift, and go to state 46
-    TK_PR_OUTPUT      shift, and go to state 47
-    TK_PR_RETURN      shift, and go to state 48
-    TK_PR_STATIC      shift, and go to state 49
-    TK_PR_CONST       shift, and go to state 24
+    TK_PR_IF          shift, and go to state 42
+    TK_PR_WHILE       shift, and go to state 43
+    TK_PR_DO          shift, and go to state 44
+    TK_PR_INPUT       shift, and go to state 45
+    TK_PR_OUTPUT      shift, and go to state 46
+    TK_PR_RETURN      shift, and go to state 47
+    TK_PR_STATIC      shift, and go to state 48
+    TK_PR_CONST       shift, and go to state 49
     TK_IDENTIFICADOR  shift, and go to state 50
     ';'               shift, and go to state 51
     '{'               shift, and go to state 52
 
-    $default  reduce using rule 40 (bloco_comando)
+    $default  reduce using rule 39 (bloco_comando)
 
     especificador_tipo  go to state 53
     declaracao_local    go to state 54
     ID                  go to state 55
     atribuicao          go to state 56
     retorno             go to state 57
-    qualificador_tipo   go to state 58
     bloco_comando       go to state 65
-    comando             go to state 60
-    entrada             go to state 61
-    saida               go to state 62
-    controle_fluxo      go to state 63
-    chamada_funcao      go to state 64
+    comando             go to state 59
+    entrada             go to state 60
+    saida               go to state 61
+    controle_fluxo      go to state 62
+    chamada_funcao      go to state 63
+    nome                go to state 64
 
 
-State 43
+State 42
 
-   62 controle_fluxo: TK_PR_IF . '(' expressao ')' TK_PR_THEN comando TK_PR_ELSE comando
-   63               | TK_PR_IF . '(' expressao ')' TK_PR_THEN comando
+   61 controle_fluxo: TK_PR_IF . '(' expressao ')' TK_PR_THEN comando TK_PR_ELSE comando
+   62               | TK_PR_IF . '(' expressao ')' TK_PR_THEN comando
 
     '('  shift, and go to state 66
 
 
-State 44
+State 43
 
-   64 controle_fluxo: TK_PR_WHILE . '(' expressao ')' TK_PR_DO comando
+   63 controle_fluxo: TK_PR_WHILE . '(' expressao ')' TK_PR_DO comando
 
     '('  shift, and go to state 67
 
 
-State 45
+State 44
 
-   65 controle_fluxo: TK_PR_DO . comando TK_PR_WHILE '(' expressao ')'
+   64 controle_fluxo: TK_PR_DO . comando TK_PR_WHILE '(' expressao ')'
 
     TK_PR_INT         shift, and go to state 1
     TK_PR_FLOAT       shift, and go to state 2
     TK_PR_BOOL        shift, and go to state 3
     TK_PR_CHAR        shift, and go to state 4
     TK_PR_STRING      shift, and go to state 5
-    TK_PR_IF          shift, and go to state 43
-    TK_PR_WHILE       shift, and go to state 44
-    TK_PR_DO          shift, and go to state 45
-    TK_PR_INPUT       shift, and go to state 46
-    TK_PR_OUTPUT      shift, and go to state 47
-    TK_PR_RETURN      shift, and go to state 48
-    TK_PR_STATIC      shift, and go to state 49
-    TK_PR_CONST       shift, and go to state 24
+    TK_PR_IF          shift, and go to state 42
+    TK_PR_WHILE       shift, and go to state 43
+    TK_PR_DO          shift, and go to state 44
+    TK_PR_INPUT       shift, and go to state 45
+    TK_PR_OUTPUT      shift, and go to state 46
+    TK_PR_RETURN      shift, and go to state 47
+    TK_PR_STATIC      shift, and go to state 48
+    TK_PR_CONST       shift, and go to state 49
     TK_IDENTIFICADOR  shift, and go to state 50
     '{'               shift, and go to state 52
 
@@ -746,143 +736,161 @@ State 45
     ID                  go to state 55
     atribuicao          go to state 56
     retorno             go to state 57
-    qualificador_tipo   go to state 58
     comando             go to state 68
-    entrada             go to state 61
-    saida               go to state 62
-    controle_fluxo      go to state 63
-    chamada_funcao      go to state 64
+    entrada             go to state 60
+    saida               go to state 61
+    controle_fluxo      go to state 62
+    chamada_funcao      go to state 63
+    nome                go to state 64
+
+
+State 45
+
+   54 entrada: TK_PR_INPUT . expressao '=' '>' expressao
+
+    TK_OC_NOT         shift, and go to state 69
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
+    TK_IDENTIFICADOR  shift, and go to state 50
+
+    literal         go to state 76
+    ID              go to state 77
+    chamada_funcao  go to state 78
+    nome            go to state 64
+    expressao       go to state 79
 
 
 State 46
 
-   55 entrada: TK_PR_INPUT . expressao '=' '>' expressao
+   55 saida: TK_PR_OUTPUT . lista_expressoes
 
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
+    TK_OC_NOT         shift, and go to state 69
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
     TK_IDENTIFICADOR  shift, and go to state 50
 
-    literal         go to state 75
-    ID              go to state 76
-    chamada_funcao  go to state 77
-    expressao       go to state 78
+    literal           go to state 76
+    ID                go to state 77
+    lista_expressoes  go to state 80
+    chamada_funcao    go to state 78
+    nome              go to state 64
+    expressao         go to state 81
 
 
 State 47
 
-   56 saida: TK_PR_OUTPUT . lista_expressoes
-
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
-    TK_IDENTIFICADOR  shift, and go to state 50
-
-    literal           go to state 75
-    ID                go to state 76
-    lista_expressoes  go to state 79
-    chamada_funcao    go to state 77
-    expressao         go to state 80
-
-
-State 48
-
    34 retorno: TK_PR_RETURN . expressao
    35        | TK_PR_RETURN .
 
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
+    TK_OC_NOT         shift, and go to state 69
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
     TK_IDENTIFICADOR  shift, and go to state 50
 
     $default  reduce using rule 35 (retorno)
 
-    literal         go to state 75
-    ID              go to state 76
-    chamada_funcao  go to state 77
-    expressao       go to state 81
+    literal         go to state 76
+    ID              go to state 77
+    chamada_funcao  go to state 78
+    nome            go to state 64
+    expressao       go to state 82
 
 
-State 49
+State 48
 
    23 declaracao_local: TK_PR_STATIC . especificador_tipo TK_IDENTIFICADOR
    24                 | TK_PR_STATIC . especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor
-   25                 | TK_PR_STATIC . qualificador_tipo especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor
+   25                 | TK_PR_STATIC . TK_PR_CONST especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor
 
     TK_PR_INT     shift, and go to state 1
     TK_PR_FLOAT   shift, and go to state 2
     TK_PR_BOOL    shift, and go to state 3
     TK_PR_CHAR    shift, and go to state 4
     TK_PR_STRING  shift, and go to state 5
-    TK_PR_CONST   shift, and go to state 24
+    TK_PR_CONST   shift, and go to state 83
 
-    especificador_tipo  go to state 82
-    qualificador_tipo   go to state 83
+    especificador_tipo  go to state 84
+
+
+State 49
+
+   26 declaracao_local: TK_PR_CONST . especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor
+
+    TK_PR_INT     shift, and go to state 1
+    TK_PR_FLOAT   shift, and go to state 2
+    TK_PR_BOOL    shift, and go to state 3
+    TK_PR_CHAR    shift, and go to state 4
+    TK_PR_STRING  shift, and go to state 5
+
+    especificador_tipo  go to state 85
 
 
 State 50
 
    29 ID: TK_IDENTIFICADOR .
    30   | TK_IDENTIFICADOR . '[' expressao ']'
-   66 chamada_funcao: TK_IDENTIFICADOR . '(' lista_vazia ')'
+   66 nome: TK_IDENTIFICADOR .
 
-    '['  shift, and go to state 84
-    '('  shift, and go to state 85
+    '['  shift, and go to state 86
 
+    '('       reduce using rule 66 (nome)
     $default  reduce using rule 29 (ID)
 
 
 State 51
 
-   39 bloco_comando: ';' .
+   38 bloco_comando: ';' .
 
-    $default  reduce using rule 39 (bloco_comando)
+    $default  reduce using rule 38 (bloco_comando)
 
 
 State 52
 
-   45 comando: '{' . bloco_comando '}'
+   44 comando: '{' . bloco_comando '}'
 
     TK_PR_INT         shift, and go to state 1
     TK_PR_FLOAT       shift, and go to state 2
     TK_PR_BOOL        shift, and go to state 3
     TK_PR_CHAR        shift, and go to state 4
     TK_PR_STRING      shift, and go to state 5
-    TK_PR_IF          shift, and go to state 43
-    TK_PR_WHILE       shift, and go to state 44
-    TK_PR_DO          shift, and go to state 45
-    TK_PR_INPUT       shift, and go to state 46
-    TK_PR_OUTPUT      shift, and go to state 47
-    TK_PR_RETURN      shift, and go to state 48
-    TK_PR_STATIC      shift, and go to state 49
-    TK_PR_CONST       shift, and go to state 24
+    TK_PR_IF          shift, and go to state 42
+    TK_PR_WHILE       shift, and go to state 43
+    TK_PR_DO          shift, and go to state 44
+    TK_PR_INPUT       shift, and go to state 45
+    TK_PR_OUTPUT      shift, and go to state 46
+    TK_PR_RETURN      shift, and go to state 47
+    TK_PR_STATIC      shift, and go to state 48
+    TK_PR_CONST       shift, and go to state 49
     TK_IDENTIFICADOR  shift, and go to state 50
     ';'               shift, and go to state 51
     '{'               shift, and go to state 52
 
-    $default  reduce using rule 40 (bloco_comando)
+    $default  reduce using rule 39 (bloco_comando)
 
     especificador_tipo  go to state 53
     declaracao_local    go to state 54
     ID                  go to state 55
     atribuicao          go to state 56
     retorno             go to state 57
-    qualificador_tipo   go to state 58
-    bloco_comando       go to state 86
-    comando             go to state 60
-    entrada             go to state 61
-    saida               go to state 62
-    controle_fluxo      go to state 63
-    chamada_funcao      go to state 64
+    bloco_comando       go to state 87
+    comando             go to state 59
+    entrada             go to state 60
+    saida               go to state 61
+    controle_fluxo      go to state 62
+    chamada_funcao      go to state 63
+    nome                go to state 64
 
 
 State 53
@@ -890,14 +898,14 @@ State 53
    21 declaracao_local: especificador_tipo . TK_IDENTIFICADOR
    22                 | especificador_tipo . TK_IDENTIFICADOR TK_OC_LE valor
 
-    TK_IDENTIFICADOR  shift, and go to state 87
+    TK_IDENTIFICADOR  shift, and go to state 88
 
 
 State 54
 
-   43 comando: declaracao_local .
+   42 comando: declaracao_local .
 
-    $default  reduce using rule 43 (comando)
+    $default  reduce using rule 42 (comando)
 
 
 State 55
@@ -905,295 +913,302 @@ State 55
    31 atribuicao: ID . '=' inverte expressao
    32           | ID . '=' expressao
 
-    '='  shift, and go to state 88
+    '='  shift, and go to state 89
 
 
 State 56
 
-   42 comando: atribuicao .
-
-    $default  reduce using rule 42 (comando)
-
-
-State 57
-
-   41 comando: retorno .
+   41 comando: atribuicao .
 
     $default  reduce using rule 41 (comando)
 
 
+State 57
+
+   40 comando: retorno .
+
+    $default  reduce using rule 40 (comando)
+
+
 State 58
-
-   26 declaracao_local: qualificador_tipo . especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor
-
-    TK_PR_INT     shift, and go to state 1
-    TK_PR_FLOAT   shift, and go to state 2
-    TK_PR_BOOL    shift, and go to state 3
-    TK_PR_CHAR    shift, and go to state 4
-    TK_PR_STRING  shift, and go to state 5
-
-    especificador_tipo  go to state 89
-
-
-State 59
 
     8 declarar_funcao: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando . '}'
 
     '}'  shift, and go to state 90
 
 
-State 60
+State 59
 
-   37 bloco_comando: comando . ';' bloco_comando
-   38              | comando .
+   36 bloco_comando: comando . ';' bloco_comando
+   37              | comando .
 
     ';'  shift, and go to state 91
 
-    $default  reduce using rule 38 (bloco_comando)
+    $default  reduce using rule 37 (bloco_comando)
+
+
+State 60
+
+   45 comando: entrada .
+
+    $default  reduce using rule 45 (comando)
 
 
 State 61
 
-   46 comando: entrada .
+   47 comando: saida .
 
-    $default  reduce using rule 46 (comando)
+    $default  reduce using rule 47 (comando)
 
 
 State 62
 
-   48 comando: saida .
+   43 comando: controle_fluxo .
 
-    $default  reduce using rule 48 (comando)
+    $default  reduce using rule 43 (comando)
 
 
 State 63
 
-   44 comando: controle_fluxo .
+   46 comando: chamada_funcao .
 
-    $default  reduce using rule 44 (comando)
+    $default  reduce using rule 46 (comando)
 
 
 State 64
 
-   47 comando: chamada_funcao .
+   65 chamada_funcao: nome . '(' lista_vazia ')'
 
-    $default  reduce using rule 47 (comando)
+    '('  shift, and go to state 92
 
 
 State 65
 
     9 declarar_funcao: TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando . '}'
 
-    '}'  shift, and go to state 92
+    '}'  shift, and go to state 93
 
 
 State 66
 
-   62 controle_fluxo: TK_PR_IF '(' . expressao ')' TK_PR_THEN comando TK_PR_ELSE comando
-   63               | TK_PR_IF '(' . expressao ')' TK_PR_THEN comando
+   61 controle_fluxo: TK_PR_IF '(' . expressao ')' TK_PR_THEN comando TK_PR_ELSE comando
+   62               | TK_PR_IF '(' . expressao ')' TK_PR_THEN comando
 
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
+    TK_OC_NOT         shift, and go to state 69
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
     TK_IDENTIFICADOR  shift, and go to state 50
 
-    literal         go to state 75
-    ID              go to state 76
-    chamada_funcao  go to state 77
-    expressao       go to state 93
+    literal         go to state 76
+    ID              go to state 77
+    chamada_funcao  go to state 78
+    nome            go to state 64
+    expressao       go to state 94
 
 
 State 67
 
-   64 controle_fluxo: TK_PR_WHILE '(' . expressao ')' TK_PR_DO comando
+   63 controle_fluxo: TK_PR_WHILE '(' . expressao ')' TK_PR_DO comando
 
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
+    TK_OC_NOT         shift, and go to state 69
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
     TK_IDENTIFICADOR  shift, and go to state 50
 
-    literal         go to state 75
-    ID              go to state 76
-    chamada_funcao  go to state 77
-    expressao       go to state 94
+    literal         go to state 76
+    ID              go to state 77
+    chamada_funcao  go to state 78
+    nome            go to state 64
+    expressao       go to state 95
 
 
 State 68
 
-   65 controle_fluxo: TK_PR_DO comando . TK_PR_WHILE '(' expressao ')'
+   64 controle_fluxo: TK_PR_DO comando . TK_PR_WHILE '(' expressao ')'
 
-    TK_PR_WHILE  shift, and go to state 95
+    TK_PR_WHILE  shift, and go to state 96
 
 
 State 69
+
+   83 expressao: TK_OC_NOT . expressao
+
+    TK_OC_NOT         shift, and go to state 69
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
+    TK_IDENTIFICADOR  shift, and go to state 50
+
+    literal         go to state 76
+    ID              go to state 77
+    chamada_funcao  go to state 78
+    nome            go to state 64
+    expressao       go to state 97
+
+
+State 70
 
    10 literal: TK_LIT_INT .
 
     $default  reduce using rule 10 (literal)
 
 
-State 70
+State 71
 
    11 literal: TK_LIT_FLOAT .
 
     $default  reduce using rule 11 (literal)
 
 
-State 71
+State 72
 
    12 literal: TK_LIT_FALSE .
 
     $default  reduce using rule 12 (literal)
 
 
-State 72
+State 73
 
    13 literal: TK_LIT_TRUE .
 
     $default  reduce using rule 13 (literal)
 
 
-State 73
+State 74
 
    14 literal: TK_LIT_CHAR .
 
     $default  reduce using rule 14 (literal)
 
 
-State 74
+State 75
 
    15 literal: TK_LIT_STRING .
 
     $default  reduce using rule 15 (literal)
 
 
-State 75
-
-   81 expressao: literal . tem_operador
-
-    TK_OC_LE   shift, and go to state 96
-    TK_OC_GE   shift, and go to state 97
-    TK_OC_EQ   shift, and go to state 98
-    TK_OC_NE   shift, and go to state 99
-    TK_OC_AND  shift, and go to state 100
-    TK_OC_OR   shift, and go to state 101
-    '%'        shift, and go to state 102
-    '+'        shift, and go to state 103
-    '-'        shift, and go to state 104
-    '>'        shift, and go to state 105
-    '<'        shift, and go to state 106
-    '*'        shift, and go to state 107
-    '/'        shift, and go to state 108
-    '!'        shift, and go to state 109
-
-    $default  reduce using rule 88 (tem_operador)
-
-    operador_aritmetico  go to state 110
-    operador_logico      go to state 111
-    tem_operador         go to state 112
-
-
 State 76
 
-   82 expressao: ID . tem_operador
+   80 expressao: literal . tem_operador
 
-    TK_OC_LE   shift, and go to state 96
-    TK_OC_GE   shift, and go to state 97
-    TK_OC_EQ   shift, and go to state 98
-    TK_OC_NE   shift, and go to state 99
-    TK_OC_AND  shift, and go to state 100
-    TK_OC_OR   shift, and go to state 101
-    '%'        shift, and go to state 102
-    '+'        shift, and go to state 103
-    '-'        shift, and go to state 104
-    '>'        shift, and go to state 105
-    '<'        shift, and go to state 106
-    '*'        shift, and go to state 107
-    '/'        shift, and go to state 108
-    '!'        shift, and go to state 109
+    TK_OC_LE   shift, and go to state 98
+    TK_OC_GE   shift, and go to state 99
+    TK_OC_EQ   shift, and go to state 100
+    TK_OC_NE   shift, and go to state 101
+    TK_OC_AND  shift, and go to state 102
+    TK_OC_OR   shift, and go to state 103
+    '%'        shift, and go to state 104
+    '+'        shift, and go to state 105
+    '-'        shift, and go to state 106
+    '>'        shift, and go to state 107
+    '<'        shift, and go to state 108
+    '*'        shift, and go to state 109
+    '/'        shift, and go to state 110
 
     $default  reduce using rule 88 (tem_operador)
 
-    operador_aritmetico  go to state 110
-    operador_logico      go to state 111
+    operador_aritmetico  go to state 111
+    operador_logico      go to state 112
     tem_operador         go to state 113
 
 
 State 77
 
-   83 expressao: chamada_funcao . tem_operador
+   81 expressao: ID . tem_operador
 
-    TK_OC_LE   shift, and go to state 96
-    TK_OC_GE   shift, and go to state 97
-    TK_OC_EQ   shift, and go to state 98
-    TK_OC_NE   shift, and go to state 99
-    TK_OC_AND  shift, and go to state 100
-    TK_OC_OR   shift, and go to state 101
-    '%'        shift, and go to state 102
-    '+'        shift, and go to state 103
-    '-'        shift, and go to state 104
-    '>'        shift, and go to state 105
-    '<'        shift, and go to state 106
-    '*'        shift, and go to state 107
-    '/'        shift, and go to state 108
-    '!'        shift, and go to state 109
+    TK_OC_LE   shift, and go to state 98
+    TK_OC_GE   shift, and go to state 99
+    TK_OC_EQ   shift, and go to state 100
+    TK_OC_NE   shift, and go to state 101
+    TK_OC_AND  shift, and go to state 102
+    TK_OC_OR   shift, and go to state 103
+    '%'        shift, and go to state 104
+    '+'        shift, and go to state 105
+    '-'        shift, and go to state 106
+    '>'        shift, and go to state 107
+    '<'        shift, and go to state 108
+    '*'        shift, and go to state 109
+    '/'        shift, and go to state 110
 
     $default  reduce using rule 88 (tem_operador)
 
-    operador_aritmetico  go to state 110
-    operador_logico      go to state 111
+    operador_aritmetico  go to state 111
+    operador_logico      go to state 112
     tem_operador         go to state 114
 
 
 State 78
 
-   55 entrada: TK_PR_INPUT expressao . '=' '>' expressao
+   82 expressao: chamada_funcao . tem_operador
 
-    '='  shift, and go to state 115
+    TK_OC_LE   shift, and go to state 98
+    TK_OC_GE   shift, and go to state 99
+    TK_OC_EQ   shift, and go to state 100
+    TK_OC_NE   shift, and go to state 101
+    TK_OC_AND  shift, and go to state 102
+    TK_OC_OR   shift, and go to state 103
+    '%'        shift, and go to state 104
+    '+'        shift, and go to state 105
+    '-'        shift, and go to state 106
+    '>'        shift, and go to state 107
+    '<'        shift, and go to state 108
+    '*'        shift, and go to state 109
+    '/'        shift, and go to state 110
+
+    $default  reduce using rule 88 (tem_operador)
+
+    operador_aritmetico  go to state 111
+    operador_logico      go to state 112
+    tem_operador         go to state 115
 
 
 State 79
 
-   56 saida: TK_PR_OUTPUT lista_expressoes .
+   54 entrada: TK_PR_INPUT expressao . '=' '>' expressao
 
-    $default  reduce using rule 56 (saida)
+    '='  shift, and go to state 116
 
 
 State 80
 
-   59 lista_expressoes: expressao . mais_de_uma
+   55 saida: TK_PR_OUTPUT lista_expressoes .
 
-    ','  shift, and go to state 116
-
-    $default  reduce using rule 61 (mais_de_uma)
-
-    mais_de_uma  go to state 117
+    $default  reduce using rule 55 (saida)
 
 
 State 81
+
+   58 lista_expressoes: expressao . mais_de_uma
+
+    ','  shift, and go to state 117
+
+    $default  reduce using rule 60 (mais_de_uma)
+
+    mais_de_uma  go to state 118
+
+
+State 82
 
    34 retorno: TK_PR_RETURN expressao .
 
     $default  reduce using rule 34 (retorno)
 
 
-State 82
-
-   23 declaracao_local: TK_PR_STATIC especificador_tipo . TK_IDENTIFICADOR
-   24                 | TK_PR_STATIC especificador_tipo . TK_IDENTIFICADOR TK_OC_LE valor
-
-    TK_IDENTIFICADOR  shift, and go to state 118
-
-
 State 83
 
-   25 declaracao_local: TK_PR_STATIC qualificador_tipo . especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor
+   25 declaracao_local: TK_PR_STATIC TK_PR_CONST . especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor
 
     TK_PR_INT     shift, and go to state 1
     TK_PR_FLOAT   shift, and go to state 2
@@ -1206,52 +1221,47 @@ State 83
 
 State 84
 
-   30 ID: TK_IDENTIFICADOR '[' . expressao ']'
+   23 declaracao_local: TK_PR_STATIC especificador_tipo . TK_IDENTIFICADOR
+   24                 | TK_PR_STATIC especificador_tipo . TK_IDENTIFICADOR TK_OC_LE valor
 
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
-    TK_IDENTIFICADOR  shift, and go to state 50
-
-    literal         go to state 75
-    ID              go to state 76
-    chamada_funcao  go to state 77
-    expressao       go to state 120
+    TK_IDENTIFICADOR  shift, and go to state 120
 
 
 State 85
 
-   66 chamada_funcao: TK_IDENTIFICADOR '(' . lista_vazia ')'
+   26 declaracao_local: TK_PR_CONST especificador_tipo . TK_IDENTIFICADOR TK_OC_LE valor
 
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
-    TK_IDENTIFICADOR  shift, and go to state 50
-
-    $default  reduce using rule 58 (lista_vazia)
-
-    literal           go to state 75
-    ID                go to state 76
-    lista_vazia       go to state 121
-    lista_expressoes  go to state 122
-    chamada_funcao    go to state 77
-    expressao         go to state 80
+    TK_IDENTIFICADOR  shift, and go to state 121
 
 
 State 86
 
-   45 comando: '{' bloco_comando . '}'
+   30 ID: TK_IDENTIFICADOR '[' . expressao ']'
+
+    TK_OC_NOT         shift, and go to state 69
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
+    TK_IDENTIFICADOR  shift, and go to state 50
+
+    literal         go to state 76
+    ID              go to state 77
+    chamada_funcao  go to state 78
+    nome            go to state 64
+    expressao       go to state 122
+
+
+State 87
+
+   44 comando: '{' bloco_comando . '}'
 
     '}'  shift, and go to state 123
 
 
-State 87
+State 88
 
    21 declaracao_local: especificador_tipo TK_IDENTIFICADOR .
    22                 | especificador_tipo TK_IDENTIFICADOR . TK_OC_LE valor
@@ -1261,32 +1271,27 @@ State 87
     $default  reduce using rule 21 (declaracao_local)
 
 
-State 88
+State 89
 
    31 atribuicao: ID '=' . inverte expressao
    32           | ID '=' . expressao
 
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
+    TK_OC_NOT         shift, and go to state 69
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
     TK_IDENTIFICADOR  shift, and go to state 50
     '-'               shift, and go to state 125
 
-    literal         go to state 75
-    ID              go to state 76
+    literal         go to state 76
+    ID              go to state 77
     inverte         go to state 126
-    chamada_funcao  go to state 77
+    chamada_funcao  go to state 78
+    nome            go to state 64
     expressao       go to state 127
-
-
-State 89
-
-   26 declaracao_local: qualificador_tipo especificador_tipo . TK_IDENTIFICADOR TK_OC_LE valor
-
-    TK_IDENTIFICADOR  shift, and go to state 128
 
 
 State 90
@@ -1298,321 +1303,344 @@ State 90
 
 State 91
 
-   37 bloco_comando: comando ';' . bloco_comando
+   36 bloco_comando: comando ';' . bloco_comando
 
     TK_PR_INT         shift, and go to state 1
     TK_PR_FLOAT       shift, and go to state 2
     TK_PR_BOOL        shift, and go to state 3
     TK_PR_CHAR        shift, and go to state 4
     TK_PR_STRING      shift, and go to state 5
-    TK_PR_IF          shift, and go to state 43
-    TK_PR_WHILE       shift, and go to state 44
-    TK_PR_DO          shift, and go to state 45
-    TK_PR_INPUT       shift, and go to state 46
-    TK_PR_OUTPUT      shift, and go to state 47
-    TK_PR_RETURN      shift, and go to state 48
-    TK_PR_STATIC      shift, and go to state 49
-    TK_PR_CONST       shift, and go to state 24
+    TK_PR_IF          shift, and go to state 42
+    TK_PR_WHILE       shift, and go to state 43
+    TK_PR_DO          shift, and go to state 44
+    TK_PR_INPUT       shift, and go to state 45
+    TK_PR_OUTPUT      shift, and go to state 46
+    TK_PR_RETURN      shift, and go to state 47
+    TK_PR_STATIC      shift, and go to state 48
+    TK_PR_CONST       shift, and go to state 49
     TK_IDENTIFICADOR  shift, and go to state 50
     ';'               shift, and go to state 51
     '{'               shift, and go to state 52
 
-    $default  reduce using rule 40 (bloco_comando)
+    $default  reduce using rule 39 (bloco_comando)
 
     especificador_tipo  go to state 53
     declaracao_local    go to state 54
     ID                  go to state 55
     atribuicao          go to state 56
     retorno             go to state 57
-    qualificador_tipo   go to state 58
-    bloco_comando       go to state 129
-    comando             go to state 60
-    entrada             go to state 61
-    saida               go to state 62
-    controle_fluxo      go to state 63
-    chamada_funcao      go to state 64
+    bloco_comando       go to state 128
+    comando             go to state 59
+    entrada             go to state 60
+    saida               go to state 61
+    controle_fluxo      go to state 62
+    chamada_funcao      go to state 63
+    nome                go to state 64
 
 
 State 92
+
+   65 chamada_funcao: nome '(' . lista_vazia ')'
+
+    TK_OC_NOT         shift, and go to state 69
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
+    TK_IDENTIFICADOR  shift, and go to state 50
+
+    $default  reduce using rule 57 (lista_vazia)
+
+    literal           go to state 76
+    ID                go to state 77
+    lista_vazia       go to state 129
+    lista_expressoes  go to state 130
+    chamada_funcao    go to state 78
+    nome              go to state 64
+    expressao         go to state 81
+
+
+State 93
 
     9 declarar_funcao: TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}' .
 
     $default  reduce using rule 9 (declarar_funcao)
 
 
-State 93
-
-   62 controle_fluxo: TK_PR_IF '(' expressao . ')' TK_PR_THEN comando TK_PR_ELSE comando
-   63               | TK_PR_IF '(' expressao . ')' TK_PR_THEN comando
-
-    ')'  shift, and go to state 130
-
-
 State 94
 
-   64 controle_fluxo: TK_PR_WHILE '(' expressao . ')' TK_PR_DO comando
+   61 controle_fluxo: TK_PR_IF '(' expressao . ')' TK_PR_THEN comando TK_PR_ELSE comando
+   62               | TK_PR_IF '(' expressao . ')' TK_PR_THEN comando
 
     ')'  shift, and go to state 131
 
 
 State 95
 
-   65 controle_fluxo: TK_PR_DO comando TK_PR_WHILE . '(' expressao ')'
+   63 controle_fluxo: TK_PR_WHILE '(' expressao . ')' TK_PR_DO comando
 
-    '('  shift, and go to state 132
+    ')'  shift, and go to state 132
 
 
 State 96
+
+   64 controle_fluxo: TK_PR_DO comando TK_PR_WHILE . '(' expressao ')'
+
+    '('  shift, and go to state 133
+
+
+State 97
+
+   83 expressao: TK_OC_NOT expressao .
+
+    $default  reduce using rule 83 (expressao)
+
+
+State 98
 
    72 operador_logico: TK_OC_LE .
 
     $default  reduce using rule 72 (operador_logico)
 
 
-State 97
+State 99
 
    73 operador_logico: TK_OC_GE .
 
     $default  reduce using rule 73 (operador_logico)
 
 
-State 98
+State 100
 
    74 operador_logico: TK_OC_EQ .
 
     $default  reduce using rule 74 (operador_logico)
 
 
-State 99
+State 101
 
    75 operador_logico: TK_OC_NE .
 
     $default  reduce using rule 75 (operador_logico)
 
 
-State 100
+State 102
 
    76 operador_logico: TK_OC_AND .
 
     $default  reduce using rule 76 (operador_logico)
 
 
-State 101
+State 103
 
    77 operador_logico: TK_OC_OR .
 
     $default  reduce using rule 77 (operador_logico)
 
 
-State 102
+State 104
 
    71 operador_aritmetico: '%' .
 
     $default  reduce using rule 71 (operador_aritmetico)
 
 
-State 103
+State 105
 
    67 operador_aritmetico: '+' .
 
     $default  reduce using rule 67 (operador_aritmetico)
 
 
-State 104
+State 106
 
    68 operador_aritmetico: '-' .
 
     $default  reduce using rule 68 (operador_aritmetico)
 
 
-State 105
+State 107
 
    79 operador_logico: '>' .
 
     $default  reduce using rule 79 (operador_logico)
 
 
-State 106
+State 108
 
    78 operador_logico: '<' .
 
     $default  reduce using rule 78 (operador_logico)
 
 
-State 107
+State 109
 
    69 operador_aritmetico: '*' .
 
     $default  reduce using rule 69 (operador_aritmetico)
 
 
-State 108
+State 110
 
    70 operador_aritmetico: '/' .
 
     $default  reduce using rule 70 (operador_aritmetico)
 
 
-State 109
-
-   80 operador_logico: '!' .
-
-    $default  reduce using rule 80 (operador_logico)
-
-
-State 110
+State 111
 
    84 tem_operador: operador_aritmetico . expressao
    85             | operador_aritmetico . '(' expressao ')'
 
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
+    TK_OC_NOT         shift, and go to state 69
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
     TK_IDENTIFICADOR  shift, and go to state 50
-    '('               shift, and go to state 133
+    '('               shift, and go to state 134
 
-    literal         go to state 75
-    ID              go to state 76
-    chamada_funcao  go to state 77
-    expressao       go to state 134
-
-
-State 111
-
-   86 tem_operador: operador_logico . expressao
-   87             | operador_logico . '(' expressao ')'
-
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
-    TK_IDENTIFICADOR  shift, and go to state 50
-    '('               shift, and go to state 135
-
-    literal         go to state 75
-    ID              go to state 76
-    chamada_funcao  go to state 77
-    expressao       go to state 136
+    literal         go to state 76
+    ID              go to state 77
+    chamada_funcao  go to state 78
+    nome            go to state 64
+    expressao       go to state 135
 
 
 State 112
 
-   81 expressao: literal tem_operador .
+   86 tem_operador: operador_logico . expressao
+   87             | operador_logico . '(' expressao ')'
 
-    $default  reduce using rule 81 (expressao)
+    TK_OC_NOT         shift, and go to state 69
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
+    TK_IDENTIFICADOR  shift, and go to state 50
+    '('               shift, and go to state 136
+
+    literal         go to state 76
+    ID              go to state 77
+    chamada_funcao  go to state 78
+    nome            go to state 64
+    expressao       go to state 137
 
 
 State 113
 
-   82 expressao: ID tem_operador .
+   80 expressao: literal tem_operador .
 
-    $default  reduce using rule 82 (expressao)
+    $default  reduce using rule 80 (expressao)
 
 
 State 114
 
-   83 expressao: chamada_funcao tem_operador .
+   81 expressao: ID tem_operador .
 
-    $default  reduce using rule 83 (expressao)
+    $default  reduce using rule 81 (expressao)
 
 
 State 115
 
-   55 entrada: TK_PR_INPUT expressao '=' . '>' expressao
+   82 expressao: chamada_funcao tem_operador .
 
-    '>'  shift, and go to state 137
+    $default  reduce using rule 82 (expressao)
 
 
 State 116
 
-   60 mais_de_uma: ',' . lista_expressoes
+   54 entrada: TK_PR_INPUT expressao '=' . '>' expressao
 
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
-    TK_IDENTIFICADOR  shift, and go to state 50
-
-    literal           go to state 75
-    ID                go to state 76
-    lista_expressoes  go to state 138
-    chamada_funcao    go to state 77
-    expressao         go to state 80
+    '>'  shift, and go to state 138
 
 
 State 117
 
-   59 lista_expressoes: expressao mais_de_uma .
+   59 mais_de_uma: ',' . lista_expressoes
 
-    $default  reduce using rule 59 (lista_expressoes)
+    TK_OC_NOT         shift, and go to state 69
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
+    TK_IDENTIFICADOR  shift, and go to state 50
+
+    literal           go to state 76
+    ID                go to state 77
+    lista_expressoes  go to state 139
+    chamada_funcao    go to state 78
+    nome              go to state 64
+    expressao         go to state 81
 
 
 State 118
 
-   23 declaracao_local: TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR .
-   24                 | TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR . TK_OC_LE valor
+   58 lista_expressoes: expressao mais_de_uma .
 
-    TK_OC_LE  shift, and go to state 139
-
-    $default  reduce using rule 23 (declaracao_local)
+    $default  reduce using rule 58 (lista_expressoes)
 
 
 State 119
 
-   25 declaracao_local: TK_PR_STATIC qualificador_tipo especificador_tipo . TK_IDENTIFICADOR TK_OC_LE valor
+   25 declaracao_local: TK_PR_STATIC TK_PR_CONST especificador_tipo . TK_IDENTIFICADOR TK_OC_LE valor
 
     TK_IDENTIFICADOR  shift, and go to state 140
 
 
 State 120
 
-   30 ID: TK_IDENTIFICADOR '[' expressao . ']'
+   23 declaracao_local: TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR .
+   24                 | TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR . TK_OC_LE valor
 
-    ']'  shift, and go to state 141
+    TK_OC_LE  shift, and go to state 141
+
+    $default  reduce using rule 23 (declaracao_local)
 
 
 State 121
 
-   66 chamada_funcao: TK_IDENTIFICADOR '(' lista_vazia . ')'
+   26 declaracao_local: TK_PR_CONST especificador_tipo TK_IDENTIFICADOR . TK_OC_LE valor
 
-    ')'  shift, and go to state 142
+    TK_OC_LE  shift, and go to state 142
 
 
 State 122
 
-   57 lista_vazia: lista_expressoes .
+   30 ID: TK_IDENTIFICADOR '[' expressao . ']'
 
-    $default  reduce using rule 57 (lista_vazia)
+    ']'  shift, and go to state 143
 
 
 State 123
 
-   45 comando: '{' bloco_comando '}' .
+   44 comando: '{' bloco_comando '}' .
 
-    $default  reduce using rule 45 (comando)
+    $default  reduce using rule 44 (comando)
 
 
 State 124
 
    22 declaracao_local: especificador_tipo TK_IDENTIFICADOR TK_OC_LE . valor
 
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
-    TK_IDENTIFICADOR  shift, and go to state 143
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
+    TK_IDENTIFICADOR  shift, and go to state 144
 
-    literal  go to state 144
-    valor    go to state 145
+    literal  go to state 145
+    valor    go to state 146
 
 
 State 125
@@ -1626,18 +1654,20 @@ State 126
 
    31 atribuicao: ID '=' inverte . expressao
 
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
+    TK_OC_NOT         shift, and go to state 69
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
     TK_IDENTIFICADOR  shift, and go to state 50
 
-    literal         go to state 75
-    ID              go to state 76
-    chamada_funcao  go to state 77
-    expressao       go to state 146
+    literal         go to state 76
+    ID              go to state 77
+    chamada_funcao  go to state 78
+    nome            go to state 64
+    expressao       go to state 147
 
 
 State 127
@@ -1649,258 +1679,240 @@ State 127
 
 State 128
 
-   26 declaracao_local: qualificador_tipo especificador_tipo TK_IDENTIFICADOR . TK_OC_LE valor
+   36 bloco_comando: comando ';' bloco_comando .
 
-    TK_OC_LE  shift, and go to state 147
+    $default  reduce using rule 36 (bloco_comando)
 
 
 State 129
 
-   37 bloco_comando: comando ';' bloco_comando .
+   65 chamada_funcao: nome '(' lista_vazia . ')'
 
-    $default  reduce using rule 37 (bloco_comando)
+    ')'  shift, and go to state 148
 
 
 State 130
 
-   62 controle_fluxo: TK_PR_IF '(' expressao ')' . TK_PR_THEN comando TK_PR_ELSE comando
-   63               | TK_PR_IF '(' expressao ')' . TK_PR_THEN comando
+   56 lista_vazia: lista_expressoes .
 
-    TK_PR_THEN  shift, and go to state 148
+    $default  reduce using rule 56 (lista_vazia)
 
 
 State 131
 
-   64 controle_fluxo: TK_PR_WHILE '(' expressao ')' . TK_PR_DO comando
+   61 controle_fluxo: TK_PR_IF '(' expressao ')' . TK_PR_THEN comando TK_PR_ELSE comando
+   62               | TK_PR_IF '(' expressao ')' . TK_PR_THEN comando
 
-    TK_PR_DO  shift, and go to state 149
+    TK_PR_THEN  shift, and go to state 149
 
 
 State 132
 
-   65 controle_fluxo: TK_PR_DO comando TK_PR_WHILE '(' . expressao ')'
+   63 controle_fluxo: TK_PR_WHILE '(' expressao ')' . TK_PR_DO comando
 
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
-    TK_IDENTIFICADOR  shift, and go to state 50
-
-    literal         go to state 75
-    ID              go to state 76
-    chamada_funcao  go to state 77
-    expressao       go to state 150
+    TK_PR_DO  shift, and go to state 150
 
 
 State 133
 
-   85 tem_operador: operador_aritmetico '(' . expressao ')'
+   64 controle_fluxo: TK_PR_DO comando TK_PR_WHILE '(' . expressao ')'
 
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
+    TK_OC_NOT         shift, and go to state 69
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
     TK_IDENTIFICADOR  shift, and go to state 50
 
-    literal         go to state 75
-    ID              go to state 76
-    chamada_funcao  go to state 77
+    literal         go to state 76
+    ID              go to state 77
+    chamada_funcao  go to state 78
+    nome            go to state 64
     expressao       go to state 151
 
 
 State 134
+
+   85 tem_operador: operador_aritmetico '(' . expressao ')'
+
+    TK_OC_NOT         shift, and go to state 69
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
+    TK_IDENTIFICADOR  shift, and go to state 50
+
+    literal         go to state 76
+    ID              go to state 77
+    chamada_funcao  go to state 78
+    nome            go to state 64
+    expressao       go to state 152
+
+
+State 135
 
    84 tem_operador: operador_aritmetico expressao .
 
     $default  reduce using rule 84 (tem_operador)
 
 
-State 135
+State 136
 
    87 tem_operador: operador_logico '(' . expressao ')'
 
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
+    TK_OC_NOT         shift, and go to state 69
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
     TK_IDENTIFICADOR  shift, and go to state 50
 
-    literal         go to state 75
-    ID              go to state 76
-    chamada_funcao  go to state 77
-    expressao       go to state 152
+    literal         go to state 76
+    ID              go to state 77
+    chamada_funcao  go to state 78
+    nome            go to state 64
+    expressao       go to state 153
 
 
-State 136
+State 137
 
    86 tem_operador: operador_logico expressao .
 
     $default  reduce using rule 86 (tem_operador)
 
 
-State 137
-
-   55 entrada: TK_PR_INPUT expressao '=' '>' . expressao
-
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
-    TK_IDENTIFICADOR  shift, and go to state 50
-
-    literal         go to state 75
-    ID              go to state 76
-    chamada_funcao  go to state 77
-    expressao       go to state 153
-
-
 State 138
 
-   60 mais_de_uma: ',' lista_expressoes .
+   54 entrada: TK_PR_INPUT expressao '=' '>' . expressao
 
-    $default  reduce using rule 60 (mais_de_uma)
+    TK_OC_NOT         shift, and go to state 69
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
+    TK_IDENTIFICADOR  shift, and go to state 50
+
+    literal         go to state 76
+    ID              go to state 77
+    chamada_funcao  go to state 78
+    nome            go to state 64
+    expressao       go to state 154
 
 
 State 139
 
-   24 declaracao_local: TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR TK_OC_LE . valor
+   59 mais_de_uma: ',' lista_expressoes .
 
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
-    TK_IDENTIFICADOR  shift, and go to state 143
-
-    literal  go to state 144
-    valor    go to state 154
+    $default  reduce using rule 59 (mais_de_uma)
 
 
 State 140
 
-   25 declaracao_local: TK_PR_STATIC qualificador_tipo especificador_tipo TK_IDENTIFICADOR . TK_OC_LE valor
+   25 declaracao_local: TK_PR_STATIC TK_PR_CONST especificador_tipo TK_IDENTIFICADOR . TK_OC_LE valor
 
     TK_OC_LE  shift, and go to state 155
 
 
 State 141
 
+   24 declaracao_local: TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR TK_OC_LE . valor
+
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
+    TK_IDENTIFICADOR  shift, and go to state 144
+
+    literal  go to state 145
+    valor    go to state 156
+
+
+State 142
+
+   26 declaracao_local: TK_PR_CONST especificador_tipo TK_IDENTIFICADOR TK_OC_LE . valor
+
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
+    TK_IDENTIFICADOR  shift, and go to state 144
+
+    literal  go to state 145
+    valor    go to state 157
+
+
+State 143
+
    30 ID: TK_IDENTIFICADOR '[' expressao ']' .
 
     $default  reduce using rule 30 (ID)
 
 
-State 142
-
-   66 chamada_funcao: TK_IDENTIFICADOR '(' lista_vazia ')' .
-
-    $default  reduce using rule 66 (chamada_funcao)
-
-
-State 143
+State 144
 
    28 valor: TK_IDENTIFICADOR .
 
     $default  reduce using rule 28 (valor)
 
 
-State 144
+State 145
 
    27 valor: literal .
 
     $default  reduce using rule 27 (valor)
 
 
-State 145
+State 146
 
    22 declaracao_local: especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor .
 
     $default  reduce using rule 22 (declaracao_local)
 
 
-State 146
+State 147
 
    31 atribuicao: ID '=' inverte expressao .
 
     $default  reduce using rule 31 (atribuicao)
 
 
-State 147
-
-   26 declaracao_local: qualificador_tipo especificador_tipo TK_IDENTIFICADOR TK_OC_LE . valor
-
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
-    TK_IDENTIFICADOR  shift, and go to state 143
-
-    literal  go to state 144
-    valor    go to state 156
-
-
 State 148
 
-   62 controle_fluxo: TK_PR_IF '(' expressao ')' TK_PR_THEN . comando TK_PR_ELSE comando
-   63               | TK_PR_IF '(' expressao ')' TK_PR_THEN . comando
+   65 chamada_funcao: nome '(' lista_vazia ')' .
 
-    TK_PR_INT         shift, and go to state 1
-    TK_PR_FLOAT       shift, and go to state 2
-    TK_PR_BOOL        shift, and go to state 3
-    TK_PR_CHAR        shift, and go to state 4
-    TK_PR_STRING      shift, and go to state 5
-    TK_PR_IF          shift, and go to state 43
-    TK_PR_WHILE       shift, and go to state 44
-    TK_PR_DO          shift, and go to state 45
-    TK_PR_INPUT       shift, and go to state 46
-    TK_PR_OUTPUT      shift, and go to state 47
-    TK_PR_RETURN      shift, and go to state 48
-    TK_PR_STATIC      shift, and go to state 49
-    TK_PR_CONST       shift, and go to state 24
-    TK_IDENTIFICADOR  shift, and go to state 50
-    '{'               shift, and go to state 52
-
-    especificador_tipo  go to state 53
-    declaracao_local    go to state 54
-    ID                  go to state 55
-    atribuicao          go to state 56
-    retorno             go to state 57
-    qualificador_tipo   go to state 58
-    comando             go to state 157
-    entrada             go to state 61
-    saida               go to state 62
-    controle_fluxo      go to state 63
-    chamada_funcao      go to state 64
+    $default  reduce using rule 65 (chamada_funcao)
 
 
 State 149
 
-   64 controle_fluxo: TK_PR_WHILE '(' expressao ')' TK_PR_DO . comando
+   61 controle_fluxo: TK_PR_IF '(' expressao ')' TK_PR_THEN . comando TK_PR_ELSE comando
+   62               | TK_PR_IF '(' expressao ')' TK_PR_THEN . comando
 
     TK_PR_INT         shift, and go to state 1
     TK_PR_FLOAT       shift, and go to state 2
     TK_PR_BOOL        shift, and go to state 3
     TK_PR_CHAR        shift, and go to state 4
     TK_PR_STRING      shift, and go to state 5
-    TK_PR_IF          shift, and go to state 43
-    TK_PR_WHILE       shift, and go to state 44
-    TK_PR_DO          shift, and go to state 45
-    TK_PR_INPUT       shift, and go to state 46
-    TK_PR_OUTPUT      shift, and go to state 47
-    TK_PR_RETURN      shift, and go to state 48
-    TK_PR_STATIC      shift, and go to state 49
-    TK_PR_CONST       shift, and go to state 24
+    TK_PR_IF          shift, and go to state 42
+    TK_PR_WHILE       shift, and go to state 43
+    TK_PR_DO          shift, and go to state 44
+    TK_PR_INPUT       shift, and go to state 45
+    TK_PR_OUTPUT      shift, and go to state 46
+    TK_PR_RETURN      shift, and go to state 47
+    TK_PR_STATIC      shift, and go to state 48
+    TK_PR_CONST       shift, and go to state 49
     TK_IDENTIFICADOR  shift, and go to state 50
     '{'               shift, and go to state 52
 
@@ -1909,134 +1921,167 @@ State 149
     ID                  go to state 55
     atribuicao          go to state 56
     retorno             go to state 57
-    qualificador_tipo   go to state 58
     comando             go to state 158
-    entrada             go to state 61
-    saida               go to state 62
-    controle_fluxo      go to state 63
-    chamada_funcao      go to state 64
+    entrada             go to state 60
+    saida               go to state 61
+    controle_fluxo      go to state 62
+    chamada_funcao      go to state 63
+    nome                go to state 64
 
 
 State 150
 
-   65 controle_fluxo: TK_PR_DO comando TK_PR_WHILE '(' expressao . ')'
+   63 controle_fluxo: TK_PR_WHILE '(' expressao ')' TK_PR_DO . comando
 
-    ')'  shift, and go to state 159
+    TK_PR_INT         shift, and go to state 1
+    TK_PR_FLOAT       shift, and go to state 2
+    TK_PR_BOOL        shift, and go to state 3
+    TK_PR_CHAR        shift, and go to state 4
+    TK_PR_STRING      shift, and go to state 5
+    TK_PR_IF          shift, and go to state 42
+    TK_PR_WHILE       shift, and go to state 43
+    TK_PR_DO          shift, and go to state 44
+    TK_PR_INPUT       shift, and go to state 45
+    TK_PR_OUTPUT      shift, and go to state 46
+    TK_PR_RETURN      shift, and go to state 47
+    TK_PR_STATIC      shift, and go to state 48
+    TK_PR_CONST       shift, and go to state 49
+    TK_IDENTIFICADOR  shift, and go to state 50
+    '{'               shift, and go to state 52
+
+    especificador_tipo  go to state 53
+    declaracao_local    go to state 54
+    ID                  go to state 55
+    atribuicao          go to state 56
+    retorno             go to state 57
+    comando             go to state 159
+    entrada             go to state 60
+    saida               go to state 61
+    controle_fluxo      go to state 62
+    chamada_funcao      go to state 63
+    nome                go to state 64
 
 
 State 151
 
-   85 tem_operador: operador_aritmetico '(' expressao . ')'
+   64 controle_fluxo: TK_PR_DO comando TK_PR_WHILE '(' expressao . ')'
 
     ')'  shift, and go to state 160
 
 
 State 152
 
-   87 tem_operador: operador_logico '(' expressao . ')'
+   85 tem_operador: operador_aritmetico '(' expressao . ')'
 
     ')'  shift, and go to state 161
 
 
 State 153
 
-   55 entrada: TK_PR_INPUT expressao '=' '>' expressao .
+   87 tem_operador: operador_logico '(' expressao . ')'
 
-    $default  reduce using rule 55 (entrada)
+    ')'  shift, and go to state 162
 
 
 State 154
+
+   54 entrada: TK_PR_INPUT expressao '=' '>' expressao .
+
+    $default  reduce using rule 54 (entrada)
+
+
+State 155
+
+   25 declaracao_local: TK_PR_STATIC TK_PR_CONST especificador_tipo TK_IDENTIFICADOR TK_OC_LE . valor
+
+    TK_LIT_INT        shift, and go to state 70
+    TK_LIT_FLOAT      shift, and go to state 71
+    TK_LIT_FALSE      shift, and go to state 72
+    TK_LIT_TRUE       shift, and go to state 73
+    TK_LIT_CHAR       shift, and go to state 74
+    TK_LIT_STRING     shift, and go to state 75
+    TK_IDENTIFICADOR  shift, and go to state 144
+
+    literal  go to state 145
+    valor    go to state 163
+
+
+State 156
 
    24 declaracao_local: TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor .
 
     $default  reduce using rule 24 (declaracao_local)
 
 
-State 155
+State 157
 
-   25 declaracao_local: TK_PR_STATIC qualificador_tipo especificador_tipo TK_IDENTIFICADOR TK_OC_LE . valor
-
-    TK_LIT_INT        shift, and go to state 69
-    TK_LIT_FLOAT      shift, and go to state 70
-    TK_LIT_FALSE      shift, and go to state 71
-    TK_LIT_TRUE       shift, and go to state 72
-    TK_LIT_CHAR       shift, and go to state 73
-    TK_LIT_STRING     shift, and go to state 74
-    TK_IDENTIFICADOR  shift, and go to state 143
-
-    literal  go to state 144
-    valor    go to state 162
-
-
-State 156
-
-   26 declaracao_local: qualificador_tipo especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor .
+   26 declaracao_local: TK_PR_CONST especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor .
 
     $default  reduce using rule 26 (declaracao_local)
 
 
-State 157
-
-   62 controle_fluxo: TK_PR_IF '(' expressao ')' TK_PR_THEN comando . TK_PR_ELSE comando
-   63               | TK_PR_IF '(' expressao ')' TK_PR_THEN comando .
-
-    TK_PR_ELSE  shift, and go to state 163
-
-    $default  reduce using rule 63 (controle_fluxo)
-
-
 State 158
 
-   64 controle_fluxo: TK_PR_WHILE '(' expressao ')' TK_PR_DO comando .
+   61 controle_fluxo: TK_PR_IF '(' expressao ')' TK_PR_THEN comando . TK_PR_ELSE comando
+   62               | TK_PR_IF '(' expressao ')' TK_PR_THEN comando .
 
-    $default  reduce using rule 64 (controle_fluxo)
+    TK_PR_ELSE  shift, and go to state 164
+
+    $default  reduce using rule 62 (controle_fluxo)
 
 
 State 159
 
-   65 controle_fluxo: TK_PR_DO comando TK_PR_WHILE '(' expressao ')' .
+   63 controle_fluxo: TK_PR_WHILE '(' expressao ')' TK_PR_DO comando .
 
-    $default  reduce using rule 65 (controle_fluxo)
+    $default  reduce using rule 63 (controle_fluxo)
 
 
 State 160
+
+   64 controle_fluxo: TK_PR_DO comando TK_PR_WHILE '(' expressao ')' .
+
+    $default  reduce using rule 64 (controle_fluxo)
+
+
+State 161
 
    85 tem_operador: operador_aritmetico '(' expressao ')' .
 
     $default  reduce using rule 85 (tem_operador)
 
 
-State 161
+State 162
 
    87 tem_operador: operador_logico '(' expressao ')' .
 
     $default  reduce using rule 87 (tem_operador)
 
 
-State 162
+State 163
 
-   25 declaracao_local: TK_PR_STATIC qualificador_tipo especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor .
+   25 declaracao_local: TK_PR_STATIC TK_PR_CONST especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor .
 
     $default  reduce using rule 25 (declaracao_local)
 
 
-State 163
+State 164
 
-   62 controle_fluxo: TK_PR_IF '(' expressao ')' TK_PR_THEN comando TK_PR_ELSE . comando
+   61 controle_fluxo: TK_PR_IF '(' expressao ')' TK_PR_THEN comando TK_PR_ELSE . comando
 
     TK_PR_INT         shift, and go to state 1
     TK_PR_FLOAT       shift, and go to state 2
     TK_PR_BOOL        shift, and go to state 3
     TK_PR_CHAR        shift, and go to state 4
     TK_PR_STRING      shift, and go to state 5
-    TK_PR_IF          shift, and go to state 43
-    TK_PR_WHILE       shift, and go to state 44
-    TK_PR_DO          shift, and go to state 45
-    TK_PR_INPUT       shift, and go to state 46
-    TK_PR_OUTPUT      shift, and go to state 47
-    TK_PR_RETURN      shift, and go to state 48
-    TK_PR_STATIC      shift, and go to state 49
-    TK_PR_CONST       shift, and go to state 24
+    TK_PR_IF          shift, and go to state 42
+    TK_PR_WHILE       shift, and go to state 43
+    TK_PR_DO          shift, and go to state 44
+    TK_PR_INPUT       shift, and go to state 45
+    TK_PR_OUTPUT      shift, and go to state 46
+    TK_PR_RETURN      shift, and go to state 47
+    TK_PR_STATIC      shift, and go to state 48
+    TK_PR_CONST       shift, and go to state 49
     TK_IDENTIFICADOR  shift, and go to state 50
     '{'               shift, and go to state 52
 
@@ -2045,16 +2090,16 @@ State 163
     ID                  go to state 55
     atribuicao          go to state 56
     retorno             go to state 57
-    qualificador_tipo   go to state 58
-    comando             go to state 164
-    entrada             go to state 61
-    saida               go to state 62
-    controle_fluxo      go to state 63
-    chamada_funcao      go to state 64
+    comando             go to state 165
+    entrada             go to state 60
+    saida               go to state 61
+    controle_fluxo      go to state 62
+    chamada_funcao      go to state 63
+    nome                go to state 64
 
 
-State 164
+State 165
 
-   62 controle_fluxo: TK_PR_IF '(' expressao ')' TK_PR_THEN comando TK_PR_ELSE comando .
+   61 controle_fluxo: TK_PR_IF '(' expressao ')' TK_PR_THEN comando TK_PR_ELSE comando .
 
-    $default  reduce using rule 62 (controle_fluxo)
+    $default  reduce using rule 61 (controle_fluxo)

@@ -1,7 +1,15 @@
 digraph G {
-node_0x136c570 [label="programa"]
-node_0x136c520 [label="f"]
-node_0x136c570 -> node_0x136c520
-node_0x136c430 [label="whiledo"]
-node_0x136c520 -> node_0x136c430
+node_0x132b740 [label="programa"]
+node_0x132b6f0 [label="f"]
+node_0x132b740 -> node_0x132b6f0
+node_0x132b680 [label="="]
+node_0x132b6f0 -> node_0x132b680
+node_0x132b480 [label="x"]
+node_0x132b680 -> node_0x132b480
+node_0x132b570 [label="+"]
+node_0x132b680 -> node_0x132b570
+node_0x132b610 [label="b"]
+node_0x132b570 -> node_0x132b610
+node_0x132b520 [label="a"]
+node_0x132b570 -> node_0x132b520
 }
