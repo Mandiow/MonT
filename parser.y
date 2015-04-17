@@ -55,12 +55,12 @@ clock_t sec;
 %type<syntaxTree> start
 %type<syntaxTree> programa
 %type<syntaxTree> declaracao_global	
-%type<syntaxTree> qualificador_tipo
 %type<syntaxTree> declarar_funcao
 %type<syntaxTree> declaracao_local
 %type<syntaxTree> bloco_comando
 %type<syntaxTree> comando
 %type<syntaxTree> ID
+%type<syntaxTree> nome
 %type<syntaxTree> atribuicao
 %type<syntaxTree> controle_fluxo
 %type<syntaxTree> chamada_funcao
@@ -71,6 +71,10 @@ clock_t sec;
 %type<syntaxTree> retorno
 %type<syntaxTree> entrada
 %type<syntaxTree> saida
+%type<syntaxTree> lista_expressoes
+%type<syntaxTree> lista_vazia
+%type<syntaxTree> mais_de_uma
+%type<valor_simbolo_lexico> valor
 %type<valor_simbolo_lexico> '%'
 %type<valor_simbolo_lexico> '+'
 %type<valor_simbolo_lexico> '-'
@@ -108,7 +112,7 @@ start: programa {$$ = createNode(AST_PROGRAMA,NULL);appendChildNode($$,$1);gv_cr
    sim, demorei algum bom tempo pra me tocar disso =.=
 */
 programa
-	: declaracao_global ';' programa {$$=$1;}
+	: declaracao_global ';' programa {$$=$1;appendChildNode($3,$$);}
 	| declarar_funcao programa {$$ = $1;appendChildNode($$,$2);}
 	| {$$ = NULL;} 
 	;
@@ -121,16 +125,16 @@ declaracao_global
 
 declarar_funcao	
 	: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}' {$$ = createNode(AST_FUNCAO,$2);appendChildNode($$,$7);}
-	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}'
+	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}' {$$ = createNode(AST_FUNCAO,$3);appendChildNode($$,$8);}
 	;
 
 literal
-	: TK_LIT_INT
-	| TK_LIT_FLOAT
-	| TK_LIT_FALSE
-	| TK_LIT_TRUE
-	| TK_LIT_CHAR
-	| TK_LIT_STRING
+	: TK_LIT_INT {$$ = $1;}
+	| TK_LIT_FLOAT {$$ = $1;}
+	| TK_LIT_FALSE {$$ = $1;}
+	| TK_LIT_TRUE {$$ = $1;}
+	| TK_LIT_CHAR {$$ = $1;}
+	| TK_LIT_STRING {$$ = $1;}
 	;
 
 especificador_tipo
@@ -142,23 +146,23 @@ especificador_tipo
 	;
 
 declaracao_local
-	: especificador_tipo TK_IDENTIFICADOR  
+	: especificador_tipo TK_IDENTIFICADOR   
 	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor 
 	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR 
 	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
-	| TK_PR_STATIC qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
-	| qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
+	| TK_PR_STATIC TK_PR_CONST especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
+	| TK_PR_CONST especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
 	;
 
 
 valor
-	: literal
-	| TK_IDENTIFICADOR
+	: literal {$$ = createNode(AST_LITERAL, $1);}
+	| TK_IDENTIFICADOR {$$ = createNode(AST_IDENTIFICADOR,$1);}
 	;
 
 ID
 	: TK_IDENTIFICADOR {$$ = createNode(AST_IDENTIFICADOR,$1);}
-	| TK_IDENTIFICADOR  '[' expressao ']' {$$ = createNode(AST_VETOR_INDEXADO,$1); appendChildNode($$,$3);}
+	| TK_IDENTIFICADOR  '[' expressao ']' {$$ = createNode(AST_VETOR_INDEXADO,NULL);appendChildNode($$,createNode(AST_IDENTIFICADOR,$1)); appendChildNode($$,$3);}
 	;
 
 
@@ -175,13 +179,11 @@ inverte
 
 
 retorno
-	: TK_PR_RETURN expressao 
-	| TK_PR_RETURN 
+	: TK_PR_RETURN expressao {$$ = createNode(AST_RETURN,NULL);appendChildNode($$,$2);}
+	| TK_PR_RETURN {$$ = createNode(AST_RETURN,NULL); }
 	;
 
-qualificador_tipo
-	: TK_PR_CONST
-	;
+
 
 
 
@@ -196,29 +198,29 @@ bloco_comando
 	
 
 comando
-	: retorno 
-	| atribuicao
-	| declaracao_local 
-    | controle_fluxo {$$ = $1;}
+	: retorno  				{$$ = $1;}
+	| atribuicao 			{$$ = $1;}
+	| declaracao_local  	{$$ = $1;appendChildNode($$,$1);}
+    | controle_fluxo 		{$$ = $1;}
 	| '{' bloco_comando '}' { $$ = createNode(AST_BLOCO, NULL);appendChildNode($$,$2);}
-	| entrada {$$ = $1;}
-	| chamada_funcao 
-	| saida 
+	| entrada 				{$$ = $1;}
+	| chamada_funcao		{$$ = $1;} 
+	| saida 				{$$ = $1;}
 	;
 
 parametros_vazio
-	: parametros
+	: parametros {$$ = $1;}
 	| {$$ = NULL;}
 	;
 
 parametros
-	: lista_parametros ',' parametros
+	: lista_parametros ',' parametros 
 	| lista_parametros
 	;
 	
 lista_parametros 
 	: especificador_tipo TK_IDENTIFICADOR 
-	| qualificador_tipo especificador_tipo TK_IDENTIFICADOR 
+	| TK_PR_CONST especificador_tipo TK_IDENTIFICADOR 
 	;
 
 entrada
@@ -226,21 +228,21 @@ entrada
 	;
 
 saida
-	: TK_PR_OUTPUT lista_expressoes	
+	: TK_PR_OUTPUT lista_expressoes	 {$$ = createNode(AST_OUTPUT,NULL);appendChildNode($$,$2);}
 	;
 
 lista_vazia
-	: lista_expressoes
-	|
+	: lista_expressoes {$$ = $1;}
+	| {$$ = NULL;}
 	;
 
 lista_expressoes
-	: expressao mais_de_uma 
+	: expressao mais_de_uma {$$ = $1; appendChildNode($$,$2);}
 	;
 
 mais_de_uma
-	: ',' lista_expressoes
-	|
+	: ',' lista_expressoes {$$ = $2;}
+	| {$$ = NULL;}
 	;
 
 
@@ -258,7 +260,10 @@ controle_fluxo
 
 
 chamada_funcao
-	: TK_IDENTIFICADOR  '(' lista_vazia ')' 
+	: nome  '(' lista_vazia ')' { $$ = createNode(AST_CHAMADA_DE_FUNCAO,NULL); appendChildNode($$,$1);appendChildNode($$,$3);}
+	;
+
+nome: TK_IDENTIFICADOR {$$ = createNode(AST_IDENTIFICADOR,$1);}
 	;
 
 operador_aritmetico
@@ -278,20 +283,37 @@ operador_logico
 	| TK_OC_OR  {$$ = createNode(AST_LOGICO_OU, NULL);}
 	| '<'       {$$ = createNode(AST_LOGICO_COMP_L, NULL);}
 	| '>'       {$$ = createNode(AST_LOGICO_COMP_G, NULL);}
-	| '!'		{$$ = createNode(AST_LOGICO_COMP_NEGACAO, NULL);}
 	;
 	
 expressao 
-	: literal tem_operador {$$ = createNode(AST_LITERAL, $1);} 
-	| ID tem_operador
-	| chamada_funcao tem_operador
+	: literal tem_operador  {
+								
+								if($2 != NULL)	
+									{$$ = $2; 
+									appendChildNode($2,createNode(AST_LITERAL, $1));}
+								else $$ = createNode(AST_LITERAL, $1);
+							}
+	| ID tem_operador		{
+								if($2 != NULL)	
+									{$$ = $2;
+									 printf("chegou\n"); 
+									appendChildNode($2,$1);}
+								else $$ = $1;
+							}
+	| chamada_funcao tem_operador {
+									if($2 != NULL)	
+										{$$ = $2; 
+										appendChildNode($2,$1);}
+									else $$ = $1;
+								  }
+	|TK_OC_NOT expressao		{$$ = createNode(AST_LOGICO_COMP_NEGACAO, NULL);appendChildNode($$,$2);}
 	;
 
 tem_operador
-	: operador_aritmetico expressao
-	| operador_aritmetico '(' expressao ')'
-	| operador_logico expressao
-	| operador_logico '(' expressao ')'
+	: operador_aritmetico expressao {$$ = $1; appendChildNode($$,$2); }
+	| operador_aritmetico '(' expressao ')' {$$ = $1; appendChildNode($$,$3); }
+	| operador_logico expressao {$$ = $1; appendChildNode($$,$2); }
+	| operador_logico '(' expressao ')' {$$ = $1; appendChildNode($$,$3); }
 	| {$$ = NULL;}
 	;
 

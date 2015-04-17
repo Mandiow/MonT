@@ -86,10 +86,12 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             break;
                         case SIMBOLO_LITERAL_CHAR:
                             node->token.single_char = key[1];
+                            node->key = strtok(key,"\'");
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_STRING:
                             node->token.string = strtok(key,"\"");
+                            node->key = strtok(key,"\"");
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_BOOL:
@@ -130,6 +132,7 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
         if(nodeFound == 0) //Como o nodo não foi encontrado, nenhum valor foi atualizado, logo ele tem que ser adicionado na lista
             { 
                 node = malloc(sizeof(struct comp_dict_item_t));
+                node->key = strdup(key);
                 switch(TK_some_symbol_comes) 
                     {
                         case SIMBOLO_LITERAL_INT:
@@ -142,10 +145,12 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             break;
                         case SIMBOLO_LITERAL_CHAR:
                             node->token.single_char = key[1];
+                            node->key = strtok(key,"\'");
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_STRING:
                             node->token.string = strtok(key,"\"");
+                            node->key = strtok(key,"\"");
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_BOOL:
@@ -161,7 +166,6 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             node->token.string = strtok(key,"\"");
                             break;
                         }
-                node->key = strdup(key);
                 node->line = line;
                 node->next = NULL;
                 aux->next = node;
@@ -184,7 +188,7 @@ void dict_release (struct comp_dict_t* hashtable)
         while (aux_item != NULL) 
         {
             next_item = aux_item->next;
-            free(aux_item->key);
+            if(aux_item->tipo != SIMBOLO_LITERAL_STRING && aux_item->tipo != SIMBOLO_LITERAL_CHAR) free(aux_item->key);
             free(aux_item);
             aux_item = next_item;
         }
@@ -192,4 +196,3 @@ void dict_release (struct comp_dict_t* hashtable)
     free(hashtable->table);
     free(hashtable);
 }
-
