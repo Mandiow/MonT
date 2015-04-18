@@ -61,7 +61,7 @@ void *appendChildNode(comp_tree_t* father, comp_tree_t* newChild)
 		// printf("NEWCHILD: %p\n", newChild);
 	 //    printf("AUXNODE: %p\n", auxNode);
 		// printf("PAI: %p FILHO: %p\n",father,father->childNodeList->firstNode);
-		printf("%d\n",count );
+		//printf("%d\n",count );
 	}
 }
 
@@ -120,10 +120,16 @@ void __gv_create_subtree(comp_tree_t* father, comp_tree_t* node)
 		switch(node->nodeType)
 		{
 			case AST_IDENTIFICADOR:
+				if(node->tableItem != NULL)
 					gv_declare(node->nodeType, node, node->tableItem->key);
+				else
+					gv_declare(node->nodeType, node, "IDENTIFICADOR");
 				break;
 			case AST_LITERAL:
+				if(node->tableItem != NULL)
 					gv_declare(node->nodeType, node, node->tableItem->key);
+				else
+					gv_declare(node->nodeType, node, "LITERAL");
 				break;
 			case AST_FUNCAO:
 					gv_declare(node->nodeType, node, node->tableItem->key);

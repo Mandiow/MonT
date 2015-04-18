@@ -74,7 +74,7 @@ clock_t sec;
 %type<syntaxTree> lista_expressoes
 %type<syntaxTree> lista_vazia
 %type<syntaxTree> mais_de_uma
-%type<valor_simbolo_lexico> valor
+%type<syntaxTree> valor
 %type<valor_simbolo_lexico> '%'
 %type<valor_simbolo_lexico> '+'
 %type<valor_simbolo_lexico> '-'
@@ -88,10 +88,10 @@ clock_t sec;
 %type<syntaxTree> '}'
 %type<valor_simbolo_lexico> '!'
 %type<syntaxTree> inverte
-%type<valor_simbolo_lexico> literal
-%type<valor_simbolo_lexico> parametros
-%type<valor_simbolo_lexico> parametros_vazio
-%type<valor_simbolo_lexico> lista_parametros
+%type<syntaxTree> literal
+%type<syntaxTree> parametros
+%type<syntaxTree> parametros_vazio
+%type<syntaxTree> lista_parametros
 
 %nonassoc LOWER_THAN_ELSE
 %nonassoc TK_PR_ELSE
@@ -112,7 +112,7 @@ start: programa {$$ = createNode(AST_PROGRAMA,NULL);appendChildNode($$,$1);gv_cr
    sim, demorei algum bom tempo pra me tocar disso =.=
 */
 programa
-	: declaracao_global ';' programa {$$=$1;appendChildNode($3,$$);}
+	: declaracao_global ';' programa {$$=$1;appendChildNode($$,$3);}
 	| declarar_funcao programa {$$ = $1;appendChildNode($$,$2);}
 	| {$$ = NULL;} 
 	;
@@ -129,12 +129,12 @@ declarar_funcao
 	;
 
 literal
-	: TK_LIT_INT {$$ = $1;}
-	| TK_LIT_FLOAT {$$ = $1;}
-	| TK_LIT_FALSE {$$ = $1;}
-	| TK_LIT_TRUE {$$ = $1;}
-	| TK_LIT_CHAR {$$ = $1;}
-	| TK_LIT_STRING {$$ = $1;}
+	: TK_LIT_INT {$$ = createNode(AST_LITERAL, $1);}
+	| TK_LIT_FLOAT {$$ = createNode(AST_LITERAL, $1);}
+	| TK_LIT_FALSE {$$ = createNode(AST_LITERAL, $1);}
+	| TK_LIT_TRUE {$$ = createNode(AST_LITERAL, $1);}
+	| TK_LIT_CHAR {$$ = createNode(AST_LITERAL, $1);}
+	| TK_LIT_STRING {$$ = createNode(AST_LITERAL, $1);}
 	;
 
 especificador_tipo
@@ -156,7 +156,7 @@ declaracao_local
 
 
 valor
-	: literal {$$ = createNode(AST_LITERAL, $1);}
+	: literal {$$ = $1;}
 	| TK_IDENTIFICADOR {$$ = createNode(AST_IDENTIFICADOR,$1);}
 	;
 
@@ -237,7 +237,10 @@ lista_vazia
 	;
 
 lista_expressoes
-	: expressao mais_de_uma {$$ = $1; appendChildNode($$,$2);}
+	: expressao mais_de_uma {$$ = $1; 
+							if($2 != NULL)
+								appendChildNode($$,$2);
+							}
 	;
 
 mais_de_uma
@@ -286,26 +289,27 @@ operador_logico
 	;
 	
 expressao 
-	: literal tem_operador  {
-								
+	: literal tem_operador  {							
 								if($2 != NULL)	
-									{$$ = $2; 
-									appendChildNode($2,createNode(AST_LITERAL, $1));}
-								else $$ = createNode(AST_LITERAL, $1);
+									{
+										$$ = $2; 
+										printf("Literal com operador (arit ou log)\n"); 
+										appendChildNode($$,$1);
+									}
+								else
+									{
+										printf("Literal sozinho na expressao\n");
+										$$ = $1;
+									}
 							}
 	| ID tem_operador		{
 								if($2 != NULL)	
-									{$$ = $2;
-									 printf("chegou\n"); 
-									appendChildNode($2,$1);}
+									{
+										$$ = $2;
+										appendChildNode($2,$1);
+									}
 								else $$ = $1;
 							}
-	| chamada_funcao tem_operador {
-									if($2 != NULL)	
-										{$$ = $2; 
-										appendChildNode($2,$1);}
-									else $$ = $1;
-								  }
 	|TK_OC_NOT expressao		{$$ = createNode(AST_LOGICO_COMP_NEGACAO, NULL);appendChildNode($$,$2);}
 	;
 
@@ -316,9 +320,6 @@ tem_operador
 	| operador_logico '(' expressao ')' {$$ = $1; appendChildNode($$,$3); }
 	| {$$ = NULL;}
 	;
-
-
-
 
 
 
