@@ -1,3 +1,105 @@
 digraph G {
-node_0x1d69a70 [label="programa"]
+node_0xb54c50 [label="programa"]
+node_0xb54c00 [label="fibo"]
+node_0xb54c50 -> node_0xb54c00
+node_0xb536b0 [label="="]
+node_0xb54c00 -> node_0xb536b0
+node_0xb53610 [label="entry"]
+node_0xb536b0 -> node_0xb53610
+node_0xb53660 [label="in"]
+node_0xb536b0 -> node_0xb53660
+node_0xb53970 [label="ifelse"]
+node_0xb536b0 -> node_0xb53970
+node_0xb53770 [label="=="]
+node_0xb53970 -> node_0xb53770
+node_0xb53810 [label="0"]
+node_0xb53770 -> node_0xb53810
+node_0xb53720 [label="entry"]
+node_0xb53770 -> node_0xb53720
+node_0xb53920 [label="return"]
+node_0xb53970 -> node_0xb53920
+node_0xb538d0 [label="0"]
+node_0xb53920 -> node_0xb538d0
+node_0xb53c30 [label="ifelse"]
+node_0xb53970 -> node_0xb53c30
+node_0xb53a30 [label="=="]
+node_0xb53c30 -> node_0xb53a30
+node_0xb53ad0 [label="1"]
+node_0xb53a30 -> node_0xb53ad0
+node_0xb539e0 [label="entry"]
+node_0xb53a30 -> node_0xb539e0
+node_0xb53be0 [label="return"]
+node_0xb53c30 -> node_0xb53be0
+node_0xb53b90 [label="1"]
+node_0xb53be0 -> node_0xb53b90
+node_0xb53d90 [label="="]
+node_0xb53c30 -> node_0xb53d90
+node_0xb53ca0 [label="rank"]
+node_0xb53d90 -> node_0xb53ca0
+node_0xb53d40 [label="2"]
+node_0xb53d90 -> node_0xb53d40
+node_0xb53ef0 [label="="]
+node_0xb53d90 -> node_0xb53ef0
+node_0xb53e00 [label="aux1"]
+node_0xb53ef0 -> node_0xb53e00
+node_0xb53ea0 [label="0"]
+node_0xb53ef0 -> node_0xb53ea0
+node_0xb54050 [label="="]
+node_0xb53ef0 -> node_0xb54050
+node_0xb53f60 [label="aux2"]
+node_0xb54050 -> node_0xb53f60
+node_0xb54000 [label="1"]
+node_0xb54050 -> node_0xb54000
+node_0xb541b0 [label="="]
+node_0xb54050 -> node_0xb541b0
+node_0xb540c0 [label="aux3"]
+node_0xb541b0 -> node_0xb540c0
+node_0xb54160 [label="1"]
+node_0xb541b0 -> node_0xb54160
+node_0xb549f0 [label="whiledo"]
+node_0xb541b0 -> node_0xb549f0
+node_0xb54270 [label="<"]
+node_0xb549f0 -> node_0xb54270
+node_0xb542c0 [label="entry"]
+node_0xb54270 -> node_0xb542c0
+node_0xb54220 [label="rank"]
+node_0xb54270 -> node_0xb54220
+node_0xb549a0 [label="block"]
+node_0xb549f0 -> node_0xb549a0
+node_0xb544e0 [label="="]
+node_0xb549a0 -> node_0xb544e0
+node_0xb54330 [label="rank"]
+node_0xb544e0 -> node_0xb54330
+node_0xb543d0 [label="+"]
+node_0xb544e0 -> node_0xb543d0
+node_0xb54470 [label="1"]
+node_0xb543d0 -> node_0xb54470
+node_0xb54380 [label="rank"]
+node_0xb543d0 -> node_0xb54380
+node_0xb545f0 [label="="]
+node_0xb544e0 -> node_0xb545f0
+node_0xb54550 [label="aux1"]
+node_0xb545f0 -> node_0xb54550
+node_0xb545a0 [label="aux2"]
+node_0xb545f0 -> node_0xb545a0
+node_0xb54700 [label="="]
+node_0xb545f0 -> node_0xb54700
+node_0xb54660 [label="aux2"]
+node_0xb54700 -> node_0xb54660
+node_0xb546b0 [label="aux3"]
+node_0xb54700 -> node_0xb546b0
+node_0xb548d0 [label="="]
+node_0xb54700 -> node_0xb548d0
+node_0xb54770 [label="aux3"]
+node_0xb548d0 -> node_0xb54770
+node_0xb54810 [label="+"]
+node_0xb548d0 -> node_0xb54810
+node_0xb54860 [label="aux2"]
+node_0xb54810 -> node_0xb54860
+node_0xb547c0 [label="aux1"]
+node_0xb54810 -> node_0xb547c0
+node_0xb54ab0 [label="return"]
+node_0xb549f0 -> node_0xb54ab0
+node_0xb54a60 [label="aux3"]
+node_0xb54ab0 -> node_0xb54a60
 }

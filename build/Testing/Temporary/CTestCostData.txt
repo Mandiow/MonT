@@ -1,56 +1,56 @@
-e3_avaliacao_01 7 0.0280884
-e3_avaliacao_02 7 0.0284705
-e3_avaliacao_03 7 0.027959
-e3_avaliacao_04 7 0.0285859
-e3_avaliacao_05 7 0.0293893
-e3_avaliacao_06 7 0.0273621
-e3_avaliacao_07 7 0.0287624
-e3_avaliacao_08 7 0.02731
-e3_avaliacao_09 7 0.0291278
-e3_avaliacao_10 7 0.029813
-e3_avaliacao_11 7 0.0266117
-e3_avaliacao_12 7 0.0297311
-e3_avaliacao_13 7 0.028336
-e3_avaliacao_14 7 0.0285703
-e3_avaliacao_15 7 0.0323646
-e3_avaliacao_16 7 0.0314987
-e3_avaliacao_17 7 0.0292944
-e3_avaliacao_18 7 0.0268419
-e3_avaliacao_19 7 0.029546
-e3_avaliacao_20 7 0.0296548
-e3_avaliacao_21 7 0.0264138
-e3_avaliacao_22 7 0.0283542
-e3_avaliacao_23 7 0.0289323
-e3_avaliacao_24 7 0.0280203
-e3_avaliacao_25 7 0.0270881
-e3_avaliacao_26 6 0.031321
-e3_avaliacao_27 7 0.02951
-e3_avaliacao_28 7 0.0300794
-e3_avaliacao_29 7 0.0291671
-e3_avaliacao_30 7 0.0291772
-e3_avaliacao_31 7 0.0279487
-e3_avaliacao_32 7 0.0273728
-e3_avaliacao_33 7 0.028539
-e3_avaliacao_34 7 0.0302839
-e3_avaliacao_35 7 0.0287924
-e3_avaliacao_36 7 0.028815
-e3_avaliacao_37 7 0.0303614
-e3_avaliacao_38 7 0.0286503
-e3_avaliacao_39 7 0.0293072
-e3_avaliacao_40 7 0.0289431
-e3_avaliacao_41 5 0.0452578
+e3_avaliacao_01 11 0.0175307
+e3_avaliacao_02 11 0.0172809
+e3_avaliacao_03 11 0.0179929
+e3_avaliacao_04 11 0.0191015
+e3_avaliacao_05 11 0.0189491
+e3_avaliacao_06 11 0.0177307
+e3_avaliacao_07 11 0.0184059
+e3_avaliacao_08 11 0.0193941
+e3_avaliacao_09 11 0.0185408
+e3_avaliacao_10 11 0.0182994
+e3_avaliacao_11 11 0.0175403
+e3_avaliacao_12 11 0.01895
+e3_avaliacao_13 11 0.0159455
+e3_avaliacao_14 11 0.0186128
+e3_avaliacao_15 11 0.0203355
+e3_avaliacao_16 11 0.0196746
+e3_avaliacao_17 11 0.0173408
+e3_avaliacao_18 11 0.0184148
+e3_avaliacao_19 11 0.0183087
+e3_avaliacao_20 11 0.0188785
+e3_avaliacao_21 11 0.0170015
+e3_avaliacao_22 11 0.0189685
+e3_avaliacao_23 11 0.0191816
+e3_avaliacao_24 11 0.0197431
+e3_avaliacao_25 11 0.0179094
+e3_avaliacao_26 10 0.0189049
+e3_avaliacao_27 11 0.0184137
+e3_avaliacao_28 11 0.0196186
+e3_avaliacao_29 11 0.0185777
+e3_avaliacao_30 11 0.0185445
+e3_avaliacao_31 11 0.0171635
+e3_avaliacao_32 11 0.0182291
+e3_avaliacao_33 11 0.0175955
+e3_avaliacao_34 11 0.019474
+e3_avaliacao_35 11 0.0178646
+e3_avaliacao_36 11 0.0176575
+e3_avaliacao_37 11 0.0196636
+e3_avaliacao_38 11 0.0177291
+e3_avaliacao_39 11 0.0176246
+e3_avaliacao_40 11 0.0193524
+e3_avaliacao_41 9 0.0242596
 e3_avaliacao_42 0 0
 e3_avaliacao_43 0 0
 e3_avaliacao_44 0 0
-e3_avaliacao_45 0 0
-e3_avaliacao_46 0 0
+e3_avaliacao_45 2 0.199826
+e3_avaliacao_46 1 0.494808
 e3_avaliacao_47 0 0
 e3_avaliacao_48 0 0
-e3_avaliacao_49 0 0
+e3_avaliacao_49 2 0.165012
 e3_avaliacao_50 0 0
 e3_avaliacao_51 0 0
-e3_valgrind_01 7 0.0623114
-e3_valgrind_02 7 0.0640997
+e3_valgrind_01 11 0.0411086
+e3_valgrind_02 11 0.0417301
 e3_valgrind_03 0 0
 e3_valgrind_04 0 0
 e3_valgrind_05 0 0
@@ -93,22 +93,19 @@ e3_valgrind_41 0 0
 e3_valgrind_42 0 0
 e3_valgrind_43 0 0
 e3_valgrind_44 0 0
-e3_valgrind_45 0 0
+e3_valgrind_45 2 0
 e3_valgrind_46 0 0
-e3_valgrind_47 6 0.0770913
-e3_valgrind_48 7 0.0649329
+e3_valgrind_47 10 0.0455955
+e3_valgrind_48 11 0.0418535
 e3_valgrind_49 0 0
 e3_valgrind_50 0 0
-e3_valgrind_51 0 0
+e3_valgrind_51 1 0.456173
 ---
 e3_avaliacao_42
 e3_avaliacao_43
 e3_avaliacao_44
-e3_avaliacao_45
-e3_avaliacao_46
 e3_avaliacao_47
 e3_avaliacao_48
-e3_avaliacao_49
 e3_avaliacao_50
 e3_avaliacao_51
 e3_valgrind_03
@@ -157,4 +154,3 @@ e3_valgrind_45
 e3_valgrind_46
 e3_valgrind_49
 e3_valgrind_50
-e3_valgrind_51

@@ -1,0 +1,75 @@
+digraph G {
+node_0xb8b540 [label="programa"]
+node_0xb8af40 [label="fibonacci"]
+node_0xb8b540 -> node_0xb8af40
+node_0xb8a6d0 [label="ifelse"]
+node_0xb8af40 -> node_0xb8a6d0
+node_0xb8a4d0 [label="=="]
+node_0xb8a6d0 -> node_0xb8a4d0
+node_0xb8a570 [label="0"]
+node_0xb8a4d0 -> node_0xb8a570
+node_0xb8a480 [label="n"]
+node_0xb8a4d0 -> node_0xb8a480
+node_0xb8a680 [label="return"]
+node_0xb8a6d0 -> node_0xb8a680
+node_0xb8a630 [label="1"]
+node_0xb8a680 -> node_0xb8a630
+node_0xb8a990 [label="ifelse"]
+node_0xb8a6d0 -> node_0xb8a990
+node_0xb8a790 [label="=="]
+node_0xb8a990 -> node_0xb8a790
+node_0xb8a830 [label="1"]
+node_0xb8a790 -> node_0xb8a830
+node_0xb8a740 [label="n"]
+node_0xb8a790 -> node_0xb8a740
+node_0xb8a940 [label="return"]
+node_0xb8a990 -> node_0xb8a940
+node_0xb8a8f0 [label="1"]
+node_0xb8a940 -> node_0xb8a8f0
+node_0xb8aeb0 [label="return"]
+node_0xb8a990 -> node_0xb8aeb0
+node_0xb8ac20 [label="+"]
+node_0xb8aeb0 -> node_0xb8ac20
+node_0xb8ae20 [label="call"]
+node_0xb8ac20 -> node_0xb8ae20
+node_0xb8ac70 [label="fibonacci"]
+node_0xb8ae20 -> node_0xb8ac70
+node_0xb8ad10 [label="-"]
+node_0xb8ae20 -> node_0xb8ad10
+node_0xb8adb0 [label="2"]
+node_0xb8ad10 -> node_0xb8adb0
+node_0xb8acc0 [label="n"]
+node_0xb8ad10 -> node_0xb8acc0
+node_0xb8abb0 [label="call"]
+node_0xb8ac20 -> node_0xb8abb0
+node_0xb8aa00 [label="fibonacci"]
+node_0xb8abb0 -> node_0xb8aa00
+node_0xb8aaa0 [label="-"]
+node_0xb8abb0 -> node_0xb8aaa0
+node_0xb8ab40 [label="1"]
+node_0xb8aaa0 -> node_0xb8ab40
+node_0xb8aa50 [label="n"]
+node_0xb8aaa0 -> node_0xb8aa50
+node_0xb8b4d0 [label="main"]
+node_0xb8af40 -> node_0xb8b4d0
+node_0xb8b0d0 [label="output"]
+node_0xb8b4d0 -> node_0xb8b0d0
+node_0xb8b080 [label="Insira um numero: "]
+node_0xb8b0d0 -> node_0xb8b080
+node_0xb8b210 [label="input"]
+node_0xb8b0d0 -> node_0xb8b210
+node_0xb8b170 [label="10"]
+node_0xb8b210 -> node_0xb8b170
+node_0xb8b1c0 [label="numero"]
+node_0xb8b210 -> node_0xb8b1c0
+node_0xb8b440 [label="output"]
+node_0xb8b210 -> node_0xb8b440
+node_0xb8b2e0 [label="O valor fibonacci eh: "]
+node_0xb8b440 -> node_0xb8b2e0
+node_0xb8b3d0 [label="call"]
+node_0xb8b2e0 -> node_0xb8b3d0
+node_0xb8b330 [label="fibonacci"]
+node_0xb8b3d0 -> node_0xb8b330
+node_0xb8b380 [label="numero"]
+node_0xb8b3d0 -> node_0xb8b380
+}

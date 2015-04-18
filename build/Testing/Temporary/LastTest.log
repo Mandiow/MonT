@@ -1,10 +1,10 @@
-Start testing: Apr 18 17:10 BRT
+Start testing: Apr 18 18:38 BRT
 ----------------------------------------------------------
 146/345 Testing: e3_avaliacao_01
 146/345 Test: e3_avaliacao_01
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_01.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_01" start time: Apr 18 17:10 BRT
+"e3_avaliacao_01" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_01'
@@ -12,10 +12,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_01'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_01.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_01' OK
 <end of output>
-Test time =   0.20 sec
+Test time =   0.19 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_01" end time: Apr 18 17:10 BRT
+"e3_avaliacao_01" end time: Apr 18 18:38 BRT
 "e3_avaliacao_01" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -23,7 +23,7 @@ Test Passed.
 147/345 Test: e3_avaliacao_02
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_02.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_02" start time: Apr 18 17:10 BRT
+"e3_avaliacao_02" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_02'
@@ -31,10 +31,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_02'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_02.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_02' OK
 <end of output>
-Test time =   0.20 sec
+Test time =   0.19 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_02" end time: Apr 18 17:10 BRT
+"e3_avaliacao_02" end time: Apr 18 18:38 BRT
 "e3_avaliacao_02" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -42,7 +42,7 @@ Test Passed.
 148/345 Test: e3_avaliacao_03
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_03.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_03" start time: Apr 18 17:10 BRT
+"e3_avaliacao_03" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_03'
@@ -53,7 +53,7 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_03' OK
 Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_03" end time: Apr 18 17:10 BRT
+"e3_avaliacao_03" end time: Apr 18 18:38 BRT
 "e3_avaliacao_03" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -61,7 +61,7 @@ Test Passed.
 149/345 Test: e3_avaliacao_04
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_04.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_04" start time: Apr 18 17:10 BRT
+"e3_avaliacao_04" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_04'
@@ -69,10 +69,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_04'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_04.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_04' OK
 <end of output>
-Test time =   0.20 sec
+Test time =   0.21 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_04" end time: Apr 18 17:10 BRT
+"e3_avaliacao_04" end time: Apr 18 18:38 BRT
 "e3_avaliacao_04" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -80,7 +80,7 @@ Test Passed.
 150/345 Test: e3_avaliacao_05
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_05.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_05" start time: Apr 18 17:10 BRT
+"e3_avaliacao_05" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_05'
@@ -91,7 +91,7 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_05' OK
 Test time =   0.21 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_05" end time: Apr 18 17:10 BRT
+"e3_avaliacao_05" end time: Apr 18 18:38 BRT
 "e3_avaliacao_05" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -99,7 +99,7 @@ Test Passed.
 151/345 Test: e3_avaliacao_06
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_06.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_06" start time: Apr 18 17:10 BRT
+"e3_avaliacao_06" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_06'
@@ -107,10 +107,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_06'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_06.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_06' OK
 <end of output>
-Test time =   0.19 sec
+Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_06" end time: Apr 18 17:10 BRT
+"e3_avaliacao_06" end time: Apr 18 18:38 BRT
 "e3_avaliacao_06" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -118,7 +118,7 @@ Test Passed.
 152/345 Test: e3_avaliacao_07
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_07.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_07" start time: Apr 18 17:10 BRT
+"e3_avaliacao_07" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_07'
@@ -129,7 +129,7 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_07' OK
 Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_07" end time: Apr 18 17:10 BRT
+"e3_avaliacao_07" end time: Apr 18 18:38 BRT
 "e3_avaliacao_07" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -137,7 +137,7 @@ Test Passed.
 153/345 Test: e3_avaliacao_08
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_08.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_08" start time: Apr 18 17:10 BRT
+"e3_avaliacao_08" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_08'
@@ -145,10 +145,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_08'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_08.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_08' OK
 <end of output>
-Test time =   0.19 sec
+Test time =   0.21 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_08" end time: Apr 18 17:10 BRT
+"e3_avaliacao_08" end time: Apr 18 18:38 BRT
 "e3_avaliacao_08" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -156,7 +156,7 @@ Test Passed.
 154/345 Test: e3_avaliacao_09
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_09.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_09" start time: Apr 18 17:10 BRT
+"e3_avaliacao_09" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_09'
@@ -167,7 +167,7 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_09' OK
 Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_09" end time: Apr 18 17:10 BRT
+"e3_avaliacao_09" end time: Apr 18 18:38 BRT
 "e3_avaliacao_09" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -175,7 +175,7 @@ Test Passed.
 155/345 Test: e3_avaliacao_10
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_10.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_10" start time: Apr 18 17:10 BRT
+"e3_avaliacao_10" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_10'
@@ -183,10 +183,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_10'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_10.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_10' OK
 <end of output>
-Test time =   0.21 sec
+Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_10" end time: Apr 18 17:10 BRT
+"e3_avaliacao_10" end time: Apr 18 18:38 BRT
 "e3_avaliacao_10" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -194,7 +194,7 @@ Test Passed.
 156/345 Test: e3_avaliacao_11
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_11.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_11" start time: Apr 18 17:10 BRT
+"e3_avaliacao_11" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_11'
@@ -205,7 +205,7 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_11' OK
 Test time =   0.19 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_11" end time: Apr 18 17:10 BRT
+"e3_avaliacao_11" end time: Apr 18 18:38 BRT
 "e3_avaliacao_11" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -213,7 +213,7 @@ Test Passed.
 157/345 Test: e3_avaliacao_12
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_12.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_12" start time: Apr 18 17:10 BRT
+"e3_avaliacao_12" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_12'
@@ -224,7 +224,7 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_12' OK
 Test time =   0.21 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_12" end time: Apr 18 17:10 BRT
+"e3_avaliacao_12" end time: Apr 18 18:38 BRT
 "e3_avaliacao_12" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -232,7 +232,7 @@ Test Passed.
 158/345 Test: e3_avaliacao_13
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_13.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_13" start time: Apr 18 17:10 BRT
+"e3_avaliacao_13" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_13'
@@ -240,10 +240,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_13'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_13.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_13' OK
 <end of output>
-Test time =   0.20 sec
+Test time =   0.18 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_13" end time: Apr 18 17:10 BRT
+"e3_avaliacao_13" end time: Apr 18 18:38 BRT
 "e3_avaliacao_13" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -251,7 +251,7 @@ Test Passed.
 159/345 Test: e3_avaliacao_14
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_14.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_14" start time: Apr 18 17:10 BRT
+"e3_avaliacao_14" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_14'
@@ -262,7 +262,7 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_14' OK
 Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_14" end time: Apr 18 17:10 BRT
+"e3_avaliacao_14" end time: Apr 18 18:38 BRT
 "e3_avaliacao_14" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -270,7 +270,7 @@ Test Passed.
 160/345 Test: e3_avaliacao_15
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_15.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_15" start time: Apr 18 17:10 BRT
+"e3_avaliacao_15" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_15'
@@ -278,10 +278,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_15'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_15.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_15' OK
 <end of output>
-Test time =   0.23 sec
+Test time =   0.22 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_15" end time: Apr 18 17:10 BRT
+"e3_avaliacao_15" end time: Apr 18 18:38 BRT
 "e3_avaliacao_15" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -289,7 +289,7 @@ Test Passed.
 161/345 Test: e3_avaliacao_16
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_16.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_16" start time: Apr 18 17:10 BRT
+"e3_avaliacao_16" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_16'
@@ -300,7 +300,7 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_16' OK
 Test time =   0.22 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_16" end time: Apr 18 17:10 BRT
+"e3_avaliacao_16" end time: Apr 18 18:38 BRT
 "e3_avaliacao_16" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -308,7 +308,7 @@ Test Passed.
 162/345 Test: e3_avaliacao_17
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_17.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_17" start time: Apr 18 17:10 BRT
+"e3_avaliacao_17" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_17'
@@ -316,10 +316,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_17'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_17.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_17' OK
 <end of output>
-Test time =   0.21 sec
+Test time =   0.19 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_17" end time: Apr 18 17:10 BRT
+"e3_avaliacao_17" end time: Apr 18 18:38 BRT
 "e3_avaliacao_17" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -327,7 +327,7 @@ Test Passed.
 163/345 Test: e3_avaliacao_18
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_18.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_18" start time: Apr 18 17:10 BRT
+"e3_avaliacao_18" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_18'
@@ -335,10 +335,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_18'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_18.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_18' OK
 <end of output>
-Test time =   0.19 sec
+Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_18" end time: Apr 18 17:10 BRT
+"e3_avaliacao_18" end time: Apr 18 18:38 BRT
 "e3_avaliacao_18" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -346,7 +346,7 @@ Test Passed.
 164/345 Test: e3_avaliacao_19
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_19.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_19" start time: Apr 18 17:10 BRT
+"e3_avaliacao_19" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_19'
@@ -354,10 +354,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_19'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_19.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_19' OK
 <end of output>
-Test time =   0.21 sec
+Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_19" end time: Apr 18 17:10 BRT
+"e3_avaliacao_19" end time: Apr 18 18:38 BRT
 "e3_avaliacao_19" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -365,7 +365,7 @@ Test Passed.
 165/345 Test: e3_avaliacao_20
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_20.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_20" start time: Apr 18 17:10 BRT
+"e3_avaliacao_20" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_20'
@@ -376,7 +376,7 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_20' OK
 Test time =   0.21 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_20" end time: Apr 18 17:10 BRT
+"e3_avaliacao_20" end time: Apr 18 18:38 BRT
 "e3_avaliacao_20" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -384,7 +384,7 @@ Test Passed.
 166/345 Test: e3_avaliacao_21
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_21.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_21" start time: Apr 18 17:10 BRT
+"e3_avaliacao_21" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_21'
@@ -392,10 +392,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_21'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_21.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_21' OK
 <end of output>
-Test time =   0.18 sec
+Test time =   0.19 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_21" end time: Apr 18 17:10 BRT
+"e3_avaliacao_21" end time: Apr 18 18:38 BRT
 "e3_avaliacao_21" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -403,7 +403,7 @@ Test Passed.
 167/345 Test: e3_avaliacao_22
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_22.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_22" start time: Apr 18 17:10 BRT
+"e3_avaliacao_22" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_22'
@@ -411,10 +411,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_22'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_22.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_22' OK
 <end of output>
-Test time =   0.20 sec
+Test time =   0.21 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_22" end time: Apr 18 17:10 BRT
+"e3_avaliacao_22" end time: Apr 18 18:38 BRT
 "e3_avaliacao_22" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -422,7 +422,7 @@ Test Passed.
 168/345 Test: e3_avaliacao_23
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_23.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_23" start time: Apr 18 17:10 BRT
+"e3_avaliacao_23" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_23'
@@ -430,10 +430,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_23'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_23.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_23' OK
 <end of output>
-Test time =   0.20 sec
+Test time =   0.21 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_23" end time: Apr 18 17:10 BRT
+"e3_avaliacao_23" end time: Apr 18 18:38 BRT
 "e3_avaliacao_23" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -441,7 +441,7 @@ Test Passed.
 169/345 Test: e3_avaliacao_24
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_24.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_24" start time: Apr 18 17:10 BRT
+"e3_avaliacao_24" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_24'
@@ -449,10 +449,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_24'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_24.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_24' OK
 <end of output>
-Test time =   0.20 sec
+Test time =   0.22 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_24" end time: Apr 18 17:10 BRT
+"e3_avaliacao_24" end time: Apr 18 18:38 BRT
 "e3_avaliacao_24" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -460,7 +460,7 @@ Test Passed.
 170/345 Test: e3_avaliacao_25
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_25.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_25" start time: Apr 18 17:10 BRT
+"e3_avaliacao_25" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_25'
@@ -468,10 +468,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_25'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_25.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_25' OK
 <end of output>
-Test time =   0.19 sec
+Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_25" end time: Apr 18 17:10 BRT
+"e3_avaliacao_25" end time: Apr 18 18:38 BRT
 "e3_avaliacao_25" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -479,7 +479,7 @@ Test Passed.
 171/345 Test: e3_avaliacao_26
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_26.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_26" start time: Apr 18 17:10 BRT
+"e3_avaliacao_26" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_26'
@@ -490,7 +490,7 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_26' OK
 Test time =   0.19 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_26" end time: Apr 18 17:10 BRT
+"e3_avaliacao_26" end time: Apr 18 18:38 BRT
 "e3_avaliacao_26" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -498,7 +498,7 @@ Test Passed.
 172/345 Test: e3_avaliacao_27
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_27.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_27" start time: Apr 18 17:10 BRT
+"e3_avaliacao_27" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_27'
@@ -506,10 +506,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_27'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_27.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_27' OK
 <end of output>
-Test time =   0.21 sec
+Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_27" end time: Apr 18 17:10 BRT
+"e3_avaliacao_27" end time: Apr 18 18:38 BRT
 "e3_avaliacao_27" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -517,7 +517,7 @@ Test Passed.
 173/345 Test: e3_avaliacao_28
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_28.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_28" start time: Apr 18 17:10 BRT
+"e3_avaliacao_28" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_28'
@@ -525,10 +525,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_28'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_28.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_28' OK
 <end of output>
-Test time =   0.21 sec
+Test time =   0.22 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_28" end time: Apr 18 17:10 BRT
+"e3_avaliacao_28" end time: Apr 18 18:38 BRT
 "e3_avaliacao_28" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -536,7 +536,7 @@ Test Passed.
 174/345 Test: e3_avaliacao_29
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_29.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_29" start time: Apr 18 17:10 BRT
+"e3_avaliacao_29" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_29'
@@ -547,7 +547,7 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_29' OK
 Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_29" end time: Apr 18 17:10 BRT
+"e3_avaliacao_29" end time: Apr 18 18:38 BRT
 "e3_avaliacao_29" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -555,7 +555,7 @@ Test Passed.
 175/345 Test: e3_avaliacao_30
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_30.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_30" start time: Apr 18 17:10 BRT
+"e3_avaliacao_30" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_30'
@@ -566,7 +566,7 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_30' OK
 Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_30" end time: Apr 18 17:10 BRT
+"e3_avaliacao_30" end time: Apr 18 18:38 BRT
 "e3_avaliacao_30" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -574,7 +574,7 @@ Test Passed.
 176/345 Test: e3_avaliacao_31
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_31.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_31" start time: Apr 18 17:10 BRT
+"e3_avaliacao_31" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_31'
@@ -582,10 +582,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_31'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_31.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_31' OK
 <end of output>
-Test time =   0.20 sec
+Test time =   0.19 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_31" end time: Apr 18 17:10 BRT
+"e3_avaliacao_31" end time: Apr 18 18:38 BRT
 "e3_avaliacao_31" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -593,7 +593,7 @@ Test Passed.
 177/345 Test: e3_avaliacao_32
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_32.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_32" start time: Apr 18 17:10 BRT
+"e3_avaliacao_32" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_32'
@@ -601,10 +601,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_32'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_32.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_32' OK
 <end of output>
-Test time =   0.19 sec
+Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_32" end time: Apr 18 17:10 BRT
+"e3_avaliacao_32" end time: Apr 18 18:38 BRT
 "e3_avaliacao_32" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -612,7 +612,7 @@ Test Passed.
 178/345 Test: e3_avaliacao_33
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_33.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_33" start time: Apr 18 17:10 BRT
+"e3_avaliacao_33" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_33'
@@ -620,10 +620,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_33'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_33.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_33' OK
 <end of output>
-Test time =   0.20 sec
+Test time =   0.19 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_33" end time: Apr 18 17:10 BRT
+"e3_avaliacao_33" end time: Apr 18 18:38 BRT
 "e3_avaliacao_33" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -631,7 +631,7 @@ Test Passed.
 179/345 Test: e3_avaliacao_34
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_34.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_34" start time: Apr 18 17:10 BRT
+"e3_avaliacao_34" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_34'
@@ -642,7 +642,7 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_34' OK
 Test time =   0.21 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_34" end time: Apr 18 17:10 BRT
+"e3_avaliacao_34" end time: Apr 18 18:38 BRT
 "e3_avaliacao_34" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -650,7 +650,7 @@ Test Passed.
 180/345 Test: e3_avaliacao_35
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_35.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_35" start time: Apr 18 17:10 BRT
+"e3_avaliacao_35" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_35'
@@ -661,7 +661,7 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_35' OK
 Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_35" end time: Apr 18 17:10 BRT
+"e3_avaliacao_35" end time: Apr 18 18:38 BRT
 "e3_avaliacao_35" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -669,7 +669,7 @@ Test Passed.
 181/345 Test: e3_avaliacao_36
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_36.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_36" start time: Apr 18 17:10 BRT
+"e3_avaliacao_36" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_36'
@@ -677,10 +677,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_36'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_36.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_36' OK
 <end of output>
-Test time =   0.20 sec
+Test time =   0.19 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_36" end time: Apr 18 17:10 BRT
+"e3_avaliacao_36" end time: Apr 18 18:38 BRT
 "e3_avaliacao_36" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -688,7 +688,7 @@ Test Passed.
 182/345 Test: e3_avaliacao_37
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_37.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_37" start time: Apr 18 17:10 BRT
+"e3_avaliacao_37" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_37'
@@ -696,10 +696,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_37'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_37.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_37' OK
 <end of output>
-Test time =   0.21 sec
+Test time =   0.22 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_37" end time: Apr 18 17:10 BRT
+"e3_avaliacao_37" end time: Apr 18 18:38 BRT
 "e3_avaliacao_37" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -707,7 +707,7 @@ Test Passed.
 183/345 Test: e3_avaliacao_38
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_38.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_38" start time: Apr 18 17:10 BRT
+"e3_avaliacao_38" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_38'
@@ -718,7 +718,7 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_38' OK
 Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_38" end time: Apr 18 17:10 BRT
+"e3_avaliacao_38" end time: Apr 18 18:38 BRT
 "e3_avaliacao_38" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -726,7 +726,7 @@ Test Passed.
 184/345 Test: e3_avaliacao_39
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_39.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_39" start time: Apr 18 17:10 BRT
+"e3_avaliacao_39" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_39'
@@ -734,10 +734,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_39'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_39.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_39' OK
 <end of output>
-Test time =   0.21 sec
+Test time =   0.19 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_39" end time: Apr 18 17:10 BRT
+"e3_avaliacao_39" end time: Apr 18 18:38 BRT
 "e3_avaliacao_39" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -745,7 +745,7 @@ Test Passed.
 185/345 Test: e3_avaliacao_40
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_40.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_40" start time: Apr 18 17:10 BRT
+"e3_avaliacao_40" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_40'
@@ -753,10 +753,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_40'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_40.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_40' OK
 <end of output>
-Test time =   0.20 sec
+Test time =   0.21 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_40" end time: Apr 18 17:10 BRT
+"e3_avaliacao_40" end time: Apr 18 18:38 BRT
 "e3_avaliacao_40" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -764,7 +764,7 @@ Test Passed.
 186/345 Test: e3_avaliacao_41
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_41.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_41" start time: Apr 18 17:10 BRT
+"e3_avaliacao_41" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_41'
@@ -772,10 +772,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_41'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_41.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_41' OK
 <end of output>
-Test time =   0.23 sec
+Test time =   0.22 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_avaliacao_41" end time: Apr 18 17:10 BRT
+"e3_avaliacao_41" end time: Apr 18 18:38 BRT
 "e3_avaliacao_41" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -783,7 +783,7 @@ Test Passed.
 187/345 Test: e3_avaliacao_42
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_42.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_42" start time: Apr 18 17:10 BRT
+"e3_avaliacao_42" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_42'
@@ -793,10 +793,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_42.tesh:3> s
 ||
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_42.tesh:3> as requested)
 <end of output>
-Test time =   0.26 sec
+Test time =   0.25 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_42" end time: Apr 18 17:10 BRT
+"e3_avaliacao_42" end time: Apr 18 18:38 BRT
 "e3_avaliacao_42" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -804,7 +804,7 @@ Test Failed.
 188/345 Test: e3_avaliacao_43
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_43.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_43" start time: Apr 18 17:10 BRT
+"e3_avaliacao_43" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_43'
@@ -814,10 +814,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_43.tesh:3> s
 ||
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_43.tesh:3> as requested)
 <end of output>
-Test time =   0.25 sec
+Test time =   0.27 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_43" end time: Apr 18 17:10 BRT
+"e3_avaliacao_43" end time: Apr 18 18:38 BRT
 "e3_avaliacao_43" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -825,7 +825,7 @@ Test Failed.
 189/345 Test: e3_avaliacao_44
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_44.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_44" start time: Apr 18 17:10 BRT
+"e3_avaliacao_44" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_44'
@@ -835,10 +835,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_44.tesh:3> s
 ||
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_44.tesh:3> as requested)
 <end of output>
-Test time =   0.24 sec
+Test time =   0.28 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_44" end time: Apr 18 17:10 BRT
+"e3_avaliacao_44" end time: Apr 18 18:38 BRT
 "e3_avaliacao_44" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -846,20 +846,18 @@ Test Failed.
 190/345 Test: e3_avaliacao_45
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_45.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_45" start time: Apr 18 17:10 BRT
+"e3_avaliacao_45" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_45'
 [/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_45:3] ./tests/e3/verify main tests/e3/input/i44.iks tests/e3/expected/i44.dot tests/e3/output
-Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_45.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_45.tesh:3> returned code 1)
-Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_45.tesh:3> so far:
-||
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_45.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_45' OK
 <end of output>
-Test time =   0.04 sec
+Test time =   0.40 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_45" end time: Apr 18 17:10 BRT
+Test Passed.
+"e3_avaliacao_45" end time: Apr 18 18:38 BRT
 "e3_avaliacao_45" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -867,20 +865,18 @@ Test Failed.
 191/345 Test: e3_avaliacao_46
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_46.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_46" start time: Apr 18 17:10 BRT
+"e3_avaliacao_46" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_46'
 [/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_46:3] ./tests/e3/verify main tests/e3/input/i45.iks tests/e3/expected/i45.dot tests/e3/output
-Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_46.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_46.tesh:3> returned code 1)
-Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_46.tesh:3> so far:
-||
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_46.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_46' OK
 <end of output>
-Test time =   0.05 sec
+Test time =   0.49 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_46" end time: Apr 18 17:10 BRT
+Test Passed.
+"e3_avaliacao_46" end time: Apr 18 18:38 BRT
 "e3_avaliacao_46" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -888,7 +884,7 @@ Test Failed.
 192/345 Test: e3_avaliacao_47
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_47.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_47" start time: Apr 18 17:10 BRT
+"e3_avaliacao_47" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_47'
@@ -901,7 +897,7 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_47.tesh:3> s
 Test time =   0.05 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_47" end time: Apr 18 17:10 BRT
+"e3_avaliacao_47" end time: Apr 18 18:38 BRT
 "e3_avaliacao_47" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -909,7 +905,7 @@ Test Failed.
 193/345 Test: e3_avaliacao_48
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_48.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_48" start time: Apr 18 17:10 BRT
+"e3_avaliacao_48" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_48'
@@ -922,7 +918,7 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_48.tesh:3> s
 Test time =   0.05 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_48" end time: Apr 18 17:10 BRT
+"e3_avaliacao_48" end time: Apr 18 18:38 BRT
 "e3_avaliacao_48" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -930,20 +926,18 @@ Test Failed.
 194/345 Test: e3_avaliacao_49
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_49.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_49" start time: Apr 18 17:10 BRT
+"e3_avaliacao_49" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_49'
 [/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_49:3] ./tests/e3/verify main tests/e3/input/i48.iks tests/e3/expected/i48.dot tests/e3/output
-Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_49.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_49.tesh:3> returned code 1)
-Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_49.tesh:3> so far:
-||
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_49.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_49' OK
 <end of output>
-Test time =   0.05 sec
+Test time =   0.33 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_avaliacao_49" end time: Apr 18 17:10 BRT
+Test Passed.
+"e3_avaliacao_49" end time: Apr 18 18:38 BRT
 "e3_avaliacao_49" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -951,7 +945,7 @@ Test Failed.
 195/345 Test: e3_avaliacao_50
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_50.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_50" start time: Apr 18 17:10 BRT
+"e3_avaliacao_50" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_50'
@@ -961,10 +955,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_50.tesh:3> s
 ||
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_50.tesh:3> as requested)
 <end of output>
-Test time =   0.04 sec
+Test time =   0.05 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_50" end time: Apr 18 17:10 BRT
+"e3_avaliacao_50" end time: Apr 18 18:38 BRT
 "e3_avaliacao_50" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -972,7 +966,7 @@ Test Failed.
 196/345 Test: e3_avaliacao_51
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_51.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_avaliacao_51" start time: Apr 18 17:10 BRT
+"e3_avaliacao_51" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_51'
@@ -982,10 +976,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_51.tesh:3> s
 ||
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//avaliacao_51.tesh:3> as requested)
 <end of output>
-Test time =   0.04 sec
+Test time =   0.05 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_avaliacao_51" end time: Apr 18 17:10 BRT
+"e3_avaliacao_51" end time: Apr 18 18:38 BRT
 "e3_avaliacao_51" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -993,7 +987,7 @@ Test Failed.
 197/345 Test: e3_valgrind_01
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_01.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_01" start time: Apr 18 17:10 BRT
+"e3_valgrind_01" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_01'
@@ -1001,10 +995,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_01'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_01.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_01' OK
 <end of output>
-Test time =   0.44 sec
+Test time =   0.45 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_01" end time: Apr 18 17:10 BRT
+"e3_valgrind_01" end time: Apr 18 18:38 BRT
 "e3_valgrind_01" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1012,7 +1006,7 @@ Test Passed.
 198/345 Test: e3_valgrind_02
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_02.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_02" start time: Apr 18 17:10 BRT
+"e3_valgrind_02" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_02'
@@ -1020,10 +1014,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_02'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_02.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_02' OK
 <end of output>
-Test time =   0.45 sec
+Test time =   0.46 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_02" end time: Apr 18 17:10 BRT
+"e3_valgrind_02" end time: Apr 18 18:38 BRT
 "e3_valgrind_02" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1031,7 +1025,7 @@ Test Passed.
 199/345 Test: e3_valgrind_03
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_03.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_03" start time: Apr 18 17:10 BRT
+"e3_valgrind_03" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_03'
@@ -1051,7 +1045,7 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_03.tesh:3> so
 Test time =   0.46 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_03" end time: Apr 18 17:10 BRT
+"e3_valgrind_03" end time: Apr 18 18:38 BRT
 "e3_valgrind_03" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1059,7 +1053,7 @@ Test Failed.
 200/345 Test: e3_valgrind_04
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_04.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_04" start time: Apr 18 17:10 BRT
+"e3_valgrind_04" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_04'
@@ -1076,10 +1070,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_04.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_04.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.47 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_04" end time: Apr 18 17:10 BRT
+"e3_valgrind_04" end time: Apr 18 18:38 BRT
 "e3_valgrind_04" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1087,7 +1081,7 @@ Test Failed.
 201/345 Test: e3_valgrind_05
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_05.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_05" start time: Apr 18 17:10 BRT
+"e3_valgrind_05" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_05'
@@ -1104,10 +1098,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_05.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_05.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.47 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_05" end time: Apr 18 17:10 BRT
+"e3_valgrind_05" end time: Apr 18 18:38 BRT
 "e3_valgrind_05" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1115,7 +1109,7 @@ Test Failed.
 202/345 Test: e3_valgrind_06
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_06.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_06" start time: Apr 18 17:10 BRT
+"e3_valgrind_06" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_06'
@@ -1135,7 +1129,7 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_06.tesh:3> so
 Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_06" end time: Apr 18 17:10 BRT
+"e3_valgrind_06" end time: Apr 18 18:38 BRT
 "e3_valgrind_06" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1143,7 +1137,7 @@ Test Failed.
 203/345 Test: e3_valgrind_07
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_07.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_07" start time: Apr 18 17:10 BRT
+"e3_valgrind_07" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_07'
@@ -1160,10 +1154,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_07.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_07.tesh:3> as requested)
 <end of output>
-Test time =   0.49 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_07" end time: Apr 18 17:10 BRT
+"e3_valgrind_07" end time: Apr 18 18:38 BRT
 "e3_valgrind_07" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1171,7 +1165,7 @@ Test Failed.
 204/345 Test: e3_valgrind_08
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_08.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_08" start time: Apr 18 17:10 BRT
+"e3_valgrind_08" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_08'
@@ -1188,10 +1182,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_08.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_08.tesh:3> as requested)
 <end of output>
-Test time =   0.47 sec
+Test time =   0.49 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_08" end time: Apr 18 17:10 BRT
+"e3_valgrind_08" end time: Apr 18 18:38 BRT
 "e3_valgrind_08" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1199,7 +1193,7 @@ Test Failed.
 205/345 Test: e3_valgrind_09
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_09.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_09" start time: Apr 18 17:10 BRT
+"e3_valgrind_09" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_09'
@@ -1216,10 +1210,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_09.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_09.tesh:3> as requested)
 <end of output>
-Test time =   0.47 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_09" end time: Apr 18 17:10 BRT
+"e3_valgrind_09" end time: Apr 18 18:38 BRT
 "e3_valgrind_09" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1227,7 +1221,7 @@ Test Failed.
 206/345 Test: e3_valgrind_10
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_10.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_10" start time: Apr 18 17:10 BRT
+"e3_valgrind_10" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_10'
@@ -1244,10 +1238,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_10.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_10.tesh:3> as requested)
 <end of output>
-Test time =   0.47 sec
+Test time =   0.46 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_10" end time: Apr 18 17:10 BRT
+"e3_valgrind_10" end time: Apr 18 18:38 BRT
 "e3_valgrind_10" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1255,7 +1249,7 @@ Test Failed.
 207/345 Test: e3_valgrind_11
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_11.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_11" start time: Apr 18 17:10 BRT
+"e3_valgrind_11" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_11'
@@ -1275,7 +1269,7 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_11.tesh:3> so
 Test time =   0.47 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_11" end time: Apr 18 17:10 BRT
+"e3_valgrind_11" end time: Apr 18 18:38 BRT
 "e3_valgrind_11" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1283,7 +1277,7 @@ Test Failed.
 208/345 Test: e3_valgrind_12
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_12.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_12" start time: Apr 18 17:10 BRT
+"e3_valgrind_12" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_12'
@@ -1300,10 +1294,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_12.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_12.tesh:3> as requested)
 <end of output>
-Test time =   0.47 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_12" end time: Apr 18 17:10 BRT
+"e3_valgrind_12" end time: Apr 18 18:38 BRT
 "e3_valgrind_12" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1311,7 +1305,7 @@ Test Failed.
 209/345 Test: e3_valgrind_13
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_13.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_13" start time: Apr 18 17:10 BRT
+"e3_valgrind_13" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_13'
@@ -1328,10 +1322,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_13.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_13.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.50 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_13" end time: Apr 18 17:10 BRT
+"e3_valgrind_13" end time: Apr 18 18:38 BRT
 "e3_valgrind_13" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1339,7 +1333,7 @@ Test Failed.
 210/345 Test: e3_valgrind_14
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_14.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_14" start time: Apr 18 17:10 BRT
+"e3_valgrind_14" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_14'
@@ -1356,10 +1350,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_14.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_14.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_14" end time: Apr 18 17:10 BRT
+"e3_valgrind_14" end time: Apr 18 18:38 BRT
 "e3_valgrind_14" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1367,7 +1361,7 @@ Test Failed.
 211/345 Test: e3_valgrind_15
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_15.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_15" start time: Apr 18 17:10 BRT
+"e3_valgrind_15" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_15'
@@ -1384,10 +1378,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_15.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_15.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_15" end time: Apr 18 17:10 BRT
+"e3_valgrind_15" end time: Apr 18 18:38 BRT
 "e3_valgrind_15" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1395,7 +1389,7 @@ Test Failed.
 212/345 Test: e3_valgrind_16
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_16.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_16" start time: Apr 18 17:10 BRT
+"e3_valgrind_16" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_16'
@@ -1412,10 +1406,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_16.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_16.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.47 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_16" end time: Apr 18 17:10 BRT
+"e3_valgrind_16" end time: Apr 18 18:38 BRT
 "e3_valgrind_16" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1423,7 +1417,7 @@ Test Failed.
 213/345 Test: e3_valgrind_17
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_17.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_17" start time: Apr 18 17:10 BRT
+"e3_valgrind_17" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_17'
@@ -1440,10 +1434,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_17.tesh:3> so
 || 8
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_17.tesh:3> as requested)
 <end of output>
-Test time =   0.47 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_17" end time: Apr 18 17:10 BRT
+"e3_valgrind_17" end time: Apr 18 18:38 BRT
 "e3_valgrind_17" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1451,7 +1445,7 @@ Test Failed.
 214/345 Test: e3_valgrind_18
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_18.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_18" start time: Apr 18 17:10 BRT
+"e3_valgrind_18" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_18'
@@ -1468,10 +1462,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_18.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_18.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_18" end time: Apr 18 17:10 BRT
+"e3_valgrind_18" end time: Apr 18 18:38 BRT
 "e3_valgrind_18" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1479,7 +1473,7 @@ Test Failed.
 215/345 Test: e3_valgrind_19
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_19.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_19" start time: Apr 18 17:10 BRT
+"e3_valgrind_19" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_19'
@@ -1496,10 +1490,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_19.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_19.tesh:3> as requested)
 <end of output>
-Test time =   0.47 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_19" end time: Apr 18 17:10 BRT
+"e3_valgrind_19" end time: Apr 18 18:38 BRT
 "e3_valgrind_19" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1507,7 +1501,7 @@ Test Failed.
 216/345 Test: e3_valgrind_20
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_20.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_20" start time: Apr 18 17:10 BRT
+"e3_valgrind_20" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_20'
@@ -1524,10 +1518,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_20.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_20.tesh:3> as requested)
 <end of output>
-Test time =   0.47 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_20" end time: Apr 18 17:10 BRT
+"e3_valgrind_20" end time: Apr 18 18:38 BRT
 "e3_valgrind_20" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1535,7 +1529,7 @@ Test Failed.
 217/345 Test: e3_valgrind_21
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_21.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_21" start time: Apr 18 17:10 BRT
+"e3_valgrind_21" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_21'
@@ -1552,10 +1546,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_21.tesh:3> so
 || 4
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_21.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_21" end time: Apr 18 17:10 BRT
+"e3_valgrind_21" end time: Apr 18 18:38 BRT
 "e3_valgrind_21" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1563,7 +1557,7 @@ Test Failed.
 218/345 Test: e3_valgrind_22
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_22.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_22" start time: Apr 18 17:10 BRT
+"e3_valgrind_22" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_22'
@@ -1580,10 +1574,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_22.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_22.tesh:3> as requested)
 <end of output>
-Test time =   0.47 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_22" end time: Apr 18 17:10 BRT
+"e3_valgrind_22" end time: Apr 18 18:38 BRT
 "e3_valgrind_22" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1591,7 +1585,7 @@ Test Failed.
 219/345 Test: e3_valgrind_23
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_23.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_23" start time: Apr 18 17:10 BRT
+"e3_valgrind_23" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_23'
@@ -1608,10 +1602,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_23.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_23.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_23" end time: Apr 18 17:10 BRT
+"e3_valgrind_23" end time: Apr 18 18:38 BRT
 "e3_valgrind_23" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1619,7 +1613,7 @@ Test Failed.
 220/345 Test: e3_valgrind_24
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_24.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_24" start time: Apr 18 17:10 BRT
+"e3_valgrind_24" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_24'
@@ -1636,10 +1630,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_24.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_24.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.47 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_24" end time: Apr 18 17:10 BRT
+"e3_valgrind_24" end time: Apr 18 18:38 BRT
 "e3_valgrind_24" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1647,7 +1641,7 @@ Test Failed.
 221/345 Test: e3_valgrind_25
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_25.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_25" start time: Apr 18 17:10 BRT
+"e3_valgrind_25" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_25'
@@ -1664,10 +1658,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_25.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_25.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.49 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_25" end time: Apr 18 17:10 BRT
+"e3_valgrind_25" end time: Apr 18 18:38 BRT
 "e3_valgrind_25" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1675,7 +1669,7 @@ Test Failed.
 222/345 Test: e3_valgrind_26
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_26.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_26" start time: Apr 18 17:10 BRT
+"e3_valgrind_26" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_26'
@@ -1692,10 +1686,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_26.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_26.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_26" end time: Apr 18 17:10 BRT
+"e3_valgrind_26" end time: Apr 18 18:38 BRT
 "e3_valgrind_26" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1703,7 +1697,7 @@ Test Failed.
 223/345 Test: e3_valgrind_27
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_27.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_27" start time: Apr 18 17:10 BRT
+"e3_valgrind_27" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_27'
@@ -1723,7 +1717,7 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_27.tesh:3> so
 Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_27" end time: Apr 18 17:10 BRT
+"e3_valgrind_27" end time: Apr 18 18:38 BRT
 "e3_valgrind_27" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1731,7 +1725,7 @@ Test Failed.
 224/345 Test: e3_valgrind_28
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_28.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_28" start time: Apr 18 17:10 BRT
+"e3_valgrind_28" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_28'
@@ -1751,7 +1745,7 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_28.tesh:3> so
 Test time =   0.47 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_28" end time: Apr 18 17:10 BRT
+"e3_valgrind_28" end time: Apr 18 18:38 BRT
 "e3_valgrind_28" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1759,7 +1753,7 @@ Test Failed.
 225/345 Test: e3_valgrind_29
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_29.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_29" start time: Apr 18 17:10 BRT
+"e3_valgrind_29" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_29'
@@ -1776,10 +1770,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_29.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_29.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.47 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_29" end time: Apr 18 17:10 BRT
+"e3_valgrind_29" end time: Apr 18 18:38 BRT
 "e3_valgrind_29" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1787,7 +1781,7 @@ Test Failed.
 226/345 Test: e3_valgrind_30
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_30.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_30" start time: Apr 18 17:10 BRT
+"e3_valgrind_30" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_30'
@@ -1804,10 +1798,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_30.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_30.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.47 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_30" end time: Apr 18 17:10 BRT
+"e3_valgrind_30" end time: Apr 18 18:38 BRT
 "e3_valgrind_30" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1815,7 +1809,7 @@ Test Failed.
 227/345 Test: e3_valgrind_31
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_31.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_31" start time: Apr 18 17:10 BRT
+"e3_valgrind_31" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_31'
@@ -1832,10 +1826,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_31.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_31.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_31" end time: Apr 18 17:10 BRT
+"e3_valgrind_31" end time: Apr 18 18:38 BRT
 "e3_valgrind_31" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1843,7 +1837,7 @@ Test Failed.
 228/345 Test: e3_valgrind_32
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_32.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_32" start time: Apr 18 17:10 BRT
+"e3_valgrind_32" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_32'
@@ -1860,10 +1854,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_32.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_32.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.49 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_32" end time: Apr 18 17:10 BRT
+"e3_valgrind_32" end time: Apr 18 18:38 BRT
 "e3_valgrind_32" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1871,7 +1865,7 @@ Test Failed.
 229/345 Test: e3_valgrind_33
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_33.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_33" start time: Apr 18 17:10 BRT
+"e3_valgrind_33" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_33'
@@ -1888,10 +1882,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_33.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_33.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_33" end time: Apr 18 17:10 BRT
+"e3_valgrind_33" end time: Apr 18 18:38 BRT
 "e3_valgrind_33" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1899,7 +1893,7 @@ Test Failed.
 230/345 Test: e3_valgrind_34
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_34.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_34" start time: Apr 18 17:10 BRT
+"e3_valgrind_34" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_34'
@@ -1916,10 +1910,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_34.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_34.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.47 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_34" end time: Apr 18 17:10 BRT
+"e3_valgrind_34" end time: Apr 18 18:38 BRT
 "e3_valgrind_34" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1927,7 +1921,7 @@ Test Failed.
 231/345 Test: e3_valgrind_35
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_35.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_35" start time: Apr 18 17:10 BRT
+"e3_valgrind_35" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_35'
@@ -1944,10 +1938,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_35.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_35.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_35" end time: Apr 18 17:10 BRT
+"e3_valgrind_35" end time: Apr 18 18:38 BRT
 "e3_valgrind_35" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1955,7 +1949,7 @@ Test Failed.
 232/345 Test: e3_valgrind_36
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_36.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_36" start time: Apr 18 17:10 BRT
+"e3_valgrind_36" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_36'
@@ -1972,10 +1966,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_36.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_36.tesh:3> as requested)
 <end of output>
-Test time =   0.46 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_36" end time: Apr 18 17:10 BRT
+"e3_valgrind_36" end time: Apr 18 18:38 BRT
 "e3_valgrind_36" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1983,7 +1977,7 @@ Test Failed.
 233/345 Test: e3_valgrind_37
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_37.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_37" start time: Apr 18 17:10 BRT
+"e3_valgrind_37" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_37'
@@ -2000,10 +1994,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_37.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_37.tesh:3> as requested)
 <end of output>
-Test time =   0.47 sec
+Test time =   0.49 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_37" end time: Apr 18 17:10 BRT
+"e3_valgrind_37" end time: Apr 18 18:38 BRT
 "e3_valgrind_37" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -2011,7 +2005,7 @@ Test Failed.
 234/345 Test: e3_valgrind_38
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_38.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_38" start time: Apr 18 17:10 BRT
+"e3_valgrind_38" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_38'
@@ -2028,10 +2022,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_38.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_38.tesh:3> as requested)
 <end of output>
-Test time =   0.48 sec
+Test time =   0.47 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_38" end time: Apr 18 17:10 BRT
+"e3_valgrind_38" end time: Apr 18 18:38 BRT
 "e3_valgrind_38" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -2039,7 +2033,7 @@ Test Failed.
 235/345 Test: e3_valgrind_39
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_39.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_39" start time: Apr 18 17:10 BRT
+"e3_valgrind_39" start time: Apr 18 18:38 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_39'
@@ -2059,7 +2053,7 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_39.tesh:3> so
 Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_39" end time: Apr 18 17:10 BRT
+"e3_valgrind_39" end time: Apr 18 18:39 BRT
 "e3_valgrind_39" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -2067,7 +2061,7 @@ Test Failed.
 236/345 Test: e3_valgrind_40
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_40.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_40" start time: Apr 18 17:10 BRT
+"e3_valgrind_40" start time: Apr 18 18:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_40'
@@ -2087,7 +2081,7 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_40.tesh:3> so
 Test time =   0.47 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_40" end time: Apr 18 17:10 BRT
+"e3_valgrind_40" end time: Apr 18 18:39 BRT
 "e3_valgrind_40" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -2095,7 +2089,7 @@ Test Failed.
 237/345 Test: e3_valgrind_41
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_41.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_41" start time: Apr 18 17:10 BRT
+"e3_valgrind_41" start time: Apr 18 18:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_41'
@@ -2112,10 +2106,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_41.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_41.tesh:3> as requested)
 <end of output>
-Test time =   0.48 sec
+Test time =   0.49 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_41" end time: Apr 18 17:10 BRT
+"e3_valgrind_41" end time: Apr 18 18:39 BRT
 "e3_valgrind_41" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -2123,7 +2117,7 @@ Test Failed.
 238/345 Test: e3_valgrind_42
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_42.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_42" start time: Apr 18 17:10 BRT
+"e3_valgrind_42" start time: Apr 18 18:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_42'
@@ -2143,7 +2137,7 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_42.tesh:3> so
 Test time =   0.47 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_42" end time: Apr 18 17:10 BRT
+"e3_valgrind_42" end time: Apr 18 18:39 BRT
 "e3_valgrind_42" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -2151,7 +2145,7 @@ Test Failed.
 239/345 Test: e3_valgrind_43
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_43.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_43" start time: Apr 18 17:10 BRT
+"e3_valgrind_43" start time: Apr 18 18:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_43'
@@ -2168,10 +2162,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_43.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_43.tesh:3> as requested)
 <end of output>
-Test time =   0.47 sec
+Test time =   0.52 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_43" end time: Apr 18 17:10 BRT
+"e3_valgrind_43" end time: Apr 18 18:39 BRT
 "e3_valgrind_43" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -2179,7 +2173,7 @@ Test Failed.
 240/345 Test: e3_valgrind_44
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_44.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_44" start time: Apr 18 17:10 BRT
+"e3_valgrind_44" start time: Apr 18 18:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_44'
@@ -2196,10 +2190,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_44.tesh:3> so
 || 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_44.tesh:3> as requested)
 <end of output>
-Test time =   0.47 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_44" end time: Apr 18 17:10 BRT
+"e3_valgrind_44" end time: Apr 18 18:39 BRT
 "e3_valgrind_44" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -2207,7 +2201,7 @@ Test Failed.
 241/345 Test: e3_valgrind_45
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_45.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_45" start time: Apr 18 17:10 BRT
+"e3_valgrind_45" start time: Apr 18 18:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_45'
@@ -2219,15 +2213,15 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_45.tesh:3> so
 || invalid read:
 || 0
 || jumps/moves depending on uninitialized values:
-|| 0
+|| 2
 || lost bytes:
-|| 8
+|| 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_45.tesh:3> as requested)
 <end of output>
-Test time =   0.43 sec
+Test time =   0.50 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_45" end time: Apr 18 17:10 BRT
+"e3_valgrind_45" end time: Apr 18 18:39 BRT
 "e3_valgrind_45" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -2235,7 +2229,7 @@ Test Failed.
 242/345 Test: e3_valgrind_46
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_46.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_46" start time: Apr 18 17:10 BRT
+"e3_valgrind_46" start time: Apr 18 18:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_46'
@@ -2247,15 +2241,15 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_46.tesh:3> so
 || invalid read:
 || 0
 || jumps/moves depending on uninitialized values:
-|| 0
+|| 2
 || lost bytes:
-|| 8
+|| 0
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_46.tesh:3> as requested)
 <end of output>
-Test time =   0.42 sec
+Test time =   0.50 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_46" end time: Apr 18 17:10 BRT
+"e3_valgrind_46" end time: Apr 18 18:39 BRT
 "e3_valgrind_46" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -2263,7 +2257,7 @@ Test Failed.
 243/345 Test: e3_valgrind_47
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_47.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_47" start time: Apr 18 17:10 BRT
+"e3_valgrind_47" start time: Apr 18 18:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_47'
@@ -2274,7 +2268,7 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_47' OK
 Test time =   0.46 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_47" end time: Apr 18 17:10 BRT
+"e3_valgrind_47" end time: Apr 18 18:39 BRT
 "e3_valgrind_47" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -2282,7 +2276,7 @@ Test Passed.
 244/345 Test: e3_valgrind_48
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_48.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_48" start time: Apr 18 17:10 BRT
+"e3_valgrind_48" start time: Apr 18 18:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_48'
@@ -2290,10 +2284,10 @@ Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_48'
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_48.tesh:3> as requested)
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_48' OK
 <end of output>
-Test time =   0.45 sec
+Test time =   0.46 sec
 ----------------------------------------------------------
 Test Passed.
-"e3_valgrind_48" end time: Apr 18 17:10 BRT
+"e3_valgrind_48" end time: Apr 18 18:39 BRT
 "e3_valgrind_48" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -2301,7 +2295,7 @@ Test Passed.
 245/345 Test: e3_valgrind_49
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_49.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_49" start time: Apr 18 17:10 BRT
+"e3_valgrind_49" start time: Apr 18 18:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_49'
@@ -2313,15 +2307,15 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_49.tesh:3> so
 || invalid read:
 || 0
 || jumps/moves depending on uninitialized values:
-|| 0
+|| 1
 || lost bytes:
-|| 5
+|| 46
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_49.tesh:3> as requested)
 <end of output>
-Test time =   0.45 sec
+Test time =   0.50 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_49" end time: Apr 18 17:10 BRT
+"e3_valgrind_49" end time: Apr 18 18:39 BRT
 "e3_valgrind_49" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -2329,7 +2323,7 @@ Test Failed.
 246/345 Test: e3_valgrind_50
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_50.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_50" start time: Apr 18 17:10 BRT
+"e3_valgrind_50" start time: Apr 18 18:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_50'
@@ -2346,10 +2340,10 @@ Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_50.tesh:3> so
 || 21
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_50.tesh:3> as requested)
 <end of output>
-Test time =   0.47 sec
+Test time =   0.46 sec
 ----------------------------------------------------------
 Test Failed.
-"e3_valgrind_50" end time: Apr 18 17:10 BRT
+"e3_valgrind_50" end time: Apr 18 18:39 BRT
 "e3_valgrind_50" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -2357,28 +2351,19 @@ Test Failed.
 247/345 Test: e3_valgrind_51
 Command: "/usr/bin/perl" "-I" "./tests/scripts" "./tests/scripts/tesh" "/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_51.tesh"
 Directory: /home/mandiow/Área de Trabalho/MonT/build
-"e3_valgrind_51" start time: Apr 18 17:10 BRT
+"e3_valgrind_51" start time: Apr 18 18:39 BRT
 Output:
 ----------------------------------------------------------
 Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_51'
 [/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_51:3] ./tests/scripts/valgrindtest ./main ./tests/e3/input/i50.iks
-Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_51.tesh': NOK (</home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_51.tesh:3> returned code 1)
-Output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_51.tesh:3> so far:
-|| invalid writes:
-|| 0
-|| invalid read:
-|| 0
-|| jumps/moves depending on uninitialized values:
-|| 0
-|| lost bytes:
-|| 192
 (ignoring the output of </home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_51.tesh:3> as requested)
+Test suite `/home/mandiow/Área de Trabalho/MonT/tests/e3//valgrind_51' OK
 <end of output>
-Test time =   0.48 sec
+Test time =   0.46 sec
 ----------------------------------------------------------
-Test Failed.
-"e3_valgrind_51" end time: Apr 18 17:10 BRT
+Test Passed.
+"e3_valgrind_51" end time: Apr 18 18:39 BRT
 "e3_valgrind_51" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Apr 18 17:10 BRT
+End testing: Apr 18 18:39 BRT
