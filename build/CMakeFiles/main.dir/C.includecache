@@ -18,8 +18,6 @@ string.h
 
 ../include/cc_gv.h
 
-../include/cc_list.h
-
 ../include/cc_tree.h
 cc_ast.h
 ../include/cc_ast.h
@@ -28,63 +26,9 @@ cc_gv.h
 cc_dict.h
 ../include/cc_dict.h
 
-../include/main.h
-stdio.h
--
-cc_dict.h
-../include/cc_dict.h
-cc_list.h
-../include/cc_list.h
+/home/mandiow/Área de Trabalho/MonT/src/cc_tree.c
 cc_tree.h
-../include/cc_tree.h
-parser.h
-../include/parser.h
-
-/home/mandiow/Área de Trabalho/MonT/build/parser.c
-stdio.h
--
-main.h
-/home/mandiow/Área de Trabalho/MonT/build/main.h
+/home/mandiow/Área de Trabalho/MonT/src/cc_tree.h
 time.h
 -
-stddef.h
--
-libintl.h
--
-alloca.h
--
-malloc.h
--
-stdlib.h
--
-stdlib.h
--
-stdio.h
--
-
-/home/mandiow/Área de Trabalho/MonT/build/parser.h
-
-/home/mandiow/Área de Trabalho/MonT/build/scanner.c
-stdio.h
--
-string.h
--
-errno.h
--
-stdlib.h
--
-inttypes.h
--
-parser.h
-/home/mandiow/Área de Trabalho/MonT/build/parser.h
-main.h
-/home/mandiow/Área de Trabalho/MonT/build/main.h
-unistd.h
--
-
-/home/mandiow/Área de Trabalho/MonT/src/main.c
-main.h
-/home/mandiow/Área de Trabalho/MonT/src/main.h
-
-parser.h
 

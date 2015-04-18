@@ -1,171 +1,171 @@
 digraph G {
-node_0x12e5aa0 [label="programa"]
-node_0x12e3ae0 [label="inverte"]
-node_0x12e5aa0 -> node_0x12e3ae0
-node_0x12e3700 [label="="]
-node_0x12e3ae0 -> node_0x12e3700
-node_0x12e3610 [label="positivo"]
-node_0x12e3700 -> node_0x12e3610
-node_0x12e36b0 [label="2"]
-node_0x12e3700 -> node_0x12e36b0
-node_0x12e3860 [label="="]
-node_0x12e3700 -> node_0x12e3860
-node_0x12e3770 [label="negativo"]
-node_0x12e3860 -> node_0x12e3770
-node_0x12e37c0 [label="-"]
-node_0x12e3860 -> node_0x12e37c0
-node_0x12e3810 [label="positivo"]
-node_0x12e37c0 -> node_0x12e3810
-node_0x12e3a30 [label="="]
-node_0x12e3860 -> node_0x12e3a30
-node_0x12e38d0 [label="dobro"]
-node_0x12e3a30 -> node_0x12e38d0
-node_0x12e3970 [label="-"]
-node_0x12e3a30 -> node_0x12e3970
-node_0x12e39c0 [label="negativo"]
-node_0x12e3970 -> node_0x12e39c0
-node_0x12e3920 [label="positivo"]
-node_0x12e3970 -> node_0x12e3920
-node_0x12e3e40 [label="converte"]
-node_0x12e3ae0 -> node_0x12e3e40
-node_0x12e3dd0 [label="="]
-node_0x12e3e40 -> node_0x12e3dd0
-node_0x12e3bd0 [label="convertido"]
-node_0x12e3dd0 -> node_0x12e3bd0
-node_0x12e3d80 [label="!"]
-node_0x12e3dd0 -> node_0x12e3d80
-node_0x12e3d10 [label="call"]
-node_0x12e3d80 -> node_0x12e3d10
-node_0x12e3c20 [label="inverte"]
-node_0x12e3d10 -> node_0x12e3c20
-node_0x12e3cc0 [label="2"]
-node_0x12e3d10 -> node_0x12e3cc0
-node_0x12e54c0 [label="matemagica"]
-node_0x12e3e40 -> node_0x12e54c0
-node_0x12e5430 [label="ifelse"]
-node_0x12e54c0 -> node_0x12e5430
-node_0x12e4020 [label=">"]
-node_0x12e5430 -> node_0x12e4020
-node_0x12e40c0 [label="0"]
-node_0x12e4020 -> node_0x12e40c0
-node_0x12e3fd0 [label="indice"]
-node_0x12e4020 -> node_0x12e3fd0
-node_0x12e52a0 [label="block"]
-node_0x12e5430 -> node_0x12e52a0
-node_0x12e4590 [label="="]
-node_0x12e52a0 -> node_0x12e4590
-node_0x12e4130 [label="numero"]
-node_0x12e4590 -> node_0x12e4130
-node_0x12e41d0 [label="*"]
-node_0x12e4590 -> node_0x12e41d0
-node_0x12e44b0 [label="+"]
-node_0x12e41d0 -> node_0x12e44b0
-node_0x12e4500 [label="positivo"]
-node_0x12e44b0 -> node_0x12e4500
-node_0x12e4270 [label="*"]
-node_0x12e44b0 -> node_0x12e4270
-node_0x12e43d0 [label="/"]
-node_0x12e4270 -> node_0x12e43d0
-node_0x12e4420 [label="num1"]
-node_0x12e43d0 -> node_0x12e4420
-node_0x12e4310 [label="+"]
-node_0x12e43d0 -> node_0x12e4310
-node_0x12e4360 [label="num3"]
-node_0x12e4310 -> node_0x12e4360
-node_0x12e42c0 [label="num2"]
-node_0x12e4310 -> node_0x12e42c0
-node_0x12e4220 [label="num1"]
-node_0x12e4270 -> node_0x12e4220
-node_0x12e4180 [label="num2"]
-node_0x12e41d0 -> node_0x12e4180
-node_0x12e46f0 [label="="]
-node_0x12e4590 -> node_0x12e46f0
-node_0x12e4600 [label="numero"]
-node_0x12e46f0 -> node_0x12e4600
-node_0x12e4650 [label="-"]
-node_0x12e46f0 -> node_0x12e4650
-node_0x12e46a0 [label="numero"]
-node_0x12e4650 -> node_0x12e46a0
-node_0x12e4b00 [label="="]
-node_0x12e46f0 -> node_0x12e4b00
-node_0x12e4760 [label="numero"]
-node_0x12e4b00 -> node_0x12e4760
-node_0x12e4800 [label="-"]
-node_0x12e4b00 -> node_0x12e4800
-node_0x12e48a0 [label="+"]
-node_0x12e4800 -> node_0x12e48a0
-node_0x12e4940 [label="+"]
-node_0x12e48a0 -> node_0x12e4940
-node_0x12e49e0 [label="*"]
-node_0x12e4940 -> node_0x12e49e0
-node_0x12e4a30 [label="num2"]
-node_0x12e49e0 -> node_0x12e4a30
-node_0x12e4990 [label="num1"]
-node_0x12e49e0 -> node_0x12e4990
-node_0x12e48f0 [label="num2"]
-node_0x12e4940 -> node_0x12e48f0
-node_0x12e4850 [label="num3"]
-node_0x12e48a0 -> node_0x12e4850
-node_0x12e47b0 [label="numero"]
-node_0x12e4800 -> node_0x12e47b0
-node_0x12e4ed0 [label="="]
-node_0x12e4b00 -> node_0x12e4ed0
-node_0x12e4b70 [label="numero"]
-node_0x12e4ed0 -> node_0x12e4b70
-node_0x12e4c10 [label="+"]
-node_0x12e4ed0 -> node_0x12e4c10
-node_0x12e4e40 [label="call"]
-node_0x12e4c10 -> node_0x12e4e40
-node_0x12e4c60 [label="matemagica"]
-node_0x12e4e40 -> node_0x12e4c60
-node_0x12e4cb0 [label="indice"]
-node_0x12e4e40 -> node_0x12e4cb0
-node_0x12e4d50 [label="2"]
-node_0x12e4cb0 -> node_0x12e4d50
-node_0x12e4df0 [label="3"]
-node_0x12e4d50 -> node_0x12e4df0
-node_0x12e4bc0 [label="numero"]
-node_0x12e4c10 -> node_0x12e4bc0
-node_0x12e50f0 [label="="]
-node_0x12e4ed0 -> node_0x12e50f0
-node_0x12e4f40 [label="indice"]
-node_0x12e50f0 -> node_0x12e4f40
-node_0x12e4fe0 [label="-"]
-node_0x12e50f0 -> node_0x12e4fe0
-node_0x12e5080 [label="1"]
-node_0x12e4fe0 -> node_0x12e5080
-node_0x12e4f90 [label="indice"]
-node_0x12e4fe0 -> node_0x12e4f90
-node_0x12e51b0 [label="return"]
-node_0x12e50f0 -> node_0x12e51b0
-node_0x12e5160 [label="numero"]
-node_0x12e51b0 -> node_0x12e5160
-node_0x12e53e0 [label="block"]
-node_0x12e5430 -> node_0x12e53e0
-node_0x12e5390 [label="return"]
-node_0x12e53e0 -> node_0x12e5390
-node_0x12e5340 [label="1"]
-node_0x12e5390 -> node_0x12e5340
-node_0x12e59f0 [label="main"]
-node_0x12e54c0 -> node_0x12e59f0
-node_0x12e5650 [label="="]
-node_0x12e59f0 -> node_0x12e5650
-node_0x12e5560 [label="indice"]
-node_0x12e5650 -> node_0x12e5560
-node_0x12e5600 [label="50"]
-node_0x12e5650 -> node_0x12e5600
-node_0x12e5960 [label="="]
-node_0x12e5650 -> node_0x12e5960
-node_0x12e56c0 [label="resultado"]
-node_0x12e5960 -> node_0x12e56c0
-node_0x12e58f0 [label="call"]
-node_0x12e5960 -> node_0x12e58f0
-node_0x12e5710 [label="matemagica"]
-node_0x12e58f0 -> node_0x12e5710
-node_0x12e5760 [label="indice"]
-node_0x12e58f0 -> node_0x12e5760
-node_0x12e5800 [label="10"]
-node_0x12e5760 -> node_0x12e5800
-node_0x12e58a0 [label="40"]
-node_0x12e5800 -> node_0x12e58a0
+node_0xa30aa0 [label="programa"]
+node_0xa2eae0 [label="inverte"]
+node_0xa30aa0 -> node_0xa2eae0
+node_0xa2e700 [label="="]
+node_0xa2eae0 -> node_0xa2e700
+node_0xa2e610 [label="positivo"]
+node_0xa2e700 -> node_0xa2e610
+node_0xa2e6b0 [label="2"]
+node_0xa2e700 -> node_0xa2e6b0
+node_0xa2e860 [label="="]
+node_0xa2e700 -> node_0xa2e860
+node_0xa2e770 [label="negativo"]
+node_0xa2e860 -> node_0xa2e770
+node_0xa2e7c0 [label="-"]
+node_0xa2e860 -> node_0xa2e7c0
+node_0xa2e810 [label="positivo"]
+node_0xa2e7c0 -> node_0xa2e810
+node_0xa2ea30 [label="="]
+node_0xa2e860 -> node_0xa2ea30
+node_0xa2e8d0 [label="dobro"]
+node_0xa2ea30 -> node_0xa2e8d0
+node_0xa2e970 [label="-"]
+node_0xa2ea30 -> node_0xa2e970
+node_0xa2e9c0 [label="negativo"]
+node_0xa2e970 -> node_0xa2e9c0
+node_0xa2e920 [label="positivo"]
+node_0xa2e970 -> node_0xa2e920
+node_0xa2ee40 [label="converte"]
+node_0xa2eae0 -> node_0xa2ee40
+node_0xa2edd0 [label="="]
+node_0xa2ee40 -> node_0xa2edd0
+node_0xa2ebd0 [label="convertido"]
+node_0xa2edd0 -> node_0xa2ebd0
+node_0xa2ed80 [label="!"]
+node_0xa2edd0 -> node_0xa2ed80
+node_0xa2ed10 [label="call"]
+node_0xa2ed80 -> node_0xa2ed10
+node_0xa2ec20 [label="inverte"]
+node_0xa2ed10 -> node_0xa2ec20
+node_0xa2ecc0 [label="2"]
+node_0xa2ed10 -> node_0xa2ecc0
+node_0xa304c0 [label="matemagica"]
+node_0xa2ee40 -> node_0xa304c0
+node_0xa30430 [label="ifelse"]
+node_0xa304c0 -> node_0xa30430
+node_0xa2f020 [label=">"]
+node_0xa30430 -> node_0xa2f020
+node_0xa2f0c0 [label="0"]
+node_0xa2f020 -> node_0xa2f0c0
+node_0xa2efd0 [label="indice"]
+node_0xa2f020 -> node_0xa2efd0
+node_0xa302a0 [label="block"]
+node_0xa30430 -> node_0xa302a0
+node_0xa2f590 [label="="]
+node_0xa302a0 -> node_0xa2f590
+node_0xa2f130 [label="numero"]
+node_0xa2f590 -> node_0xa2f130
+node_0xa2f1d0 [label="*"]
+node_0xa2f590 -> node_0xa2f1d0
+node_0xa2f4b0 [label="+"]
+node_0xa2f1d0 -> node_0xa2f4b0
+node_0xa2f500 [label="positivo"]
+node_0xa2f4b0 -> node_0xa2f500
+node_0xa2f270 [label="*"]
+node_0xa2f4b0 -> node_0xa2f270
+node_0xa2f3d0 [label="/"]
+node_0xa2f270 -> node_0xa2f3d0
+node_0xa2f420 [label="num1"]
+node_0xa2f3d0 -> node_0xa2f420
+node_0xa2f310 [label="+"]
+node_0xa2f3d0 -> node_0xa2f310
+node_0xa2f360 [label="num3"]
+node_0xa2f310 -> node_0xa2f360
+node_0xa2f2c0 [label="num2"]
+node_0xa2f310 -> node_0xa2f2c0
+node_0xa2f220 [label="num1"]
+node_0xa2f270 -> node_0xa2f220
+node_0xa2f180 [label="num2"]
+node_0xa2f1d0 -> node_0xa2f180
+node_0xa2f6f0 [label="="]
+node_0xa2f590 -> node_0xa2f6f0
+node_0xa2f600 [label="numero"]
+node_0xa2f6f0 -> node_0xa2f600
+node_0xa2f650 [label="-"]
+node_0xa2f6f0 -> node_0xa2f650
+node_0xa2f6a0 [label="numero"]
+node_0xa2f650 -> node_0xa2f6a0
+node_0xa2fb00 [label="="]
+node_0xa2f6f0 -> node_0xa2fb00
+node_0xa2f760 [label="numero"]
+node_0xa2fb00 -> node_0xa2f760
+node_0xa2f800 [label="-"]
+node_0xa2fb00 -> node_0xa2f800
+node_0xa2f8a0 [label="+"]
+node_0xa2f800 -> node_0xa2f8a0
+node_0xa2f940 [label="+"]
+node_0xa2f8a0 -> node_0xa2f940
+node_0xa2f9e0 [label="*"]
+node_0xa2f940 -> node_0xa2f9e0
+node_0xa2fa30 [label="num2"]
+node_0xa2f9e0 -> node_0xa2fa30
+node_0xa2f990 [label="num1"]
+node_0xa2f9e0 -> node_0xa2f990
+node_0xa2f8f0 [label="num2"]
+node_0xa2f940 -> node_0xa2f8f0
+node_0xa2f850 [label="num3"]
+node_0xa2f8a0 -> node_0xa2f850
+node_0xa2f7b0 [label="numero"]
+node_0xa2f800 -> node_0xa2f7b0
+node_0xa2fed0 [label="="]
+node_0xa2fb00 -> node_0xa2fed0
+node_0xa2fb70 [label="numero"]
+node_0xa2fed0 -> node_0xa2fb70
+node_0xa2fc10 [label="+"]
+node_0xa2fed0 -> node_0xa2fc10
+node_0xa2fe40 [label="call"]
+node_0xa2fc10 -> node_0xa2fe40
+node_0xa2fc60 [label="matemagica"]
+node_0xa2fe40 -> node_0xa2fc60
+node_0xa2fcb0 [label="indice"]
+node_0xa2fe40 -> node_0xa2fcb0
+node_0xa2fd50 [label="2"]
+node_0xa2fcb0 -> node_0xa2fd50
+node_0xa2fdf0 [label="3"]
+node_0xa2fd50 -> node_0xa2fdf0
+node_0xa2fbc0 [label="numero"]
+node_0xa2fc10 -> node_0xa2fbc0
+node_0xa300f0 [label="="]
+node_0xa2fed0 -> node_0xa300f0
+node_0xa2ff40 [label="indice"]
+node_0xa300f0 -> node_0xa2ff40
+node_0xa2ffe0 [label="-"]
+node_0xa300f0 -> node_0xa2ffe0
+node_0xa30080 [label="1"]
+node_0xa2ffe0 -> node_0xa30080
+node_0xa2ff90 [label="indice"]
+node_0xa2ffe0 -> node_0xa2ff90
+node_0xa301b0 [label="return"]
+node_0xa300f0 -> node_0xa301b0
+node_0xa30160 [label="numero"]
+node_0xa301b0 -> node_0xa30160
+node_0xa303e0 [label="block"]
+node_0xa30430 -> node_0xa303e0
+node_0xa30390 [label="return"]
+node_0xa303e0 -> node_0xa30390
+node_0xa30340 [label="1"]
+node_0xa30390 -> node_0xa30340
+node_0xa309f0 [label="main"]
+node_0xa304c0 -> node_0xa309f0
+node_0xa30650 [label="="]
+node_0xa309f0 -> node_0xa30650
+node_0xa30560 [label="indice"]
+node_0xa30650 -> node_0xa30560
+node_0xa30600 [label="50"]
+node_0xa30650 -> node_0xa30600
+node_0xa30960 [label="="]
+node_0xa30650 -> node_0xa30960
+node_0xa306c0 [label="resultado"]
+node_0xa30960 -> node_0xa306c0
+node_0xa308f0 [label="call"]
+node_0xa30960 -> node_0xa308f0
+node_0xa30710 [label="matemagica"]
+node_0xa308f0 -> node_0xa30710
+node_0xa30760 [label="indice"]
+node_0xa308f0 -> node_0xa30760
+node_0xa30800 [label="10"]
+node_0xa30760 -> node_0xa30800
+node_0xa308a0 [label="40"]
+node_0xa30800 -> node_0xa308a0
 }

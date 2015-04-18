@@ -54,7 +54,6 @@ clock_t sec;
 /*Declaração dos tipos das estruturas*/
 %type<syntaxTree> start
 %type<syntaxTree> programa
-%type<syntaxTree> declaracao_global	
 %type<syntaxTree> declarar_funcao
 %type<syntaxTree> declaracao_local
 %type<syntaxTree> bloco_comando
@@ -86,11 +85,8 @@ clock_t sec;
 %type<syntaxTree> '{'
 %type<syntaxTree> '}'
 %type<valor_simbolo_lexico> '!'
-%type<syntaxTree> inverte
 %type<syntaxTree> literal
-%type<syntaxTree> parametros
-%type<syntaxTree> parametros_vazio
-%type<syntaxTree> lista_parametros
+%type<syntaxTree> inverte
 
 %nonassoc LOWER_THAN_ELSE
 %nonassoc TK_PR_ELSE
@@ -99,7 +95,12 @@ clock_t sec;
 /* $$ = start 
    $1 = programa
 */
-start: programa {$$ = createNode(AST_PROGRAMA,NULL);if($1 != NULL)appendChildNode($$,$1);gv_create_initial_tree($$); syntaxTree = $$;}
+start: programa {
+					$$ = createNode(AST_PROGRAMA,NULL);
+					if($1 != NULL)appendChildNode($$,$1);
+					gv_create_initial_tree($$); 
+					syntaxTree = $$;
+					removeNode(syntaxTree);}
 	;
 /* $$ = programa 
    $1 = declaracao_global
@@ -167,23 +168,8 @@ ID
 
 
 
-atribuicao
-	: ID '=' inverte expressao {$$ = createNode(AST_ATRIBUICAO,$2);appendChildNode($$,$1);appendChildNode($$,$3);appendChildNode($3,$4);}
-	| ID '=' expressao {$$ = createNode(AST_ATRIBUICAO,$2); appendChildNode($$,$1);appendChildNode($$,$3);}
-	/*| ID '=' inverte '(' expressao ')' tem_operador {if($7 != NULL)
-														$$ = createNode(AST_ATRIBUICAO,$2);
-														appendChildNode($$,$1); 
-														appendChildNode($$,$7);
-														appendChildNode($7,$5);}
-	| ID '=' '(' expressao ')' tem_operador {if($6 != NULL)
-												$$ = createNode(AST_ATRIBUICAO,$2); 
-												appendChildNode($$,$1);	
-												appendChildNode($$,$6);
-												appendChildNode($6,$4);
-											}*/
-	;
-inverte
-	: '-' {$$ = createNode(AST_ARIM_INVERSAO,NULL);}
+atribuicao 
+	: ID '=' expressao {$$ = createNode(AST_ATRIBUICAO,$2); appendChildNode($$,$1);appendChildNode($$,$3);}
 	;
 
 
@@ -217,8 +203,8 @@ comando
 	;
 
 parametros_vazio
-	: parametros {$$ = $1;}
-	| {$$ = NULL;}
+	: parametros 
+	| 
 	;
 
 parametros
@@ -326,7 +312,25 @@ expressao
 
 	|TK_OC_NOT expressao		{$$ = createNode(AST_LOGICO_COMP_NEGACAO, NULL);appendChildNode($$,$2);}
 	| '(' expressao ')' tem_operador {$$ = $2; if($4 != NULL) {$$ = $4; appendChildNode($4,$2);}}
+	| inverte valor tem_operador {
+								if($3 != NULL)
+								{
+									$$ = $3;
+									appendChildNode($$,$1);
+									appendChildNode($1,$2);
+								}
+								else
+								{
+									$$ = $1;
+									appendChildNode($$,$2);
+								}
+
+							 }
 	;
+inverte
+	: '-' {$$ = createNode(AST_ARIM_INVERSAO,$1);}
+	;
+
 
 tem_operador
 	: operador_aritmetico expressao {$$ = $1; appendChildNode($$,$2); }

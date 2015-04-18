@@ -1,11 +1,11 @@
 digraph G {
-node_0xf05630 [label="programa"]
-node_0xf055e0 [label="f"]
-node_0xf05630 -> node_0xf055e0
-node_0xf05570 [label="="]
-node_0xf055e0 -> node_0xf05570
-node_0xf05480 [label="iks"]
-node_0xf05570 -> node_0xf05480
-node_0xf05520 [label="10"]
-node_0xf05570 -> node_0xf05520
+node_0x1fc7630 [label="programa"]
+node_0x1fc75e0 [label="f"]
+node_0x1fc7630 -> node_0x1fc75e0
+node_0x1fc7570 [label="="]
+node_0x1fc75e0 -> node_0x1fc7570
+node_0x1fc7480 [label="iks"]
+node_0x1fc7570 -> node_0x1fc7480
+node_0x1fc7520 [label="10"]
+node_0x1fc7570 -> node_0x1fc7520
 }

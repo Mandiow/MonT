@@ -66,7 +66,7 @@ void *appendChildNode(comp_tree_t* father, comp_tree_t* newChild)
 }
 
 // Recursive function that removes the whole subtree (node) of a father passed as argument
-void removeNode(comp_tree_t* father ,comp_tree_t* node)
+/*void removeNode(comp_tree_t* father ,comp_tree_t* node)
 {
 	nodeList* deletedNodeList = node->childNodeList;
 	nodeList* auxNodeList = father->childNodeList;
@@ -82,8 +82,22 @@ void removeNode(comp_tree_t* father ,comp_tree_t* node)
 		deletedNodeList->nextNode;
 	}
 	free(node->childNodeList);
+}*/
+void removeNode(comp_tree_t* node)
+{
+	if(node != NULL)
+	{
+		nodeList* deletedNodeList = node->childNodeList;
+		//Desalocar elemento e subárvore
+		while(deletedNodeList != NULL)
+		{
+			removeNode(deletedNodeList->firstNode);
+			free(deletedNodeList->firstNode);
+			deletedNodeList = deletedNodeList->nextNode;
+		}
+		free(node->childNodeList);
+	}
 }
-
 void gv_create_initial_tree(comp_tree_t* tree)
 {
 	

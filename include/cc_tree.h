@@ -28,7 +28,7 @@ comp_tree_t* syntaxTree;
 
 comp_tree_t* createNode(int itemType, comp_dict_item_t* tableItem);
 void *appendChildNode(comp_tree_t* t, comp_tree_t* newChild);
-void removeNode(comp_tree_t* father ,comp_tree_t* node);						
+void removeNode(comp_tree_t* node);						
 int searchTree (comp_tree_t* t, int data);
 void gv_create_initial_tree(comp_tree_t* tree);
 void __gv_create_subtree(comp_tree_t* father, comp_tree_t* node);

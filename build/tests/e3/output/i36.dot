@@ -1,19 +1,19 @@
 digraph G {
-node_0x1325850 [label="programa"]
-node_0x1325800 [label="f"]
-node_0x1325850 -> node_0x1325800
-node_0x1325790 [label="="]
-node_0x1325800 -> node_0x1325790
-node_0x1325480 [label="x"]
-node_0x1325790 -> node_0x1325480
-node_0x13256d0 [label="[]"]
-node_0x1325790 -> node_0x13256d0
-node_0x1325720 [label="vetor"]
-node_0x13256d0 -> node_0x1325720
-node_0x13255c0 [label="+"]
-node_0x13256d0 -> node_0x13255c0
-node_0x1325660 [label="20"]
-node_0x13255c0 -> node_0x1325660
-node_0x1325570 [label="10"]
-node_0x13255c0 -> node_0x1325570
+node_0x1994850 [label="programa"]
+node_0x1994800 [label="f"]
+node_0x1994850 -> node_0x1994800
+node_0x1994790 [label="="]
+node_0x1994800 -> node_0x1994790
+node_0x1994480 [label="x"]
+node_0x1994790 -> node_0x1994480
+node_0x19946d0 [label="[]"]
+node_0x1994790 -> node_0x19946d0
+node_0x1994720 [label="vetor"]
+node_0x19946d0 -> node_0x1994720
+node_0x19945c0 [label="+"]
+node_0x19946d0 -> node_0x19945c0
+node_0x1994660 [label="20"]
+node_0x19945c0 -> node_0x1994660
+node_0x1994570 [label="10"]
+node_0x19945c0 -> node_0x1994570
 }

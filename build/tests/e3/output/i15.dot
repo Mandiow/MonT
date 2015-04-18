@@ -1,23 +1,23 @@
 digraph G {
-node_0x20769d0 [label="programa"]
-node_0x2076980 [label="f"]
-node_0x20769d0 -> node_0x2076980
-node_0x2076570 [label="="]
-node_0x2076980 -> node_0x2076570
-node_0x2076480 [label="iks"]
-node_0x2076570 -> node_0x2076480
-node_0x2076520 [label="zede"]
-node_0x2076570 -> node_0x2076520
-node_0x2076720 [label="="]
-node_0x2076570 -> node_0x2076720
-node_0x2076630 [label="ka"]
-node_0x2076720 -> node_0x2076630
-node_0x20766d0 [label="erre"]
-node_0x2076720 -> node_0x20766d0
-node_0x20768d0 [label="="]
-node_0x2076720 -> node_0x20768d0
-node_0x20767e0 [label="caps"]
-node_0x20768d0 -> node_0x20767e0
-node_0x2076880 [label="_tres"]
-node_0x20768d0 -> node_0x2076880
+node_0x72a9d0 [label="programa"]
+node_0x72a980 [label="f"]
+node_0x72a9d0 -> node_0x72a980
+node_0x72a570 [label="="]
+node_0x72a980 -> node_0x72a570
+node_0x72a480 [label="iks"]
+node_0x72a570 -> node_0x72a480
+node_0x72a520 [label="zede"]
+node_0x72a570 -> node_0x72a520
+node_0x72a720 [label="="]
+node_0x72a570 -> node_0x72a720
+node_0x72a630 [label="ka"]
+node_0x72a720 -> node_0x72a630
+node_0x72a6d0 [label="erre"]
+node_0x72a720 -> node_0x72a6d0
+node_0x72a8d0 [label="="]
+node_0x72a720 -> node_0x72a8d0
+node_0x72a7e0 [label="caps"]
+node_0x72a8d0 -> node_0x72a7e0
+node_0x72a880 [label="_tres"]
+node_0x72a8d0 -> node_0x72a880
 }
