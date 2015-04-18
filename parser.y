@@ -99,7 +99,7 @@ clock_t sec;
 /* $$ = start 
    $1 = programa
 */
-start: programa {$$ = createNode(AST_PROGRAMA,NULL);appendChildNode($$,$1);gv_create_initial_tree($$); syntaxTree = $$;}
+start: programa {$$ = createNode(AST_PROGRAMA,NULL);if($1 != NULL)appendChildNode($$,$1);gv_create_initial_tree($$); syntaxTree = $$;}
 	;
 /* $$ = programa 
    $1 = declaracao_global
@@ -110,8 +110,8 @@ start: programa {$$ = createNode(AST_PROGRAMA,NULL);appendChildNode($$,$1);gv_cr
    sim, demorei algum bom tempo pra me tocar disso =.=
 */
 programa
-	: declaracao_global ';' programa {$$=$1;appendChildNode($$,$3);}
-	| declarar_funcao programa {$$ = $1;appendChildNode($$,$2);}
+	: declaracao_global ';' programa {$$=$3;}
+	| declarar_funcao programa {$$ = $1;if($2 != NULL)appendChildNode($$,$2);}
 	| {$$ = NULL;} 
 	;
 
@@ -122,17 +122,17 @@ declaracao_global
 	;
 
 declarar_funcao	
-	: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}' {$$ = createNode(AST_FUNCAO,$2);appendChildNode($$,$7);}
-	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}' {$$ = createNode(AST_FUNCAO,$3);appendChildNode($$,$8);}
+	: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}' {$$ = createNode(AST_FUNCAO,$2);if($7 !=NULL)appendChildNode($$,$7);}
+	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}' {$$ = createNode(AST_FUNCAO,$3);if($8 !=NULL)appendChildNode($$,$8);}
 	;
 
 literal
-	: TK_LIT_INT {$$ = createNode(AST_LITERAL, $1); printf("%p\n",$$->tableItem);}
-	| TK_LIT_FLOAT {$$ = createNode(AST_LITERAL, $1);printf("%p\n",$$);}
-	| TK_LIT_FALSE {$$ = createNode(AST_LITERAL, $1);printf("%p\n",$$);}
-	| TK_LIT_TRUE {$$ = createNode(AST_LITERAL, $1);printf("%p\n",$$);}
-	| TK_LIT_CHAR {$$ = createNode(AST_LITERAL, $1);printf("%p\n",$$);}
-	| TK_LIT_STRING {$$ = createNode(AST_LITERAL, $1);printf("%p\n",$$);}
+	: TK_LIT_INT {$$ = createNode(AST_LITERAL, $1); }
+	| TK_LIT_FLOAT {$$ = createNode(AST_LITERAL, $1);}
+	| TK_LIT_FALSE {$$ = createNode(AST_LITERAL, $1);}
+	| TK_LIT_TRUE {$$ = createNode(AST_LITERAL, $1);}
+	| TK_LIT_CHAR {$$ = createNode(AST_LITERAL, $1);}
+	| TK_LIT_STRING {$$ = createNode(AST_LITERAL, $1);}
 	;
 
 especificador_tipo
@@ -144,12 +144,12 @@ especificador_tipo
 	;
 
 declaracao_local
-	: especificador_tipo TK_IDENTIFICADOR   
-	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor 
-	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR 
-	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
-	| TK_PR_STATIC TK_PR_CONST especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
-	| TK_PR_CONST especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
+	: especificador_tipo TK_IDENTIFICADOR   {$$ = NULL;}
+	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;}
+	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR {$$ = NULL;}
+	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;}
+	| TK_PR_STATIC TK_PR_CONST especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;}
+	| TK_PR_CONST especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;}
 	;
 
 
@@ -170,7 +170,7 @@ ID
 atribuicao
 	: ID '=' inverte expressao {$$ = createNode(AST_ATRIBUICAO,$2);appendChildNode($$,$1);appendChildNode($$,$3);appendChildNode($3,$4);}
 	| ID '=' expressao {$$ = createNode(AST_ATRIBUICAO,$2); appendChildNode($$,$1);appendChildNode($$,$3);}
-	| ID '=' inverte '(' expressao ')' tem_operador {if($7 != NULL)
+	/*| ID '=' inverte '(' expressao ')' tem_operador {if($7 != NULL)
 														$$ = createNode(AST_ATRIBUICAO,$2);
 														appendChildNode($$,$1); 
 														appendChildNode($$,$7);
@@ -180,7 +180,7 @@ atribuicao
 												appendChildNode($$,$1);	
 												appendChildNode($$,$6);
 												appendChildNode($6,$4);
-											}
+											}*/
 	;
 inverte
 	: '-' {$$ = createNode(AST_ARIM_INVERSAO,NULL);}
@@ -198,10 +198,9 @@ retorno
 
 
 bloco_comando
-	:  comando ';' bloco_comando {$$ = $1; appendChildNode($$,$3);} 
-	|  comando {$$ = $1;}
-	| ';' {$$ = NULL;}
-	|{$$ = NULL;}
+	:  comando ';' bloco_comando {$$ = $1; if($1 != NULL)appendChildNode($$,$3);else $$ = $3;} 
+	|  comando {if($1 != NULL)$$ = $1;}
+	|  {$$ = NULL;}
 	;
 
 	
@@ -308,7 +307,6 @@ expressao
 								else
 									{
 										$$ = $1;
-										printf("Literal sozinho na expressao: %p\n",$1->tableItem);
 									}
 							}
 	| ID tem_operador		{
@@ -327,13 +325,12 @@ expressao
 								  }
 
 	|TK_OC_NOT expressao		{$$ = createNode(AST_LOGICO_COMP_NEGACAO, NULL);appendChildNode($$,$2);}
+	| '(' expressao ')' tem_operador {$$ = $2; if($4 != NULL) {$$ = $4; appendChildNode($4,$2);}}
 	;
 
 tem_operador
 	: operador_aritmetico expressao {$$ = $1; appendChildNode($$,$2); }
-	| operador_aritmetico '(' expressao ')' {$$ = $1; appendChildNode($$,$3); }
 	| operador_logico expressao {$$ = $1; appendChildNode($$,$2); }
-	| operador_logico '(' expressao ')' {$$ = $1; appendChildNode($$,$3); }
 	| {$$ = NULL;}
 	;
 
