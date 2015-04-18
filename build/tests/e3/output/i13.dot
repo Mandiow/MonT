@@ -1,9 +1,9 @@
 digraph G {
-node_0xd6c570 [label="programa"]
-node_0xd6c520 [label="f"]
-node_0xd6c570 -> node_0xd6c520
-node_0xd6c4d0 [label="return"]
-node_0xd6c520 -> node_0xd6c4d0
-node_0xd6c480 [label="10"]
-node_0xd6c4d0 -> node_0xd6c480
+node_0x2122570 [label="programa"]
+node_0x2122520 [label="f"]
+node_0x2122570 -> node_0x2122520
+node_0x21224d0 [label="return"]
+node_0x2122520 -> node_0x21224d0
+node_0x2122480 [label="10"]
+node_0x21224d0 -> node_0x2122480
 }

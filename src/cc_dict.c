@@ -125,6 +125,7 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                 {
                         node->line = line;
                         nodeFound = 1;                  // Marca que o nodo foi encontrado e atualizado.
+                        return node;
                     
                 }
             aux = node;

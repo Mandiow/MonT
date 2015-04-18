@@ -83,7 +83,6 @@ clock_t sec;
 %type<valor_simbolo_lexico> '*'
 %type<valor_simbolo_lexico> '/'
 %type<valor_simbolo_lexico> '='
-%type<syntaxTree> ';'
 %type<syntaxTree> '{'
 %type<syntaxTree> '}'
 %type<valor_simbolo_lexico> '!'
@@ -95,7 +94,6 @@ clock_t sec;
 
 %nonassoc LOWER_THAN_ELSE
 %nonassoc TK_PR_ELSE
-
 %%
 /* Regras (e ações) da gramática */
 /* $$ = start 
@@ -170,11 +168,11 @@ ID
 
 
 atribuicao
-	: ID '=' inverte expressao {$$ = createNode(AST_ATRIBUICAO,$2); appendChildNode($$,$1);appendChildNode($$,$3);appendChildNode($3,$4);}
+	: ID '=' inverte expressao {$$ = createNode(AST_ATRIBUICAO,$2);appendChildNode($$,$1);appendChildNode($$,$3);appendChildNode($3,$4);}
 	| ID '=' expressao {$$ = createNode(AST_ATRIBUICAO,$2); appendChildNode($$,$1);appendChildNode($$,$3);}
 	| ID '=' inverte '(' expressao ')' tem_operador {if($7 != NULL)
-														$$ = createNode(AST_ATRIBUICAO,$2); 
-														appendChildNode($$,$1);
+														$$ = createNode(AST_ATRIBUICAO,$2);
+														appendChildNode($$,$1); 
 														appendChildNode($$,$7);
 														appendChildNode($7,$5);}
 	| ID '=' '(' expressao ')' tem_operador {if($6 != NULL)
@@ -202,7 +200,7 @@ retorno
 bloco_comando
 	:  comando ';' bloco_comando {$$ = $1; appendChildNode($$,$3);} 
 	|  comando {$$ = $1;}
-	| ';' {$$ = $1;}
+	| ';' {$$ = NULL;}
 	|{$$ = NULL;}
 	;
 
@@ -211,7 +209,7 @@ bloco_comando
 comando
 	: retorno  				{$$ = $1;}
 	| atribuicao 			{$$ = $1;}
-	| declaracao_local  	{$$ = $1;appendChildNode($$,$1);}
+	| declaracao_local  	{$$ = $1;}
     | controle_fluxo 		{$$ = $1;}
 	| '{' bloco_comando '}' { $$ = createNode(AST_BLOCO, NULL);appendChildNode($$,$2);}
 	| entrada 				{$$ = $1;}

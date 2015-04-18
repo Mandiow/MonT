@@ -636,8 +636,8 @@ State 39
     TK_PR_STATIC      deslocar, e ir ao estado 48
     TK_PR_CONST       deslocar, e ir ao estado 49
     TK_IDENTIFICADOR  deslocar, e ir ao estado 50
-    ';'               deslocar, e ir ao estado 51
-    '{'               deslocar, e ir ao estado 52
+    '{'               deslocar, e ir ao estado 51
+    ';'               deslocar, e ir ao estado 52
 
     $padrão  reduzir usando a regra 41 (bloco_comando)
 
@@ -680,8 +680,8 @@ State 41
     TK_PR_STATIC      deslocar, e ir ao estado 48
     TK_PR_CONST       deslocar, e ir ao estado 49
     TK_IDENTIFICADOR  deslocar, e ir ao estado 50
-    ';'               deslocar, e ir ao estado 51
-    '{'               deslocar, e ir ao estado 52
+    '{'               deslocar, e ir ao estado 51
+    ';'               deslocar, e ir ao estado 52
 
     $padrão  reduzir usando a regra 41 (bloco_comando)
 
@@ -732,7 +732,7 @@ State 44
     TK_PR_STATIC      deslocar, e ir ao estado 48
     TK_PR_CONST       deslocar, e ir ao estado 49
     TK_IDENTIFICADOR  deslocar, e ir ao estado 50
-    '{'               deslocar, e ir ao estado 52
+    '{'               deslocar, e ir ao estado 51
 
     especificador_tipo  ir ao estado 53
     declaracao_local    ir ao estado 54
@@ -854,13 +854,6 @@ State 50
 
 State 51
 
-   40 bloco_comando: ';' .
-
-    $padrão  reduzir usando a regra 40 (bloco_comando)
-
-
-State 52
-
    46 comando: '{' . bloco_comando '}'
 
     TK_PR_INT         deslocar, e ir ao estado 1
@@ -877,8 +870,8 @@ State 52
     TK_PR_STATIC      deslocar, e ir ao estado 48
     TK_PR_CONST       deslocar, e ir ao estado 49
     TK_IDENTIFICADOR  deslocar, e ir ao estado 50
-    ';'               deslocar, e ir ao estado 51
-    '{'               deslocar, e ir ao estado 52
+    '{'               deslocar, e ir ao estado 51
+    ';'               deslocar, e ir ao estado 52
 
     $padrão  reduzir usando a regra 41 (bloco_comando)
 
@@ -894,6 +887,13 @@ State 52
     controle_fluxo      ir ao estado 62
     chamada_funcao      ir ao estado 63
     nome                ir ao estado 64
+
+
+State 52
+
+   40 bloco_comando: ';' .
+
+    $padrão  reduzir usando a regra 40 (bloco_comando)
 
 
 State 53
@@ -1327,8 +1327,8 @@ State 91
     TK_PR_STATIC      deslocar, e ir ao estado 48
     TK_PR_CONST       deslocar, e ir ao estado 49
     TK_IDENTIFICADOR  deslocar, e ir ao estado 50
-    ';'               deslocar, e ir ao estado 51
-    '{'               deslocar, e ir ao estado 52
+    '{'               deslocar, e ir ao estado 51
+    ';'               deslocar, e ir ao estado 52
 
     $padrão  reduzir usando a regra 41 (bloco_comando)
 
@@ -1971,7 +1971,7 @@ State 152
     TK_PR_STATIC      deslocar, e ir ao estado 48
     TK_PR_CONST       deslocar, e ir ao estado 49
     TK_IDENTIFICADOR  deslocar, e ir ao estado 50
-    '{'               deslocar, e ir ao estado 52
+    '{'               deslocar, e ir ao estado 51
 
     especificador_tipo  ir ao estado 53
     declaracao_local    ir ao estado 54
@@ -2004,7 +2004,7 @@ State 153
     TK_PR_STATIC      deslocar, e ir ao estado 48
     TK_PR_CONST       deslocar, e ir ao estado 49
     TK_IDENTIFICADOR  deslocar, e ir ao estado 50
-    '{'               deslocar, e ir ao estado 52
+    '{'               deslocar, e ir ao estado 51
 
     especificador_tipo  ir ao estado 53
     declaracao_local    ir ao estado 54
@@ -2204,7 +2204,7 @@ State 171
     TK_PR_STATIC      deslocar, e ir ao estado 48
     TK_PR_CONST       deslocar, e ir ao estado 49
     TK_IDENTIFICADOR  deslocar, e ir ao estado 50
-    '{'               deslocar, e ir ao estado 52
+    '{'               deslocar, e ir ao estado 51
 
     especificador_tipo  ir ao estado 53
     declaracao_local    ir ao estado 54
