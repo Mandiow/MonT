@@ -407,16 +407,16 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  13
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   234
+#define YYLAST   221
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  51
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  30
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  89
+#define YYNRULES  88
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  166
+#define YYNSTATES  165
 
 /* YYTRANSLATE[YYX] -- Symbol number corresponding to YYX as returned
    by yylex, with out-of-bounds checking.  */
@@ -471,9 +471,9 @@ static const yytype_uint16 yyrline[] =
      164,   165,   173,   174,   177,   182,   183,   192,   193,   194,
      195,   201,   202,   203,   204,   205,   206,   207,   208,   212,
      213,   217,   218,   222,   223,   227,   231,   235,   236,   240,
-     244,   245,   250,   251,   252,   253,   263,   266,   270,   271,
-     272,   273,   274,   278,   279,   280,   281,   282,   283,   284,
-     285,   289,   296,   303,   309,   313,   314,   315,   316,   317
+     247,   248,   253,   254,   255,   256,   266,   269,   273,   274,
+     275,   276,   277,   281,   282,   283,   284,   285,   286,   287,
+     288,   292,   305,   313,   317,   318,   319,   320,   321
 };
 #endif
 
@@ -515,10 +515,10 @@ static const yytype_uint16 yytoknum[] =
 };
 # endif
 
-#define YYPACT_NINF -121
+#define YYPACT_NINF -132
 
 #define yypact_value_is_default(Yystate) \
-  (!!((Yystate) == (-121)))
+  (!!((Yystate) == (-132)))
 
 #define YYTABLE_NINF -68
 
@@ -529,23 +529,23 @@ static const yytype_uint16 yytoknum[] =
      STATE-NUM.  */
 static const yytype_int16 yypact[] =
 {
-      97,  -121,  -121,  -121,  -121,  -121,    91,     7,  -121,   -29,
-      97,   -13,     6,  -121,    97,  -121,   -19,   -15,  -121,    -2,
-      44,     3,    44,    -6,    91,    12,     8,  -121,    -4,    13,
-      16,  -121,    31,  -121,    42,    44,  -121,    45,  -121,   133,
-    -121,   133,    37,    40,   154,   196,   196,   196,   175,    91,
-      -8,  -121,   133,    58,  -121,    50,  -121,  -121,    49,    64,
-    -121,  -121,  -121,  -121,    68,    69,   196,   196,   106,   196,
-    -121,  -121,  -121,  -121,  -121,  -121,   168,   168,   168,    78,
-    -121,    70,  -121,    91,    88,    93,   196,    79,   108,   184,
-    -121,   133,   196,  -121,    83,    85,    80,  -121,  -121,  -121,
-    -121,  -121,  -121,  -121,  -121,  -121,  -121,  -121,  -121,  -121,
-    -121,    43,    51,  -121,  -121,  -121,   107,   196,  -121,    96,
-     124,   134,   104,  -121,   203,  -121,   196,  -121,  -121,   105,
-    -121,   144,   143,   196,   196,  -121,   196,  -121,   196,  -121,
-     138,   203,   203,  -121,  -121,  -121,  -121,  -121,  -121,   154,
-     154,   114,   123,   127,  -121,   203,  -121,  -121,   163,  -121,
-    -121,  -121,  -121,  -121,   154,  -121
+     194,  -132,  -132,  -132,  -132,  -132,    82,    12,  -132,   -14,
+     194,    -1,     0,  -132,   194,  -132,   -32,   -29,  -132,     8,
+      55,    11,    55,   -10,    82,     7,    -9,  -132,    -8,    -6,
+      -5,  -132,    15,  -132,     5,    55,  -132,    13,  -132,   122,
+    -132,   122,     2,     6,   143,   190,   190,   190,    62,    82,
+     -24,  -132,   122,    25,  -132,    23,  -132,  -132,    30,    33,
+    -132,  -132,  -132,  -132,    27,    37,   190,   190,    65,   190,
+    -132,  -132,  -132,  -132,  -132,  -132,    35,   157,   157,    42,
+    -132,    40,  -132,    82,    52,    64,   190,    50,    89,   178,
+    -132,   122,   190,  -132,    59,    74,    63,  -132,  -132,  -132,
+    -132,  -132,  -132,  -132,  -132,  -132,  -132,  -132,  -132,  -132,
+    -132,    73,   141,  -132,  -132,    86,   190,  -132,   100,   114,
+     123,    93,  -132,    88,  -132,   190,  -132,  -132,    94,  -132,
+     133,   132,   190,   190,  -132,   190,  -132,   190,  -132,   127,
+      88,    88,  -132,  -132,  -132,  -132,  -132,  -132,   143,   143,
+     103,   112,   113,  -132,    88,  -132,  -132,   163,  -132,  -132,
+    -132,  -132,  -132,   143,  -132
 };
 
   /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -560,32 +560,32 @@ static const yytype_uint8 yydefact[] =
       51,    40,     0,     0,     0,     0,     0,    36,     0,     0,
       30,    39,    40,     0,    43,     0,    42,    41,     0,    38,
       46,    48,    44,    47,     0,     0,     0,     0,     0,     0,
-      11,    12,    13,    14,    15,    16,    89,    89,    89,     0,
+      11,    12,    13,    14,    15,    16,    30,    88,    88,     0,
       56,    61,    35,     0,     0,     0,     0,     0,    22,     0,
-       9,    40,    58,    10,     0,     0,     0,    84,    73,    74,
+       9,    40,    58,    10,     0,     0,     0,    83,    73,    74,
       75,    76,    77,    78,    72,    68,    69,    80,    79,    70,
-      71,     0,     0,    81,    82,    83,     0,     0,    59,     0,
-      24,     0,     0,    45,     0,    34,     0,    33,    37,     0,
-      57,     0,     0,     0,     0,    85,     0,    87,     0,    60,
-       0,     0,     0,    31,    29,    28,    23,    32,    66,     0,
-       0,     0,     0,     0,    55,     0,    25,    27,    63,    64,
-      65,    86,    88,    26,     0,    62
+      71,     0,     0,    81,    82,     0,     0,    59,     0,    24,
+       0,     0,    45,     0,    34,     0,    33,    37,     0,    57,
+       0,     0,     0,     0,    84,     0,    86,     0,    60,     0,
+       0,     0,    31,    29,    28,    23,    32,    66,     0,     0,
+       0,     0,     0,    55,     0,    25,    27,    63,    64,    65,
+      85,    87,    26,     0,    62
 };
 
   /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int16 yypgoto[] =
 {
-    -121,  -121,     5,  -121,  -121,  -116,    10,  -121,  -120,   -39,
-    -121,  -121,  -121,   -38,   -43,   155,   148,  -121,  -121,  -121,
-    -121,   -81,  -121,  -121,   -35,  -121,  -121,  -121,    -3,   -23
+    -132,  -132,     1,  -132,  -132,  -120,    29,  -132,  -131,   -39,
+    -132,  -132,  -132,   -34,   -43,   159,   147,  -132,  -132,  -132,
+    -132,   -84,  -132,  -132,  -132,  -132,  -132,  -132,   -41,   105
 };
 
   /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int16 yydefgoto[] =
 {
-      -1,     7,     8,     9,    10,    76,    53,    54,   146,    77,
-      56,   126,    57,    58,    59,    26,    27,    28,    60,    61,
-     129,    80,   118,    62,    78,    64,   111,   112,    81,   113
+      -1,     7,     8,     9,    10,    77,    53,    54,   145,    78,
+      56,   125,    57,    58,    59,    26,    27,    28,    60,    61,
+     128,    80,   117,    62,    63,    64,   111,   112,    81,   113
 };
 
   /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -593,58 +593,56 @@ static const yytype_int16 yydefgoto[] =
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int16 yytable[] =
 {
-      55,    68,    55,    65,    63,    55,    63,    13,   145,    63,
-      11,   130,    14,    55,    87,    15,    12,    63,    16,    18,
-      11,   156,   157,    23,    11,   145,   145,    19,    29,    20,
-      25,    21,    25,    22,    32,   163,   139,    17,    86,   145,
-     -67,    31,    79,    33,    82,    25,    35,     1,     2,     3,
-       4,     5,    55,   128,   114,   115,    63,    34,    84,    85,
-      36,    24,    38,    94,    95,    37,    97,    69,    70,    71,
-      72,    73,    74,    75,    50,    69,    70,    71,    72,    73,
-      74,    75,    50,   122,    39,    66,   127,    41,    67,    88,
-      89,   134,    90,   119,     1,     2,     3,     4,     5,   136,
-       1,     2,     3,     4,     5,    91,   158,   159,   135,   137,
-      55,    55,    93,     6,    63,    63,    92,    96,   116,   120,
-     117,   165,   123,   147,   121,    55,   124,   140,   133,    63,
-     151,   152,   131,   153,   132,   154,     1,     2,     3,     4,
-       5,    42,   141,   138,    43,    44,    45,    46,    47,    48,
-      49,   143,   142,   149,   148,   150,   155,     1,     2,     3,
-       4,     5,    42,   160,    50,    43,    44,    45,    46,    47,
-      48,    49,   161,   164,    51,    52,   162,    30,     1,     2,
-       3,     4,     5,    40,     0,    50,    98,    99,   100,   101,
-     102,   103,    83,     0,     0,     0,    52,     0,     0,     0,
-       0,   104,   105,   106,   107,   108,   109,   110,    69,    70,
-      71,    72,    73,    74,    75,    50,     0,     0,     0,   125,
-      69,    70,    71,    72,    73,    74,    75,    50,    70,    71,
-      72,    73,    74,    75,   144
+      55,    68,    55,   144,    79,    55,    82,    65,   129,   155,
+     156,    15,    13,    55,    19,    18,    20,    21,    87,    22,
+     144,   144,    86,   162,   -67,    94,    95,    14,    97,    11,
+      16,    17,   138,    23,   144,    12,    29,    31,    33,    11,
+      34,    36,    35,    11,    37,   121,    38,    39,   126,    25,
+      66,    25,    55,    32,    67,    41,    88,   127,     1,     2,
+       3,     4,     5,    89,    25,     1,     2,     3,     4,     5,
+     134,   136,    24,    90,    91,    92,    96,    84,    85,    83,
+      93,    86,   115,   119,   146,     1,     2,     3,     4,     5,
+     116,   150,   151,   122,   152,   120,   153,    69,    70,    71,
+      72,    73,    74,    75,    76,   157,   158,   123,   130,    55,
+      55,   132,   118,    70,    71,    72,    73,    74,    75,   143,
+     164,   133,   137,   131,    55,     1,     2,     3,     4,     5,
+      42,   139,   140,    43,    44,    45,    46,    47,    48,    49,
+     142,   141,   148,   147,   149,   154,     1,     2,     3,     4,
+       5,    42,   159,    50,    43,    44,    45,    46,    47,    48,
+      49,   160,   161,    51,    52,    69,    70,    71,    72,    73,
+      74,    75,    76,   163,    50,    98,    99,   100,   101,   102,
+     103,    30,    40,   114,     0,    52,     0,     0,     0,   135,
+     104,   105,   106,   107,   108,   109,   110,     1,     2,     3,
+       4,     5,    69,    70,    71,    72,    73,    74,    75,    76,
+       6,     0,     0,   124,    69,    70,    71,    72,    73,    74,
+      75,    76
 };
 
 static const yytype_int16 yycheck[] =
 {
-      39,    44,    41,    41,    39,    44,    41,     0,   124,    44,
-       0,    92,    41,    52,    52,    10,     6,    52,    31,    14,
-      10,   141,   142,    25,    14,   141,   142,    46,    25,    48,
-      20,    46,    22,    48,    24,   155,   117,    31,    46,   155,
-      48,    47,    45,    31,    47,    35,    50,     3,     4,     5,
-       6,     7,    91,    91,    77,    78,    91,    49,    48,    49,
-      47,    17,    31,    66,    67,    49,    69,    24,    25,    26,
-      27,    28,    29,    30,    31,    24,    25,    26,    27,    28,
-      29,    30,    31,    86,    42,    48,    89,    42,    48,    31,
-      40,    48,    43,    83,     3,     4,     5,     6,     7,    48,
-       3,     4,     5,     6,     7,    41,   149,   150,   111,   112,
-     149,   150,    43,    16,   149,   150,    48,    11,    40,    31,
-      50,   164,    43,   126,    31,   164,    18,    31,    48,   164,
-     133,   134,    49,   136,    49,   138,     3,     4,     5,     6,
-       7,     8,    18,    36,    11,    12,    13,    14,    15,    16,
-      17,    47,    18,     9,    49,    12,    18,     3,     4,     5,
-       6,     7,     8,    49,    31,    11,    12,    13,    14,    15,
-      16,    17,    49,    10,    41,    42,    49,    22,     3,     4,
-       5,     6,     7,    35,    -1,    31,    18,    19,    20,    21,
-      22,    23,    17,    -1,    -1,    -1,    42,    -1,    -1,    -1,
-      -1,    33,    34,    35,    36,    37,    38,    39,    24,    25,
-      26,    27,    28,    29,    30,    31,    -1,    -1,    -1,    35,
-      24,    25,    26,    27,    28,    29,    30,    31,    25,    26,
-      27,    28,    29,    30,    31
+      39,    44,    41,   123,    45,    44,    47,    41,    92,   140,
+     141,    10,     0,    52,    46,    14,    48,    46,    52,    48,
+     140,   141,    46,   154,    48,    66,    67,    41,    69,     0,
+      31,    31,   116,    25,   154,     6,    25,    47,    31,    10,
+      49,    47,    50,    14,    49,    86,    31,    42,    89,    20,
+      48,    22,    91,    24,    48,    42,    31,    91,     3,     4,
+       5,     6,     7,    40,    35,     3,     4,     5,     6,     7,
+     111,   112,    17,    43,    41,    48,    11,    48,    49,    17,
+      43,    46,    40,    31,   125,     3,     4,     5,     6,     7,
+      50,   132,   133,    43,   135,    31,   137,    24,    25,    26,
+      27,    28,    29,    30,    31,   148,   149,    18,    49,   148,
+     149,    48,    83,    25,    26,    27,    28,    29,    30,    31,
+     163,    48,    36,    49,   163,     3,     4,     5,     6,     7,
+       8,    31,    18,    11,    12,    13,    14,    15,    16,    17,
+      47,    18,     9,    49,    12,    18,     3,     4,     5,     6,
+       7,     8,    49,    31,    11,    12,    13,    14,    15,    16,
+      17,    49,    49,    41,    42,    24,    25,    26,    27,    28,
+      29,    30,    31,    10,    31,    18,    19,    20,    21,    22,
+      23,    22,    35,    78,    -1,    42,    -1,    -1,    -1,    48,
+      33,    34,    35,    36,    37,    38,    39,     3,     4,     5,
+       6,     7,    24,    25,    26,    27,    28,    29,    30,    31,
+      16,    -1,    -1,    35,    24,    25,    26,    27,    28,    29,
+      30,    31
 };
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
@@ -658,16 +656,16 @@ static const yytype_uint8 yystos[] =
       67,    42,     8,    11,    12,    13,    14,    15,    16,    17,
       31,    41,    42,    57,    58,    60,    61,    63,    64,    65,
       69,    70,    74,    75,    76,    64,    48,    48,    65,    24,
-      25,    26,    27,    28,    29,    30,    56,    60,    75,    79,
+      25,    26,    27,    28,    29,    30,    31,    56,    60,    79,
       72,    79,    79,    17,    57,    57,    46,    64,    31,    40,
       43,    41,    48,    43,    79,    79,    11,    79,    18,    19,
       20,    21,    22,    23,    33,    34,    35,    36,    37,    38,
-      39,    77,    78,    80,    80,    80,    40,    50,    73,    57,
-      31,    31,    79,    43,    18,    35,    62,    79,    64,    71,
-      72,    49,    49,    48,    48,    79,    48,    79,    36,    72,
-      31,    18,    18,    47,    31,    56,    59,    79,    49,     9,
-      12,    79,    79,    79,    79,    18,    59,    59,    65,    65,
-      49,    49,    49,    59,    10,    65
+      39,    77,    78,    80,    80,    40,    50,    73,    57,    31,
+      31,    79,    43,    18,    35,    62,    79,    64,    71,    72,
+      49,    49,    48,    48,    79,    48,    79,    36,    72,    31,
+      18,    18,    47,    31,    56,    59,    79,    49,     9,    12,
+      79,    79,    79,    79,    18,    59,    59,    65,    65,    49,
+      49,    49,    59,    10,    65
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
@@ -681,7 +679,7 @@ static const yytype_uint8 yyr1[] =
       66,    67,    67,    68,    68,    69,    70,    71,    71,    72,
       73,    73,    74,    74,    74,    74,    75,    76,    77,    77,
       77,    77,    77,    78,    78,    78,    78,    78,    78,    78,
-      78,    79,    79,    79,    79,    80,    80,    80,    80,    80
+      78,    79,    79,    79,    80,    80,    80,    80,    80
 };
 
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
@@ -695,7 +693,7 @@ static const yytype_uint8 yyr2[] =
        0,     3,     1,     2,     3,     5,     2,     1,     0,     2,
        2,     0,     8,     6,     6,     6,     4,     1,     1,     1,
        1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
-       1,     2,     2,     2,     2,     2,     4,     2,     4,     0
+       1,     2,     2,     2,     2,     4,     2,     4,     0
 };
 
 
@@ -1374,442 +1372,441 @@ yyreduce:
         case 2:
 #line 104 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_PROGRAMA,NULL);appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree));gv_create_initial_tree((yyval.syntaxTree)); syntaxTree = (yyval.syntaxTree);}
-#line 1378 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1376 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 3:
 #line 115 "parser.y" /* yacc.c:1646  */
-    {(yyval.syntaxTree)=(yyvsp[-2].syntaxTree);appendChildNode((yyvsp[0].syntaxTree),(yyval.syntaxTree));}
-#line 1384 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+    {(yyval.syntaxTree)=(yyvsp[-2].syntaxTree);appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree));}
+#line 1382 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 4:
 #line 116 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = (yyvsp[-1].syntaxTree);appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree));}
-#line 1390 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1388 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 5:
 #line 117 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = NULL;}
-#line 1396 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1394 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 9:
 #line 127 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_FUNCAO,(yyvsp[-6].valor_simbolo_lexico));appendChildNode((yyval.syntaxTree),(yyvsp[-1].syntaxTree));}
-#line 1402 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1400 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 10:
 #line 128 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_FUNCAO,(yyvsp[-6].valor_simbolo_lexico));appendChildNode((yyval.syntaxTree),(yyvsp[-1].syntaxTree));}
-#line 1408 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1406 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 11:
 #line 132 "parser.y" /* yacc.c:1646  */
-    {(yyval.valor_simbolo_lexico) = (yyvsp[0].valor_simbolo_lexico);}
-#line 1414 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+    {(yyval.syntaxTree) = createNode(AST_LITERAL, (yyvsp[0].valor_simbolo_lexico));}
+#line 1412 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 12:
 #line 133 "parser.y" /* yacc.c:1646  */
-    {(yyval.valor_simbolo_lexico) = (yyvsp[0].valor_simbolo_lexico);}
-#line 1420 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+    {(yyval.syntaxTree) = createNode(AST_LITERAL, (yyvsp[0].valor_simbolo_lexico));}
+#line 1418 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 13:
 #line 134 "parser.y" /* yacc.c:1646  */
-    {(yyval.valor_simbolo_lexico) = (yyvsp[0].valor_simbolo_lexico);}
-#line 1426 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+    {(yyval.syntaxTree) = createNode(AST_LITERAL, (yyvsp[0].valor_simbolo_lexico));}
+#line 1424 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 14:
 #line 135 "parser.y" /* yacc.c:1646  */
-    {(yyval.valor_simbolo_lexico) = (yyvsp[0].valor_simbolo_lexico);}
-#line 1432 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+    {(yyval.syntaxTree) = createNode(AST_LITERAL, (yyvsp[0].valor_simbolo_lexico));}
+#line 1430 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 15:
 #line 136 "parser.y" /* yacc.c:1646  */
-    {(yyval.valor_simbolo_lexico) = (yyvsp[0].valor_simbolo_lexico);}
-#line 1438 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+    {(yyval.syntaxTree) = createNode(AST_LITERAL, (yyvsp[0].valor_simbolo_lexico));}
+#line 1436 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 16:
 #line 137 "parser.y" /* yacc.c:1646  */
-    {(yyval.valor_simbolo_lexico) = (yyvsp[0].valor_simbolo_lexico);}
-#line 1444 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+    {(yyval.syntaxTree) = createNode(AST_LITERAL, (yyvsp[0].valor_simbolo_lexico));}
+#line 1442 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 28:
 #line 159 "parser.y" /* yacc.c:1646  */
-    {(yyval.valor_simbolo_lexico) = createNode(AST_LITERAL, (yyvsp[0].valor_simbolo_lexico));}
-#line 1450 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+    {(yyval.syntaxTree) = (yyvsp[0].syntaxTree);}
+#line 1448 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 29:
 #line 160 "parser.y" /* yacc.c:1646  */
-    {(yyval.valor_simbolo_lexico) = createNode(AST_IDENTIFICADOR,(yyvsp[0].valor_simbolo_lexico));}
-#line 1456 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+    {(yyval.syntaxTree) = createNode(AST_IDENTIFICADOR,(yyvsp[0].valor_simbolo_lexico));}
+#line 1454 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 30:
 #line 164 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_IDENTIFICADOR,(yyvsp[0].valor_simbolo_lexico));}
-#line 1462 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1460 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 31:
 #line 165 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_VETOR_INDEXADO,NULL);appendChildNode((yyval.syntaxTree),createNode(AST_IDENTIFICADOR,(yyvsp[-3].valor_simbolo_lexico))); appendChildNode((yyval.syntaxTree),(yyvsp[-1].syntaxTree));}
-#line 1468 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1466 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 32:
 #line 173 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_ATRIBUICAO,(yyvsp[-2].valor_simbolo_lexico)); appendChildNode((yyval.syntaxTree),(yyvsp[-3].syntaxTree));appendChildNode((yyval.syntaxTree),(yyvsp[-1].syntaxTree));appendChildNode((yyvsp[-1].syntaxTree),(yyvsp[0].syntaxTree));}
-#line 1474 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1472 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 33:
 #line 174 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_ATRIBUICAO,(yyvsp[-1].valor_simbolo_lexico)); appendChildNode((yyval.syntaxTree),(yyvsp[-2].syntaxTree));appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree));}
-#line 1480 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1478 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 34:
 #line 177 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_ARIM_INVERSAO,NULL);}
-#line 1486 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1484 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 35:
 #line 182 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_RETURN,NULL);appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree));}
-#line 1492 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1490 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 36:
 #line 183 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_RETURN,NULL); }
-#line 1498 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1496 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 37:
 #line 192 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = (yyvsp[-2].syntaxTree); appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree));}
-#line 1504 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1502 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 38:
 #line 193 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = (yyvsp[0].syntaxTree);}
-#line 1510 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1508 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 39:
 #line 194 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = (yyvsp[0].syntaxTree);}
-#line 1516 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1514 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 40:
 #line 195 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = NULL;}
-#line 1522 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1520 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 41:
 #line 201 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = (yyvsp[0].syntaxTree);}
-#line 1528 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1526 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 42:
 #line 202 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = (yyvsp[0].syntaxTree);}
-#line 1534 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1532 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 43:
 #line 203 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = (yyvsp[0].syntaxTree);appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree));}
-#line 1540 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1538 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 44:
 #line 204 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = (yyvsp[0].syntaxTree);}
-#line 1546 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1544 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 45:
 #line 205 "parser.y" /* yacc.c:1646  */
     { (yyval.syntaxTree) = createNode(AST_BLOCO, NULL);appendChildNode((yyval.syntaxTree),(yyvsp[-1].syntaxTree));}
-#line 1552 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1550 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 46:
 #line 206 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = (yyvsp[0].syntaxTree);}
-#line 1558 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1556 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 47:
 #line 207 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = (yyvsp[0].syntaxTree);}
-#line 1564 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1562 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 48:
 #line 208 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = (yyvsp[0].syntaxTree);}
-#line 1570 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1568 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 49:
 #line 212 "parser.y" /* yacc.c:1646  */
-    {(yyval.valor_simbolo_lexico) = (yyvsp[0].valor_simbolo_lexico);}
-#line 1576 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+    {(yyval.syntaxTree) = (yyvsp[0].syntaxTree);}
+#line 1574 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 50:
 #line 213 "parser.y" /* yacc.c:1646  */
-    {(yyval.valor_simbolo_lexico) = NULL;}
-#line 1582 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+    {(yyval.syntaxTree) = NULL;}
+#line 1580 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 55:
 #line 227 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_INPUT, NULL); appendChildNode((yyval.syntaxTree),(yyvsp[-3].syntaxTree));appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree));}
-#line 1588 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1586 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 56:
 #line 231 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_OUTPUT,NULL);appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree));}
-#line 1594 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1592 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 57:
 #line 235 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = (yyvsp[0].syntaxTree);}
-#line 1600 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1598 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 58:
 #line 236 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = NULL;}
-#line 1606 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1604 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 59:
 #line 240 "parser.y" /* yacc.c:1646  */
-    {(yyval.syntaxTree) = (yyvsp[-1].syntaxTree); appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree));}
-#line 1612 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+    {(yyval.syntaxTree) = (yyvsp[-1].syntaxTree); 
+							if((yyvsp[0].syntaxTree) != NULL)
+								appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree));
+							}
+#line 1613 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 60:
-#line 244 "parser.y" /* yacc.c:1646  */
+#line 247 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = (yyvsp[0].syntaxTree);}
-#line 1618 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1619 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 61:
-#line 245 "parser.y" /* yacc.c:1646  */
+#line 248 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = NULL;}
-#line 1624 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1625 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 62:
-#line 250 "parser.y" /* yacc.c:1646  */
+#line 253 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_IF_ELSE,NULL); appendChildNode((yyval.syntaxTree),(yyvsp[-5].syntaxTree));appendChildNode((yyval.syntaxTree),(yyvsp[-2].syntaxTree));appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree));}
-#line 1630 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1631 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 63:
-#line 251 "parser.y" /* yacc.c:1646  */
+#line 254 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_IF_ELSE,NULL); appendChildNode((yyval.syntaxTree),(yyvsp[-3].syntaxTree));appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree));}
-#line 1636 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1637 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 64:
-#line 252 "parser.y" /* yacc.c:1646  */
+#line 255 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_WHILE_DO,NULL); appendChildNode((yyval.syntaxTree),(yyvsp[-3].syntaxTree));appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree));}
-#line 1642 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1643 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 65:
-#line 253 "parser.y" /* yacc.c:1646  */
+#line 256 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_DO_WHILE,NULL); appendChildNode((yyval.syntaxTree),(yyvsp[-4].syntaxTree));appendChildNode((yyval.syntaxTree),(yyvsp[-1].syntaxTree));}
-#line 1648 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1649 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 66:
-#line 263 "parser.y" /* yacc.c:1646  */
+#line 266 "parser.y" /* yacc.c:1646  */
     { (yyval.syntaxTree) = createNode(AST_CHAMADA_DE_FUNCAO,NULL); appendChildNode((yyval.syntaxTree),(yyvsp[-3].syntaxTree));appendChildNode((yyval.syntaxTree),(yyvsp[-1].syntaxTree));}
-#line 1654 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1655 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 67:
-#line 266 "parser.y" /* yacc.c:1646  */
+#line 269 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_IDENTIFICADOR,(yyvsp[0].valor_simbolo_lexico));}
-#line 1660 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1661 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 68:
-#line 270 "parser.y" /* yacc.c:1646  */
+#line 273 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_ARIM_SOMA, NULL);}
-#line 1666 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1667 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 69:
-#line 271 "parser.y" /* yacc.c:1646  */
+#line 274 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_ARIM_SUBTRACAO, NULL);}
-#line 1672 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1673 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 70:
-#line 272 "parser.y" /* yacc.c:1646  */
+#line 275 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_ARIM_MULTIPLICACAO, NULL);}
-#line 1678 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1679 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 71:
-#line 273 "parser.y" /* yacc.c:1646  */
+#line 276 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_ARIM_DIVISAO, NULL);}
-#line 1684 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1685 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 72:
-#line 274 "parser.y" /* yacc.c:1646  */
+#line 277 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_LOGICO_COMP_LE, NULL);}
-#line 1690 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1691 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 73:
-#line 278 "parser.y" /* yacc.c:1646  */
+#line 281 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_LOGICO_COMP_LE, NULL);}
-#line 1696 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1697 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 74:
-#line 279 "parser.y" /* yacc.c:1646  */
+#line 282 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_LOGICO_COMP_GE, NULL);}
-#line 1702 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1703 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 75:
-#line 280 "parser.y" /* yacc.c:1646  */
+#line 283 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_LOGICO_COMP_IGUAL, NULL);}
-#line 1708 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1709 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 76:
-#line 281 "parser.y" /* yacc.c:1646  */
+#line 284 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_LOGICO_COMP_DIF, NULL);}
-#line 1714 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1715 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 77:
-#line 282 "parser.y" /* yacc.c:1646  */
+#line 285 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_LOGICO_E, NULL);}
-#line 1720 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1721 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 78:
-#line 283 "parser.y" /* yacc.c:1646  */
+#line 286 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_LOGICO_OU, NULL);}
-#line 1726 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1727 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 79:
-#line 284 "parser.y" /* yacc.c:1646  */
+#line 287 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_LOGICO_COMP_L, NULL);}
-#line 1732 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1733 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 80:
-#line 285 "parser.y" /* yacc.c:1646  */
+#line 288 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = createNode(AST_LOGICO_COMP_G, NULL);}
-#line 1738 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1739 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 81:
-#line 289 "parser.y" /* yacc.c:1646  */
-    {
-								
+#line 292 "parser.y" /* yacc.c:1646  */
+    {							
 								if((yyvsp[0].syntaxTree) != NULL)	
-									{(yyval.syntaxTree) = (yyvsp[0].syntaxTree); 
-									appendChildNode((yyvsp[0].syntaxTree),createNode(AST_LITERAL, (yyvsp[-1].valor_simbolo_lexico)));}
-								else (yyval.syntaxTree) = createNode(AST_LITERAL, (yyvsp[-1].valor_simbolo_lexico));
+									{
+										(yyval.syntaxTree) = (yyvsp[0].syntaxTree); 
+										printf("Literal com operador (arit ou log)\n"); 
+										appendChildNode((yyval.syntaxTree),(yyvsp[-1].syntaxTree));
+									}
+								else
+									{
+										printf("Literal sozinho na expressao\n");
+										(yyval.syntaxTree) = (yyvsp[-1].syntaxTree);
+									}
 							}
-#line 1750 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1757 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 82:
-#line 296 "parser.y" /* yacc.c:1646  */
+#line 305 "parser.y" /* yacc.c:1646  */
     {
 								if((yyvsp[0].syntaxTree) != NULL)	
-									{(yyval.syntaxTree) = (yyvsp[0].syntaxTree);
-									 printf("chegou\n"); 
-									appendChildNode((yyvsp[0].syntaxTree),(yyvsp[-1].syntaxTree));}
+									{
+										(yyval.syntaxTree) = (yyvsp[0].syntaxTree);
+										appendChildNode((yyvsp[0].syntaxTree),(yyvsp[-1].syntaxTree));
+									}
 								else (yyval.syntaxTree) = (yyvsp[-1].syntaxTree);
 							}
-#line 1762 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1770 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 83:
-#line 303 "parser.y" /* yacc.c:1646  */
-    {
-									if((yyvsp[0].syntaxTree) != NULL)	
-										{(yyval.syntaxTree) = (yyvsp[0].syntaxTree); 
-										appendChildNode((yyvsp[0].syntaxTree),(yyvsp[-1].syntaxTree));}
-									else (yyval.syntaxTree) = (yyvsp[-1].syntaxTree);
-								  }
-#line 1773 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 313 "parser.y" /* yacc.c:1646  */
+    {(yyval.syntaxTree) = createNode(AST_LOGICO_COMP_NEGACAO, NULL);appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree));}
+#line 1776 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 84:
-#line 309 "parser.y" /* yacc.c:1646  */
-    {(yyval.syntaxTree) = createNode(AST_LOGICO_COMP_NEGACAO, NULL);appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree));}
-#line 1779 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 317 "parser.y" /* yacc.c:1646  */
+    {(yyval.syntaxTree) = (yyvsp[-1].syntaxTree); appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree)); }
+#line 1782 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 85:
-#line 313 "parser.y" /* yacc.c:1646  */
-    {(yyval.syntaxTree) = (yyvsp[-1].syntaxTree); appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree)); }
-#line 1785 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 318 "parser.y" /* yacc.c:1646  */
+    {(yyval.syntaxTree) = (yyvsp[-3].syntaxTree); appendChildNode((yyval.syntaxTree),(yyvsp[-1].syntaxTree)); }
+#line 1788 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 86:
-#line 314 "parser.y" /* yacc.c:1646  */
-    {(yyval.syntaxTree) = (yyvsp[-3].syntaxTree); appendChildNode((yyval.syntaxTree),(yyvsp[-1].syntaxTree)); }
-#line 1791 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 319 "parser.y" /* yacc.c:1646  */
+    {(yyval.syntaxTree) = (yyvsp[-1].syntaxTree); appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree)); }
+#line 1794 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 87:
-#line 315 "parser.y" /* yacc.c:1646  */
-    {(yyval.syntaxTree) = (yyvsp[-1].syntaxTree); appendChildNode((yyval.syntaxTree),(yyvsp[0].syntaxTree)); }
-#line 1797 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 320 "parser.y" /* yacc.c:1646  */
+    {(yyval.syntaxTree) = (yyvsp[-3].syntaxTree); appendChildNode((yyval.syntaxTree),(yyvsp[-1].syntaxTree)); }
+#line 1800 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
   case 88:
-#line 316 "parser.y" /* yacc.c:1646  */
-    {(yyval.syntaxTree) = (yyvsp[-3].syntaxTree); appendChildNode((yyval.syntaxTree),(yyvsp[-1].syntaxTree)); }
-#line 1803 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
-    break;
-
-  case 89:
-#line 317 "parser.y" /* yacc.c:1646  */
+#line 321 "parser.y" /* yacc.c:1646  */
     {(yyval.syntaxTree) = NULL;}
-#line 1809 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1806 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
     break;
 
 
-#line 1813 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
+#line 1810 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -2037,5 +2034,5 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 326 "parser.y" /* yacc.c:1906  */
+#line 327 "parser.y" /* yacc.c:1906  */
 

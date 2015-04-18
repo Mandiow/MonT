@@ -1,4 +1,71 @@
 digraph G {
-node_0xbe0980 [label="f"]
-node_0xbe09d0 -> node_0xbe0980
+node_0xb61640 [label="programa"]
+node_0xb615f0 [label="f"]
+node_0xb61640 -> node_0xb615f0
+node_0xb609b0 [label="="]
+node_0xb615f0 -> node_0xb609b0
+node_0xb60480 [label="x"]
+node_0xb609b0 -> node_0xb60480
+node_0xb60570 [label="+"]
+node_0xb609b0 -> node_0xb60570
+node_0xb60660 [label="+"]
+node_0xb60570 -> node_0xb60660
+node_0xb60750 [label="-"]
+node_0xb60660 -> node_0xb60750
+node_0xb60840 [label="-"]
+node_0xb60750 -> node_0xb60840
+node_0xb608e0 [label="e"]
+node_0xb60840 -> node_0xb608e0
+node_0xb607f0 [label="d"]
+node_0xb60840 -> node_0xb607f0
+node_0xb60700 [label="c"]
+node_0xb60750 -> node_0xb60700
+node_0xb60610 [label="b"]
+node_0xb60660 -> node_0xb60610
+node_0xb60520 [label="a"]
+node_0xb60570 -> node_0xb60520
+node_0xb60f50 [label="="]
+node_0xb609b0 -> node_0xb60f50
+node_0xb60a70 [label="y"]
+node_0xb60f50 -> node_0xb60a70
+node_0xb60b10 [label="*"]
+node_0xb60f50 -> node_0xb60b10
+node_0xb60c00 [label="*"]
+node_0xb60b10 -> node_0xb60c00
+node_0xb60cf0 [label="/"]
+node_0xb60c00 -> node_0xb60cf0
+node_0xb60de0 [label="/"]
+node_0xb60cf0 -> node_0xb60de0
+node_0xb60e80 [label="j"]
+node_0xb60de0 -> node_0xb60e80
+node_0xb60d90 [label="i"]
+node_0xb60de0 -> node_0xb60d90
+node_0xb60ca0 [label="h"]
+node_0xb60cf0 -> node_0xb60ca0
+node_0xb60bb0 [label="g"]
+node_0xb60c00 -> node_0xb60bb0
+node_0xb60ac0 [label="IDENTIFICADOR"]
+node_0xb60b10 -> node_0xb60ac0
+node_0xb61540 [label="="]
+node_0xb60f50 -> node_0xb61540
+node_0xb61010 [label="z"]
+node_0xb61540 -> node_0xb61010
+node_0xb61100 [label="*"]
+node_0xb61540 -> node_0xb61100
+node_0xb611f0 [label="*"]
+node_0xb61100 -> node_0xb611f0
+node_0xb612e0 [label="+"]
+node_0xb611f0 -> node_0xb612e0
+node_0xb613d0 [label="+"]
+node_0xb612e0 -> node_0xb613d0
+node_0xb61470 [label="o"]
+node_0xb613d0 -> node_0xb61470
+node_0xb61380 [label="n"]
+node_0xb613d0 -> node_0xb61380
+node_0xb61290 [label="m"]
+node_0xb612e0 -> node_0xb61290
+node_0xb611a0 [label="l"]
+node_0xb611f0 -> node_0xb611a0
+node_0xb610b0 [label="k"]
+node_0xb61100 -> node_0xb610b0
 }

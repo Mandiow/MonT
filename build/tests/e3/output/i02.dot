@@ -1,5 +1,5 @@
 digraph G {
-node_0x20c2480 [label="programa"]
-node_0x20c2430 [label="xis"]
-node_0x20c2480 -> node_0x20c2430
+node_0x1473480 [label="programa"]
+node_0x1473430 [label="xis"]
+node_0x1473480 -> node_0x1473430
 }
