@@ -1,27 +1,27 @@
 digraph G {
-node_0x8039f0 [label="programa"]
-node_0x8039a0 [label="f"]
-node_0x8039f0 -> node_0x8039a0
-node_0x803930 [label="call"]
-node_0x8039a0 -> node_0x803930
-node_0x803480 [label="k"]
-node_0x803930 -> node_0x803480
-node_0x803520 [label="+"]
-node_0x803930 -> node_0x803520
-node_0x803570 [label="LITERAL"]
-node_0x803520 -> node_0x803570
-node_0x8035c0 [label="10"]
-node_0x803520 -> node_0x8035c0
-node_0x803680 [label="+"]
-node_0x803520 -> node_0x803680
-node_0x8036d0 [label="LITERAL"]
-node_0x803680 -> node_0x8036d0
-node_0x803720 [label="20"]
-node_0x803680 -> node_0x803720
-node_0x8037e0 [label="+"]
-node_0x803680 -> node_0x8037e0
-node_0x803830 [label="LITERAL"]
-node_0x8037e0 -> node_0x803830
-node_0x803880 [label="30"]
-node_0x8037e0 -> node_0x803880
+node_0x687ae0 [label="programa"]
+node_0x687a90 [label="f"]
+node_0x687ae0 -> node_0x687a90
+node_0x687a20 [label="call"]
+node_0x687a90 -> node_0x687a20
+node_0x687480 [label="k"]
+node_0x687a20 -> node_0x687480
+node_0x687570 [label="+"]
+node_0x687a20 -> node_0x687570
+node_0x687610 [label="10"]
+node_0x687570 -> node_0x687610
+node_0x687520 [label="10"]
+node_0x687570 -> node_0x687520
+node_0x687720 [label="+"]
+node_0x687570 -> node_0x687720
+node_0x6877c0 [label="20"]
+node_0x687720 -> node_0x6877c0
+node_0x6876d0 [label="20"]
+node_0x687720 -> node_0x6876d0
+node_0x6878d0 [label="+"]
+node_0x687720 -> node_0x6878d0
+node_0x687970 [label="30"]
+node_0x6878d0 -> node_0x687970
+node_0x687880 [label="30"]
+node_0x6878d0 -> node_0x687880
 }

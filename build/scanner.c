@@ -1,6 +1,6 @@
-#line 2 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/scanner.c"
+#line 2 "/home/mandiow/Área de Trabalho/MonT/build/scanner.c"
 
-#line 4 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/scanner.c"
+#line 4 "/home/mandiow/Área de Trabalho/MonT/build/scanner.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -582,7 +582,7 @@ char *yytext;
 		
 		
 
-#line 586 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/scanner.c"
+#line 586 "/home/mandiow/Área de Trabalho/MonT/build/scanner.c"
 
 #define INITIAL 0
 #define comment 1
@@ -773,7 +773,7 @@ YY_DECL
 #line 53 "scanner.l"
 
 
-#line 777 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/scanner.c"
+#line 777 "/home/mandiow/Área de Trabalho/MonT/build/scanner.c"
 
 	if ( !(yy_init) )
 		{
@@ -1074,7 +1074,7 @@ YY_RULE_SETUP
 #line 104 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 1078 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/scanner.c"
+#line 1078 "/home/mandiow/Área de Trabalho/MonT/build/scanner.c"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(comment):
 	yyterminate();

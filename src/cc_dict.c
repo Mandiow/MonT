@@ -120,12 +120,13 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
         int nodeFound = 0;
         while(node != NULL)
         {
-            if (strcmp(key, node->key) == 0) // As keys são as mesmas
-            {
-                    node->line = line;
-                    nodeFound = 1;                  // Marca que o nodo foi encontrado e atualizado.
-                
-            }
+            if(node->tipo == SIMBOLO_IDENTIFICADOR)
+                if (strcmp(key, node->key) == 0) // As keys são as mesmas
+                {
+                        node->line = line;
+                        nodeFound = 1;                  // Marca que o nodo foi encontrado e atualizado.
+                    
+                }
             aux = node;
             node = node->next; 
         }

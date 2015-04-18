@@ -30,8 +30,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-#ifndef YY_YY_HOME_DOKIE_DESKTOP_COMP_TF_2015_1_MONT_BUILD_PARSER_H_INCLUDED
-# define YY_YY_HOME_DOKIE_DESKTOP_COMP_TF_2015_1_MONT_BUILD_PARSER_H_INCLUDED
+#ifndef YY_YY_HOME_MANDIOW_REA_DE_TRABALHO_MONT_BUILD_PARSER_H_INCLUDED
+# define YY_YY_HOME_MANDIOW_REA_DE_TRABALHO_MONT_BUILD_PARSER_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -90,7 +90,7 @@ union YYSTYPE
 	struct comp_dict_item_t *valor_simbolo_lexico;
 
 
-#line 94 "/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.h" /* yacc.c:1909  */
+#line 94 "/home/mandiow/Área de Trabalho/MonT/build/parser.h" /* yacc.c:1909  */
 };
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
@@ -101,4 +101,4 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_HOME_DOKIE_DESKTOP_COMP_TF_2015_1_MONT_BUILD_PARSER_H_INCLUDED  */
+#endif /* !YY_YY_HOME_MANDIOW_REA_DE_TRABALHO_MONT_BUILD_PARSER_H_INCLUDED  */

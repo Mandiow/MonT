@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/dokie/Desktop/Comp-TF-2015-1/MonT
+CMAKE_SOURCE_DIR = "/home/mandiow/Área de Trabalho/MonT"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/dokie/Desktop/Comp-TF-2015-1/MonT/build
+CMAKE_BINARY_DIR = "/home/mandiow/Área de Trabalho/MonT/build"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/main.dir/depend.make
@@ -50,14 +50,14 @@ include CMakeFiles/main.dir/progress.make
 include CMakeFiles/main.dir/flags.make
 
 scanner.c: ../scanner.l
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/home/mandiow/Área de Trabalho/MonT/build/CMakeFiles" $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "[FLEX][scanner] Building scanner with flex 2.5.35"
-	cd /home/dokie/Desktop/Comp-TF-2015-1/MonT && /usr/bin/flex -o/home/dokie/Desktop/Comp-TF-2015-1/MonT/build/scanner.c scanner.l
+	cd "/home/mandiow/Área de Trabalho/MonT" && /usr/bin/flex -o/home/mandiow/Área\ de\ Trabalho/MonT/build/scanner.c scanner.l
 
 parser.c: ../parser.y
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/home/mandiow/Área de Trabalho/MonT/build/CMakeFiles" $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "[BISON][parser] Building parser with bison 3.0.2"
-	cd /home/dokie/Desktop/Comp-TF-2015-1/MonT && /usr/bin/bison --verbose -d -o /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c parser.y
+	cd "/home/mandiow/Área de Trabalho/MonT" && /usr/bin/bison --verbose -d -o /home/mandiow/Área\ de\ Trabalho/MonT/build/parser.c parser.y
 
 parser.h: parser.c
 
@@ -65,17 +65,17 @@ parser.output: parser.c
 
 CMakeFiles/main.dir/scanner.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/scanner.c.o: scanner.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/home/mandiow/Área de Trabalho/MonT/build/CMakeFiles" $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.dir/scanner.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/scanner.c.o   -c /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/scanner.c
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/scanner.c.o   -c "/home/mandiow/Área de Trabalho/MonT/build/scanner.c"
 
 CMakeFiles/main.dir/scanner.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/scanner.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/scanner.c > CMakeFiles/main.dir/scanner.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E "/home/mandiow/Área de Trabalho/MonT/build/scanner.c" > CMakeFiles/main.dir/scanner.c.i
 
 CMakeFiles/main.dir/scanner.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/scanner.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/scanner.c -o CMakeFiles/main.dir/scanner.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S "/home/mandiow/Área de Trabalho/MonT/build/scanner.c" -o CMakeFiles/main.dir/scanner.c.s
 
 CMakeFiles/main.dir/scanner.c.o.requires:
 .PHONY : CMakeFiles/main.dir/scanner.c.o.requires
@@ -88,17 +88,17 @@ CMakeFiles/main.dir/scanner.c.o.provides.build: CMakeFiles/main.dir/scanner.c.o
 
 CMakeFiles/main.dir/parser.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/parser.c.o: parser.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/home/mandiow/Área de Trabalho/MonT/build/CMakeFiles" $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.dir/parser.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/parser.c.o   -c /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/parser.c.o   -c "/home/mandiow/Área de Trabalho/MonT/build/parser.c"
 
 CMakeFiles/main.dir/parser.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/parser.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c > CMakeFiles/main.dir/parser.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E "/home/mandiow/Área de Trabalho/MonT/build/parser.c" > CMakeFiles/main.dir/parser.c.i
 
 CMakeFiles/main.dir/parser.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/parser.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/parser.c -o CMakeFiles/main.dir/parser.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S "/home/mandiow/Área de Trabalho/MonT/build/parser.c" -o CMakeFiles/main.dir/parser.c.s
 
 CMakeFiles/main.dir/parser.c.o.requires:
 .PHONY : CMakeFiles/main.dir/parser.c.o.requires
@@ -111,17 +111,17 @@ CMakeFiles/main.dir/parser.c.o.provides.build: CMakeFiles/main.dir/parser.c.o
 
 CMakeFiles/main.dir/src/main.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/main.c.o: ../src/main.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/home/mandiow/Área de Trabalho/MonT/build/CMakeFiles" $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.dir/src/main.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/src/main.c.o   -c /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/main.c
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/src/main.c.o   -c "/home/mandiow/Área de Trabalho/MonT/src/main.c"
 
 CMakeFiles/main.dir/src/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/src/main.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/main.c > CMakeFiles/main.dir/src/main.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E "/home/mandiow/Área de Trabalho/MonT/src/main.c" > CMakeFiles/main.dir/src/main.c.i
 
 CMakeFiles/main.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/src/main.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/main.c -o CMakeFiles/main.dir/src/main.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S "/home/mandiow/Área de Trabalho/MonT/src/main.c" -o CMakeFiles/main.dir/src/main.c.s
 
 CMakeFiles/main.dir/src/main.c.o.requires:
 .PHONY : CMakeFiles/main.dir/src/main.c.o.requires
@@ -134,17 +134,17 @@ CMakeFiles/main.dir/src/main.c.o.provides.build: CMakeFiles/main.dir/src/main.c.
 
 CMakeFiles/main.dir/src/cc_misc.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/cc_misc.c.o: ../src/cc_misc.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/home/mandiow/Área de Trabalho/MonT/build/CMakeFiles" $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.dir/src/cc_misc.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/src/cc_misc.c.o   -c /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/cc_misc.c
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/src/cc_misc.c.o   -c "/home/mandiow/Área de Trabalho/MonT/src/cc_misc.c"
 
 CMakeFiles/main.dir/src/cc_misc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/src/cc_misc.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/cc_misc.c > CMakeFiles/main.dir/src/cc_misc.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E "/home/mandiow/Área de Trabalho/MonT/src/cc_misc.c" > CMakeFiles/main.dir/src/cc_misc.c.i
 
 CMakeFiles/main.dir/src/cc_misc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/src/cc_misc.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/cc_misc.c -o CMakeFiles/main.dir/src/cc_misc.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S "/home/mandiow/Área de Trabalho/MonT/src/cc_misc.c" -o CMakeFiles/main.dir/src/cc_misc.c.s
 
 CMakeFiles/main.dir/src/cc_misc.c.o.requires:
 .PHONY : CMakeFiles/main.dir/src/cc_misc.c.o.requires
@@ -157,17 +157,17 @@ CMakeFiles/main.dir/src/cc_misc.c.o.provides.build: CMakeFiles/main.dir/src/cc_m
 
 CMakeFiles/main.dir/src/cc_gv.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/cc_gv.c.o: ../src/cc_gv.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/home/mandiow/Área de Trabalho/MonT/build/CMakeFiles" $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.dir/src/cc_gv.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/src/cc_gv.c.o   -c /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/cc_gv.c
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/src/cc_gv.c.o   -c "/home/mandiow/Área de Trabalho/MonT/src/cc_gv.c"
 
 CMakeFiles/main.dir/src/cc_gv.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/src/cc_gv.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/cc_gv.c > CMakeFiles/main.dir/src/cc_gv.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E "/home/mandiow/Área de Trabalho/MonT/src/cc_gv.c" > CMakeFiles/main.dir/src/cc_gv.c.i
 
 CMakeFiles/main.dir/src/cc_gv.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/src/cc_gv.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/cc_gv.c -o CMakeFiles/main.dir/src/cc_gv.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S "/home/mandiow/Área de Trabalho/MonT/src/cc_gv.c" -o CMakeFiles/main.dir/src/cc_gv.c.s
 
 CMakeFiles/main.dir/src/cc_gv.c.o.requires:
 .PHONY : CMakeFiles/main.dir/src/cc_gv.c.o.requires
@@ -180,17 +180,17 @@ CMakeFiles/main.dir/src/cc_gv.c.o.provides.build: CMakeFiles/main.dir/src/cc_gv.
 
 CMakeFiles/main.dir/src/cc_dict.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/cc_dict.c.o: ../src/cc_dict.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/home/mandiow/Área de Trabalho/MonT/build/CMakeFiles" $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.dir/src/cc_dict.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/src/cc_dict.c.o   -c /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/cc_dict.c
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/src/cc_dict.c.o   -c "/home/mandiow/Área de Trabalho/MonT/src/cc_dict.c"
 
 CMakeFiles/main.dir/src/cc_dict.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/src/cc_dict.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/cc_dict.c > CMakeFiles/main.dir/src/cc_dict.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E "/home/mandiow/Área de Trabalho/MonT/src/cc_dict.c" > CMakeFiles/main.dir/src/cc_dict.c.i
 
 CMakeFiles/main.dir/src/cc_dict.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/src/cc_dict.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/cc_dict.c -o CMakeFiles/main.dir/src/cc_dict.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S "/home/mandiow/Área de Trabalho/MonT/src/cc_dict.c" -o CMakeFiles/main.dir/src/cc_dict.c.s
 
 CMakeFiles/main.dir/src/cc_dict.c.o.requires:
 .PHONY : CMakeFiles/main.dir/src/cc_dict.c.o.requires
@@ -203,17 +203,17 @@ CMakeFiles/main.dir/src/cc_dict.c.o.provides.build: CMakeFiles/main.dir/src/cc_d
 
 CMakeFiles/main.dir/src/cc_list.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/cc_list.c.o: ../src/cc_list.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/home/mandiow/Área de Trabalho/MonT/build/CMakeFiles" $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.dir/src/cc_list.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/src/cc_list.c.o   -c /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/cc_list.c
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/src/cc_list.c.o   -c "/home/mandiow/Área de Trabalho/MonT/src/cc_list.c"
 
 CMakeFiles/main.dir/src/cc_list.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/src/cc_list.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/cc_list.c > CMakeFiles/main.dir/src/cc_list.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E "/home/mandiow/Área de Trabalho/MonT/src/cc_list.c" > CMakeFiles/main.dir/src/cc_list.c.i
 
 CMakeFiles/main.dir/src/cc_list.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/src/cc_list.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/cc_list.c -o CMakeFiles/main.dir/src/cc_list.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S "/home/mandiow/Área de Trabalho/MonT/src/cc_list.c" -o CMakeFiles/main.dir/src/cc_list.c.s
 
 CMakeFiles/main.dir/src/cc_list.c.o.requires:
 .PHONY : CMakeFiles/main.dir/src/cc_list.c.o.requires
@@ -226,17 +226,17 @@ CMakeFiles/main.dir/src/cc_list.c.o.provides.build: CMakeFiles/main.dir/src/cc_l
 
 CMakeFiles/main.dir/src/cc_tree.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/cc_tree.c.o: ../src/cc_tree.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/home/mandiow/Área de Trabalho/MonT/build/CMakeFiles" $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.dir/src/cc_tree.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/src/cc_tree.c.o   -c /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/cc_tree.c
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.dir/src/cc_tree.c.o   -c "/home/mandiow/Área de Trabalho/MonT/src/cc_tree.c"
 
 CMakeFiles/main.dir/src/cc_tree.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/src/cc_tree.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/cc_tree.c > CMakeFiles/main.dir/src/cc_tree.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E "/home/mandiow/Área de Trabalho/MonT/src/cc_tree.c" > CMakeFiles/main.dir/src/cc_tree.c.i
 
 CMakeFiles/main.dir/src/cc_tree.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/src/cc_tree.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/dokie/Desktop/Comp-TF-2015-1/MonT/src/cc_tree.c -o CMakeFiles/main.dir/src/cc_tree.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S "/home/mandiow/Área de Trabalho/MonT/src/cc_tree.c" -o CMakeFiles/main.dir/src/cc_tree.c.s
 
 CMakeFiles/main.dir/src/cc_tree.c.o.requires:
 .PHONY : CMakeFiles/main.dir/src/cc_tree.c.o.requires
@@ -297,6 +297,6 @@ CMakeFiles/main.dir/depend: scanner.c
 CMakeFiles/main.dir/depend: parser.c
 CMakeFiles/main.dir/depend: parser.h
 CMakeFiles/main.dir/depend: parser.output
-	cd /home/dokie/Desktop/Comp-TF-2015-1/MonT/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dokie/Desktop/Comp-TF-2015-1/MonT /home/dokie/Desktop/Comp-TF-2015-1/MonT /home/dokie/Desktop/Comp-TF-2015-1/MonT/build /home/dokie/Desktop/Comp-TF-2015-1/MonT/build /home/dokie/Desktop/Comp-TF-2015-1/MonT/build/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/home/mandiow/Área de Trabalho/MonT/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/mandiow/Área de Trabalho/MonT" "/home/mandiow/Área de Trabalho/MonT" "/home/mandiow/Área de Trabalho/MonT/build" "/home/mandiow/Área de Trabalho/MonT/build" "/home/mandiow/Área de Trabalho/MonT/build/CMakeFiles/main.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/main.dir/depend
 

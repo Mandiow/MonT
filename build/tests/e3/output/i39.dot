@@ -1,15 +1,15 @@
 digraph G {
-node_0x1d7c770 [label="programa"]
-node_0x1d7c720 [label="f"]
-node_0x1d7c770 -> node_0x1d7c720
-node_0x1d7c6b0 [label="call"]
-node_0x1d7c720 -> node_0x1d7c6b0
-node_0x1d7c480 [label="k"]
-node_0x1d7c6b0 -> node_0x1d7c480
-node_0x1d7c520 [label="10"]
-node_0x1d7c6b0 -> node_0x1d7c520
-node_0x1d7c5c0 [label="20"]
-node_0x1d7c520 -> node_0x1d7c5c0
-node_0x1d7c660 [label="30"]
-node_0x1d7c5c0 -> node_0x1d7c660
+node_0x1303770 [label="programa"]
+node_0x1303720 [label="f"]
+node_0x1303770 -> node_0x1303720
+node_0x13036b0 [label="call"]
+node_0x1303720 -> node_0x13036b0
+node_0x1303480 [label="k"]
+node_0x13036b0 -> node_0x1303480
+node_0x1303520 [label="10"]
+node_0x13036b0 -> node_0x1303520
+node_0x13035c0 [label="20"]
+node_0x1303520 -> node_0x13035c0
+node_0x1303660 [label="30"]
+node_0x13035c0 -> node_0x1303660
 }

@@ -129,12 +129,12 @@ declarar_funcao
 	;
 
 literal
-	: TK_LIT_INT {$$ = createNode(AST_LITERAL, $1);}
-	| TK_LIT_FLOAT {$$ = createNode(AST_LITERAL, $1);}
-	| TK_LIT_FALSE {$$ = createNode(AST_LITERAL, $1);}
-	| TK_LIT_TRUE {$$ = createNode(AST_LITERAL, $1);}
-	| TK_LIT_CHAR {$$ = createNode(AST_LITERAL, $1);}
-	| TK_LIT_STRING {$$ = createNode(AST_LITERAL, $1);}
+	: TK_LIT_INT {$$ = createNode(AST_LITERAL, $1); printf("%p\n",$$->tableItem);}
+	| TK_LIT_FLOAT {$$ = createNode(AST_LITERAL, $1);printf("%p\n",$$);}
+	| TK_LIT_FALSE {$$ = createNode(AST_LITERAL, $1);printf("%p\n",$$);}
+	| TK_LIT_TRUE {$$ = createNode(AST_LITERAL, $1);printf("%p\n",$$);}
+	| TK_LIT_CHAR {$$ = createNode(AST_LITERAL, $1);printf("%p\n",$$);}
+	| TK_LIT_STRING {$$ = createNode(AST_LITERAL, $1);printf("%p\n",$$);}
 	;
 
 especificador_tipo
@@ -172,6 +172,17 @@ ID
 atribuicao
 	: ID '=' inverte expressao {$$ = createNode(AST_ATRIBUICAO,$2); appendChildNode($$,$1);appendChildNode($$,$3);appendChildNode($3,$4);}
 	| ID '=' expressao {$$ = createNode(AST_ATRIBUICAO,$2); appendChildNode($$,$1);appendChildNode($$,$3);}
+	| ID '=' inverte '(' expressao ')' tem_operador {if($7 != NULL)
+														$$ = createNode(AST_ATRIBUICAO,$2); 
+														appendChildNode($$,$1);
+														appendChildNode($$,$7);
+														appendChildNode($7,$5);}
+	| ID '=' '(' expressao ')' tem_operador {if($6 != NULL)
+												$$ = createNode(AST_ATRIBUICAO,$2); 
+												appendChildNode($$,$1);	
+												appendChildNode($$,$6);
+												appendChildNode($6,$4);
+											}
 	;
 inverte
 	: '-' {$$ = createNode(AST_ARIM_INVERSAO,NULL);}
@@ -263,7 +274,7 @@ controle_fluxo
 
 
 chamada_funcao
-	: nome  '(' lista_vazia ')' { $$ = createNode(AST_CHAMADA_DE_FUNCAO,NULL); appendChildNode($$,$1);appendChildNode($$,$3);}
+	: nome  '(' lista_vazia ')' { $$ = createNode(AST_CHAMADA_DE_FUNCAO,NULL); appendChildNode($$,$1);if($3 != NULL) appendChildNode($$,$3);}
 	;
 
 nome: TK_IDENTIFICADOR {$$ = createNode(AST_IDENTIFICADOR,$1);}
@@ -293,13 +304,13 @@ expressao
 								if($2 != NULL)	
 									{
 										$$ = $2; 
-										printf("Literal com operador (arit ou log)\n"); 
+										 
 										appendChildNode($$,$1);
 									}
 								else
 									{
-										printf("Literal sozinho na expressao\n");
 										$$ = $1;
+										printf("Literal sozinho na expressao: %p\n",$1->tableItem);
 									}
 							}
 	| ID tem_operador		{
@@ -310,6 +321,13 @@ expressao
 									}
 								else $$ = $1;
 							}
+	| chamada_funcao tem_operador {
+									if($2 != NULL)	
+										{$$ = $2; 
+										appendChildNode($2,$1);}
+									else $$ = $1;
+								  }
+
 	|TK_OC_NOT expressao		{$$ = createNode(AST_LOGICO_COMP_NEGACAO, NULL);appendChildNode($$,$2);}
 	;
 
