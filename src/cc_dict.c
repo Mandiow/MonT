@@ -73,15 +73,16 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
         node = malloc(sizeof(struct comp_dict_item_t));
         //node->token.string = strdup(key);
         node->line = line;
-        node->key = strdup(key);
                     switch(TK_some_symbol_comes) 
                     {
                         case SIMBOLO_LITERAL_INT:
                             node->token.integer = atoi(key);
+                            node->key = strdup(key);
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_FLOAT:
                             node->token.floating_point = atof(key);
+                            node->key = strdup(key);
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_CHAR:
@@ -96,6 +97,7 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             break;
                         case SIMBOLO_LITERAL_BOOL:
                             node->tipo = TK_some_symbol_comes;
+                            node->key = strdup(key);
                             if(strcmp(key,"true"))
                                 node->token.boolean = 1; //Caso Token Boolean = True
 
@@ -104,6 +106,7 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             break;
                         case SIMBOLO_IDENTIFICADOR:
                             node->tipo = TK_some_symbol_comes;
+                            node->key = strdup(key);
                             node->token.string = strtok(key,"\"");
                             break;
 
@@ -134,15 +137,16 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
         if(nodeFound == 0) //Como o nodo não foi encontrado, nenhum valor foi atualizado, logo ele tem que ser adicionado na lista
             { 
                 node = malloc(sizeof(struct comp_dict_item_t));
-                node->key = strdup(key);
                 switch(TK_some_symbol_comes) 
                     {
                         case SIMBOLO_LITERAL_INT:
                             node->token.integer = atoi(key);
+                            node->key = strdup(key);
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_FLOAT:
                             node->token.floating_point = atof(key);
+                            node->key = strdup(key);
                             node->tipo = TK_some_symbol_comes;
                             break;
                         case SIMBOLO_LITERAL_CHAR:
@@ -157,6 +161,7 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             break;
                         case SIMBOLO_LITERAL_BOOL:
                             node->tipo = TK_some_symbol_comes;
+                            node->key = strdup(key);
                             if(strcmp(key,"true"))
                                 node->token.boolean = 1; //Caso Token Boolean = True
 
@@ -165,6 +170,7 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             break;
                         case SIMBOLO_IDENTIFICADOR:
                             node->tipo = TK_some_symbol_comes;
+                            node->key = strdup(key);
                             node->token.string = strtok(key,"\"");
                             break;
                         }

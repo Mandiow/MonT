@@ -1,181 +1,181 @@
 digraph G {
-node_0x77ab60 [label="programa"]
-node_0x77ab10 [label="euclidan_division"]
-node_0x77ab60 -> node_0x77ab10
-node_0x778750 [label="="]
-node_0x77ab10 -> node_0x778750
-node_0x7786b0 [label="a"]
-node_0x778750 -> node_0x7786b0
-node_0x778700 [label="vara"]
-node_0x778750 -> node_0x778700
-node_0x778860 [label="="]
-node_0x778750 -> node_0x778860
-node_0x7787c0 [label="b"]
-node_0x778860 -> node_0x7787c0
-node_0x778810 [label="varb"]
-node_0x778860 -> node_0x778810
-node_0x7789c0 [label="="]
-node_0x778860 -> node_0x7789c0
-node_0x7788d0 [label="cas1"]
-node_0x7789c0 -> node_0x7788d0
-node_0x778970 [label="false"]
-node_0x7789c0 -> node_0x778970
-node_0x778b20 [label="="]
-node_0x7789c0 -> node_0x778b20
-node_0x778a30 [label="cas2"]
-node_0x778b20 -> node_0x778a30
-node_0x778ad0 [label="false"]
-node_0x778b20 -> node_0x778ad0
-node_0x779020 [label="ifelse"]
-node_0x778b20 -> node_0x779020
-node_0x778be0 [label="<"]
-node_0x779020 -> node_0x778be0
-node_0x778c80 [label="0"]
-node_0x778be0 -> node_0x778c80
-node_0x778b90 [label="a"]
-node_0x778be0 -> node_0x778b90
-node_0x778fd0 [label="block"]
-node_0x779020 -> node_0x778fd0
-node_0x778de0 [label="="]
-node_0x778fd0 -> node_0x778de0
-node_0x778cf0 [label="cas1"]
-node_0x778de0 -> node_0x778cf0
-node_0x778d90 [label="true"]
-node_0x778de0 -> node_0x778d90
-node_0x778f40 [label="="]
-node_0x778de0 -> node_0x778f40
-node_0x778e50 [label="a"]
-node_0x778f40 -> node_0x778e50
-node_0x778ea0 [label="-"]
-node_0x778f40 -> node_0x778ea0
-node_0x778ef0 [label="a"]
-node_0x778ea0 -> node_0x778ef0
-node_0x779520 [label="ifelse"]
-node_0x779020 -> node_0x779520
-node_0x7790e0 [label="<"]
-node_0x779520 -> node_0x7790e0
-node_0x779180 [label="0"]
-node_0x7790e0 -> node_0x779180
-node_0x779090 [label="b"]
-node_0x7790e0 -> node_0x779090
-node_0x7794d0 [label="block"]
-node_0x779520 -> node_0x7794d0
-node_0x7792e0 [label="="]
-node_0x7794d0 -> node_0x7792e0
-node_0x7791f0 [label="cas2"]
-node_0x7792e0 -> node_0x7791f0
-node_0x779290 [label="true"]
-node_0x7792e0 -> node_0x779290
-node_0x779440 [label="="]
-node_0x7792e0 -> node_0x779440
-node_0x779350 [label="b"]
-node_0x779440 -> node_0x779350
-node_0x7793a0 [label="-"]
-node_0x779440 -> node_0x7793a0
-node_0x7793f0 [label="b"]
-node_0x7793a0 -> node_0x7793f0
-node_0x779630 [label="="]
-node_0x779520 -> node_0x779630
-node_0x779590 [label="r"]
-node_0x779630 -> node_0x779590
-node_0x7795e0 [label="a"]
-node_0x779630 -> node_0x7795e0
-node_0x779790 [label="="]
-node_0x779630 -> node_0x779790
-node_0x7796a0 [label="q"]
-node_0x779790 -> node_0x7796a0
-node_0x779740 [label="0"]
-node_0x779790 -> node_0x779740
-node_0x779d70 [label="whiledo"]
-node_0x779790 -> node_0x779d70
-node_0x779850 [label=">="]
-node_0x779d70 -> node_0x779850
-node_0x7798a0 [label="b"]
-node_0x779850 -> node_0x7798a0
-node_0x779800 [label="r"]
-node_0x779850 -> node_0x779800
-node_0x779d20 [label="block"]
-node_0x779d70 -> node_0x779d20
-node_0x779ac0 [label="="]
-node_0x779d20 -> node_0x779ac0
-node_0x779910 [label="q"]
-node_0x779ac0 -> node_0x779910
-node_0x7799b0 [label="+"]
-node_0x779ac0 -> node_0x7799b0
-node_0x779a50 [label="1"]
-node_0x7799b0 -> node_0x779a50
-node_0x779960 [label="q"]
-node_0x7799b0 -> node_0x779960
-node_0x779c90 [label="="]
-node_0x779ac0 -> node_0x779c90
-node_0x779b30 [label="r"]
-node_0x779c90 -> node_0x779b30
-node_0x779bd0 [label="-"]
-node_0x779c90 -> node_0x779bd0
-node_0x779c20 [label="b"]
-node_0x779bd0 -> node_0x779c20
-node_0x779b80 [label="r"]
-node_0x779bd0 -> node_0x779b80
-node_0x77a1b0 [label="ifelse"]
-node_0x779d70 -> node_0x77a1b0
-node_0x779e30 [label="&&"]
-node_0x77a1b0 -> node_0x779e30
-node_0x779ed0 [label="!"]
-node_0x779e30 -> node_0x779ed0
-node_0x779e80 [label="cas2"]
-node_0x779ed0 -> node_0x779e80
-node_0x779de0 [label="cas1"]
-node_0x779e30 -> node_0x779de0
-node_0x77a140 [label="="]
-node_0x77a1b0 -> node_0x77a140
-node_0x779f40 [label="q"]
-node_0x77a140 -> node_0x779f40
-node_0x77a030 [label="-"]
-node_0x77a140 -> node_0x77a030
-node_0x77a0d0 [label="1"]
-node_0x77a030 -> node_0x77a0d0
-node_0x779f90 [label="-"]
-node_0x77a030 -> node_0x779f90
-node_0x779fe0 [label="q"]
-node_0x779f90 -> node_0x779fe0
-node_0x77a4e0 [label="ifelse"]
-node_0x77a1b0 -> node_0x77a4e0
-node_0x77a330 [label="!"]
-node_0x77a4e0 -> node_0x77a330
-node_0x77a270 [label="&&"]
-node_0x77a330 -> node_0x77a270
-node_0x77a2c0 [label="cas2"]
-node_0x77a270 -> node_0x77a2c0
-node_0x77a220 [label="cas1"]
-node_0x77a270 -> node_0x77a220
-node_0x77a470 [label="="]
-node_0x77a4e0 -> node_0x77a470
-node_0x77a380 [label="q"]
-node_0x77a470 -> node_0x77a380
-node_0x77a3d0 [label="-"]
-node_0x77a470 -> node_0x77a3d0
-node_0x77a420 [label="q"]
-node_0x77a3d0 -> node_0x77a420
-node_0x77a880 [label="ifelse"]
-node_0x77a4e0 -> node_0x77a880
-node_0x77a5a0 [label="&&"]
-node_0x77a880 -> node_0x77a5a0
-node_0x77a5f0 [label="cas2"]
-node_0x77a5a0 -> node_0x77a5f0
-node_0x77a550 [label="cas1"]
-node_0x77a5a0 -> node_0x77a550
-node_0x77a810 [label="="]
-node_0x77a880 -> node_0x77a810
-node_0x77a660 [label="q"]
-node_0x77a810 -> node_0x77a660
-node_0x77a700 [label="+"]
-node_0x77a810 -> node_0x77a700
-node_0x77a7a0 [label="1"]
-node_0x77a700 -> node_0x77a7a0
-node_0x77a6b0 [label="q"]
-node_0x77a700 -> node_0x77a6b0
-node_0x77a940 [label="return"]
-node_0x77a880 -> node_0x77a940
-node_0x77a8f0 [label="q"]
-node_0x77a940 -> node_0x77a8f0
+node_0x1292b60 [label="programa"]
+node_0x1292b10 [label="euclidan_division"]
+node_0x1292b60 -> node_0x1292b10
+node_0x1290750 [label="="]
+node_0x1292b10 -> node_0x1290750
+node_0x12906b0 [label="a"]
+node_0x1290750 -> node_0x12906b0
+node_0x1290700 [label="vara"]
+node_0x1290750 -> node_0x1290700
+node_0x1290860 [label="="]
+node_0x1290750 -> node_0x1290860
+node_0x12907c0 [label="b"]
+node_0x1290860 -> node_0x12907c0
+node_0x1290810 [label="varb"]
+node_0x1290860 -> node_0x1290810
+node_0x12909c0 [label="="]
+node_0x1290860 -> node_0x12909c0
+node_0x12908d0 [label="cas1"]
+node_0x12909c0 -> node_0x12908d0
+node_0x1290970 [label="false"]
+node_0x12909c0 -> node_0x1290970
+node_0x1290b20 [label="="]
+node_0x12909c0 -> node_0x1290b20
+node_0x1290a30 [label="cas2"]
+node_0x1290b20 -> node_0x1290a30
+node_0x1290ad0 [label="false"]
+node_0x1290b20 -> node_0x1290ad0
+node_0x1291020 [label="ifelse"]
+node_0x1290b20 -> node_0x1291020
+node_0x1290be0 [label="<"]
+node_0x1291020 -> node_0x1290be0
+node_0x1290c80 [label="0"]
+node_0x1290be0 -> node_0x1290c80
+node_0x1290b90 [label="a"]
+node_0x1290be0 -> node_0x1290b90
+node_0x1290fd0 [label="block"]
+node_0x1291020 -> node_0x1290fd0
+node_0x1290de0 [label="="]
+node_0x1290fd0 -> node_0x1290de0
+node_0x1290cf0 [label="cas1"]
+node_0x1290de0 -> node_0x1290cf0
+node_0x1290d90 [label="true"]
+node_0x1290de0 -> node_0x1290d90
+node_0x1290f40 [label="="]
+node_0x1290de0 -> node_0x1290f40
+node_0x1290e50 [label="a"]
+node_0x1290f40 -> node_0x1290e50
+node_0x1290ea0 [label="-"]
+node_0x1290f40 -> node_0x1290ea0
+node_0x1290ef0 [label="a"]
+node_0x1290ea0 -> node_0x1290ef0
+node_0x1291520 [label="ifelse"]
+node_0x1291020 -> node_0x1291520
+node_0x12910e0 [label="<"]
+node_0x1291520 -> node_0x12910e0
+node_0x1291180 [label="0"]
+node_0x12910e0 -> node_0x1291180
+node_0x1291090 [label="b"]
+node_0x12910e0 -> node_0x1291090
+node_0x12914d0 [label="block"]
+node_0x1291520 -> node_0x12914d0
+node_0x12912e0 [label="="]
+node_0x12914d0 -> node_0x12912e0
+node_0x12911f0 [label="cas2"]
+node_0x12912e0 -> node_0x12911f0
+node_0x1291290 [label="true"]
+node_0x12912e0 -> node_0x1291290
+node_0x1291440 [label="="]
+node_0x12912e0 -> node_0x1291440
+node_0x1291350 [label="b"]
+node_0x1291440 -> node_0x1291350
+node_0x12913a0 [label="-"]
+node_0x1291440 -> node_0x12913a0
+node_0x12913f0 [label="b"]
+node_0x12913a0 -> node_0x12913f0
+node_0x1291630 [label="="]
+node_0x1291520 -> node_0x1291630
+node_0x1291590 [label="r"]
+node_0x1291630 -> node_0x1291590
+node_0x12915e0 [label="a"]
+node_0x1291630 -> node_0x12915e0
+node_0x1291790 [label="="]
+node_0x1291630 -> node_0x1291790
+node_0x12916a0 [label="q"]
+node_0x1291790 -> node_0x12916a0
+node_0x1291740 [label="0"]
+node_0x1291790 -> node_0x1291740
+node_0x1291d70 [label="whiledo"]
+node_0x1291790 -> node_0x1291d70
+node_0x1291850 [label=">="]
+node_0x1291d70 -> node_0x1291850
+node_0x12918a0 [label="b"]
+node_0x1291850 -> node_0x12918a0
+node_0x1291800 [label="r"]
+node_0x1291850 -> node_0x1291800
+node_0x1291d20 [label="block"]
+node_0x1291d70 -> node_0x1291d20
+node_0x1291ac0 [label="="]
+node_0x1291d20 -> node_0x1291ac0
+node_0x1291910 [label="q"]
+node_0x1291ac0 -> node_0x1291910
+node_0x12919b0 [label="+"]
+node_0x1291ac0 -> node_0x12919b0
+node_0x1291a50 [label="1"]
+node_0x12919b0 -> node_0x1291a50
+node_0x1291960 [label="q"]
+node_0x12919b0 -> node_0x1291960
+node_0x1291c90 [label="="]
+node_0x1291ac0 -> node_0x1291c90
+node_0x1291b30 [label="r"]
+node_0x1291c90 -> node_0x1291b30
+node_0x1291bd0 [label="-"]
+node_0x1291c90 -> node_0x1291bd0
+node_0x1291c20 [label="b"]
+node_0x1291bd0 -> node_0x1291c20
+node_0x1291b80 [label="r"]
+node_0x1291bd0 -> node_0x1291b80
+node_0x12921b0 [label="ifelse"]
+node_0x1291d70 -> node_0x12921b0
+node_0x1291e30 [label="&&"]
+node_0x12921b0 -> node_0x1291e30
+node_0x1291ed0 [label="!"]
+node_0x1291e30 -> node_0x1291ed0
+node_0x1291e80 [label="cas2"]
+node_0x1291ed0 -> node_0x1291e80
+node_0x1291de0 [label="cas1"]
+node_0x1291e30 -> node_0x1291de0
+node_0x1292140 [label="="]
+node_0x12921b0 -> node_0x1292140
+node_0x1291f40 [label="q"]
+node_0x1292140 -> node_0x1291f40
+node_0x1292030 [label="-"]
+node_0x1292140 -> node_0x1292030
+node_0x12920d0 [label="1"]
+node_0x1292030 -> node_0x12920d0
+node_0x1291f90 [label="-"]
+node_0x1292030 -> node_0x1291f90
+node_0x1291fe0 [label="q"]
+node_0x1291f90 -> node_0x1291fe0
+node_0x12924e0 [label="ifelse"]
+node_0x12921b0 -> node_0x12924e0
+node_0x1292330 [label="!"]
+node_0x12924e0 -> node_0x1292330
+node_0x1292270 [label="&&"]
+node_0x1292330 -> node_0x1292270
+node_0x12922c0 [label="cas2"]
+node_0x1292270 -> node_0x12922c0
+node_0x1292220 [label="cas1"]
+node_0x1292270 -> node_0x1292220
+node_0x1292470 [label="="]
+node_0x12924e0 -> node_0x1292470
+node_0x1292380 [label="q"]
+node_0x1292470 -> node_0x1292380
+node_0x12923d0 [label="-"]
+node_0x1292470 -> node_0x12923d0
+node_0x1292420 [label="q"]
+node_0x12923d0 -> node_0x1292420
+node_0x1292880 [label="ifelse"]
+node_0x12924e0 -> node_0x1292880
+node_0x12925a0 [label="&&"]
+node_0x1292880 -> node_0x12925a0
+node_0x12925f0 [label="cas2"]
+node_0x12925a0 -> node_0x12925f0
+node_0x1292550 [label="cas1"]
+node_0x12925a0 -> node_0x1292550
+node_0x1292810 [label="="]
+node_0x1292880 -> node_0x1292810
+node_0x1292660 [label="q"]
+node_0x1292810 -> node_0x1292660
+node_0x1292700 [label="+"]
+node_0x1292810 -> node_0x1292700
+node_0x12927a0 [label="1"]
+node_0x1292700 -> node_0x12927a0
+node_0x12926b0 [label="q"]
+node_0x1292700 -> node_0x12926b0
+node_0x1292940 [label="return"]
+node_0x1292880 -> node_0x1292940
+node_0x12928f0 [label="q"]
+node_0x1292940 -> node_0x12928f0
 }

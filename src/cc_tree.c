@@ -12,6 +12,7 @@ comp_tree_t* createNode(int nodeType, comp_dict_item_t* tableItem)
 	newNode->nodeType = nodeType;
 	newNode->tableItem = tableItem;
 	newNode->nodeFather = NULL;
+	newNode->childNodeList->nextNode = NULL;
 	
 	return newNode;
 }
@@ -43,25 +44,7 @@ void *appendChildNode(comp_tree_t* father, comp_tree_t* newChild)
 			auxNodeList->nextNode = (nodeList*)malloc(sizeof(nodeList));
 			auxNodeList->nextNode->firstNode = newChild;
 			auxNodeList->nextNode->nextNode = NULL;
-			//printf("PAI: %p FILHO: %p\n",father,father->childNodeList->nextNode->nextNode);
 		}	
-		// while(auxNodeList != NULL)
-		// {
-		// 	if(auxNode != NULL && auxNode->childNodeList != NULL && auxNode->childNodeList->firstNode != NULL)
-		// 	{
-		// 		__gv_create_subtree(node, auxNode->childNodeList->firstNode);
-		// 		// auxNode = auxNode->childNodeList->firstNode;
-		// 	}
-		// 	auxNodeList = auxNodeList->nextNode;
-		// 	if(auxNodeList != NULL && auxNode->childNodeList->firstNode != NULL)
-		// 		auxNode = auxNodeList->firstNode;
-		// }
-		
-		
-		// printf("NEWCHILD: %p\n", newChild);
-	 //    printf("AUXNODE: %p\n", auxNode);
-		// printf("PAI: %p FILHO: %p\n",father,father->childNodeList->firstNode);
-		//printf("%d\n",count );
 	}
 }
 
@@ -87,15 +70,20 @@ void removeNode(comp_tree_t* node)
 {
 	if(node != NULL)
 	{
-		nodeList* deletedNodeList = node->childNodeList;
-		//Desalocar elemento e subárvore
-		while(deletedNodeList != NULL)
+		nodeList* auxNodeList;
+		nodeList* auxNodeList2;
+		auxNodeList = node->childNodeList;
+
+		while(auxNodeList->nextNode != NULL)
 		{
-			removeNode(deletedNodeList->firstNode);
-			free(deletedNodeList->firstNode);
-			deletedNodeList = deletedNodeList->nextNode;
+			printf("REMOVENDO\n");
+			removeNode(auxNodeList->firstNode);
+			free(auxNodeList->firstNode);
+			auxNodeList2 = auxNodeList;
+			auxNodeList = auxNodeList->nextNode;
+			free(auxNodeList2);
 		}
-		free(node->childNodeList);
+		//free(node->childNodeList);
 	}
 }
 void gv_create_initial_tree(comp_tree_t* tree)
@@ -103,8 +91,7 @@ void gv_create_initial_tree(comp_tree_t* tree)
 	
 	if (tree == NULL)
 		return;
-	comp_tree_t* auxNode;
-	auxNode = tree;
+	comp_tree_t* auxNode = tree;
 	switch(tree->nodeType)
 	{
 		case AST_IDENTIFICADOR:
@@ -154,10 +141,8 @@ void __gv_create_subtree(comp_tree_t* father, comp_tree_t* node)
 		}
 		gv_connect(father,node);
 
-		comp_tree_t* auxNode;
-		auxNode = node;
-		nodeList* auxNodeList;
-		auxNodeList = node->childNodeList;
+		comp_tree_t* auxNode = node;
+		nodeList* auxNodeList = node->childNodeList;
 
 		while(auxNodeList != NULL)
 		{
@@ -168,21 +153,6 @@ void __gv_create_subtree(comp_tree_t* father, comp_tree_t* node)
 			}
 			auxNodeList = auxNodeList->nextNode;
 		}
-
-		// while(auxNodeList != NULL)
-		// {
-		// 	if(auxNode != NULL)
-		// 	{
-		// 		__gv_create_subtree(node, auxNode->childNodeList->firstNode);
-		// 		 //auxNode = auxNode->childNodeList->firstNode;
-		// 	}
-		// 	if(auxNode->childNodeList->nextNode != NULL)
-		// 		auxNode = auxNode->childNodeList->nextNode->firstNode;
-		// 	else auxNodeList = auxNodeList->nextNode;
-		// }
-
-		
-		
 
 	}
 }
