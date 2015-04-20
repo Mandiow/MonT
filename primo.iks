@@ -5,18 +5,23 @@ int main ()
 {
 	int valor;
 	int aux <= 2;
+	int quociente;
+	int resto;
+	int primo <= 1;
 	while((aux < valor) && (valor != 0))
 	do
 	{
-		if(valor / aux == 0)
+		quociente = valor/aux;
+		resto = valor - quociente*aux;
+		if(resto == 0)
 		then
 			{
 				output "Não é primo";
-				valor = 0;
+				primo = 0;
 			};
 		aux = aux + 1
 	};
-	if(valor < 1)
+	if(primo == 0)
 	then
 		{
 			output "É primo";
