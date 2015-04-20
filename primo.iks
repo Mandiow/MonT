@@ -1,0 +1,24 @@
+/* primos */
+
+
+int main ()
+{
+	int valor;
+	int aux <= 2;
+	while((aux < valor) && (valor != 0))
+	do
+	{
+		if(valor / aux == 0)
+		then
+			{
+				output "Não é primo";
+				valor = 0;
+			};
+		aux = aux + 1
+	};
+	if(valor < 1)
+	then
+		{
+			output "É primo";
+		}
+}

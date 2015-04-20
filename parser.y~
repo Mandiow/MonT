@@ -3,79 +3,137 @@
 */
 %{
 #include <stdio.h>
-#include "cc_dict.h"
+#include "main.h"
+#include <time.h>
+clock_t sec;
 
 %}
 
 %union
 {
+	struct comp_tree_t *syntaxTree;
 	struct comp_dict_item_t *valor_simbolo_lexico;
+
 }
 
 
 
 /* Declaração dos tokens da linguagem */
 %token TK_PR_INT
-%token TK_PR_FLOAT
-%token TK_PR_BOOL
-%token TK_PR_CHAR
-%token TK_PR_STRING
-%token TK_PR_IF
-%token TK_PR_THEN
-%token TK_PR_ELSE
-%token TK_PR_WHILE
-%token TK_PR_DO
-%token TK_PR_INPUT
-%token TK_PR_OUTPUT
-%token TK_PR_RETURN
-%token TK_PR_STATIC
-%token TK_PR_CONST
-%token TK_OC_LE
-%token TK_OC_GE
-%token TK_OC_EQ
-%token TK_OC_NE
-%token TK_OC_AND
-%token TK_OC_OR
-%token TK_LIT_INT
-%token TK_LIT_FLOAT
-%token TK_LIT_FALSE
-%token TK_LIT_TRUE
-%token TK_LIT_CHAR
-%token TK_LIT_STRING
-%token TK_IDENTIFICADOR
+%token<syntaxTree> TK_PR_FLOAT
+%token<syntaxTree> TK_PR_BOOL
+%token<syntaxTree> TK_PR_CHAR
+%token<syntaxTree> TK_PR_STRING
+%token<syntaxTree> TK_PR_IF
+%token<syntaxTree> TK_PR_THEN
+%token<syntaxTree> TK_PR_ELSE
+%token<syntaxTree> TK_PR_WHILE
+%token<syntaxTree> TK_PR_DO
+%token<syntaxTree> TK_PR_INPUT
+%token<syntaxTree> TK_PR_OUTPUT
+%token<syntaxTree> TK_PR_RETURN
+%token<syntaxTree> TK_PR_STATIC
+%token<syntaxTree> TK_PR_CONST
+%token<valor_simbolo_lexico> TK_OC_LE
+%token<valor_simbolo_lexico> TK_OC_GE
+%token<valor_simbolo_lexico> TK_OC_EQ
+%token<valor_simbolo_lexico> TK_OC_NE
+%token<valor_simbolo_lexico> TK_OC_AND
+%token<valor_simbolo_lexico> TK_OC_OR
+%token<valor_simbolo_lexico> TK_OC_NOT
+%token<valor_simbolo_lexico> TK_LIT_INT
+%token<valor_simbolo_lexico> TK_LIT_FLOAT
+%token<valor_simbolo_lexico> TK_LIT_FALSE
+%token<valor_simbolo_lexico> TK_LIT_TRUE
+%token<valor_simbolo_lexico> TK_LIT_CHAR
+%token<valor_simbolo_lexico> TK_LIT_STRING
+%token<valor_simbolo_lexico> TK_IDENTIFICADOR
 %token TOKEN_ERRO
 
 
-
+/*Declaração dos tipos das estruturas*/
+%type<syntaxTree> start
+%type<syntaxTree> programa
+%type<syntaxTree> declarar_funcao
+%type<syntaxTree> declaracao_local
+%type<syntaxTree> bloco_comando
+%type<syntaxTree> comando
+%type<syntaxTree> ID
+%type<syntaxTree> nome
+%type<syntaxTree> atribuicao
+%type<syntaxTree> controle_fluxo
+%type<syntaxTree> chamada_funcao
+%type<syntaxTree> operador_logico
+%type<syntaxTree> operador_aritmetico
+%type<syntaxTree> expressao
+%type<syntaxTree> tem_operador
+%type<syntaxTree> retorno
+%type<syntaxTree> entrada
+%type<syntaxTree> saida
+%type<syntaxTree> lista_expressoes
+%type<syntaxTree> lista_vazia
+%type<syntaxTree> mais_de_uma
+%type<syntaxTree> valor
+%type<valor_simbolo_lexico> '%'
+%type<valor_simbolo_lexico> '+'
+%type<valor_simbolo_lexico> '-'
+%type<valor_simbolo_lexico> '>'
+%type<valor_simbolo_lexico> '<'
+%type<valor_simbolo_lexico> '*'
+%type<valor_simbolo_lexico> '/'
+%type<valor_simbolo_lexico> '='
+%type<syntaxTree> '{'
+%type<syntaxTree> '}'
+%type<valor_simbolo_lexico> '!'
+%type<syntaxTree> literal
+%type<syntaxTree> inverte
 
 %nonassoc LOWER_THAN_ELSE
 %nonassoc TK_PR_ELSE
-%nonassoc PARENTESIS
-%nonassoc COLCHETES
-%nonassoc VAZIO
-
 %%
 /* Regras (e ações) da gramática */
-
-
+/* $$ = start 
+   $1 = programa
+*/
+start: programa {
+					$$ = createNode(AST_PROGRAMA,NULL);
+					if($1 != NULL)appendChildNode($$,$1);
+					gv_create_initial_tree($$); 
+					syntaxTree = $$;
+					removeNode(syntaxTree);}
+	;
+/* $$ = programa 
+   $1 = declaracao_global
+   $2 = ';' 
+   $3 = programa(eu acho, não sei, muito confuso eu sei =.=)
+   $1 = declarar_funcao
+   $2 = programa
+   sim, demorei algum bom tempo pra me tocar disso =.=
+*/
 programa
-	: declaracao_global programa
-	| declarar_funcao programa
-	| /* NADA */
+	: declaracao_global ';' programa {$$=$3;}
+	| declarar_funcao programa {$$ = $1;if($2 != NULL)appendChildNode($$,$2);}
+	| {$$ = NULL;} 
 	;
 
 declaracao_global
-	: especificador_tipo ID ';'
-	| especificador_classe_armazenamento especificador_tipo  ID ';'
+	: especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT ']'
+	| especificador_tipo TK_IDENTIFICADOR 
+	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR '[' TK_LIT_INT ']'
+	;
+
+declarar_funcao	
+	: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}' {$$ = createNode(AST_FUNCAO,$2);if($7 !=NULL)appendChildNode($$,$7);}
+	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}' {$$ = createNode(AST_FUNCAO,$3);if($8 !=NULL)appendChildNode($$,$8);}
 	;
 
 literal
-	: TK_LIT_INT
-	| TK_LIT_FLOAT
-	| TK_LIT_FALSE
-	| TK_LIT_TRUE
-	| TK_LIT_CHAR
-	| TK_LIT_STRING
+	: TK_LIT_INT {$$ = createNode(AST_LITERAL, $1); }
+	| TK_LIT_FLOAT {$$ = createNode(AST_LITERAL, $1);}
+	| TK_LIT_FALSE {$$ = createNode(AST_LITERAL, $1);}
+	| TK_LIT_TRUE {$$ = createNode(AST_LITERAL, $1);}
+	| TK_LIT_CHAR {$$ = createNode(AST_LITERAL, $1);}
+	| TK_LIT_STRING {$$ = createNode(AST_LITERAL, $1);}
 	;
 
 especificador_tipo
@@ -87,118 +145,111 @@ especificador_tipo
 	;
 
 declaracao_local
-	: especificador_tipo ID  
-	| especificador_classe_armazenamento especificador_tipo ID 
-	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor 
-	| especificador_classe_armazenamento especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
-	| especificador_classe_armazenamento qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
-	| qualificador_tipo especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor 
+	: especificador_tipo TK_IDENTIFICADOR   {$$ = NULL;}
+	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;}
+	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR {$$ = NULL;}
+	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;}
+	| TK_PR_STATIC TK_PR_CONST especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;}
+	| TK_PR_CONST especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;}
 	;
 
 
 valor
-	: literal
-	| ID
+	: literal {$$ = $1;}
+	| TK_IDENTIFICADOR {$$ = createNode(AST_IDENTIFICADOR,$1);}
 	;
 
 ID
-	: TK_IDENTIFICADOR 
-	| TK_IDENTIFICADOR  '[' expressao ']' 
+	: TK_IDENTIFICADOR {$$ = createNode(AST_IDENTIFICADOR,$1);}
+	| TK_IDENTIFICADOR  '[' expressao ']' {$$ = createNode(AST_VETOR_INDEXADO,NULL);appendChildNode($$,createNode(AST_IDENTIFICADOR,$1)); appendChildNode($$,$3);}
 	;
 
 
 
 
 
-atribuicao
-	: ID '=' expressao 
-	| ID '=' valor
+atribuicao 
+	: ID '=' expressao {$$ = createNode(AST_ATRIBUICAO,$2); appendChildNode($$,$1);appendChildNode($$,$3);}
 	;
 
 
 retorno
-	: TK_PR_RETURN valor
-	| TK_PR_RETURN expressao 
-	| TK_PR_RETURN 
+	: TK_PR_RETURN expressao {$$ = createNode(AST_RETURN,NULL);appendChildNode($$,$2);}
+	| TK_PR_RETURN {$$ = createNode(AST_RETURN,NULL); }
 	;
 
-especificador_classe_armazenamento
-	:TK_PR_STATIC
-	;
 
-qualificador_tipo
-	: TK_PR_CONST
-	;
 
 
 
 
 bloco_comando
-	:  comando ';' bloco_comando 
-	|  comando
-	| ';' 
-	|
+	:  comando ';' bloco_comando {$$ = $1; if($1 != NULL)appendChildNode($$,$3);else $$ = $3;} 
+	|  comando {if($1 != NULL)$$ = $1;}
+	|  {$$ = NULL;}
 	;
 
 	
 
 comando
-	: retorno 
-	| atribuicao
-	| declaracao_local 
-    	| controle_fluxo 
-	| '{' bloco_comando '}' 
-	| entrada
-	| chamada_funcao 
-	| saida 
+	: retorno  				{$$ = $1;}
+	| atribuicao 			{$$ = $1;}
+	| declaracao_local  	{$$ = $1;}
+    | controle_fluxo 		{$$ = $1;}
+	| '{' bloco_comando '}' { $$ = createNode(AST_BLOCO, NULL);appendChildNode($$,$2);}
+	| entrada 				{$$ = $1;}
+	| chamada_funcao		{$$ = $1;} 
+	| saida 				{$$ = $1;}
 	;
 
 parametros_vazio
-	: parametros
-	|
+	: parametros 
+	| 
 	;
 
 parametros
-	: lista_parametros ',' parametros
+	: lista_parametros ',' parametros 
 	| lista_parametros
 	;
 	
 lista_parametros 
 	: especificador_tipo TK_IDENTIFICADOR 
-	| qualificador_tipo especificador_tipo TK_IDENTIFICADOR 
-	| valor 
+	| TK_PR_CONST especificador_tipo TK_IDENTIFICADOR 
 	;
 
 entrada
-	: TK_PR_INPUT expressao "=>" expressao 
+	: TK_PR_INPUT expressao '=''>' expressao {$$ = createNode(AST_INPUT, NULL); appendChildNode($$,$2);appendChildNode($$,$5);}
 	;
 
 saida
-	: TK_PR_OUTPUT lista_expressoes	
+	: TK_PR_OUTPUT lista_expressoes	 {$$ = createNode(AST_OUTPUT,NULL);appendChildNode($$,$2);}
 	;
 
 lista_vazia
-	: lista_expressoes
-	|
+	: lista_expressoes {$$ = $1;}
+	| {$$ = NULL;}
 	;
 
 lista_expressoes
-	: expressao ',' lista_expressoes
-	| expressao
+	: expressao mais_de_uma {$$ = $1; 
+							if($2 != NULL)
+								appendChildNode($$,$2);
+							}
+	;
+
+mais_de_uma
+	: ',' lista_expressoes {$$ = $2;}
+	| {$$ = NULL;}
 	;
 
 
 controle_fluxo
-	: TK_PR_IF '(' expressao ')' TK_PR_THEN comando TK_PR_ELSE comando
-	|TK_PR_IF '(' expressao ')' TK_PR_THEN comando %prec LOWER_THAN_ELSE
-	| TK_PR_WHILE '(' expressao ')' TK_PR_DO comando
-	| TK_PR_DO comando TK_PR_WHILE '(' expressao ')'
+	: TK_PR_IF '(' expressao ')'  TK_PR_THEN comando TK_PR_ELSE comando {$$ = createNode(AST_IF_ELSE,NULL); appendChildNode($$,$3);appendChildNode($$,$6);appendChildNode($$,$8);}
+	| TK_PR_IF '(' expressao ')'  TK_PR_THEN comando %prec LOWER_THAN_ELSE {$$ = createNode(AST_IF_ELSE,NULL); appendChildNode($$,$3);appendChildNode($$,$6);}
+	| TK_PR_WHILE '(' expressao ')' TK_PR_DO comando {$$ = createNode(AST_WHILE_DO,NULL); appendChildNode($$,$3);appendChildNode($$,$6);}
+	| TK_PR_DO comando TK_PR_WHILE '(' expressao ')' {$$ = createNode(AST_DO_WHILE,NULL); appendChildNode($$,$2);appendChildNode($$,$5);}
 	;
 
-declarar_funcao	
-	: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}'
-	| especificador_classe_armazenamento especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}'
-	;
 
 
 
@@ -206,38 +257,86 @@ declarar_funcao
 
 
 chamada_funcao
-	: TK_IDENTIFICADOR  '(' lista_vazia ')' 
-	| TK_IDENTIFICADOR  '(' lista_vazia ')' expressao 
+	: nome  '(' lista_vazia ')' { $$ = createNode(AST_CHAMADA_DE_FUNCAO,NULL); appendChildNode($$,$1);if($3 != NULL) appendChildNode($$,$3);}
+	;
+
+nome: TK_IDENTIFICADOR {$$ = createNode(AST_IDENTIFICADOR,$1);}
 	;
 
 operador_aritmetico
-	: '+'
-	| '-'
-	| '*'
-	| '/'
-	| '%'
+	: '+' {$$ = createNode(AST_ARIM_SOMA, NULL);}
+	| '-' {$$ = createNode(AST_ARIM_SUBTRACAO, NULL);}
+	| '*' {$$ = createNode(AST_ARIM_MULTIPLICACAO, NULL);}
+	| '/' {$$ = createNode(AST_ARIM_DIVISAO, NULL);}
+	| '%' {$$ = createNode(AST_LOGICO_COMP_LE, NULL);}
 	;
 
 operador_logico
-	: TK_OC_LE
-	| TK_OC_GE
-	| TK_OC_EQ
-	| TK_OC_NE
-	| TK_OC_AND
-	| TK_OC_OR
-	| '<'
-	| '>'
+	: TK_OC_LE  {$$ = createNode(AST_LOGICO_COMP_LE, NULL);}
+	| TK_OC_GE  {$$ = createNode(AST_LOGICO_COMP_GE, NULL);}
+	| TK_OC_EQ  {$$ = createNode(AST_LOGICO_COMP_IGUAL, NULL);}
+	| TK_OC_NE  {$$ = createNode(AST_LOGICO_COMP_DIF, NULL);}
+	| TK_OC_AND {$$ = createNode(AST_LOGICO_E, NULL);}
+	| TK_OC_OR  {$$ = createNode(AST_LOGICO_OU, NULL);}
+	| '<'       {$$ = createNode(AST_LOGICO_COMP_L, NULL);}
+	| '>'       {$$ = createNode(AST_LOGICO_COMP_G, NULL);}
 	;
 	
-expressao
-	: operador_logico expressao 
-	| valor expressao
-	| operador_aritmetico expressao
-	| '(' expressao ')'
-	| chamada_funcao
-	| valor
+expressao 
+	: literal tem_operador  {							
+								if($2 != NULL)	
+									{
+										$$ = $2; 
+										 
+										appendChildNode($$,$1);
+									}
+								else
+									{
+										$$ = $1;
+									}
+							}
+	| ID tem_operador		{
+								if($2 != NULL)	
+									{
+										$$ = $2;
+										appendChildNode($2,$1);
+									}
+								else $$ = $1;
+							}
+	| chamada_funcao tem_operador {
+									if($2 != NULL)	
+										{$$ = $2; 
+										appendChildNode($2,$1);}
+									else $$ = $1;
+								  }
+
+	|TK_OC_NOT expressao		{$$ = createNode(AST_LOGICO_COMP_NEGACAO, NULL);appendChildNode($$,$2);}
+	| '(' expressao ')' tem_operador {$$ = $2; if($4 != NULL) {$$ = $4; appendChildNode($4,$2);}}
+	| inverte valor tem_operador {
+								if($3 != NULL)
+								{
+									$$ = $3;
+									appendChildNode($$,$1);
+									appendChildNode($1,$2);
+								}
+								else
+								{
+									$$ = $1;
+									appendChildNode($$,$2);
+								}
+
+							 }
+	;
+inverte
+	: '-' {$$ = createNode(AST_ARIM_INVERSAO,$1);}
 	;
 
+
+tem_operador
+	: operador_aritmetico expressao {$$ = $1; appendChildNode($$,$2); }
+	| operador_logico expressao {$$ = $1; appendChildNode($$,$2); }
+	| {$$ = NULL;}
+	;
 
 
 

@@ -268,7 +268,7 @@ operador_aritmetico
 	| '-' {$$ = createNode(AST_ARIM_SUBTRACAO, NULL);}
 	| '*' {$$ = createNode(AST_ARIM_MULTIPLICACAO, NULL);}
 	| '/' {$$ = createNode(AST_ARIM_DIVISAO, NULL);}
-	| '%' {$$ = createNode(AST_LOGICO_COMP_LE, NULL);}
+	| '%' {$$ = createNode(AST_ARIM_DIVISAO, NULL);}
 	;
 
 operador_logico
