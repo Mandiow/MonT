@@ -14,6 +14,7 @@ comp_tree_t* createNode(int nodeType, comp_dict_item_t* tableItem)
 	newNode->nodeFather = NULL;
 	newNode->childNodeList->nextNode = NULL;
 	
+	
 	return newNode;
 }
 
@@ -27,24 +28,37 @@ void *appendChildNode(comp_tree_t* father, comp_tree_t* newChild)
 		auxNodeList = father->childNodeList;
 		newChild->nodeFather = father;
 		
-		if(auxNodeList->firstNode == NULL)
-		{
-			auxNodeList->firstNode = newChild;
-			auxNodeList->nextNode = NULL;
-
-		}
-		else
-		{
-			while (auxNodeList->nextNode != NULL)
+		/*if((father->nodeType >= 12 && father->nodeType <= 24) && auxNodeList->nextNode == NULL)
 			{
-				auxNodeList = auxNodeList->nextNode;
-				//printf("auxNodeList: %p\n", auxNodeList);
-				count++;
+				
+				auxNodeList->nextNode = (nodeList*)malloc(sizeof(nodeList));
+				auxNodeList->nextNode->firstNode = newChild;
+				auxNodeList->nextNode->nextNode = NULL;
+				//printf("%s\n",auxNodeList->nextNode->firstNode->tableItem->key );
 			}
-			auxNodeList->nextNode = (nodeList*)malloc(sizeof(nodeList));
-			auxNodeList->nextNode->firstNode = newChild;
-			auxNodeList->nextNode->nextNode = NULL;
-		}	
+		else
+		{*/
+				if(auxNodeList->firstNode == NULL)
+				{
+					auxNodeList->firstNode = newChild;
+					if((father->nodeType < 12 && father->nodeType > 24) || auxNodeList->nextNode == NULL)
+						auxNodeList->nextNode = NULL;
+
+				}
+				else
+				{
+					while (auxNodeList->nextNode != NULL)
+					{
+						auxNodeList = auxNodeList->nextNode;
+						//printf("auxNodeList: %p\n", auxNodeList);
+						count++;
+					}
+					auxNodeList->nextNode = (nodeList*)malloc(sizeof(nodeList));
+					auxNodeList->nextNode->firstNode = newChild;
+					auxNodeList->nextNode->nextNode = NULL;
+				}
+			
+		//}	
 	}
 }
 

@@ -60,7 +60,10 @@ int prec;
 %type<syntaxTree> atribuicao
 %type<syntaxTree> controle_fluxo
 %type<syntaxTree> chamada_funcao
+%type<syntaxTree> operador_logico
+%type<syntaxTree> operador_aritmetico
 %type<syntaxTree> expressao
+%type<syntaxTree> tem_operador
 %type<syntaxTree> retorno
 %type<syntaxTree> entrada
 %type<syntaxTree> saida
@@ -68,25 +71,20 @@ int prec;
 %type<syntaxTree> lista_vazia
 %type<syntaxTree> mais_de_uma
 %type<syntaxTree> valor
+%type<valor_simbolo_lexico> '%'
+%type<valor_simbolo_lexico> '+'
+%type<valor_simbolo_lexico> '-'
+%type<valor_simbolo_lexico> '>'
+%type<valor_simbolo_lexico> '<'
+%type<valor_simbolo_lexico> '*'
+%type<valor_simbolo_lexico> '/'
 %type<valor_simbolo_lexico> '='
 %type<syntaxTree> '{'
 %type<syntaxTree> '}'
 %type<valor_simbolo_lexico> '!'
 %type<syntaxTree> literal
-
-/*DISCLAIMER: A contra gosto usei os lefts para assegurar a AST, 
-			  na formulação de expressão, usada anteriormente
-			  a precedência de operadores só era mantida até 
-			  multiplicações e divisões, não respeitando ().
-			  Dado este fato, reescrevi e usei os lefts =.=
-*/
-%left TK_OC_OR
-%left TK_OC_AND
-%left '<' '>' TK_OC_LE TK_OC_GE TK_OC_EQ TK_OC_NE
-%left '+' '-'
-%left '*' '/'
-%left TK_OC_NOT
-
+%type<syntaxTree> inverte
+%type<syntaxTree> prioridade
 
 %nonassoc LOWER_THAN_ELSE
 %nonassoc TK_PR_ELSE
@@ -263,27 +261,109 @@ chamada_funcao
 nome: TK_IDENTIFICADOR {$$ = createNode(AST_IDENTIFICADOR,$1);}
 	;
 
-expressao 
-	: ID
-	| literal 
-	| expressao '/' expressao				{$$ = createNode(AST_ARIM_DIVISAO, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao '*' expressao				{$$ = createNode(AST_ARIM_MULTIPLICACAO, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao '-' expressao				{$$ = createNode(AST_ARIM_SUBTRACAO, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao '+' expressao				{$$ = createNode(AST_ARIM_SOMA, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| '-' expressao							{$$ = createNode(AST_ARIM_INVERSAO, NULL);appendChildNode($$,$2);}
-	| TK_OC_NOT expressao					{$$ = createNode(AST_LOGICO_COMP_NEGACAO, NULL);appendChildNode($$,$2);}
-	| expressao '<' expressao				{$$ = createNode(AST_LOGICO_COMP_L, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao '>' expressao				{$$ = createNode(AST_LOGICO_COMP_G, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao TK_OC_LE expressao			{$$ = createNode(AST_LOGICO_COMP_LE, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao TK_OC_GE expressao			{$$ = createNode(AST_LOGICO_COMP_GE, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao TK_OC_EQ expressao			{$$ = createNode(AST_LOGICO_COMP_IGUAL, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao TK_OC_NE expressao			{$$ = createNode(AST_LOGICO_COMP_DIF, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao TK_OC_AND expressao			{$$ = createNode(AST_LOGICO_E, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao TK_OC_OR expressao			{$$ = createNode(AST_LOGICO_OU, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| '(' expressao ')'						{$$ = $2;}
-	| chamada_funcao 						{$$ = $1;}
+operador_aritmetico
+	: '*' {$$ = createNode(AST_ARIM_MULTIPLICACAO, NULL);}
+	| '+' {$$ = createNode(AST_ARIM_SOMA, NULL);}
+	| '/' {$$ = createNode(AST_ARIM_DIVISAO, NULL);}
+	| '-' {$$ = createNode(AST_ARIM_SUBTRACAO, NULL);}
 	;
 
+operador_logico
+	: TK_OC_LE  {$$ = createNode(AST_LOGICO_COMP_LE, NULL);}
+	| TK_OC_GE  {$$ = createNode(AST_LOGICO_COMP_GE, NULL);}
+	| TK_OC_EQ  {$$ = createNode(AST_LOGICO_COMP_IGUAL, NULL);}
+	| TK_OC_NE  {$$ = createNode(AST_LOGICO_COMP_DIF, NULL);}
+	| TK_OC_AND {$$ = createNode(AST_LOGICO_E, NULL);}
+	| TK_OC_OR  {$$ = createNode(AST_LOGICO_OU, NULL);}
+	| '<'       {$$ = createNode(AST_LOGICO_COMP_L, NULL);}
+	| '>'       {$$ = createNode(AST_LOGICO_COMP_G, NULL);}
+	;
+	
+expressao 
+	: prioridade tem_operador {$$ = $1;if($2 != NULL) {$$ = $2; appendChildNode($$,$1);}}
+	| literal tem_operador  {							
+								if($2 != NULL)	
+									{
+										$$ = $2; 
+										 
+										appendChildNode($$,$1);
+									}
+								else
+									{
+										$$ = $1;
+									}
+							}
+	| ID tem_operador		{
+								if($2 != NULL)
+									if($2->childNodeList != NULL)
+										if($2->childNodeList->firstNode != NULL && $2->childNodeList->firstNode->nodeType >=15 && $2->childNodeList->firstNode->nodeType <=16)
+										{
+											
+											if(prec !=2)
+												appendChildNode($2->childNodeList->firstNode,$1);
+											else appendChildNode($2,$1);
+											$$ = $2;
+										}
+										else if($2 != NULL)	
+									{
+										$$ = $2;
+										appendChildNode($$,$1);
+									}
+								else $$ = $1;
+							}
+	| chamada_funcao tem_operador {
+									if($2 != NULL)	
+										{$$ = $2; 
+										appendChildNode($$,$1);}
+									else $$ = $1;
+								  }
+
+	|TK_OC_NOT expressao		{$$ = createNode(AST_LOGICO_COMP_NEGACAO, NULL);appendChildNode($$,$2);}
+	| inverte valor tem_operador {
+								if($3 != NULL)
+								{
+									$$ = $3;
+									appendChildNode($$,$1);
+									appendChildNode($1,$2);
+								}
+								else
+								{
+									$$ = $1;
+									appendChildNode($$,$2);
+								}
+
+							 }
+	;
+inverte
+	: '-' {$$ = createNode(AST_ARIM_INVERSAO,$1);}
+	;
+
+
+tem_operador
+	: operador_aritmetico expressao {
+										if($2->nodeType >=12 && $2->nodeType <=13 )
+										{
+											if(prec != 2)
+											{
+												appendChildNode($1,$2->childNodeList->firstNode);
+												$2->childNodeList->firstNode = NULL;
+												appendChildNode($2,$1);
+												$$ = $2;
+											}
+											else
+											{
+												$$ = $1;
+												appendChildNode($$,$2);
+											}
+										}
+										else{ $$ = $1; appendChildNode($$,$2);} }
+	| operador_logico expressao {$$ = $1; appendChildNode($$,$2); }
+	| {$$ = NULL;}
+	;
+
+prioridade
+	: {prec = 0;}'('expressao2')'{prec = 2;} {$$ = $3;}
+	;
 
 
 %%
