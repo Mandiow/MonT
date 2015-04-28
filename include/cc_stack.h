@@ -6,23 +6,23 @@
 
 
 
-typedef struct cel { 
-	int conteudo; 
-	struct cel *prox; 
-} PilhaIdentificadores;
 
 typedef struct ListaId { 
 	int identificador; 
 	struct Lista *prox; 
 } ListaIdentificadores;
 
+typedef struct cel { 
+	ListaIdentificadores conteudo; 
+	struct cel *prox; 
+} PilhaIdentificadores;
 
 
 
 void CriaPilha(PilhaIdentificadores *pilha);
-void empilha(int y, celula *tp);
-int desempilha(PilhaIdentificadores *tp);
-void destroi(cedula *pilha);
+void Empilha(int y, celula *tp);
+int Desempilha(PilhaIdentificadores *tp);
+void DestroiPilha(cedula *pilha);
 
 
 // operações com a lista de identificadores
@@ -31,7 +31,7 @@ void AdicionaListaIdentificadores(int valor, ListaIdentificadores *listaId);
 void RemoveElementoListaIdentificadoresInicio(ListaIdentificadores *listaId);
 void RemoveElementoListaIdentificadoresConteudo(int valor, ListaIdentificadores *listaId);
 void destroiListaIdentificadores(ListaIdentificadores *listaId);
-
+int buscaElementoListaIdentificadores(int valor,  ListaIdentificadores *listaId);
 
 #endif
 

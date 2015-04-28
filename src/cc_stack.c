@@ -8,7 +8,7 @@ void CriaPilha(PilhaIdentificadores *pilha)
 }
 
 // Coloca y na pilha tp. 
-void empilha( int y, PilhaIdentificadores *tp) 
+void Empilha( ListaIdentificadores *y, PilhaIdentificadores *tp) 
 { 
 	PilhaIdentificadores *nova; 
 	nova = mallocc(sizeof (celula)); 
@@ -20,9 +20,9 @@ void empilha( int y, PilhaIdentificadores *tp)
 // Remove um elemento da pilha tp 
 // e devolve o elemento removido. 
 // Supõe que a pilha não está vazia. 
-int desempilha( PilhaIdentificadores *tp) 
+int Desempilha( PilhaIdentificadores *tp) 
 { 
-	int x; 
+	ListaIdentificadores *x; 
 	PilhaIdentificadores *p; 
 	if(tp != NULL)
 	{
@@ -38,10 +38,10 @@ int desempilha( PilhaIdentificadores *tp)
 
 void DestroiPilha(PilhaIdentificadores *pilha)
 {
-	int elemento;
+	ListaIdentificadores *Li;
 	while(pilha != NULL)
 	{
-		elemento = desempilha(pilha);
+		Li = desempilha(pilha);
 	}	
 }
 
@@ -82,7 +82,7 @@ void RemoveElementoListaIdentificadoresConteudo(int valor, ListaIdentificadores 
 	morto = listaId;
    	while (morto !=NULL)
     {
-	 	if (morto->info == dado) // achou !!
+	 	if (morto->identificador == dado) // achou !!
 	 	{
 	   		if (morto == listaId) // se esta removendo o primeiro da lista
 	   		{
@@ -111,6 +111,54 @@ void destroiListaIdentificadores(ListaIdentificadores *listaId)
 	{
 		RemoveElementoListaIdentificadoresInicio(listId);
 	}
+}
+
+int buscaElementoListaIdentificadores(int valor,  ListaIdentificadores *listaId)
+{
+	ListaIdentificadores *Li;
+	Li = listaId;
+	while(Li->prox != NULL)
+	{
+		if(Li->identificador == valor)
+			return valor;
+		Li=Li->prox;
+	}
+	return -1;
+}
+
+int buscaIdentificadorPilha(int valor, PilhaIdentificadores *PilhaId)
+{
+	PilhaIdentificadores *Pi, *Pireversa;
+	ListaIdentificadores *PiTroca;
+	int fim=0;
+	Pireversa= NULL;
+	PiTroca = NULL;
+	Pi= PilhaId;
+	
+	while(Pi->prox != NULL)
+	{
+		if(fim < 0)
+		{
+			PiTroca = Desempilha(Pi);
+			Empilha(Pitroca, Pireversa);
+			fim = buscaElementoListaIdentificadores(valor,Pitroca);
+		}
+		else
+		{
+			while(Pireversa != NULL)
+			{
+				PiTroca = Desempilha(Pireversa);
+				Empilha(Pitroca, Pi);
+			}
+			return 0;
+		}
+	}
+	while(Pireversa != NULL)
+	{
+		PiTroca = Desempilha(Pireversa);
+		Empilha(Pitroca, Pi);		
+	}	
+	return -1;
 }
 
 
