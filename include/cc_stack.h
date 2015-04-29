@@ -3,36 +3,21 @@
 #include "cc_tree.h"
 #include "cc_ast.h"
 #include "cc_dict.h"
+#include "cc_list.h"
 
-
-
-
-typedef struct ListaId { 
-	int identificador; 
-	struct Lista *prox; 
-} ListaIdentificadores;
 
 typedef struct cel { 
-	ListaIdentificadores conteudo; 
+	ListaIdentificadores *conteudo;
 	struct cel *prox; 
 } PilhaIdentificadores;
 
 
 
 void CriaPilha(PilhaIdentificadores *pilha);
-void Empilha(int y, celula *tp);
+void Empilha(ListaIdentificadores conteudo, PilhaIdentificadores *topo);
 int Desempilha(PilhaIdentificadores *tp);
 void DestroiPilha(cedula *pilha);
-
-
-// operações com a lista de identificadores
-void CriaListaIdentificadores(ListaIdentificadores *listaId);
-void AdicionaListaIdentificadores(int valor, ListaIdentificadores *listaId);
-void RemoveElementoListaIdentificadoresInicio(ListaIdentificadores *listaId);
-void RemoveElementoListaIdentificadoresConteudo(int valor, ListaIdentificadores *listaId);
-void destroiListaIdentificadores(ListaIdentificadores *listaId);
-int buscaElementoListaIdentificadores(int valor,  ListaIdentificadores *listaId);
-
+int buscaIdentificadorPilha(int valor, PilhaIdentificadores *PilhaId);
 #endif
 
 
