@@ -4,9 +4,17 @@
 #include "cc_gv.h"
 #include "cc_dict.h"
 
+// TAMANHOS
+#define INT_SIZE 4
+#define FLOAT_SIZE 8
+#define CHAR_SIZE 1
+#define BOOL_SIZE 1
 
+// COERÇÃO
+#define COERCION_TO_INT 1
+#define COERCION_TO_FLOAT 2
+#define COERCION_TO_BOOL 5
 
-#define FALHA 1000000
 typedef struct comp_tree_t comp_tree_t;
 typedef struct nodeList_t nodeList;
 

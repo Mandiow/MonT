@@ -3,13 +3,15 @@
 */
 %{
 #include <stdio.h>
+#include <math.h>
 #include "main.h"
-int prec;
+int Func_type;
 %}
 %union
 {
 	struct comp_tree_t *syntaxTree;
 	struct comp_dict_item_t *valor_simbolo_lexico;
+	struct stack_item *main_stack;
 
 }
 
@@ -17,10 +19,10 @@ int prec;
 
 /* Declaração dos tokens da linguagem */
 %token TK_PR_INT
-%token<syntaxTree> TK_PR_FLOAT
-%token<syntaxTree> TK_PR_BOOL
-%token<syntaxTree> TK_PR_CHAR
-%token<syntaxTree> TK_PR_STRING
+%token TK_PR_FLOAT
+%token TK_PR_BOOL
+%token TK_PR_CHAR
+%token TK_PR_STRING
 %token<syntaxTree> TK_PR_IF
 %token<syntaxTree> TK_PR_THEN
 %token<syntaxTree> TK_PR_ELSE
@@ -69,10 +71,11 @@ int prec;
 %type<syntaxTree> mais_de_uma
 %type<syntaxTree> valor
 %type<valor_simbolo_lexico> '='
-%type<syntaxTree> '{'
-%type<syntaxTree> '}'
+%type<valor_simbolo_lexico> '{'
+%type<valor_simbolo_lexico> '}'
 %type<valor_simbolo_lexico> '!'
 %type<syntaxTree> literal
+%type<syntaxTree> especificador_tipo
 
 /*DISCLAIMER: A contra gosto usei os lefts para assegurar a AST, 
 			  na formulação de expressão, usada anteriormente
@@ -117,14 +120,26 @@ programa
 	;
 
 declaracao_global
-	: especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT ']'
-	| especificador_tipo TK_IDENTIFICADOR 
-	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR '[' TK_LIT_INT ']'
+	: especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT ']' {stack_push(main_stack,$2,data_item); $2->tipo = $1;}
+	| especificador_tipo TK_IDENTIFICADOR {stack_push(main_stack,$2,data_item); $2->tipo = $1;}
+	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR '[' TK_LIT_INT ']' {stack_push(main_stack,$3,data_item); $3->tipo = $2;}
 	;
 
 declarar_funcao	
-	: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}' {$$ = createNode(AST_FUNCAO,$2);if($7 !=NULL)appendChildNode($$,$7);}
-	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' '{' bloco_comando '}' {$$ = createNode(AST_FUNCAO,$3);if($8 !=NULL)appendChildNode($$,$8);}
+	: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')'
+									{/*stack_push(,,param_item); PARAM */}
+									{Func_type = $1;} 
+									{stack_push(main_stack,$2,data_item);}
+									'{' 
+									{stack_push(main_stack,$9,block_item);} 
+									bloco_comando 
+									'}' 
+									{
+										$$ = createNode(AST_FUNCAO,$2);
+										if($11 !=NULL)
+											appendChildNode($$,$11);
+									}
+	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' {Func_type = $2;} '{' bloco_comando '}' {$$ = createNode(AST_FUNCAO,$3);if($9 !=NULL)appendChildNode($$,$9);}
 	;
 
 literal
@@ -137,11 +152,11 @@ literal
 	;
 
 especificador_tipo
-	: TK_PR_INT
-	| TK_PR_FLOAT
-	| TK_PR_BOOL
-	| TK_PR_CHAR
-	| TK_PR_STRING
+	: TK_PR_INT  {$$ = IKS_INT;}
+	| TK_PR_FLOAT {$$ = IKS_FLOAT;}
+	| TK_PR_BOOL {$$ = IKS_BOOL;}
+	| TK_PR_CHAR {$$ = IKS_CHAR;}
+	| TK_PR_STRING {$$ = IKS_STRING;}
 	;
 
 declaracao_local
@@ -153,7 +168,6 @@ declaracao_local
 	| TK_PR_CONST especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;}
 	;
 
-
 valor
 	: literal {$$ = $1;}
 	| TK_IDENTIFICADOR {$$ = createNode(AST_IDENTIFICADOR,$1);}
@@ -164,24 +178,14 @@ ID
 	| TK_IDENTIFICADOR  '[' expressao ']' {$$ = createNode(AST_VETOR_INDEXADO,NULL);appendChildNode($$,createNode(AST_IDENTIFICADOR,$1)); appendChildNode($$,$3);}
 	;
 
-
-
-
-
 atribuicao 
 	: ID '=' expressao {$$ = createNode(AST_ATRIBUICAO,$2); appendChildNode($$,$1);appendChildNode($$,$3);}
 	;
 
-
 retorno
-	: TK_PR_RETURN expressao {$$ = createNode(AST_RETURN,NULL);appendChildNode($$,$2);}
+	: TK_PR_RETURN expressao {$$ = createNode(AST_RETURN,NULL); $$->tableItem->iks_type = Func_type;appendChildNode($$,$2);}
 	| TK_PR_RETURN {$$ = createNode(AST_RETURN,NULL); }
 	;
-
-
-
-
-
 
 bloco_comando
 	:  comando ';' bloco_comando {$$ = $1; if($1 != NULL)appendChildNode($$,$3);else $$ = $3;} 
@@ -189,14 +193,12 @@ bloco_comando
 	|  {$$ = NULL;}
 	;
 
-	
-
 comando
 	: retorno  				{$$ = $1;}
 	| atribuicao 			{$$ = $1;}
 	| declaracao_local  	{$$ = $1;}
     | controle_fluxo 		{$$ = $1;}
-	| '{' bloco_comando '}' { $$ = createNode(AST_BLOCO, NULL);appendChildNode($$,$2);}
+	| '{' bloco_comando '}' { $$ = createNode(AST_BLOCO, NULL);appendChildNode($$,$2);} //CUIDAR MUITO BEM DISSO, COM CARINHO E COM AMOR;
 	| entrada 				{$$ = $1;}
 	| chamada_funcao		{$$ = $1;} 
 	| saida 				{$$ = $1;}
@@ -242,19 +244,12 @@ mais_de_uma
 	| {$$ = NULL;}
 	;
 
-
 controle_fluxo
 	: TK_PR_IF '(' expressao ')'  TK_PR_THEN comando TK_PR_ELSE comando {$$ = createNode(AST_IF_ELSE,NULL); appendChildNode($$,$3);appendChildNode($$,$6);appendChildNode($$,$8);}
 	| TK_PR_IF '(' expressao ')'  TK_PR_THEN comando %prec LOWER_THAN_ELSE {$$ = createNode(AST_IF_ELSE,NULL); appendChildNode($$,$3);appendChildNode($$,$6);}
 	| TK_PR_WHILE '(' expressao ')' TK_PR_DO comando {$$ = createNode(AST_WHILE_DO,NULL); appendChildNode($$,$3);appendChildNode($$,$6);}
 	| TK_PR_DO comando TK_PR_WHILE '(' expressao ')' {$$ = createNode(AST_DO_WHILE,NULL); appendChildNode($$,$2);appendChildNode($$,$5);}
 	;
-
-
-
-
-
-
 
 chamada_funcao
 	: nome  '(' lista_vazia ')' { $$ = createNode(AST_CHAMADA_DE_FUNCAO,NULL); appendChildNode($$,$1);if($3 != NULL) {appendChildNode($$,$3);printf("aqui\n");}}
@@ -283,7 +278,5 @@ expressao
 	| '(' expressao ')'						{$$ = $2;}
 	| chamada_funcao 						{$$ = $1;}
 	;
-
-
 
 %%

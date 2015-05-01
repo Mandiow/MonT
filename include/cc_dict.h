@@ -10,7 +10,11 @@
 #define SIMBOLO_LITERAL_STRING 4
 #define SIMBOLO_LITERAL_BOOL   5
 #define SIMBOLO_IDENTIFICADOR  6
-
+#define IKS_INT                1
+#define IKS_FLOAT              2
+#define IKS_CHAR               3
+#define IKS_STRING             4
+#define IKS_BOOL               5
 
 union magic_token{
 		int 	integer;
@@ -25,6 +29,10 @@ union magic_token{
 typedef struct comp_dict_item_t{  // item tabela de simbolos
     int line; // ultima linha de aparição do lexema
     int tipo;																		//char *token; // token do lexema  // ETAPA 2 Isso tem que vazar pro union aparecer
+    int iks_type;                           // Type of the correspondent literal
+    int coercion;                       // If coercion is used, exactly as it is defined in this file.
+    int size;                           // As defined in this file.
+
     union magic_token token;
     struct comp_dict_item_t *next; /* prox item da tabela de simbols */
     char *key; /* chave  para consultar o simbolo o lexical*/

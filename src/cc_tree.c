@@ -10,6 +10,28 @@ comp_tree_t* createNode(int nodeType, comp_dict_item_t* tableItem)
 	//newNode->childNodeList->nextNode = (nodeList*)malloc(sizeof(nodeList));
 	newNode->childNodeList->firstNode = NULL;
 	newNode->nodeType = nodeType;
+	tableItem->iks_type = -1;
+
+	if(nodeType == AST_LITERAL)
+		switch(tableItem->tipo)
+			{
+				case SIMBOLO_LITERAL_INT:
+					tableItem->iks_type = IKS_INT;
+					break;
+				case SIMBOLO_LITERAL_FLOAT:
+					tableItem->iks_type = IKS_FLOAT;
+					break;
+				case SIMBOLO_LITERAL_CHAR:
+					tableItem->iks_type = IKS_CHAR;
+					break;
+				case SIMBOLO_LITERAL_STRING:
+					tableItem->iks_type = IKS_STRING;
+					break;
+				case SIMBOLO_LITERAL_BOOL:
+					tableItem->iks_type = IKS_BOOL;
+					break;
+			}
+			
 	newNode->tableItem = tableItem;
 	newNode->nodeFather = NULL;
 	newNode->childNodeList->nextNode = NULL;
@@ -27,17 +49,6 @@ void *appendChildNode(comp_tree_t* father, comp_tree_t* newChild)
 		nodeList *auxNodeList;
 		auxNodeList = father->childNodeList;
 		newChild->nodeFather = father;
-		
-		/*if((father->nodeType >= 12 && father->nodeType <= 24) && auxNodeList->nextNode == NULL)
-			{
-				
-				auxNodeList->nextNode = (nodeList*)malloc(sizeof(nodeList));
-				auxNodeList->nextNode->firstNode = newChild;
-				auxNodeList->nextNode->nextNode = NULL;
-				//printf("%s\n",auxNodeList->nextNode->firstNode->tableItem->key );
-			}
-		else
-		{*/
 				if(auxNodeList->firstNode == NULL)
 				{
 					auxNodeList->firstNode = newChild;
