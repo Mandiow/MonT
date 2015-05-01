@@ -13,10 +13,10 @@ typedef struct cel {
 
 
 
-void CriaPilha(PilhaIdentificadores *pilha);
-void Empilha(ListaIdentificadores conteudo, PilhaIdentificadores *topo);
-int Desempilha(PilhaIdentificadores *tp);
-void DestroiPilha(cedula *pilha);
+PilhaIdentificadores *CriaPilha(/*PilhaIdentificadores *pilha*/);
+void Empilha(ListaIdentificadores* conteudo, PilhaIdentificadores **topo);
+ListaIdentificadores* Desempilha(PilhaIdentificadores **topo);
+void DestroiPilha(PilhaIdentificadores **topo);
 int buscaIdentificadorPilha(int valor, PilhaIdentificadores *PilhaId);
 #endif
 

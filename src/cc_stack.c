@@ -1,38 +1,38 @@
-#include "cc_strack.h"
+#include "../include/cc_stack.h"
+#include "../include/cc_list.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-void CriaPilha(PilhaIdentificadores *pilha)
+PilhaIdentificadores *CriaPilha(/*PilhaIdentificadores *pilha*/)
 {
-	
-	pilha = mallocc(sizeof (PilhaIdentificadores));
+	/*pilha = malloc(sizeof(PilhaIdentificadores));
 	pilha->conteudo = NULL;
-	pilha->pai = NULL;
-	pilha->prox = NULL;
+	pilha->prox = NULL;*/
+	return NULL;
 }
 
 // Coloca y na pilha tp. 
-void Empilha( ListaIdentificadores *conteudo, PilhaIdentificadores *pilha) 
+void Empilha(ListaIdentificadores *conteudo, PilhaIdentificadores **topo) 
 { 
 	PilhaIdentificadores *nova; 
-	nova = mallocc(sizeof (PilhaIdentificadores)); 
+	nova = malloc(sizeof(PilhaIdentificadores)); 
 	nova->conteudo = conteudo;
-	nova->prox = NULL;
-	pilha->prox = nova; 
+	nova->prox = *topo;
+	*topo = nova;
 } 
 
 // Remove um elemento da pilha tp 
 // e devolve o elemento removido. 
 // Supõe que a pilha não está vazia. 
-ListaIdentificadores* Desempilha( PilhaIdentificadores *pilha) 
+ListaIdentificadores* Desempilha( PilhaIdentificadores **topo) 
 { 
 	ListaIdentificadores *conteudo; 
 	PilhaIdentificadores *retirado; 
-	if(pilha != NULL)
+	if(*topo != NULL)
 	{
-		retirado = pilha; 
+		retirado = *topo; 
 		conteudo = retirado->conteudo; 
-		pilha = retirado->prox;
+		*topo = retirado->prox;
  		free(retirado);
  		return conteudo; 
  	}
@@ -40,16 +40,15 @@ ListaIdentificadores* Desempilha( PilhaIdentificadores *pilha)
  		return NULL;
 }
 
-void DestroiPilha(PilhaIdentificadores *pilha)
+void DestroiPilha(PilhaIdentificadores **topo)
 {
 	ListaIdentificadores *Li;
-	while(pilha != NULL)
+	while(*topo != NULL)
 	{
-		Li = Desempilha(pilha);
+		Li = Desempilha(topo);
 		destroiListaIdentificadores(Li);
 	}	
 }
-
 
 int buscaIdentificadorPilha(int valor, PilhaIdentificadores *PilhaId)
 {
@@ -57,31 +56,33 @@ int buscaIdentificadorPilha(int valor, PilhaIdentificadores *PilhaId)
 	ListaIdentificadores *PiTroca;
 	int fim=-1;
 	Pi= PilhaId;
-	
-	while(Pi->prox != NULL)
+	while(Pi != NULL)
 	{
 		if(fim == -1) // provisório!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		{
-			PiTroca = Desempilha(Pi);
-			Empilha(Pitroca, Pireversa);
-			fim = buscaElementoListaIdentificadores(valor,Pitroca);
+			PiTroca = Desempilha(&Pi);
+			Empilha(PiTroca, &Pireversa);
+			fim = buscaElementoListaIdentificadores(valor,PiTroca);
 		}
 		else
 		{
 			while(Pireversa != NULL)
 			{
-				PiTroca = Desempilha(Pireversa);
-				Empilha(Pitroca, Pi);
+				PiTroca = Desempilha(&Pireversa);
+				Empilha(PiTroca, &Pi);
 			}
 			return 0;
 		}
 	}
 	while(Pireversa != NULL)
 	{
-		PiTroca = Desempilha(Pireversa);
-		Empilha(Pitroca, Pi);		
-	}	
-	return IKS_ERROR_UNDECLARED;
+		PiTroca = Desempilha(&Pireversa);
+		Empilha(PiTroca, &Pi);		
+	}
+	if(fim ==-1)	
+		return -1;
+	else
+		return 0;
 }
 
 

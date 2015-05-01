@@ -1,48 +1,57 @@
-#include "cc_list.h"
+#include "../include/cc_list.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 
 
-void CriaListaIdentificadores(ListaIdentificadores *listaId)
+ListaIdentificadores *CriaListaIdentificadores(ListaIdentificadores *listaId)
 {
-	listaId = mallocc(sizeof (ListaIdentificadores));
-	listaId->prox = NULL;
+	listaId = malloc(sizeof (ListaIdentificadores));
+	/*listaId->prox = NULL;
+	return listaId;*/
+	return NULL;
 }
 
 
-void AdicionaListaIdentificadores(int valor, ListaIdentificadores *listaId)
+ListaIdentificadores *AdicionaListaIdentificadores(int valor, ListaIdentificadores *listaId)
 {
-   ListaIdentificadores *nova;
-   nova = mallocc(sizeof (ListaIdentificadores));
-   nova->conteudo = valor;
-   nova->prox= NULL;
-   while( listaId->prox != NULL)
-   {
-   		listaId=listaId->prox;
-   }
-   p->prox = nova;
-}
+  ListaIdentificadores* novoElemento;
+  novoElemento = malloc(sizeof(ListaIdentificadores));
+  novoElemento->identificador = valor;
+  if(listaId==NULL)
+  	return novoElemento;
+  ListaIdentificadores* listaAux;
+  listaAux = listaId;
 
-void RemoveElementoListaIdentificadoresInicio(ListaIdentificadores *listaId)
-{
-  ListaIdentificadores *morto;
-  if (listaId!=NULL)
+  while(listaAux->prox != NULL)
   {
-   	morto = listaId;
-    listaId = listaId->prox;
+    listaAux = listaAux->prox;
+  }
+  listaAux->prox = novoElemento;
+  return listaId;
+}
+
+ListaIdentificadores* RemoveElementoListaIdentificadoresInicio(ListaIdentificadores *listaId)
+{
+  ListaIdentificadores *morto,*listaIdAux;
+  listaIdAux= listaId;
+  if (listaIdAux!=NULL)
+  {
+   	morto = listaIdAux;
+    listaIdAux = listaIdAux->prox;
     free(morto);
   }
+  return listaIdAux;
 }
 
-void RemoveElementoListaIdentificadoresConteudo(int valor, ListaIdentificadores *listaId)
+int RemoveElementoListaIdentificadoresConteudo(int valor, ListaIdentificadores *listaId)
 {	
 	ListaIdentificadores *morto;
 	ListaIdentificadores *antes;
 	morto = listaId;
    	while (morto !=NULL)
     {
-	 	if (morto->identificador == dado) // achou !!
+	 	if (morto->identificador == valor) // achou !!
 	 	{
 	   		if (morto == listaId) // se esta removendo o primeiro da lista
 	   		{
@@ -65,12 +74,14 @@ void RemoveElementoListaIdentificadoresConteudo(int valor, ListaIdentificadores 
    }
 }
 
-void destroiListaIdentificadores(ListaIdentificadores *listaId)
+ListaIdentificadores* destroiListaIdentificadores(ListaIdentificadores *listaId)
 {
-	while(listId != NULL)
+	while(listaId != NULL)
 	{
-		RemoveElementoListaIdentificadoresInicio(listId);
+		RemoveElementoListaIdentificadoresInicio(listaId);
+		listaId= listaId->prox;
 	}
+	return listaId;
 }
 
 int buscaElementoListaIdentificadores(int valor,  ListaIdentificadores *listaId)

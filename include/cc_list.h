@@ -3,21 +3,20 @@
 #include "cc_tree.h"
 #include "cc_ast.h"
 #include "cc_dict.h"
-#include "cc_stack.h"
 
 
 typedef struct ListaId { 
 	int identificador; 
-	struct Lista *prox; 
+	struct ListaId *prox; 
 } ListaIdentificadores;
 
 
 // operações com a lista de identificadores
-void CriaListaIdentificadores(ListaIdentificadores *listaId);
-void AdicionaListaIdentificadores(int valor, ListaIdentificadores *listaId);
-void RemoveElementoListaIdentificadoresInicio(ListaIdentificadores *listaId);
-void RemoveElementoListaIdentificadoresConteudo(int valor, ListaIdentificadores *listaId);
-void destroiListaIdentificadores(ListaIdentificadores *listaId);
+ListaIdentificadores *CriaListaIdentificadores(ListaIdentificadores *listaId);
+ListaIdentificadores *AdicionaListaIdentificadores(int valor, ListaIdentificadores *listaId);
+ListaIdentificadores* RemoveElementoListaIdentificadoresInicio(ListaIdentificadores *listaId);
+int RemoveElementoListaIdentificadoresConteudo(int valor, ListaIdentificadores *listaId);
+ListaIdentificadores* destroiListaIdentificadores(ListaIdentificadores *listaId);
 int buscaElementoListaIdentificadores(int valor,  ListaIdentificadores *listaId);
 
 #endif
