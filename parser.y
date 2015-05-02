@@ -133,7 +133,7 @@ declaracao_global
 
 declarar_funcao	
 	: escopo '(' parametros_vazio ')'
-									{/* */}
+									{paramcounter(&main_stack,param);}
 									'{' 
 									{stack_push(&main_stack,$6,block_item);} 
 									bloco_comando 
@@ -141,13 +141,14 @@ declarar_funcao
 									{ $$ = $1;
 										if($8 !=NULL)
 											appendChildNode($$,$8);
+										
 										param = 0;
 									}
 	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' {Func_type = $2;} '{' bloco_comando '}' {$$ = createNode(AST_FUNCAO,$3);if($9 !=NULL)appendChildNode($$,$9);}
 	;
 
 escopo
-	:especificador_tipo TK_IDENTIFICADOR {$2->iks_type = $1; $$ = createNode(AST_FUNCAO,$2);stack_push(&main_stack,$2,data_item);}
+	:especificador_tipo TK_IDENTIFICADOR {$2->iks_type = $1; $$ = createNode(AST_FUNCAO,$2);stack_push(&main_stack,$2,func_item);}
 	;
 
 parametros_vazio
@@ -156,13 +157,13 @@ parametros_vazio
 	;
 
 parametros
-	: lista_parametros ',' parametros {param++;}
-	| lista_parametros {param++;}
+	: lista_parametros ',' parametros
+	| lista_parametros
 	;
 	
 lista_parametros 
-	: especificador_tipo TK_IDENTIFICADOR {stack_push(&main_stack,$2,param_item); $2->iks_type = $1;}
-	| TK_PR_CONST especificador_tipo TK_IDENTIFICADOR {stack_push(&main_stack,$3,param_item); $3->iks_type = $2;}
+	: especificador_tipo TK_IDENTIFICADOR {stack_push(&main_stack,$2,param_item); $2->iks_type = $1;param++;}
+	| TK_PR_CONST especificador_tipo TK_IDENTIFICADOR {stack_push(&main_stack,$3,param_item); $3->iks_type = $2;param++;}
 	;
 
 literal
@@ -260,10 +261,10 @@ controle_fluxo
 	;
 
 chamada_funcao
-	: nome  '(' lista_vazia ')' {Function_Comparsion(param,chamada,main_stack,call_stack); $$ = createNode(AST_CHAMADA_DE_FUNCAO,NULL); appendChildNode($$,$1);if($3 != NULL) {appendChildNode($$,$3);} chamada = 0;}
+	: nome  '(' lista_vazia ')' {Function_Comparsion(chamada,main_stack,call_stack); $$ = createNode(AST_CHAMADA_DE_FUNCAO,NULL); appendChildNode($$,$1);if($3 != NULL) {appendChildNode($$,$3);} chamada = 0;}
 	;
 
-nome: TK_IDENTIFICADOR {$$ = createNode(AST_IDENTIFICADOR,$1);stack_push(&call_stack,$1,block_item);}
+nome: TK_IDENTIFICADOR {$$ = createNode(AST_IDENTIFICADOR,$1);stack_push(&call_stack,$1,func_item);}
 	;
 
 expressao 

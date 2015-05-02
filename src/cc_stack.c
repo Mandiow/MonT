@@ -75,7 +75,7 @@ int stack_isDeclared(stack_item* stack, comp_dict_item_t* data)
 	}
 	if(aux_stack == NULL)
 		return IKS_ERROR_UNDECLARED;
-/*
+
 	if(aux_stack->data->nodeType != data->nodeType)
 	{
 		switch(aux_stack->data->nodeType)
@@ -91,7 +91,7 @@ int stack_isDeclared(stack_item* stack, comp_dict_item_t* data)
 			default: break;
 		}	
 	}
-*/
+
 	return IKS_SUCCESS;
 }
 
@@ -418,31 +418,60 @@ void convertValue(int valueConversion, comp_dict_item_t* node)
 }
 
 
-int Function_Comparsion(int param,int chamada,stack_item* stack, stack_item* call_stack)
+int Function_Comparsion(int chamada,stack_item* stack, stack_item* call_stack)
 {
-	if(param<chamada)
-	{
-		printf("EXCEESOSOSOSOSOSOSOSO\n");
-		exit(IKS_ERROR_EXCESS_ARGS);
-	}
-	if(param>chamada)
-	{
-		exit(IKS_ERROR_MISSING_ARGS);
-	}
+	
 
 	stack_item* aux_stack; 
 	stack_item* aux_call_stack;
+	stack_item* mainParamStack;
+	stack_item* callParamStack;
 	aux_call_stack = call_stack;
 	aux_stack = stack;
 
 
-	while(aux_stack->flag != param_item)
-		aux_stack = aux_stack->prev;
+	while(aux_call_stack->flag != func_item)
+	{
+		
+		if(aux_call_stack->flag == param_item)
+		{
+			stack_push(&callParamStack,aux_call_stack->data,3);
+		}
+		aux_call_stack = aux_call_stack->prev;
+	}
+	while(aux_stack->data->key != aux_call_stack->data->key)
+		{
+			if(aux_call_stack->flag == param_item)
+			{
+				stack_push(&mainParamStack,aux_stack->data,3);
+			}
 
-	while(aux_call_stack != NULL)
+			aux_stack = aux_stack->prev;
+		}
+	if(aux_stack->flag != func_item)
+		{
+			switch(aux_stack->data->nodeType)
+			{
+				case AST_IDENTIFICADOR:
+					exit(IKS_ERROR_VARIABLE);
+				case AST_VETOR_INDEXADO:
+					exit(IKS_ERROR_VECTOR);
+			}
+		}
+	if(aux_stack->data->param<chamada)
+	{
+		exit(IKS_ERROR_EXCESS_ARGS);
+	}
+	if(aux_stack->data->param>chamada)
+	{
+		exit(IKS_ERROR_MISSING_ARGS);
+	}
+
+	while(callParamStack != NULL)
 	{
 		if (typeCoercion(aux_stack->data,aux_call_stack->data,0) != IKS_SUCCESS)
 		{
+			printf("ERRO\n");
 			exit(IKS_ERROR_WRONG_TYPE_ARGS);
 		}
 		aux_stack = aux_stack->prev;
@@ -452,4 +481,17 @@ int Function_Comparsion(int param,int chamada,stack_item* stack, stack_item* cal
 
 	return IKS_SUCCESS;
 
+}
+
+
+void paramcounter(stack_item** stack, int param)
+{
+	stack_item* aux_call_stack;
+	aux_call_stack = *stack;
+
+	while(aux_call_stack->flag != func_item)
+	{
+		aux_call_stack = aux_call_stack->prev;
+	}
+	aux_call_stack->data->param = param;
 }

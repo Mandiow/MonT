@@ -24,7 +24,7 @@ struct nodeList_t{
 };
 
 struct comp_tree_t {
-	int nodeType;						// As defined id cc_ast.h
+							// As defined id cc_ast.h
 	comp_dict_item_t* tableItem;	// The pointer in the Table to the item related in this node
     nodeList* childNodeList; 	// A list of this node siblings, (maximum varies depending on comp_tree_t.type)
     comp_tree_t* nodeFather;		// It's father in the ast

@@ -32,7 +32,8 @@ typedef struct comp_dict_item_t{  // item tabela de simbolos
     int iks_type;                           // Type of the correspondent literal
     int coercion;                       // If coercion is used, exactly as it is defined in this file.
     int size;                           // As defined in this file.
-
+    int param;
+    int nodeType;
     union magic_token token;
     struct comp_dict_item_t *next; /* prox item da tabela de simbols */
     char *key; /* chave  para consultar o simbolo o lexical*/

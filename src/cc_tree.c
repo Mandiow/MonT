@@ -2,14 +2,13 @@
 #include <time.h>
 
 
-// Create a single node with the designed nodeType and pointer to it's element in the table
+// Create a single node with the designed tableItem->nodeType and pointer to it's element in the table
 comp_tree_t* createNode(int nodeType, comp_dict_item_t* tableItem)
 {
 	comp_tree_t* newNode = (comp_tree_t*)malloc(sizeof(comp_tree_t));
 	newNode->childNodeList = (nodeList*)malloc(sizeof(nodeList)); 		// Initialise it's list of siblings as NULL
 	//newNode->childNodeList->nextNode = (nodeList*)malloc(sizeof(nodeList));
 	newNode->childNodeList->firstNode = NULL;
-	newNode->nodeType = nodeType;
 	if(tableItem == NULL)
 		tableItem = malloc(sizeof(struct comp_dict_item_t));
 	tableItem->iks_type = -1;
@@ -35,6 +34,7 @@ comp_tree_t* createNode(int nodeType, comp_dict_item_t* tableItem)
 			}
 			
 	newNode->tableItem = tableItem;
+	newNode->tableItem->nodeType = nodeType;
 	newNode->nodeFather = NULL;
 	newNode->childNodeList->nextNode = NULL;
 	
@@ -54,7 +54,7 @@ void *appendChildNode(comp_tree_t* father, comp_tree_t* newChild)
 				if(auxNodeList->firstNode == NULL)
 				{
 					auxNodeList->firstNode = newChild;
-					if((father->nodeType < 12 && father->nodeType > 24) || auxNodeList->nextNode == NULL)
+					if((father->tableItem->nodeType < 12 && father->tableItem->nodeType > 24) || auxNodeList->nextNode == NULL)
 						auxNodeList->nextNode = NULL;
 
 				}
@@ -120,19 +120,19 @@ void gv_create_initial_tree(comp_tree_t* tree)
 		return;
 	gv_init(NULL);
 	comp_tree_t* auxNode = tree;
-	switch(tree->nodeType)
+	switch(tree->tableItem->nodeType)
 	{
 		case AST_IDENTIFICADOR:
-				gv_declare(tree->nodeType, tree, tree->tableItem->key);
+				gv_declare(tree->tableItem->nodeType, tree, tree->tableItem->key);
 			break;
 		case AST_LITERAL:
-				gv_declare(tree->nodeType, tree, tree->tableItem->key);
+				gv_declare(tree->tableItem->nodeType, tree, tree->tableItem->key);
 			break;
 		case AST_FUNCAO:
-				gv_declare(tree->nodeType, tree, tree->tableItem->key);
+				gv_declare(tree->tableItem->nodeType, tree, tree->tableItem->key);
 			break;
 		default:
-				gv_declare(tree->nodeType, tree,  NULL);
+				gv_declare(tree->tableItem->nodeType, tree,  NULL);
 			break;
 	}
 			
@@ -146,25 +146,25 @@ void __gv_create_subtree(comp_tree_t* father, comp_tree_t* node)
 {
 	if (node != NULL)
 	{
-		switch(node->nodeType)
+		switch(node->tableItem->nodeType)
 		{
 			case AST_IDENTIFICADOR:
 				if(node->tableItem != NULL)
-					gv_declare(node->nodeType, node, node->tableItem->key);
+					gv_declare(node->tableItem->nodeType, node, node->tableItem->key);
 				else
-					gv_declare(node->nodeType, node, "IDENTIFICADOR");
+					gv_declare(node->tableItem->nodeType, node, "IDENTIFICADOR");
 				break;
 			case AST_LITERAL:
 				if(node->tableItem != NULL)
-					gv_declare(node->nodeType, node, node->tableItem->key);
+					gv_declare(node->tableItem->nodeType, node, node->tableItem->key);
 				else
-					gv_declare(node->nodeType, node, "LITERAL");
+					gv_declare(node->tableItem->nodeType, node, "LITERAL");
 				break;
 			case AST_FUNCAO:
-					gv_declare(node->nodeType, node, node->tableItem->key);
+					gv_declare(node->tableItem->nodeType, node, node->tableItem->key);
 				break;
 			default:
-					gv_declare(node->nodeType, node,  NULL);
+					gv_declare(node->tableItem->nodeType, node,  NULL);
 				break;
 		}
 		gv_connect(father,node);
@@ -176,7 +176,7 @@ void __gv_create_subtree(comp_tree_t* father, comp_tree_t* node)
 		{
 			if(auxNodeList->firstNode != NULL)
 			{
-				printf("%d\n", auxNodeList->firstNode->nodeType);
+				printf("%d\n", auxNodeList->firstNode->tableItem->nodeType);
 				__gv_create_subtree(node,auxNodeList->firstNode);		
 			}
 			auxNodeList = auxNodeList->nextNode;
