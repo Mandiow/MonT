@@ -7,12 +7,16 @@
 #include "main.h"
 #include "cc_misc.h"
 int Func_type;
+int param = 0;
+int chamada = 0;
 %}
 %union
 {
 	struct comp_tree_t *syntaxTree;
 	struct stack_item *main_stack;
+	struct stack_item *call_stack;
 	struct comp_dict_item_t *valor_simbolo_lexico;
+	int type;
 
 }
 
@@ -77,7 +81,7 @@ int Func_type;
 %type<valor_simbolo_lexico> '}'
 %type<valor_simbolo_lexico> '!'
 %type<syntaxTree> literal
-%type<syntaxTree> especificador_tipo
+%type<type> especificador_tipo
 
 /*DISCLAIMER: A contra gosto usei os lefts para assegurar a AST, 
 			  na formulação de expressão, usada anteriormente
@@ -122,27 +126,43 @@ programa
 	;
 
 declaracao_global
-	: especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT ']' {stack_push(main_stack,$2,data_item); $2->tipo = $1;}
-	| especificador_tipo TK_IDENTIFICADOR {stack_push(main_stack,$2,data_item); $2->iks_type = $1;}
-	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR '[' TK_LIT_INT ']' {stack_push(main_stack,$3,data_item); $3->tipo = $2;}
+	: especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT ']' {stack_push(&main_stack,$2,data_item); $2->iks_type = $1;}
+	| especificador_tipo TK_IDENTIFICADOR {stack_push(&main_stack,$2,data_item); $2->iks_type = $1;}
+	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR '[' TK_LIT_INT ']' {stack_push(&main_stack,$3,data_item); $3->iks_type = $2;}
 	;
 
 declarar_funcao	
 	: escopo '(' parametros_vazio ')'
-									{/*stack_push(,,param_item); PARAM */}
+									{/* */}
 									'{' 
-									{stack_push(main_stack,$6,block_item);} 
+									{stack_push(&main_stack,$6,block_item);} 
 									bloco_comando 
 									'}' 
 									{ $$ = $1;
 										if($8 !=NULL)
 											appendChildNode($$,$8);
+										param = 0;
 									}
 	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' {Func_type = $2;} '{' bloco_comando '}' {$$ = createNode(AST_FUNCAO,$3);if($9 !=NULL)appendChildNode($$,$9);}
 	;
 
 escopo
-	:especificador_tipo TK_IDENTIFICADOR {$2->iks_type = $1; $$ = createNode(AST_FUNCAO,$2);stack_push(main_stack,$2,data_item);}
+	:especificador_tipo TK_IDENTIFICADOR {$2->iks_type = $1; $$ = createNode(AST_FUNCAO,$2);stack_push(&main_stack,$2,data_item);}
+	;
+
+parametros_vazio
+	: parametros 
+	| 
+	;
+
+parametros
+	: lista_parametros ',' parametros {param++;}
+	| lista_parametros {param++;}
+	;
+	
+lista_parametros 
+	: especificador_tipo TK_IDENTIFICADOR {stack_push(&main_stack,$2,param_item); $2->iks_type = $1;}
+	| TK_PR_CONST especificador_tipo TK_IDENTIFICADOR {stack_push(&main_stack,$3,param_item); $3->iks_type = $2;}
 	;
 
 literal
@@ -163,7 +183,7 @@ especificador_tipo
 	;
 
 declaracao_local
-	: especificador_tipo TK_IDENTIFICADOR   {$$ = NULL;stack_push(main_stack,$2,data_item); $2->iks_type = $1; printf("aqui\n");}
+	: especificador_tipo TK_IDENTIFICADOR   {$$ = NULL;stack_push(&main_stack,$2,data_item); $2->iks_type = $1; printf("aqui\n");}
 	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;}
 	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR {$$ = NULL;}
 	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;}
@@ -182,7 +202,7 @@ ID
 	;
 
 atribuicao 
-	: ID '=' expressao {$$ = createNode(AST_ATRIBUICAO,$2); appendChildNode($$,$1);appendChildNode($$,$3);}
+	: ID '=' expressao {$$ = createNode(AST_ATRIBUICAO,$2); appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
 	;
 
 retorno
@@ -201,25 +221,10 @@ comando
 	| atribuicao 			{$$ = $1;}
 	| declaracao_local  	{$$ = $1;}
     | controle_fluxo 		{$$ = $1;}
-	| '{'{stack_push(main_stack,$1,block_item);} bloco_comando '}' { $$ = createNode(AST_BLOCO, NULL);appendChildNode($$,$3);} //CUIDAR MUITO BEM DISSO, COM CARINHO E COM AMOR;
+	| '{'{stack_push(&main_stack,$1,block_item);} bloco_comando '}' { $$ = createNode(AST_BLOCO, NULL);appendChildNode($$,$3);} //CUIDAR MUITO BEM DISSO, COM CARINHO E COM AMOR;
 	| entrada 				{$$ = $1;}
 	| chamada_funcao		{$$ = $1;} 
 	| saida 				{$$ = $1;}
-	;
-
-parametros_vazio
-	: parametros 
-	| 
-	;
-
-parametros
-	: lista_parametros ',' parametros 
-	| lista_parametros
-	;
-	
-lista_parametros 
-	: especificador_tipo TK_IDENTIFICADOR 
-	| TK_PR_CONST especificador_tipo TK_IDENTIFICADOR 
 	;
 
 entrada
@@ -243,8 +248,8 @@ lista_expressoes
 	;
 
 mais_de_uma
-	: ',' lista_expressoes {$$ = $2;}
-	| {$$ = NULL;}
+	: ',' lista_expressoes {$$ = $2; chamada++;}
+	| {$$ = NULL; chamada++;}
 	;
 
 controle_fluxo
@@ -255,29 +260,29 @@ controle_fluxo
 	;
 
 chamada_funcao
-	: nome  '(' lista_vazia ')' { $$ = createNode(AST_CHAMADA_DE_FUNCAO,NULL); appendChildNode($$,$1);if($3 != NULL) {appendChildNode($$,$3);printf("aqui\n");}}
+	: nome  '(' lista_vazia ')' {Function_Comparsion(param,chamada,main_stack,call_stack); $$ = createNode(AST_CHAMADA_DE_FUNCAO,NULL); appendChildNode($$,$1);if($3 != NULL) {appendChildNode($$,$3);} chamada = 0;}
 	;
 
-nome: TK_IDENTIFICADOR {$$ = createNode(AST_IDENTIFICADOR,$1);}
+nome: TK_IDENTIFICADOR {$$ = createNode(AST_IDENTIFICADOR,$1);stack_push(&call_stack,$1,block_item);}
 	;
 
 expressao 
 	: ID
 	| literal 
-	| expressao '/' expressao				{$$ = createNode(AST_ARIM_DIVISAO, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao '*' expressao				{$$ = createNode(AST_ARIM_MULTIPLICACAO, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao '-' expressao				{$$ = createNode(AST_ARIM_SUBTRACAO, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao '+' expressao				{$$ = createNode(AST_ARIM_SOMA, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
+	| expressao '/' expressao				{$$ = createNode(AST_ARIM_DIVISAO, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
+	| expressao '*' expressao				{$$ = createNode(AST_ARIM_MULTIPLICACAO, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
+	| expressao '-' expressao				{$$ = createNode(AST_ARIM_SUBTRACAO, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
+	| expressao '+' expressao				{$$ = createNode(AST_ARIM_SOMA, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
 	| '-' expressao							{$$ = createNode(AST_ARIM_INVERSAO, NULL);appendChildNode($$,$2);}
 	| TK_OC_NOT expressao					{$$ = createNode(AST_LOGICO_COMP_NEGACAO, NULL);appendChildNode($$,$2);}
-	| expressao '<' expressao				{$$ = createNode(AST_LOGICO_COMP_L, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao '>' expressao				{$$ = createNode(AST_LOGICO_COMP_G, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao TK_OC_LE expressao			{$$ = createNode(AST_LOGICO_COMP_LE, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao TK_OC_GE expressao			{$$ = createNode(AST_LOGICO_COMP_GE, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao TK_OC_EQ expressao			{$$ = createNode(AST_LOGICO_COMP_IGUAL, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao TK_OC_NE expressao			{$$ = createNode(AST_LOGICO_COMP_DIF, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao TK_OC_AND expressao			{$$ = createNode(AST_LOGICO_E, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
-	| expressao TK_OC_OR expressao			{$$ = createNode(AST_LOGICO_OU, NULL);appendChildNode($$,$1);appendChildNode($$,$3);}
+	| expressao '<' expressao				{$$ = createNode(AST_LOGICO_COMP_L, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
+	| expressao '>' expressao				{$$ = createNode(AST_LOGICO_COMP_G, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
+	| expressao TK_OC_LE expressao			{$$ = createNode(AST_LOGICO_COMP_LE, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
+	| expressao TK_OC_GE expressao			{$$ = createNode(AST_LOGICO_COMP_GE, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
+	| expressao TK_OC_EQ expressao			{$$ = createNode(AST_LOGICO_COMP_IGUAL, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
+	| expressao TK_OC_NE expressao			{$$ = createNode(AST_LOGICO_COMP_DIF, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
+	| expressao TK_OC_AND expressao			{$$ = createNode(AST_LOGICO_E, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
+	| expressao TK_OC_OR expressao			{$$ = createNode(AST_LOGICO_OU, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
 	| '(' expressao ')'						{$$ = $2;}
 	| chamada_funcao 						{$$ = $1;}
 	;

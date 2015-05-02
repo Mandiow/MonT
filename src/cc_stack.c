@@ -12,45 +12,42 @@ void stack_initialize(stack_item* stack)
 }
 
 
-int stack_push(stack_item* stack, comp_dict_item_t* data, stack_flag flag)
+int stack_push(stack_item **stack, comp_dict_item_t* data, stack_flag flag)
 {
 	stack_item* new_item = (stack_item*)malloc(sizeof(stack_item));
 
 	if(new_item == NULL)
 		return MALLOC_ERROR;
 	new_item->prev = NULL;
-	if(flag == data_item)
-		if(stack_isDeclared(stack,data) == IKS_SUCCESS)
+	if(flag >= data_item)
+		if(stack_isDeclared(*stack,data) == IKS_SUCCESS)
 			exit(IKS_ERROR_DECLARED);
+	
 	if(stack == NULL)
 	{
 		
 		if(flag == data_item)
 		{
-			stack = new_item;
-			stack->data = data;
-			stack->flag = flag;
-			main_stack = stack;
-			printf("%s\n",stack->data->key);
+			new_item->data = data;
+			new_item->flag = flag;
+			*stack = new_item;
 			return IKS_SUCCESS;
 		}
 		else
 		{
-			stack = new_item;
-			stack->data = NULL;
-			stack->flag = flag;
-			main_stack = stack;
+			new_item->data = NULL;
+			new_item->flag = flag;
+			*stack = new_item;
 			return IKS_SUCCESS;
 		}
 	}
 
 	else
 	{
-		new_item->prev = stack;
+		new_item->prev = *stack;
 		new_item->flag = flag;
 		new_item->data = data;
-		stack = new_item;
-		main_stack = stack;
+		*stack = new_item;
 		return IKS_SUCCESS;
 	}
 }
@@ -212,23 +209,23 @@ int typeInference(comp_tree_t* leftNode, comp_tree_t* rightNode)
 	}
 }
 
-int typeCoercion(comp_tree_t* leftNode, comp_tree_t* rightNode, int typeOfCommand) // typeOfCommand: 0 -> Att; 1 -> Return; 2 -> Input; 3 -> Output;
+int typeCoercion(comp_dict_item_t* leftElement, comp_dict_item_t* rightElement, int typeOfCommand) // typeOfCommand: 0 -> Att; 1 -> Return; 2 -> Input; 3 -> Output;
 {
 	//FALTA CORRIGIR O OUTPUT, JÁ QUE TÁ TÃO AMBIGUO QUANTO A MINHA CARA.
-	switch(leftNode->tableItem->iks_type)
+	switch(leftElement->iks_type)
 	{
 		case IKS_INT:
-			switch(rightNode->tableItem->iks_type)
+			switch(rightElement->iks_type)
 			{
 				case IKS_INT:
 					return IKS_SUCCESS;
 				case IKS_FLOAT:
-					leftNode->tableItem->coercion = COERCION_TO_FLOAT;
-					convertValue(COERCION_TO_FLOAT,leftNode);
+					leftElement->coercion = COERCION_TO_FLOAT;
+					convertValue(COERCION_TO_FLOAT,leftElement);
 					return IKS_SUCCESS;
 				case IKS_BOOL:
-					rightNode->tableItem->coercion = COERCION_TO_INT;
-					convertValue(COERCION_TO_INT,rightNode);
+					rightElement->coercion = COERCION_TO_INT;
+					convertValue(COERCION_TO_INT,rightElement);
 					return IKS_SUCCESS;
 				case SIMBOLO_LITERAL_CHAR:
 					switch(typeOfCommand)
@@ -248,17 +245,17 @@ int typeCoercion(comp_tree_t* leftNode, comp_tree_t* rightNode, int typeOfComman
 						}
 			}
 		case SIMBOLO_LITERAL_FLOAT:
-			switch(rightNode->tableItem->iks_type)
+			switch(rightElement->iks_type)
 			{
 				case IKS_INT:
-					rightNode->tableItem->coercion = COERCION_TO_FLOAT;
-					convertValue(COERCION_TO_FLOAT,rightNode);
+					rightElement->coercion = COERCION_TO_FLOAT;
+					convertValue(COERCION_TO_FLOAT,rightElement);
 					return IKS_SUCCESS;
 				case IKS_FLOAT:
 					return IKS_SUCCESS;
 				case IKS_BOOL:
-					rightNode->tableItem->coercion = COERCION_TO_FLOAT;
-					convertValue(COERCION_TO_FLOAT,rightNode);
+					rightElement->coercion = COERCION_TO_FLOAT;
+					convertValue(COERCION_TO_FLOAT,rightElement);
 					return IKS_SUCCESS;
 				case SIMBOLO_LITERAL_CHAR:
 					switch(typeOfCommand)
@@ -278,15 +275,15 @@ int typeCoercion(comp_tree_t* leftNode, comp_tree_t* rightNode, int typeOfComman
 						}
 			}
 		case SIMBOLO_LITERAL_BOOL:
-			switch(rightNode->tableItem->iks_type)
+			switch(rightElement->iks_type)
 			{
 				case IKS_INT:
-					leftNode->tableItem->coercion = COERCION_TO_INT;
-					convertValue(COERCION_TO_INT,rightNode);
+					leftElement->coercion = COERCION_TO_INT;
+					convertValue(COERCION_TO_INT,rightElement);
 					return IKS_SUCCESS;
 				case IKS_FLOAT:
-					leftNode->tableItem->coercion = COERCION_TO_FLOAT;
-					convertValue(COERCION_TO_FLOAT,rightNode);
+					leftElement->coercion = COERCION_TO_FLOAT;
+					convertValue(COERCION_TO_FLOAT,rightElement);
 					return IKS_SUCCESS;
 				case IKS_BOOL:
 					return IKS_SUCCESS;
@@ -308,7 +305,7 @@ int typeCoercion(comp_tree_t* leftNode, comp_tree_t* rightNode, int typeOfComman
 						}
 			}
 		case SIMBOLO_LITERAL_CHAR:
-			switch(rightNode->tableItem->iks_type)
+			switch(rightElement->iks_type)
 			{
 				case IKS_INT:
 				case IKS_FLOAT:
@@ -332,7 +329,7 @@ int typeCoercion(comp_tree_t* leftNode, comp_tree_t* rightNode, int typeOfComman
 						}
 			}
 		case SIMBOLO_LITERAL_STRING:
-			switch(rightNode->tableItem->iks_type)
+			switch(rightElement->iks_type)
 			{
 				case IKS_INT:
 				case IKS_FLOAT:
@@ -359,63 +356,100 @@ int typeCoercion(comp_tree_t* leftNode, comp_tree_t* rightNode, int typeOfComman
 	}
 }
 
-void convertValue(int valueConversion, comp_tree_t* node)
+void convertValue(int valueConversion, comp_dict_item_t* node)
 {
 	if(valueConversion == COERCION_TO_FLOAT)
 	{
-		if (node->tableItem->iks_type == IKS_INT)
+		if (node->iks_type == IKS_INT)
 		{
-			node->tableItem->iks_type = IKS_FLOAT;
-			node->tableItem->tipo = SIMBOLO_LITERAL_FLOAT;
-			node->tableItem->token.floating_point = (float)node->tableItem->token.integer;
+			node->iks_type = IKS_FLOAT;
+			node->tipo = SIMBOLO_LITERAL_FLOAT;
+			node->token.floating_point = (float)node->token.integer;
 			return;
 		}
-		if (node->tableItem->iks_type == IKS_BOOL)
+		if (node->iks_type == IKS_BOOL)
 		{
-			node->tableItem->iks_type = IKS_FLOAT;
-			node->tableItem->tipo = SIMBOLO_LITERAL_FLOAT;
-			node->tableItem->token.floating_point = (float)node->tableItem->token.boolean;
+			node->iks_type = IKS_FLOAT;
+			node->tipo = SIMBOLO_LITERAL_FLOAT;
+			node->token.floating_point = (float)node->token.boolean;
 			return;
 		}
 	}
 	else if(valueConversion == COERCION_TO_INT)
 	{
-		if (node->tableItem->iks_type == IKS_BOOL)
+		if (node->iks_type == IKS_BOOL)
 		{
-			node->tableItem->iks_type = COERCION_TO_INT;
-			node->tableItem->tipo = SIMBOLO_LITERAL_INT;
-			node->tableItem->token.integer = (int)node->tableItem->token.boolean;
+			node->iks_type = COERCION_TO_INT;
+			node->tipo = SIMBOLO_LITERAL_INT;
+			node->token.integer = (int)node->token.boolean;
 			return;
 		}
 
-		if (node->tableItem->iks_type == IKS_FLOAT)
+		if (node->iks_type == IKS_FLOAT)
 		{
-			node->tableItem->iks_type = COERCION_TO_INT;
-			node->tableItem->tipo = SIMBOLO_LITERAL_INT;
-			node->tableItem->token.integer = (int)(node->tableItem->token.floating_point);
+			node->iks_type = COERCION_TO_INT;
+			node->tipo = SIMBOLO_LITERAL_INT;
+			node->token.integer = (int)(node->token.floating_point);
 			return;
 		}
 	}
 	else if(valueConversion == COERCION_TO_BOOL)
 	{
-		if (node->tableItem->iks_type == IKS_INT)
+		if (node->iks_type == IKS_INT)
 		{
-			node->tableItem->iks_type = COERCION_TO_BOOL;
-			node->tableItem->tipo = SIMBOLO_LITERAL_BOOL;
-			node->tableItem->token.boolean = (int)node->tableItem->token.integer;
+			node->iks_type = COERCION_TO_BOOL;
+			node->tipo = SIMBOLO_LITERAL_BOOL;
+			node->token.boolean = (int)node->token.integer;
 			return;
 		}
 
-		if (node->tableItem->iks_type == IKS_FLOAT)
+		if (node->iks_type == IKS_FLOAT)
 		{
-			node->tableItem->iks_type = COERCION_TO_BOOL;
-			node->tableItem->tipo = SIMBOLO_LITERAL_BOOL;
-			if(node->tableItem->token.floating_point >= 0.5)
-				node->tableItem->token.boolean = 1;
+			node->iks_type = COERCION_TO_BOOL;
+			node->tipo = SIMBOLO_LITERAL_BOOL;
+			if(node->token.floating_point >= 0.5)
+				node->token.boolean = 1;
 			else
-				node->tableItem->token.boolean = 0;
+				node->token.boolean = 0;
 			return;
 		}
 		
 	}
+}
+
+
+int Function_Comparsion(int param,int chamada,stack_item* stack, stack_item* call_stack)
+{
+	if(param<chamada)
+	{
+		printf("EXCEESOSOSOSOSOSOSOSO\n");
+		exit(IKS_ERROR_EXCESS_ARGS);
+	}
+	if(param>chamada)
+	{
+		exit(IKS_ERROR_MISSING_ARGS);
+	}
+
+	stack_item* aux_stack; 
+	stack_item* aux_call_stack;
+	aux_call_stack = call_stack;
+	aux_stack = stack;
+
+
+	while(aux_stack->flag != param_item)
+		aux_stack = aux_stack->prev;
+
+	while(aux_call_stack != NULL)
+	{
+		if (typeCoercion(aux_stack->data,aux_call_stack->data,0) != IKS_SUCCESS)
+		{
+			exit(IKS_ERROR_WRONG_TYPE_ARGS);
+		}
+		aux_stack = aux_stack->prev;
+		aux_call_stack = aux_call_stack->prev;
+	}
+
+
+	return IKS_SUCCESS;
+
 }
