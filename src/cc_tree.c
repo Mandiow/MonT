@@ -10,6 +10,8 @@ comp_tree_t* createNode(int nodeType, comp_dict_item_t* tableItem)
 	//newNode->childNodeList->nextNode = (nodeList*)malloc(sizeof(nodeList));
 	newNode->childNodeList->firstNode = NULL;
 	newNode->nodeType = nodeType;
+	if(tableItem == NULL)
+		tableItem = malloc(sizeof(struct comp_dict_item_t));
 	tableItem->iks_type = -1;
 
 	if(nodeType == AST_LITERAL)
@@ -116,6 +118,7 @@ void gv_create_initial_tree(comp_tree_t* tree)
 	
 	if (tree == NULL)
 		return;
+	gv_init(NULL);
 	comp_tree_t* auxNode = tree;
 	switch(tree->nodeType)
 	{

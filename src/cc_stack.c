@@ -8,7 +8,7 @@
 
 void stack_initialize(stack_item* stack)
 {
-	return ;
+	return;
 }
 
 
@@ -16,18 +16,22 @@ int stack_push(stack_item* stack, comp_dict_item_t* data, stack_flag flag)
 {
 	stack_item* new_item = (stack_item*)malloc(sizeof(stack_item));
 
+			printf("%p\n",main_stack);
 	if(new_item == NULL)
 		return MALLOC_ERROR;
 	new_item->prev = NULL;
 	if(stack_isDeclared(stack,data) == IKS_SUCCESS)
-		return IKS_ERROR_DECLARED;
+		exit(IKS_ERROR_DECLARED);
 	if(stack == NULL)
 	{
+		
 		if(flag == data_item)
 		{
 			stack = new_item;
 			stack->data = data;
 			stack->flag = flag;
+			main_stack = stack;
+			printf("%s\n",stack->data->key);
 			return IKS_SUCCESS;
 		}
 		else
@@ -35,6 +39,7 @@ int stack_push(stack_item* stack, comp_dict_item_t* data, stack_flag flag)
 			stack = new_item;
 			stack->data = NULL;
 			stack->flag = flag;
+			main_stack = stack;
 			return IKS_SUCCESS;
 		}
 	}
@@ -45,6 +50,10 @@ int stack_push(stack_item* stack, comp_dict_item_t* data, stack_flag flag)
 		new_item->flag = flag;
 		new_item->data = data;
 		stack = new_item;
+		printf("%s\n",stack->prev->data->key );
+		if(stack->prev->prev != NULL)
+			printf("%s\n",stack->prev->prev->data->key );
+		main_stack = stack;
 		return IKS_SUCCESS;
 	}
 }
@@ -66,7 +75,7 @@ int stack_isDeclared(stack_item* stack, comp_dict_item_t* data)
 		return -1;
 	stack_item* aux_stack;
 	aux_stack = stack;
-	while(aux_stack != NULL && aux_stack->data != NULL && aux_stack->data->token.string != data->token.string)
+	while(aux_stack != NULL && aux_stack->data != NULL && aux_stack->data->key != data->key)
 	{
 		aux_stack = aux_stack->prev;
 	}

@@ -1,5 +1,6 @@
 #include "cc_misc.h"
 #include "cc_dict.h"
+#include "cc_stack.h"
 
 extern lineNumber;
 
@@ -17,6 +18,7 @@ void main_init (int argc, char **argv)
 {
   //implemente esta função com rotinas de inicialização, se necessário
 	dict_create(100);
+	//stack_initialize(main_stack);
 }
 
 void main_finalize (void)

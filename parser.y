@@ -5,13 +5,14 @@
 #include <stdio.h>
 #include <math.h>
 #include "main.h"
+#include "cc_misc.h"
 int Func_type;
 %}
 %union
 {
 	struct comp_tree_t *syntaxTree;
-	struct comp_dict_item_t *valor_simbolo_lexico;
 	struct stack_item *main_stack;
+	struct comp_dict_item_t *valor_simbolo_lexico;
 
 }
 
@@ -121,7 +122,7 @@ programa
 
 declaracao_global
 	: especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT ']' {stack_push(main_stack,$2,data_item); $2->tipo = $1;}
-	| especificador_tipo TK_IDENTIFICADOR {stack_push(main_stack,$2,data_item); $2->tipo = $1;}
+	| especificador_tipo TK_IDENTIFICADOR {stack_push(main_stack,$2,data_item); $2->iks_type = $1;}
 	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR '[' TK_LIT_INT ']' {stack_push(main_stack,$3,data_item); $3->tipo = $2;}
 	;
 

@@ -79,24 +79,29 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             node->token.integer = atoi(key);
                             node->key = strdup(key);
                             node->tipo = TK_some_symbol_comes;
+                            node->iks_type = IKS_INT;
                             break;
                         case SIMBOLO_LITERAL_FLOAT:
                             node->token.floating_point = atof(key);
                             node->key = strdup(key);
                             node->tipo = TK_some_symbol_comes;
+                            node->iks_type = IKS_FLOAT;
                             break;
                         case SIMBOLO_LITERAL_CHAR:
                             node->token.single_char = key[1];
                             node->key = strtok(key,"\'");
                             node->tipo = TK_some_symbol_comes;
+                            node->iks_type = IKS_CHAR;
                             break;
                         case SIMBOLO_LITERAL_STRING:
                             node->token.string = strtok(key,"\"");
                             node->key = strtok(key,"\"");
                             node->tipo = TK_some_symbol_comes;
+                            node->iks_type = IKS_STRING;
                             break;
                         case SIMBOLO_LITERAL_BOOL:
                             node->tipo = TK_some_symbol_comes;
+                            node->iks_type = IKS_BOOL;
                             node->key = strdup(key);
                             if(strcmp(key,"true"))
                                 node->token.boolean = 1; //Caso Token Boolean = True
@@ -143,24 +148,29 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             node->token.integer = atoi(key);
                             node->key = strdup(key);
                             node->tipo = TK_some_symbol_comes;
+                            node->iks_type = IKS_INT;
                             break;
                         case SIMBOLO_LITERAL_FLOAT:
                             node->token.floating_point = atof(key);
                             node->key = strdup(key);
                             node->tipo = TK_some_symbol_comes;
+                            node->iks_type = IKS_FLOAT;
                             break;
                         case SIMBOLO_LITERAL_CHAR:
                             node->token.single_char = key[1];
                             node->key = strtok(key,"\'");
                             node->tipo = TK_some_symbol_comes;
+                            node->iks_type = IKS_CHAR;
                             break;
                         case SIMBOLO_LITERAL_STRING:
                             node->token.string = strtok(key,"\"");
                             node->key = strtok(key,"\"");
                             node->tipo = TK_some_symbol_comes;
+                            node->iks_type = IKS_STRING;
                             break;
                         case SIMBOLO_LITERAL_BOOL:
                             node->tipo = TK_some_symbol_comes;
+                            node->iks_type = IKS_BOOL;
                             node->key = strdup(key);
                             if(strcmp(key,"true"))
                                 node->token.boolean = 1; //Caso Token Boolean = True
