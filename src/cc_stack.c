@@ -16,12 +16,12 @@ int stack_push(stack_item* stack, comp_dict_item_t* data, stack_flag flag)
 {
 	stack_item* new_item = (stack_item*)malloc(sizeof(stack_item));
 
-			printf("%p\n",main_stack);
 	if(new_item == NULL)
 		return MALLOC_ERROR;
 	new_item->prev = NULL;
-	if(stack_isDeclared(stack,data) == IKS_SUCCESS)
-		exit(IKS_ERROR_DECLARED);
+	if(flag == data_item)
+		if(stack_isDeclared(stack,data) == IKS_SUCCESS)
+			exit(IKS_ERROR_DECLARED);
 	if(stack == NULL)
 	{
 		
@@ -50,9 +50,6 @@ int stack_push(stack_item* stack, comp_dict_item_t* data, stack_flag flag)
 		new_item->flag = flag;
 		new_item->data = data;
 		stack = new_item;
-		printf("%s\n",stack->prev->data->key );
-		if(stack->prev->prev != NULL)
-			printf("%s\n",stack->prev->prev->data->key );
 		main_stack = stack;
 		return IKS_SUCCESS;
 	}

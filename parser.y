@@ -54,6 +54,7 @@ int Func_type;
 /*Declaração dos tipos das estruturas*/
 %type<syntaxTree> start
 %type<syntaxTree> programa
+%type<syntaxTree> escopo
 %type<syntaxTree> declarar_funcao
 %type<syntaxTree> declaracao_local
 %type<syntaxTree> bloco_comando
@@ -127,20 +128,21 @@ declaracao_global
 	;
 
 declarar_funcao	
-	: especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')'
+	: escopo '(' parametros_vazio ')'
 									{/*stack_push(,,param_item); PARAM */}
-									{Func_type = $1;} 
-									{stack_push(main_stack,$2,data_item);}
 									'{' 
-									{stack_push(main_stack,$9,block_item);} 
+									{stack_push(main_stack,$6,block_item);} 
 									bloco_comando 
 									'}' 
-									{
-										$$ = createNode(AST_FUNCAO,$2);
-										if($11 !=NULL)
-											appendChildNode($$,$11);
+									{ $$ = $1;
+										if($8 !=NULL)
+											appendChildNode($$,$8);
 									}
 	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR '(' parametros_vazio ')' {Func_type = $2;} '{' bloco_comando '}' {$$ = createNode(AST_FUNCAO,$3);if($9 !=NULL)appendChildNode($$,$9);}
+	;
+
+escopo
+	:especificador_tipo TK_IDENTIFICADOR {$2->iks_type = $1; $$ = createNode(AST_FUNCAO,$2);stack_push(main_stack,$2,data_item);}
 	;
 
 literal
@@ -161,7 +163,7 @@ especificador_tipo
 	;
 
 declaracao_local
-	: especificador_tipo TK_IDENTIFICADOR   {$$ = NULL;}
+	: especificador_tipo TK_IDENTIFICADOR   {$$ = NULL;stack_push(main_stack,$2,data_item); $2->iks_type = $1; printf("aqui\n");}
 	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;}
 	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR {$$ = NULL;}
 	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;}
@@ -199,7 +201,7 @@ comando
 	| atribuicao 			{$$ = $1;}
 	| declaracao_local  	{$$ = $1;}
     | controle_fluxo 		{$$ = $1;}
-	| '{' bloco_comando '}' { $$ = createNode(AST_BLOCO, NULL);appendChildNode($$,$2);} //CUIDAR MUITO BEM DISSO, COM CARINHO E COM AMOR;
+	| '{'{stack_push(main_stack,$1,block_item);} bloco_comando '}' { $$ = createNode(AST_BLOCO, NULL);appendChildNode($$,$3);} //CUIDAR MUITO BEM DISSO, COM CARINHO E COM AMOR;
 	| entrada 				{$$ = $1;}
 	| chamada_funcao		{$$ = $1;} 
 	| saida 				{$$ = $1;}
