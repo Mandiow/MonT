@@ -12,20 +12,23 @@ void stack_initialize(stack_item* stack)
 }
 
 
-int stack_push(stack_item **stack, comp_dict_item_t* data, stack_flag flag)
+int stack_push(stack_item **stack, comp_dict_item_t* data, stack_flag flag, int isDeclared)
 {
 	stack_item* new_item = (stack_item*)malloc(sizeof(stack_item));
-
+/*	if(data != NULL)
+		printf("STACK POINTER: %p DATA KEY: %s\n\n", *stack, data->key);
+	else
+		printf("STACK POINTER: %p\n\n", *stack);*/
 	if(new_item == NULL)
 		return MALLOC_ERROR;
+
 	new_item->prev = NULL;
-	if(flag >= data_item)
+	if(flag >= data_item && isDeclared == 1)
 		if(stack_isDeclared(*stack,data) == IKS_SUCCESS)
 			exit(IKS_ERROR_DECLARED);
-	
-	if(stack == NULL)
-	{
-		
+
+	if(*stack == NULL)
+	{	
 		if(flag == block_item)
 		{
 			new_item->data = NULL;
@@ -44,11 +47,21 @@ int stack_push(stack_item **stack, comp_dict_item_t* data, stack_flag flag)
 	}
 	else
 	{
-		new_item->prev = *stack;
-		new_item->flag = flag;
-		new_item->data = data;
-		*stack = new_item;
-		return IKS_SUCCESS;
+		if(flag == block_item)
+		{
+			new_item->data = NULL;
+			new_item->flag = flag;
+			*stack = new_item;
+			return IKS_SUCCESS;
+		}
+		else
+		{
+			new_item->prev = *stack;
+			new_item->flag = flag;
+			new_item->data = data;
+			*stack = new_item;
+			return IKS_SUCCESS;
+		}
 	}
 }
 
@@ -73,7 +86,7 @@ int stack_isDeclared(stack_item* stack, comp_dict_item_t* data)
 	{
 		aux_stack = aux_stack->prev;
 	}
-	printf("erro1\n");
+	//printf("erro1\n");
 	if(aux_stack == NULL)
 		return IKS_ERROR_UNDECLARED;
 
@@ -420,6 +433,25 @@ void convertValue(int valueConversion, comp_dict_item_t* node)
 	}
 }
 
+void printStack(stack_item* stack)
+{
+	stack_item* aux_stack;
+	aux_stack = stack;
+	while(aux_stack != NULL)
+	{
+		if(aux_stack->data != NULL && aux_stack != NULL)
+		{
+			printf("Data Pointer %p \n",aux_stack->data);
+			printf("Key: %s",aux_stack->data->key);
+			printf("; Type %d",aux_stack->data->tipo);
+			printf("; IKS_TYPE: %d",aux_stack->data->iks_type); 
+			printf("; Flag %d\n",aux_stack->flag);	
+		}
+		else
+			printf("Data Pointer %p Flag %d\n",aux_stack->data, aux_stack->flag);	
+		aux_stack = aux_stack->prev;
+	}
+}
 
 int Function_Comparsion(int chamada,stack_item* stack, stack_item* call_stack)
 {
@@ -431,36 +463,42 @@ int Function_Comparsion(int chamada,stack_item* stack, stack_item* call_stack)
 	stack_item* callParamStack;
 	stack_item* mainParamStack;
 
+	callParamStack = NULL;
+	mainParamStack = NULL;
+
 	aux_call_stack = call_stack;
 	aux_stack = stack;
 
-	printf("flag do aux_call_stack: %d\n", aux_call_stack->flag);
-
-
-
 	while(aux_call_stack->flag != func_item)
 	{
-		printf("entrei no while\n");
 		if(aux_call_stack->flag == param_item)
 		{
-			stack_push(&callParamStack,aux_call_stack->data,3);
+			stack_push(&callParamStack,aux_call_stack->data,param_item,0);
+			//printf("CALL PARAM STACK POINTER: %p %s\n", callParamStack->data, aux_call_stack->data->key);
 		}
 		aux_call_stack = aux_call_stack->prev;
 	}
-	printf("oie");
-	printf("callParamStack->data->key: %s\n",callParamStack->data->key);
+
+	printf("PARAM STACK:\n");
+	printStack(callParamStack);
+
+
 
 	while(aux_stack->data->key != aux_call_stack->data->key)
 		{
-			if(aux_call_stack->flag == param_item)
+			printf("esotu no while\n");
+			if(aux_stack->flag == param_item)
 			{	
 				printf("ESTOU PUSHANDO\n");
-				stack_push(&mainParamStack,aux_stack->data,3);
+				stack_push(&mainParamStack,aux_stack->data,param_item,0);
 			}
 
 			aux_stack = aux_stack->prev;
 		}
-	printf("mainParamStack->data->key: %s\n",mainParamStack->data->key);
+
+	printf("MAIN PARAM STACK:\n");
+	printStack(mainParamStack);
+
 
 	if(aux_stack->flag != func_item)
 		{
