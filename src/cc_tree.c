@@ -11,7 +11,7 @@ comp_tree_t* createNode(int nodeType, comp_dict_item_t* tableItem)
 	newNode->childNodeList->firstNode = NULL;
 	if(tableItem == NULL)
 		tableItem = malloc(sizeof(struct comp_dict_item_t));
-	tableItem->iks_type = -1;
+	//tableItem->iks_type = -1;
 
 	if(nodeType == AST_LITERAL)
 		switch(tableItem->tipo)
@@ -30,6 +30,8 @@ comp_tree_t* createNode(int nodeType, comp_dict_item_t* tableItem)
 					break;
 				case SIMBOLO_LITERAL_BOOL:
 					tableItem->iks_type = IKS_BOOL;
+					break;
+				default:
 					break;
 			}
 			

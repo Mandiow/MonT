@@ -126,9 +126,9 @@ programa
 	;
 
 declaracao_global
-	: especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT ']' {stack_push(&main_stack,$2,data_item); $2->iks_type = $1;}
-	| especificador_tipo TK_IDENTIFICADOR {stack_push(&main_stack,$2,data_item); $2->iks_type = $1;}
-	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR '[' TK_LIT_INT ']' {stack_push(&main_stack,$3,data_item); $3->iks_type = $2;}
+	: especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT ']' {$2->iks_type = $1; stack_push(&main_stack,$2,data_item);}
+	| especificador_tipo TK_IDENTIFICADOR {$2->iks_type = $1; stack_push(&main_stack,$2,data_item);}
+	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR '[' TK_LIT_INT ']' { $3->iks_type = $2;stack_push(&main_stack,$3,data_item);}
 	;
 
 declarar_funcao	
@@ -162,8 +162,8 @@ parametros
 	;
 	
 lista_parametros 
-	: especificador_tipo TK_IDENTIFICADOR {stack_push(&main_stack,$2,param_item); $2->iks_type = $1;param++;}
-	| TK_PR_CONST especificador_tipo TK_IDENTIFICADOR {stack_push(&main_stack,$3,param_item); $3->iks_type = $2;param++;}
+	: especificador_tipo TK_IDENTIFICADOR {$2->iks_type = $1; stack_push(&main_stack,$2,param_item); param++;}
+	| TK_PR_CONST especificador_tipo TK_IDENTIFICADOR {$3->iks_type = $2;stack_push(&main_stack,$3,param_item); param++;}
 	;
 
 literal
@@ -184,7 +184,7 @@ especificador_tipo
 	;
 
 declaracao_local
-	: especificador_tipo TK_IDENTIFICADOR   {$$ = NULL;stack_push(&main_stack,$2,data_item); $2->iks_type = $1; printf("aqui\n");}
+	: especificador_tipo TK_IDENTIFICADOR   {$$ = NULL; $2->iks_type = $1;stack_push(&main_stack,$2,data_item); printf("aqui\n");}
 	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;}
 	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR {$$ = NULL;}
 	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;}
@@ -242,9 +242,13 @@ lista_vazia
 	;
 
 lista_expressoes
-	: expressao mais_de_uma {$$ = $1; 
-							if($2 != NULL)
-								appendChildNode($$,$2);
+	: expressao mais_de_uma {	$$ = $1; 
+								stack_push(&call_stack, $1->tableItem,param_item);
+								if($2 != NULL)
+								{
+									appendChildNode($$,$2);
+									stack_push(&call_stack, $2->tableItem,param_item);
+								}
 							}
 	;
 
@@ -268,8 +272,8 @@ nome: TK_IDENTIFICADOR {$$ = createNode(AST_IDENTIFICADOR,$1);stack_push(&call_s
 	;
 
 expressao 
-	: ID
-	| literal 
+	: ID 									{$$ = $1;}
+	| literal 								{$$ = $1;}
 	| expressao '/' expressao				{$$ = createNode(AST_ARIM_DIVISAO, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
 	| expressao '*' expressao				{$$ = createNode(AST_ARIM_MULTIPLICACAO, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
 	| expressao '-' expressao				{$$ = createNode(AST_ARIM_SUBTRACAO, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}

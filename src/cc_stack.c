@@ -26,22 +26,22 @@ int stack_push(stack_item **stack, comp_dict_item_t* data, stack_flag flag)
 	if(stack == NULL)
 	{
 		
-		if(flag == data_item)
-		{
-			new_item->data = data;
-			new_item->flag = flag;
-			*stack = new_item;
-			return IKS_SUCCESS;
-		}
-		else
+		if(flag == block_item)
 		{
 			new_item->data = NULL;
 			new_item->flag = flag;
 			*stack = new_item;
 			return IKS_SUCCESS;
 		}
+		else
+		{
+			new_item->data = data;
+			new_item->flag = flag;
+			*stack = new_item;
+			return IKS_SUCCESS;
+			
+		}
 	}
-
 	else
 	{
 		new_item->prev = *stack;
@@ -73,6 +73,7 @@ int stack_isDeclared(stack_item* stack, comp_dict_item_t* data)
 	{
 		aux_stack = aux_stack->prev;
 	}
+	printf("erro1\n");
 	if(aux_stack == NULL)
 		return IKS_ERROR_UNDECLARED;
 
@@ -211,6 +212,7 @@ int typeInference(comp_tree_t* leftNode, comp_tree_t* rightNode)
 
 int typeCoercion(comp_dict_item_t* leftElement, comp_dict_item_t* rightElement, int typeOfCommand) // typeOfCommand: 0 -> Att; 1 -> Return; 2 -> Input; 3 -> Output;
 {
+	printf("LEFTELEMENT: %s %d, RIGHTELEMENT: %s %d\n",leftElement->key, leftElement->iks_type, rightElement->key, rightElement->iks_type);
 	//FALTA CORRIGIR O OUTPUT, JÁ QUE TÁ TÃO AMBIGUO QUANTO A MINHA CARA.
 	switch(leftElement->iks_type)
 	{
@@ -218,6 +220,7 @@ int typeCoercion(comp_dict_item_t* leftElement, comp_dict_item_t* rightElement, 
 			switch(rightElement->iks_type)
 			{
 				case IKS_INT:
+					//printf("CHEGUEI AQUI\n");
 					return IKS_SUCCESS;
 				case IKS_FLOAT:
 					leftElement->coercion = COERCION_TO_FLOAT;
@@ -352,7 +355,7 @@ int typeCoercion(comp_dict_item_t* leftElement, comp_dict_item_t* rightElement, 
 				case SIMBOLO_LITERAL_STRING:
 					return IKS_SUCCESS;
 			}
-		default: break;
+		default: return -1;
 	}
 }
 
@@ -424,30 +427,41 @@ int Function_Comparsion(int chamada,stack_item* stack, stack_item* call_stack)
 
 	stack_item* aux_stack; 
 	stack_item* aux_call_stack;
-	stack_item* mainParamStack;
+
 	stack_item* callParamStack;
+	stack_item* mainParamStack;
+
 	aux_call_stack = call_stack;
 	aux_stack = stack;
+
+	printf("flag do aux_call_stack: %d\n", aux_call_stack->flag);
+
 
 
 	while(aux_call_stack->flag != func_item)
 	{
-		
+		printf("entrei no while\n");
 		if(aux_call_stack->flag == param_item)
 		{
 			stack_push(&callParamStack,aux_call_stack->data,3);
 		}
 		aux_call_stack = aux_call_stack->prev;
 	}
+	printf("oie");
+	printf("callParamStack->data->key: %s\n",callParamStack->data->key);
+
 	while(aux_stack->data->key != aux_call_stack->data->key)
 		{
 			if(aux_call_stack->flag == param_item)
-			{
+			{	
+				printf("ESTOU PUSHANDO\n");
 				stack_push(&mainParamStack,aux_stack->data,3);
 			}
 
 			aux_stack = aux_stack->prev;
 		}
+	printf("mainParamStack->data->key: %s\n",mainParamStack->data->key);
+
 	if(aux_stack->flag != func_item)
 		{
 			switch(aux_stack->data->nodeType)
@@ -469,13 +483,13 @@ int Function_Comparsion(int chamada,stack_item* stack, stack_item* call_stack)
 
 	while(callParamStack != NULL)
 	{
-		if (typeCoercion(aux_stack->data,aux_call_stack->data,0) != IKS_SUCCESS)
+		if (typeCoercion(mainParamStack->data,callParamStack->data,0) != IKS_SUCCESS)
 		{
-			printf("ERRO\n");
+			//printf("ERRO ENTRE COERÇÃO DE %d, %d\n",aux_stack->data->iks_type, aux_call_stack->data->iks_type);
 			exit(IKS_ERROR_WRONG_TYPE_ARGS);
 		}
-		aux_stack = aux_stack->prev;
-		aux_call_stack = aux_call_stack->prev;
+		mainParamStack = mainParamStack->prev;
+		callParamStack = callParamStack->prev;
 	}
 
 

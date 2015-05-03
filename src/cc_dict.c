@@ -79,6 +79,7 @@ struct comp_dict_item_t *dict_insert(struct comp_dict_t *hashtable, char *key, i
                             node->token.integer = atoi(key);
                             node->key = strdup(key);
                             node->tipo = TK_some_symbol_comes;
+                            printf("defini um int\n");
                             node->iks_type = IKS_INT;
                             break;
                         case SIMBOLO_LITERAL_FLOAT:
