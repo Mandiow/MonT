@@ -1,6 +1,3 @@
-#ifndef __CC_ERROR_H
-#define __CC_ERROR_H
-
 #define MALLOC_ERROR					-1
 #define IKS_SUCCESS						0
 #define IKS_ERROR_UNDECLARED			1
@@ -17,4 +14,3 @@
 #define IKS_WRONG_PAR_INPUT				12
 #define IKS_WRONG_PAR_OUTPUT			13
 #define IKS_WRONG_PAR_RETURN			14
-#endif

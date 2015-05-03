@@ -24,8 +24,8 @@ int stack_push(stack_item **stack, comp_dict_item_t* data, stack_flag flag, int 
 
 	new_item->prev = NULL;
 	if(flag >= data_item && isDeclared == 1)
-		if(stack_isDeclared(*stack,data) == IKS_SUCCESS)
-			exit(IKS_ERROR_DECLARED);
+		stackpush_isDeclared(*stack,data);
+			
 
 	if(*stack == NULL)
 	{	
@@ -49,6 +49,7 @@ int stack_push(stack_item **stack, comp_dict_item_t* data, stack_flag flag, int 
 	{
 		if(flag == block_item)
 		{
+			new_item->prev = *stack;
 			new_item->data = NULL;
 			new_item->flag = flag;
 			*stack = new_item;
@@ -66,42 +67,64 @@ int stack_push(stack_item **stack, comp_dict_item_t* data, stack_flag flag, int 
 }
 
 
-void stack_pop(stack_item* stack)
+void stack_pop(stack_item **stack)
 {
 	stack_item* item_aux;
-	item_aux = stack;
-	stack = stack->prev;
-	free(item_aux->data);
+	item_aux = *stack;
+	*stack = item_aux->prev;
 	free(item_aux);
 	return;
 }
 
-int stack_isDeclared(stack_item* stack, comp_dict_item_t* data)
+int stackpush_isDeclared(stack_item* stack, comp_dict_item_t* data)
 {
 	if(stack == NULL || data == NULL)
 		return -1;
 	stack_item* aux_stack;
 	aux_stack = stack;
+	while(aux_stack != NULL && aux_stack->data != NULL && aux_stack->data->key != data->key && aux_stack->flag !=block_item)
+	{
+		aux_stack = aux_stack->prev;
+	}
+	//printf("erro1\n");
+	if(aux_stack == NULL || aux_stack->flag == block_item)
+		return IKS_SUCCESS;
+	exit(IKS_ERROR_DECLARED);
+}
+
+int stack_isDeclared(stack_item* stack, comp_dict_item_t* data, int typeExpected)
+{
+	if(stack == NULL || data == NULL)
+		return -1;
+	stack_item* aux_stack;
+	aux_stack = stack;
+	printf("%p,%p\n",aux_stack->data,data);
 	while(aux_stack != NULL && aux_stack->data != NULL && aux_stack->data->key != data->key)
 	{
 		aux_stack = aux_stack->prev;
 	}
 	//printf("erro1\n");
-	if(aux_stack == NULL)
-		return IKS_ERROR_UNDECLARED;
-
-	if(aux_stack->data->nodeType != data->nodeType)
+	if(aux_stack == NULL || aux_stack->flag == block_item)
 	{
+		exit(IKS_ERROR_UNDECLARED);
+	}
+
+	if(aux_stack->data->nodeType != typeExpected)
+	{
+		printf("CASOS\n");
 		switch(aux_stack->data->nodeType)
 		{
 			case AST_FUNCAO:
-				if(data->nodeType != AST_CHAMADA_DE_FUNCAO)
-					return IKS_ERROR_FUNCTION;
+				printf("CASO 1\n");
+				if(typeExpected != AST_FUNCAO)
+					exit(IKS_ERROR_FUNCTION);
 				return IKS_SUCCESS;
 			case AST_IDENTIFICADOR:
-					return IKS_ERROR_VARIABLE ;
+					printf("CASO 2\n");
+					exit(IKS_ERROR_VARIABLE);
 			case AST_VETOR_INDEXADO:
-					return IKS_ERROR_VECTOR;
+					printf("CASO 3\n");
+					exit(IKS_ERROR_VECTOR);
 			default: break;
 		}	
 	}
@@ -109,24 +132,21 @@ int stack_isDeclared(stack_item* stack, comp_dict_item_t* data)
 	return IKS_SUCCESS;
 }
 
-
-void stack_popBlock(stack_item* stack)
+void stack_popBlock(stack_item **stack)
 {
-	if(stack == NULL)
+	if(*stack == NULL)
 		return;
-	while(stack->flag != block_item)
+	
+	while(*stack != NULL && (*stack)->flag < block_item)
 	{
 		stack_pop(stack);
 	}
-	stack_pop(stack);
-	while(stack->flag == param_item)
-	{
-		stack_pop(stack);
-	}
+	//printStack(*stack);
 }
 
 int typeInference(comp_tree_t* leftNode, comp_tree_t* rightNode)
 {
+	//printf("%d,%d\n",leftNode->tableItem->iks_type,rightNode->tableItem->iks_type );
 	switch(leftNode->tableItem->iks_type)
 	{
 		case IKS_INT:
@@ -146,10 +166,10 @@ int typeInference(comp_tree_t* leftNode, comp_tree_t* rightNode)
 					leftNode->nodeFather->tableItem->iks_type = IKS_INT;
 					//convertValue(COERCION_TO_INT,rightNode);
 					return IKS_SUCCESS;
-				case SIMBOLO_LITERAL_CHAR:
-					return IKS_ERROR_CHAR_TO_X;
-				case SIMBOLO_LITERAL_STRING:
-					return IKS_ERROR_STRING_TO_X;
+				case IKS_CHAR:
+					exit(IKS_ERROR_CHAR_TO_X);
+				case IKS_STRING:
+					exit(IKS_ERROR_STRING_TO_X);
 			}
 		case SIMBOLO_LITERAL_FLOAT:
 			switch(rightNode->tableItem->iks_type)
@@ -169,9 +189,9 @@ int typeInference(comp_tree_t* leftNode, comp_tree_t* rightNode)
 					//convertValue(COERCION_TO_FLOAT,rightNode);
 					return IKS_SUCCESS;
 				case SIMBOLO_LITERAL_CHAR:
-					return IKS_ERROR_CHAR_TO_X;
+					exit(IKS_ERROR_CHAR_TO_X);
 				case SIMBOLO_LITERAL_STRING:
-					return IKS_ERROR_STRING_TO_X;
+					exit(IKS_ERROR_STRING_TO_X);
 			}
 		case SIMBOLO_LITERAL_BOOL:
 			switch(rightNode->tableItem->iks_type)
@@ -191,9 +211,9 @@ int typeInference(comp_tree_t* leftNode, comp_tree_t* rightNode)
 					leftNode->nodeFather->tableItem->iks_type = IKS_BOOL;
 					return IKS_SUCCESS;
 				case SIMBOLO_LITERAL_CHAR:
-					return IKS_ERROR_CHAR_TO_X;
+					exit(IKS_ERROR_CHAR_TO_X);
 				case SIMBOLO_LITERAL_STRING:
-					return IKS_ERROR_STRING_TO_X;
+					exit(IKS_ERROR_STRING_TO_X);
 			}
 		case SIMBOLO_LITERAL_CHAR:
 			switch(rightNode->tableItem->iks_type)
@@ -201,11 +221,11 @@ int typeInference(comp_tree_t* leftNode, comp_tree_t* rightNode)
 				case IKS_INT:
 				case IKS_FLOAT:
 				case IKS_BOOL:
-					return IKS_ERROR_WRONG_TYPE;
+					exit(IKS_ERROR_WRONG_TYPE);
 				case SIMBOLO_LITERAL_CHAR:
 					return IKS_SUCCESS;
 				case SIMBOLO_LITERAL_STRING:
-					return IKS_ERROR_STRING_TO_X;
+					exit(IKS_ERROR_STRING_TO_X);
 			}
 		case SIMBOLO_LITERAL_STRING:
 			switch(rightNode->tableItem->iks_type)
@@ -213,9 +233,9 @@ int typeInference(comp_tree_t* leftNode, comp_tree_t* rightNode)
 				case IKS_INT:
 				case IKS_FLOAT:
 				case IKS_BOOL:
-					return IKS_ERROR_WRONG_TYPE;
+					exit(IKS_ERROR_WRONG_TYPE);
 				case SIMBOLO_LITERAL_CHAR:
-					return IKS_ERROR_CHAR_TO_X;
+					exit(IKS_ERROR_CHAR_TO_X);
 				case SIMBOLO_LITERAL_STRING:
 					return IKS_SUCCESS;
 			}
@@ -223,7 +243,7 @@ int typeInference(comp_tree_t* leftNode, comp_tree_t* rightNode)
 	}
 }
 
-int typeCoercion(comp_dict_item_t* leftElement, comp_dict_item_t* rightElement, int typeOfCommand) // typeOfCommand: 0 -> Att; 1 -> Return; 2 -> Input; 3 -> Output;
+int typeCoercion(comp_dict_item_t* leftElement, comp_dict_item_t* rightElement, int typeOfCommand) // typeOfCommand: 0 -> Att; 1 -> Return; 2 -> Input; 3 -> Output, 4->Function;
 {
 	printf("LEFTELEMENT: %s %d, RIGHTELEMENT: %s %d\n",leftElement->key, leftElement->iks_type, rightElement->key, rightElement->iks_type);
 	//FALTA CORRIGIR O OUTPUT, JÁ QUE TÁ TÃO AMBIGUO QUANTO A MINHA CARA.
@@ -246,18 +266,20 @@ int typeCoercion(comp_dict_item_t* leftElement, comp_dict_item_t* rightElement, 
 				case SIMBOLO_LITERAL_CHAR:
 					switch(typeOfCommand)
 						{
-							case 1: return IKS_WRONG_PAR_RETURN;
-							case 2: return IKS_WRONG_PAR_INPUT;
-
-							default : return IKS_ERROR_CHAR_TO_X;
+							case 1: exit(IKS_WRONG_PAR_RETURN);
+							case 2: exit(IKS_WRONG_PAR_INPUT);
+							case 3: exit(IKS_WRONG_PAR_OUTPUT);
+							case 4: exit(IKS_ERROR_WRONG_TYPE_ARGS);
+							default : exit(IKS_ERROR_CHAR_TO_X);
 						}
 				case SIMBOLO_LITERAL_STRING:
 					switch(typeOfCommand)
 						{
-							case 1: return IKS_WRONG_PAR_RETURN;
-							case 2: return IKS_WRONG_PAR_INPUT;
-							
-							default : return IKS_ERROR_STRING_TO_X;
+							case 1: exit(IKS_WRONG_PAR_RETURN);
+							case 2: exit(IKS_WRONG_PAR_INPUT);
+							case 3: return IKS_SUCCESS;
+							case 4: exit(IKS_ERROR_WRONG_TYPE_ARGS);
+							default : exit(IKS_ERROR_STRING_TO_X);
 						}
 			}
 		case SIMBOLO_LITERAL_FLOAT:
@@ -276,18 +298,20 @@ int typeCoercion(comp_dict_item_t* leftElement, comp_dict_item_t* rightElement, 
 				case SIMBOLO_LITERAL_CHAR:
 					switch(typeOfCommand)
 						{
-							case 1: return IKS_WRONG_PAR_RETURN;
-							case 2: return IKS_WRONG_PAR_INPUT;
-							
-							default : return IKS_ERROR_CHAR_TO_X;
+							case 1: exit(IKS_WRONG_PAR_RETURN);
+							case 2: exit(IKS_WRONG_PAR_INPUT);
+							case 3: exit(IKS_WRONG_PAR_OUTPUT);
+							case 4: exit(IKS_ERROR_WRONG_TYPE_ARGS);
+							default : exit(IKS_ERROR_CHAR_TO_X);
 						}
 				case SIMBOLO_LITERAL_STRING:
 					switch(typeOfCommand)
 						{
-							case 1: return IKS_WRONG_PAR_RETURN;
-							case 2: return IKS_WRONG_PAR_INPUT;
-							
-							default : return IKS_ERROR_STRING_TO_X;
+							case 1: exit(IKS_WRONG_PAR_RETURN);
+							case 2: exit(IKS_WRONG_PAR_INPUT);
+							case 3: return IKS_SUCCESS;
+							case 4: exit(IKS_ERROR_WRONG_TYPE_ARGS);
+							default : exit(IKS_ERROR_STRING_TO_X);
 						}
 			}
 		case SIMBOLO_LITERAL_BOOL:
@@ -306,18 +330,20 @@ int typeCoercion(comp_dict_item_t* leftElement, comp_dict_item_t* rightElement, 
 				case SIMBOLO_LITERAL_CHAR:
 					switch(typeOfCommand)
 						{
-							case 1: return IKS_WRONG_PAR_RETURN;
-							case 2: return IKS_WRONG_PAR_INPUT;
-							
-							default : return IKS_ERROR_CHAR_TO_X;
+							case 1: exit(IKS_WRONG_PAR_RETURN);
+							case 2: exit(IKS_WRONG_PAR_INPUT);
+							case 3: exit(IKS_WRONG_PAR_OUTPUT);
+							case 4: exit(IKS_ERROR_WRONG_TYPE_ARGS);
+							default : exit(IKS_ERROR_CHAR_TO_X);
 						}
 				case SIMBOLO_LITERAL_STRING:
 					switch(typeOfCommand)
 						{
-							case 1: return IKS_WRONG_PAR_RETURN;
-							case 2: return IKS_WRONG_PAR_INPUT;
-							
-							default : return IKS_ERROR_STRING_TO_X;
+							case 1: exit(IKS_WRONG_PAR_RETURN);
+							case 2: exit(IKS_WRONG_PAR_INPUT);
+							case 3: return IKS_SUCCESS;
+							case 4: exit(IKS_ERROR_WRONG_TYPE_ARGS);
+							default : exit(IKS_ERROR_STRING_TO_X);
 						}
 			}
 		case SIMBOLO_LITERAL_CHAR:
@@ -328,20 +354,22 @@ int typeCoercion(comp_dict_item_t* leftElement, comp_dict_item_t* rightElement, 
 				case IKS_BOOL:
 					switch(typeOfCommand)
 						{
-							case 1: return IKS_WRONG_PAR_RETURN;
-							case 2: return IKS_WRONG_PAR_INPUT;
+							case 1: exit(IKS_WRONG_PAR_RETURN);
+							case 2: exit(IKS_WRONG_PAR_INPUT);
 							
-							default : return IKS_ERROR_WRONG_TYPE;
+							case 4: exit(IKS_ERROR_WRONG_TYPE_ARGS);
+							default : exit(IKS_ERROR_WRONG_TYPE);
 						}
 				case SIMBOLO_LITERAL_CHAR:
 					return IKS_SUCCESS;
 				case SIMBOLO_LITERAL_STRING:
 					switch(typeOfCommand)
 						{
-							case 1: return IKS_WRONG_PAR_RETURN;
-							case 2: return IKS_WRONG_PAR_INPUT;
-							
-							default : return IKS_ERROR_STRING_TO_X;
+							case 1: exit(IKS_WRONG_PAR_RETURN);
+							case 2: exit(IKS_WRONG_PAR_INPUT);
+							case 3: return IKS_SUCCESS;
+							case 4: exit(IKS_ERROR_WRONG_TYPE_ARGS);
+							default : exit(IKS_ERROR_STRING_TO_X);
 						}
 			}
 		case SIMBOLO_LITERAL_STRING:
@@ -352,18 +380,20 @@ int typeCoercion(comp_dict_item_t* leftElement, comp_dict_item_t* rightElement, 
 				case IKS_BOOL:
 					switch(typeOfCommand)
 						{
-							case 1: return IKS_WRONG_PAR_RETURN;
-							case 2: return IKS_WRONG_PAR_INPUT;
+							case 1: exit(IKS_WRONG_PAR_RETURN);
+							case 2: exit(IKS_WRONG_PAR_INPUT);
 							
-							default : return IKS_ERROR_WRONG_TYPE;
+							case 4: exit(IKS_ERROR_WRONG_TYPE_ARGS);
+							default : exit(IKS_ERROR_WRONG_TYPE);
 						}
 				case SIMBOLO_LITERAL_CHAR:
 					switch(typeOfCommand)
 						{
-							case 1: return IKS_WRONG_PAR_RETURN;
-							case 2: return IKS_WRONG_PAR_INPUT;
-							
-							default : return IKS_ERROR_CHAR_TO_X;
+							case 1: exit(IKS_WRONG_PAR_RETURN);
+							case 2: exit(IKS_WRONG_PAR_INPUT);
+							case 3: exit(IKS_WRONG_PAR_OUTPUT);
+							case 4: exit(IKS_ERROR_WRONG_TYPE_ARGS);
+							default : exit(IKS_ERROR_CHAR_TO_X);
 						}
 				case SIMBOLO_LITERAL_STRING:
 					return IKS_SUCCESS;
@@ -521,9 +551,9 @@ int Function_Comparsion(int chamada,stack_item* stack, stack_item* call_stack)
 
 	while(callParamStack != NULL)
 	{
-		if (typeCoercion(mainParamStack->data,callParamStack->data,0) != IKS_SUCCESS)
+		if (typeCoercion(mainParamStack->data,callParamStack->data,4) != IKS_SUCCESS)
 		{
-			//printf("ERRO ENTRE COERÇÃO DE %d, %d\n",aux_stack->data->iks_type, aux_call_stack->data->iks_type);
+			printf("ERRO ENTRE COERÇÃO DE %d, %d\n",mainParamStack->data->iks_type, callParamStack->data->iks_type);
 			exit(IKS_ERROR_WRONG_TYPE_ARGS);
 		}
 		mainParamStack = mainParamStack->prev;
@@ -546,4 +576,39 @@ void paramcounter(stack_item** stack, int param)
 		aux_call_stack = aux_call_stack->prev;
 	}
 	aux_call_stack->data->param = param;
+}
+
+int getFunctionType(stack_item* stack, stack_item* call_stack)
+{
+	
+
+	stack_item* aux_stack; 
+	stack_item* aux_call_stack;
+
+	aux_call_stack = call_stack;
+	aux_stack = stack;
+
+	while(aux_call_stack->flag != func_item)
+	{
+		aux_call_stack = aux_call_stack->prev;
+	}
+	while(aux_stack->data->key != aux_call_stack->data->key)
+		{
+			aux_stack = aux_stack->prev;
+		}
+	if (aux_stack->flag == func_item)
+	{
+		return aux_stack->data->iks_type;
+	}
+	else 
+	{
+		printf("%s\n",aux_stack->data->key );
+		switch(aux_stack->data->nodeType)
+			{
+				case AST_IDENTIFICADOR:
+					exit(IKS_ERROR_VARIABLE);
+				case AST_VETOR_INDEXADO:
+					exit(IKS_ERROR_VECTOR);
+			}
+	}
 }
