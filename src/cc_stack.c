@@ -15,10 +15,6 @@ void stack_initialize(stack_item* stack)
 int stack_push(stack_item **stack, comp_dict_item_t* data, stack_flag flag, int isDeclared)
 {
 	stack_item* new_item = (stack_item*)malloc(sizeof(stack_item));
-/*	if(data != NULL)
-		printf("STACK POINTER: %p DATA KEY: %s\n\n", *stack, data->key);
-	else
-		printf("STACK POINTER: %p\n\n", *stack);*/
 	if(new_item == NULL)
 		return MALLOC_ERROR;
 
@@ -86,7 +82,6 @@ int stackpush_isDeclared(stack_item* stack, comp_dict_item_t* data)
 	{
 		aux_stack = aux_stack->prev;
 	}
-	//printf("erro1\n");
 	if(aux_stack == NULL || aux_stack->flag == block_item)
 		return IKS_SUCCESS;
 	exit(IKS_ERROR_DECLARED);
@@ -98,12 +93,10 @@ int stack_isDeclared(stack_item* stack, comp_dict_item_t* data, int typeExpected
 		return -1;
 	stack_item* aux_stack;
 	aux_stack = stack;
-	printf("%p,%p\n",aux_stack->data,data);
 	while(aux_stack != NULL && aux_stack->data != NULL && aux_stack->data->key != data->key)
 	{
 		aux_stack = aux_stack->prev;
 	}
-	//printf("erro1\n");
 	if(aux_stack == NULL || aux_stack->flag == block_item)
 	{
 		exit(IKS_ERROR_UNDECLARED);
@@ -111,19 +104,15 @@ int stack_isDeclared(stack_item* stack, comp_dict_item_t* data, int typeExpected
 
 	if(aux_stack->data->nodeType != typeExpected)
 	{
-		printf("CASOS\n");
 		switch(aux_stack->data->nodeType)
 		{
 			case AST_FUNCAO:
-				printf("CASO 1\n");
 				if(typeExpected != AST_FUNCAO)
 					exit(IKS_ERROR_FUNCTION);
 				return IKS_SUCCESS;
 			case AST_IDENTIFICADOR:
-					printf("CASO 2\n");
 					exit(IKS_ERROR_VARIABLE);
 			case AST_VETOR_INDEXADO:
-					printf("CASO 3\n");
 					exit(IKS_ERROR_VECTOR);
 			default: break;
 		}	
@@ -245,7 +234,6 @@ int typeInference(comp_tree_t* leftNode, comp_tree_t* rightNode)
 
 int typeCoercion(comp_dict_item_t* leftElement, comp_dict_item_t* rightElement, int typeOfCommand) // typeOfCommand: 0 -> Att; 1 -> Return; 2 -> Input; 3 -> Output, 4->Function;
 {
-	printf("LEFTELEMENT: %s %d, RIGHTELEMENT: %s %d\n",leftElement->key, leftElement->iks_type, rightElement->key, rightElement->iks_type);
 	//FALTA CORRIGIR O OUTPUT, JÁ QUE TÁ TÃO AMBIGUO QUANTO A MINHA CARA.
 	switch(leftElement->iks_type)
 	{
@@ -509,26 +497,20 @@ int Function_Comparsion(int chamada,stack_item* stack, stack_item* call_stack)
 		aux_call_stack = aux_call_stack->prev;
 	}
 
-	printf("PARAM STACK:\n");
-	printStack(callParamStack);
-
+	
 
 
 	while(aux_stack->data->key != aux_call_stack->data->key)
 		{
-			printf("esotu no while\n");
 			if(aux_stack->flag == param_item)
 			{	
-				printf("ESTOU PUSHANDO\n");
 				stack_push(&mainParamStack,aux_stack->data,param_item,0);
 			}
 
 			aux_stack = aux_stack->prev;
 		}
 
-	printf("MAIN PARAM STACK:\n");
-	printStack(mainParamStack);
-
+	
 
 	if(aux_stack->flag != func_item)
 		{
@@ -553,7 +535,6 @@ int Function_Comparsion(int chamada,stack_item* stack, stack_item* call_stack)
 	{
 		if (typeCoercion(mainParamStack->data,callParamStack->data,4) != IKS_SUCCESS)
 		{
-			printf("ERRO ENTRE COERÇÃO DE %d, %d\n",mainParamStack->data->iks_type, callParamStack->data->iks_type);
 			exit(IKS_ERROR_WRONG_TYPE_ARGS);
 		}
 		mainParamStack = mainParamStack->prev;
@@ -602,7 +583,6 @@ int getFunctionType(stack_item* stack, stack_item* call_stack)
 	}
 	else 
 	{
-		printf("%s\n",aux_stack->data->key );
 		switch(aux_stack->data->nodeType)
 			{
 				case AST_IDENTIFICADOR:

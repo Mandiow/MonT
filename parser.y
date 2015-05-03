@@ -198,14 +198,14 @@ valor
 	;
 
 ID
-	: TK_IDENTIFICADOR {printf("eu quero vim aqui\n");;stack_isDeclared(main_stack,$1,AST_IDENTIFICADOR);$$ = createNode(AST_IDENTIFICADOR,$1);}
+	: TK_IDENTIFICADOR {stack_isDeclared(main_stack,$1,AST_IDENTIFICADOR);$$ = createNode(AST_IDENTIFICADOR,$1);}
 	| TK_IDENTIFICADOR  '[' expressao ']' {	$$ = createNode(AST_VETOR_INDEXADO,NULL);
 											stack_isDeclared(main_stack,$1,AST_VETOR_INDEXADO);
 											if ($3->tableItem->iks_type == IKS_STRING) exit(IKS_ERROR_STRING_TO_X);
 											if ($3->tableItem->iks_type == IKS_CHAR) exit(IKS_ERROR_CHAR_TO_X);
 											appendChildNode($$,createNode(AST_IDENTIFICADOR,$1));
 											appendChildNode($$,$3);
-											printf("%s\n",$3->tableItem->key);
+											
 										   }
 	;
 
@@ -244,7 +244,7 @@ entrada
 	;
 
 saida
-	: TK_PR_OUTPUT lista_expressoes	 {$$ = createNode(AST_OUTPUT,NULL);appendChildNode($$,$2);}
+	: TK_PR_OUTPUT lista_expressoes	 {$$ = createNode(AST_OUTPUT,NULL);appendChildNode($$,$2);if($2->tableItem->iks_type == IKS_CHAR)exit(IKS_WRONG_PAR_OUTPUT);}
 	;
 
 lista_vazia
