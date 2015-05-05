@@ -126,9 +126,14 @@ programa
 	;
 
 declaracao_global
-	: especificador_tipo TK_IDENTIFICADOR '[' TK_LIT_INT ']' {$2->iks_type = $1;$2->nodeType = AST_VETOR_INDEXADO; stack_push(&main_stack,$2,data_item, 1);}
+	: especificador_tipo TK_IDENTIFICADOR '[' Array ']' {$2->iks_type = $1;$2->nodeType = AST_VETOR_INDEXADO; stack_push(&main_stack,$2,data_item, 1);}
 	| especificador_tipo TK_IDENTIFICADOR {$2->iks_type = $1;$2->nodeType = AST_IDENTIFICADOR; stack_push(&main_stack,$2,data_item, 1);}
-	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR '[' TK_LIT_INT ']' { $3->iks_type = $2;$3->nodeType = AST_VETOR_INDEXADO;stack_push(&main_stack,$3,data_item, 1);}
+	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR '[' Array ']' { $3->iks_type = $2;$3->nodeType = AST_VETOR_INDEXADO;stack_push(&main_stack,$3,data_item, 1);}
+	;
+
+Array
+	: TK_LIT_INT ',' Array
+	| TK_LIT_INT {if($1->token.integer > 0)$$ = $1;}
 	;
 
 declarar_funcao	
@@ -222,7 +227,7 @@ valor
 
 ID
 	: TK_IDENTIFICADOR {stack_isDeclared(main_stack,$1,AST_IDENTIFICADOR);$$ = createNode(AST_IDENTIFICADOR,$1);}
-	| TK_IDENTIFICADOR  '[' expressao ']' {	$$ = createNode(AST_VETOR_INDEXADO,NULL);
+	| TK_IDENTIFICADOR  '[' Exparray ']' {	$$ = createNode(AST_VETOR_INDEXADO,NULL);
 											stack_isDeclared(main_stack,$1,AST_VETOR_INDEXADO);
 											if ($3->tableItem->iks_type == IKS_STRING) exit(IKS_ERROR_STRING_TO_X);
 											if ($3->tableItem->iks_type == IKS_CHAR) exit(IKS_ERROR_CHAR_TO_X);
@@ -230,6 +235,11 @@ ID
 											appendChildNode($$,$3);
 											
 										   }
+	;
+
+Exparray
+	: expressao ',' Exparray
+	| expressao {$$ = $1;}
 	;
 
 atribuicao 
