@@ -80,6 +80,8 @@ int chamada = 0;
 %type<valor_simbolo_lexico> '{'
 %type<valor_simbolo_lexico> '}'
 %type<valor_simbolo_lexico> '!'
+%type<valor_simbolo_lexico> Array
+%type<syntaxTree> Exparray
 %type<syntaxTree> literal
 %type<type> especificador_tipo
 
@@ -140,11 +142,12 @@ declarar_funcao
 	: escopo '(' parametros_vazio ')'
 									{paramcounter(&main_stack,param);}
 									'{' 
+									{stack_push(&main_stack,$6,block_item,0);}
 								bloco_comando 
 									'}' 
 									{ $$ = $1;
-										if($7 !=NULL)
-											appendChildNode($$,$7);
+										if($8 !=NULL)
+											appendChildNode($$,$8);
 										
 										param = 0;
 										stack_popBlock(&main_stack);
@@ -244,7 +247,7 @@ comando
 	| atribuicao 			{$$ = $1;}
 	| declaracao_local  	{$$ = $1;}
     | controle_fluxo 		{$$ = $1;}
-	| '{'{stack_push(&main_stack,$1,block_item, 0);} bloco_comando '}'{stack_popBlock(&main_stack);stack_pop(&main_stack); $$ = createNode(AST_BLOCO, NULL);appendChildNode($$,$3);} //CUIDAR MUITO BEM DISSO, COM CARINHO E COM AMOR;
+	| '{'{stack_push(&main_stack,$1,block_item, 0);} bloco_comando '}'{stack_popBlock(&main_stack); $$ = createNode(AST_BLOCO, NULL);appendChildNode($$,$3);} //CUIDAR MUITO BEM DISSO, COM CARINHO E COM AMOR;
 	| entrada 				{$$ = $1;}
 	| chamada_funcao		{$$ = $1;} 
 	| saida 				{$$ = $1;}

@@ -78,7 +78,7 @@ int stackpush_isDeclared(stack_item* stack, comp_dict_item_t* data)
 		return -1;
 	stack_item* aux_stack;
 	aux_stack = stack;
-	while(aux_stack != NULL && aux_stack->data != NULL && aux_stack->data->key != data->key && aux_stack->flag !=block_item)
+	while(aux_stack != NULL && aux_stack->data != NULL && aux_stack->data->key != data->key && aux_stack->flag != block_item)
 	{
 		aux_stack = aux_stack->prev;
 	}
@@ -89,13 +89,21 @@ int stackpush_isDeclared(stack_item* stack, comp_dict_item_t* data)
 
 int stack_isDeclared(stack_item* stack, comp_dict_item_t* data, int typeExpected)
 {
+	//printStack(stack);
 	if(stack == NULL || data == NULL)
 		return -1;
 	stack_item* aux_stack;
 	aux_stack = stack;
-	while(aux_stack != NULL && aux_stack->data != NULL && aux_stack->data->key != data->key)
+	int found = 0;
+	while(aux_stack != NULL && found == 0)
 	{
-		aux_stack = aux_stack->prev;
+		if(aux_stack->data != NULL)
+			if(aux_stack->data->key == data->key)
+				found = 1;
+			else
+				aux_stack = aux_stack->prev;
+		else
+			aux_stack = aux_stack->prev;
 	}
 	if(aux_stack == NULL || aux_stack->flag == block_item)
 	{
@@ -126,7 +134,7 @@ void stack_popBlock(stack_item **stack)
 	if(*stack == NULL)
 		return;
 	
-	while(*stack != NULL && (*stack)->flag < block_item)
+	while(*stack != NULL && (*stack)->flag <= block_item)
 	{
 		stack_pop(stack);
 	}
@@ -459,14 +467,14 @@ void printStack(stack_item* stack)
 	{
 		if(aux_stack->data != NULL && aux_stack != NULL)
 		{
-			printf("Data Pointer %p \n",aux_stack->data);
-			printf("Key: %s",aux_stack->data->key);
-			printf("; Type %d",aux_stack->data->tipo);
-			printf("; IKS_TYPE: %d",aux_stack->data->iks_type); 
-			printf("; Flag %d\n",aux_stack->flag);	
+			printf("Data Pointer: %p ",aux_stack->data);
+			printf("; Key: %s ",aux_stack->data->key);
+			printf("; Type %d ",aux_stack->data->tipo);
+			printf("; IKS_TYPE: %d ",aux_stack->data->iks_type); 
+			printf("; Flag %d\n ",aux_stack->flag);	
 		}
 		else
-			printf("Data Pointer %p Flag %d\n",aux_stack->data, aux_stack->flag);	
+			printf("Data Pointer: %p ; Flag: %d\n",aux_stack->data, aux_stack->flag);	
 		aux_stack = aux_stack->prev;
 	}
 }
@@ -497,20 +505,20 @@ int Function_Comparsion(int chamada,stack_item* stack, stack_item* call_stack)
 		aux_call_stack = aux_call_stack->prev;
 	}
 
-	
-
-
-	while(aux_stack->data->key != aux_call_stack->data->key)
+	int Found = 0;
+	while(aux_stack != NULL && Found == 0)
 		{
 			if(aux_stack->flag == param_item)
 			{	
 				stack_push(&mainParamStack,aux_stack->data,param_item,0);
 			}
-
-			aux_stack = aux_stack->prev;
+			if(aux_stack->data != NULL)
+				if (aux_stack->data->key != aux_call_stack->data->key)
+					aux_stack = aux_stack->prev;
+				else Found = 1;
+			else
+				aux_stack = aux_stack->prev;
 		}
-
-	
 
 	if(aux_stack->flag != func_item)
 		{
@@ -573,9 +581,15 @@ int getFunctionType(stack_item* stack, stack_item* call_stack)
 	{
 		aux_call_stack = aux_call_stack->prev;
 	}
-	while(aux_stack->data->key != aux_call_stack->data->key)
+	int Found = 0;
+	while(aux_stack != NULL && Found == 0)
 		{
-			aux_stack = aux_stack->prev;
+			if(aux_stack->data != NULL)
+				if(aux_stack->data->key != aux_call_stack->data->key)
+					aux_stack = aux_stack->prev;
+				else Found = 1;
+			else
+				aux_stack = aux_stack->prev;
 		}
 	if (aux_stack->flag == func_item)
 	{
