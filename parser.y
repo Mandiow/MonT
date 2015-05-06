@@ -153,28 +153,6 @@ declarar_funcao
 	;
 
 
-/*declaracao_arranjo
-	: especificador_tipo  TK_IDENTIFICADOR '[' dimensoes ']' { $3->iks_type = $2;$3->nodeType = AST_VETOR_INDEXADO;stack_push(&main_stack,$3,data_item, 1);}
-	;
-
-
-dimensoes
-	: TK_LIT_INT ',' dimensoes
-	| TK_LIT_INT
-	;
-
-posicao_arranjo
-	: TK_IDENTIFICADOR '[' lista_expressoes_int ']' { $3->iks_type = $2;$3->nodeType = AST_VETOR_INDEXADO;stack_push(&main_stack,$3,data_item, 1);}
-	;
-
-lista_expressoes_int
-	: expressao ',' lista_expressoes_int 									   }
-	| expressao
-	;
-ISSO É PARA ETAPA 5 ADICINAR ARRAYS, AINDA ESTOU PENSANDO EM ALGUMA FORMA DE JUNTAR TUDO DE MANEIRA DIREITA E QUE NÃO DE ERRO. ESSA PARTE ESTÁ COMENTADA ATÉ A ETAPA 4 ESTIVER COMPLETA.
-*/
-
-
 escopo
 	:especificador_tipo TK_IDENTIFICADOR {Func_type = $1;$2->iks_type = $1; $$ = createNode(AST_FUNCAO,$2);stack_push(&main_stack,$2,func_item, 1);}
 	;
