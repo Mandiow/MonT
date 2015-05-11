@@ -11,7 +11,7 @@ INICIO PARCIOL DA ESTRUTURA DE DADOS PARA A LINGUAGEM ILOC
 Lista de operações possiveis na linguagem ILOC o enum serve para facilitar o acesso para a geração de código ILOC
 */
 
-enum op {
+enum ILOC_op {
 	op_nop = 0
 
 	op_add=1, 
@@ -73,8 +73,19 @@ enum op {
 	op_cmp_GT=45, 
 	op_cmp_NE=46, 
  };
-typedef enum op op_t;
+typedef enum ILOC_op ILOC_op_t;
 
 
 //registrador até agora foi pensado como um contador
-typedef int count reg;
+typedef int ILOC_count ILOC_reg;
+
+//
+//Rótulos de ILOC (LABEL)
+//O nome do rótulo tem a como objetivo a verificação se na criação do rótulo está correto a sintaxe do rótulo quando está criado.
+//Outro objetivo do nome é uma chave para o endereço da sequencia de instruções a qual o rótulo foi inicializado.
+//Pos nada mais é do que a posição onde o é iniciada a sequencia de instruções a qual esta label referencia.
+typedef struct label{
+	char *name;
+	int pos;
+} ILOC_label_t
+
