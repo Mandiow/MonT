@@ -3,12 +3,12 @@
 #include "cc_ast.h"
 
 /* 
-INICIO PARCIOL DA ESTRUTURA DE DADOS PARA A LINGUAGEM ILOC
+*INICIO PARCIOL DA ESTRUTURA DE DADOS PARA A LINGUAGEM ILOC
 */
 
 
 /* 
-Lista de operações possiveis na linguagem ILOC o enum serve para facilitar o acesso para a geração de código ILOC
+*Lista de operações possiveis na linguagem ILOC o enum serve para facilitar o acesso para a geração de código ILOC
 */
 
 enum ILOC_op {
@@ -77,20 +77,34 @@ typedef enum ILOC_op ILOC_op_t;
 
 
 /*
-Registrador da linguagem ILOC
-O registrador precisa ter uma string para a identificação do nome, uma vez que existam regra para identificar se o registrador está escrito no padrão de ILOC
-O registrador possui um valor inteiro que será usado para o dado que será armazenado pela linguagem
+*
+*	Registrador da linguagem ILOC
+*
+*
+*O registrador precisa ter uma string para a identificação do nome, uma vez que existam regra para identificar se o registrador está escrito no padrão de ILOC
+*O registrador possui um valor inteiro que será usado para o dado que será armazenado pela linguagem
 */
 typedef struct ILOC_reg{
 	int data;
 	char *name;
-}
+} ILOC_register_t;
 
 /*
-Rótulos de ILOC (LABEL)
-O nome do rótulo tem a como objetivo a verificação se na criação do rótulo está correto a sintaxe do rótulo quando está criado.
-Outro objetivo do nome é uma chave para o endereço da sequencia de instruções a qual o rótulo foi inicializado.
-Pos nada mais é do que a posição onde o é iniciada a sequencia de instruções a qual esta label referencia.
+*Função createRegister: int , char* -> ILOC_register_t*
+*Verifica se o registrador está escrito de maneira correta em ILOC e adiciona o dado no registrador
+*Retorna um Registrador novo com o dado atualizado.
+*/
+ILOC_register_t* createRegister(int data, char *name);
+
+
+/*
+*
+*	Rótulos de ILOC (LABEL)
+*
+*
+*O nome do rótulo tem a como objetivo a verificação se na criação do rótulo está correto a sintaxe do rótulo quando está criado.
+*Outro objetivo do nome é uma chave para o endereço da sequencia de instruções a qual o rótulo foi inicializado.
+*Pos nada mais é do que a posição onde o é iniciada a sequencia de instruções a qual esta label referencia.
 */
 typedef struct label{
 	char *name;
@@ -98,9 +112,16 @@ typedef struct label{
 } ILOC_label_t;
 
 /*
-Uma Cédula de Memória em ILOC
-Implementação de uma cédula memória para utilização das instruções 
-A cédula de memória contem a posição dela na memória em si, e o valor do dado que ela armazena.
+* Função createLabel char* , int -> ILOC_label_t*
+* A função serve para verificar se a label já existe no programa e se ela possui as regras de label na linguagem.
+* Retorna a label caso ela seja criada com sucesso e retorna NULL em caso de erro ou a label já exista.
+*/
+ILOC_label_t*  createLabel(char* label_name, int position);
+
+/*
+*Uma Cédula de Memória em ILOC
+*Implementação de uma cédula memória para utilização das instruções 
+*A cédula de memória contem a posição dela na memória em si, e o valor do dado que ela armazena.
 */
 typedef struct ILOC_memory_cell{
 	int position;
@@ -111,6 +132,5 @@ typedef struct ILOC_memory_cell{
 
 */
 /*
-
-Lista de instruções vão ser necessárias para cada nodo da ast para geração de código, vai ser usado no cc_list
+*Lista de instruções vão ser necessárias para cada nodo da ast para geração de código, vai ser usado no cc_list
 */
