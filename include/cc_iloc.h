@@ -76,16 +76,41 @@ enum ILOC_op {
 typedef enum ILOC_op ILOC_op_t;
 
 
-//registrador até agora foi pensado como um contador
-typedef int ILOC_count ILOC_reg;
+/*
+Registrador da linguagem ILOC
+O registrador precisa ter uma string para a identificação do nome, uma vez que existam regra para identificar se o registrador está escrito no padrão de ILOC
+O registrador possui um valor inteiro que será usado para o dado que será armazenado pela linguagem
+*/
+typedef struct ILOC_reg{
+	int data;
+	char *name;
+}
 
-//
-//Rótulos de ILOC (LABEL)
-//O nome do rótulo tem a como objetivo a verificação se na criação do rótulo está correto a sintaxe do rótulo quando está criado.
-//Outro objetivo do nome é uma chave para o endereço da sequencia de instruções a qual o rótulo foi inicializado.
-//Pos nada mais é do que a posição onde o é iniciada a sequencia de instruções a qual esta label referencia.
+/*
+Rótulos de ILOC (LABEL)
+O nome do rótulo tem a como objetivo a verificação se na criação do rótulo está correto a sintaxe do rótulo quando está criado.
+Outro objetivo do nome é uma chave para o endereço da sequencia de instruções a qual o rótulo foi inicializado.
+Pos nada mais é do que a posição onde o é iniciada a sequencia de instruções a qual esta label referencia.
+*/
 typedef struct label{
 	char *name;
-	int pos;
-} ILOC_label_t
+	int position;
+} ILOC_label_t;
 
+/*
+Uma Cédula de Memória em ILOC
+Implementação de uma cédula memória para utilização das instruções 
+A cédula de memória contem a posição dela na memória em si, e o valor do dado que ela armazena.
+*/
+typedef struct ILOC_memory_cell{
+	int position;
+	int data;
+} ILOC_memory_cell_t;
+
+/*
+
+*/
+/*
+
+Lista de instruções vão ser necessárias para cada nodo da ast para geração de código, vai ser usado no cc_list
+*/
