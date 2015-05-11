@@ -2,15 +2,13 @@
 #define __IKS_ILOC_H__
 #include "cc_ast.h"
 
-/* 
-*INICIO PARCIOL DA ESTRUTURA DE DADOS PARA A LINGUAGEM ILOC
-*/
+#define LABEL_SIZE 32
+#define REGISTER_SIZE 32
 
 
 /* 
 *Lista de operações possiveis na linguagem ILOC o enum serve para facilitar o acesso para a geração de código ILOC
 */
-
 enum ILOC_op {
 	op_nop = 0
 
@@ -129,8 +127,6 @@ typedef struct ILOC_memory_cell{
 } ILOC_memory_cell_t;
 
 /*
-
-*/
-/*
 *Lista de instruções vão ser necessárias para cada nodo da ast para geração de código, vai ser usado no cc_list
+*Será necessário também uma lista de operandos de entrada e de saída para a geração das instruções.
 */
