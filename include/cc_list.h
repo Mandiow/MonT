@@ -24,6 +24,36 @@ typedef struct ILOC_operand_list{
 }ILOC_operand_list_t;
 
 /*
+* createIlocOperandList
+* entrada: void, saída: ILOC_instruction_list_t
+* Objetivo criação de operandos ILOC para as instruções
+*/
+ILOC_instruction_list_t* createIlocOperandList(void);
+
+/*
+* insertIlocOperandElement
+* entrada: ILOC_operand saída: ILOC_operand_list_t
+* insere um elemento na lista de operandos
+*/
+ILOC_operand_list_t* insertIlocOperandElement(ILOC_operand op);
+
+/*
+* deleteIlocOperandElement
+* entrada: ILOC_operand saída: ILOC_operand_list_t
+* deleta elemento da lista de operandos
+*/
+ILOC_operand_list_t* deleteIlocOperandElement(ILOC_operand op);
+
+/*
+* destroyIlocInstructionList
+* entrada: void, saida: ILOC_operand_list_t	
+* destroi a lista de operandos de ILOC por completo
+*/
+ILOC_operand_list_t* destroyIlocInstructionList(void);
+
+
+
+/*
 * ILOC_instruction_t
 * Uma instrução possui uma operação, uma lista de operandos fontes e um operando alvo para o resultado da operação
 */
@@ -38,10 +68,39 @@ typedef struct ILOC_instruction{
 * Uma lista de instruções pode ser um programa em ILOC podendo conter uma label para representar a lista de instruções
 */
 typedef struct ILOC_instruction_list{
-	ILOC_instrution instruction;
+	ILOC_instruction_t instruction;
 	struct ILOC_instruction_list *prox;
 	ILOC_label_t label;
 }ILOC_instruction_list_t;
+
+/*
+* createIlocInstructionsList
+* entrada: void, saída: ILOC_instruction_list_t
+* Objetivo criação de instruções ILOC
+*/
+ILOC_instruction_list_t* createIlocInstructionsList(void);
+
+/*
+* insertIlocInstructionsElement
+* entrada: ILOC_instruction_t, ILOC_label_t saída: ILOC_instruction_list_t
+* insere um elemento na lista de instruções
+*/
+ILOC_instruction_list_t* insertIlocInstructionsElement(ILOC_instruction_t instruction, ILOC_label_t label);
+
+/*
+* deleteIlocInstructionsElement
+* entrada: ILOC_instruction_t saída: ILOC_instruction_list_t
+* deleta elemento da lista de instruções
+*/
+ILOC_instruction_list_t* deleteIlocInstructionsElement(ILOC_instruction_t instruction);
+
+/*
+* destroyIlocInstructionList
+* entrada: void, saida: ILOC_instruction_t	
+* destroi a lista de instruções de ILOC por completo
+*/
+ILOC_instruction_list_t* destroyIlocInstructionList(void);
+
 
 
 #endif
