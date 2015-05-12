@@ -121,11 +121,11 @@ ILOC_label_t*  createLabel(char* label_name, int position);
 *Implementação de uma cédula memória para utilização das instruções 
 *A cédula de memória contem a posição dela na memória em si, e o valor do dado que ela armazena.
 */
-typedef struct ILOC_memory_cell{
+/*typedef struct ILOC_memory_cell{
 	int position;
 	int data;
 } ILOC_memory_cell_t;
-
+*/
 /*
 *Lista de instruções vão ser necessárias para cada nodo da ast para geração de código, vai ser usado no cc_list
 *Será necessário também uma lista de operandos de entrada e de saída para a geração das instruções.
