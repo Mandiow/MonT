@@ -2,8 +2,8 @@
 #define __IKS_ILOC_H__
 #include "cc_ast.h"
 
-#define LABEL_SIZE 32
-#define REGISTER_SIZE 32
+#define LABEL_SIZE 32 //  ?
+#define REGISTER_SIZE 32 //  ?
 
 
 /* 
