@@ -28,28 +28,28 @@ typedef struct ILOC_operand_list{
 * entrada: void, saída: ILOC_instruction_list_t
 * Objetivo criação de operandos ILOC para as instruções
 */
-ILOC_instruction_list_t* createIlocOperandList(void);
+ILOC_instruction_list_t* createIlocOperandList(ILOC_operand_list_t* operandList);
 
 /*
 * insertIlocOperandElement
 * entrada: ILOC_operand saída: ILOC_operand_list_t
 * insere um elemento na lista de operandos
 */
-ILOC_operand_list_t* insertIlocOperandElement(ILOC_operand op);
+ILOC_operand_list_t* insertIlocOperandElement(ILOC_operand op, ILOC_operand_list_t* operandList);
 
 /*
 * deleteIlocOperandElement
 * entrada: ILOC_operand saída: ILOC_operand_list_t
 * deleta elemento da lista de operandos
 */
-ILOC_operand_list_t* deleteIlocOperandElement(ILOC_operand op);
+ILOC_operand_list_t* deleteIlocOperandElement(ILOC_operand op, ILOC_operand_list_t* operandList);
 
 /*
 * destroyIlocInstructionList
 * entrada: void, saida: ILOC_operand_list_t	
 * destroi a lista de operandos de ILOC por completo
 */
-ILOC_operand_list_t* destroyIlocInstructionList(void);
+ILOC_operand_list_t* destroyIlocInstructionList(ILOC_operand_list_t* operandList);
 
 
 
@@ -85,21 +85,21 @@ ILOC_instruction_list_t* createIlocInstructionsList(void);
 * entrada: ILOC_instruction_t, ILOC_label_t saída: ILOC_instruction_list_t
 * insere um elemento na lista de instruções
 */
-ILOC_instruction_list_t* insertIlocInstructionsElement(ILOC_instruction_t instruction, ILOC_label_t label);
+ILOC_instruction_list_t* insertIlocInstructionsElement(ILOC_instruction_t instruction, ILOC_label_t label, ILOC_operand_list_t* instructionList);
 
 /*
 * deleteIlocInstructionsElement
 * entrada: ILOC_instruction_t saída: ILOC_instruction_list_t
 * deleta elemento da lista de instruções
 */
-ILOC_instruction_list_t* deleteIlocInstructionsElement(ILOC_instruction_t instruction);
+ILOC_instruction_list_t* deleteIlocInstructionsElement(ILOC_instruction_t instruction, ILOC_operand_list_t* instructionList);
 
 /*
 * destroyIlocInstructionList
 * entrada: void, saida: ILOC_instruction_t	
 * destroi a lista de instruções de ILOC por completo
 */
-ILOC_instruction_list_t* destroyIlocInstructionList(void);
+ILOC_instruction_list_t* destroyIlocInstructionList(ILOC_operand_list_t* instructionList);
 
 
 

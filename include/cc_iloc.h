@@ -2,10 +2,6 @@
 #define __IKS_ILOC_H__
 #include "cc_ast.h"
 
-#define LABEL_SIZE 32 //  ?
-#define REGISTER_SIZE 32 //  ?
-
-
 /* 
 *Lista de operações possiveis na linguagem ILOC o enum serve para facilitar o acesso para a geração de código ILOC
 */
