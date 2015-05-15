@@ -126,3 +126,9 @@ ILOC_label_t*  createLabel(char* label_name, int position);
 *Lista de instruções vão ser necessárias para cada nodo da ast para geração de código, vai ser usado no cc_list
 *Será necessário também uma lista de operandos de entrada e de saída para a geração das instruções.
 */
+/*
+* função: code_ger
+* Entrada: comp_tree_t Saída: void
+* Gera código a partir da ast
+*/
+void code_ger(comp_tree_t** ast);

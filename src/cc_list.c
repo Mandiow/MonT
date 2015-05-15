@@ -8,7 +8,7 @@
 * entrada: void, saída: ILOC_instruction_list_t
 * Objetivo criação de operandos ILOC para as instruções
 */
-ILOC_instruction_list_t* createIlocOperandList(void)
+ILOC_instruction_list_t* createIlocOeprandList(void)
 {
 	return NULL;
 }
@@ -107,7 +107,32 @@ ILOC_operand_list_t* destroyIlocOperandList(ILOC_operand_list_t* operandList)
 }
 
 
-/*******************************************************************************************/
+/*
+* newInstruction
+* entrada: ILOC_op_t, ILOC_operand, ILOC_operand, ILOC_operand, ILOC_operand
+* criação de uma nova instrução
+*/
+ILOC_instruction_t * newInstruction(ILOC_op_t operation,ILOC_operand *operand_font1,ILOC_operand *operand_font2, ILOC_operand *operand_target1, ILOC_operand *operand_target2)
+{
+	ILOC_instruction_t *newInstruction;
+	newInstruction= malloc(sizeof(struct ILOC_instruction));
+	newInstruction.operation = operation;
+	struction->operand_font1= createIlocOeprandList();
+	if(operand_font1!=NULL)
+		instruction->operand_font_list = insertIlocOperandElement(operand_font1,instruction->operand_font_list);
+	if(operand_font2!=NULL)
+		instruction->operand_font_list = insertIlocOperandElement(operand_font2,instruction->operand_font_list);
+	struction->operand_font= createIlocOeprandList();
+	if(operand_target1!=NULL)
+		instruction->operand_target_list = insertIlocOperandElement(operand_target1,instruction->operand_target_list);
+	if(operand_target2!=NULL)
+		instruction->operand_target_list = insertIlocOperandElement(operand_target2,instruction->operand_target_list);
+	return newInstruction;
+}
+
+
+
+
 /*
 * createIlocInstructionsList
 * entrada: void, saída: ILOC_instruction_list_t
@@ -132,8 +157,8 @@ ILOC_instruction_list_t* insertIlocInstructionsElement(ILOC_instruction_t* instr
 	{
 		instructionListAux = malloc(sizeof(struct ILOC_instruction_list_t));
 		instructionListAux.instruction.operation= instruction->operation;
-		instructionListAux.instruction->operand_font= instruction->operand_font;
-		instructionListAux.instruction->operand_target= instruction->operand_target;
+		instructionListAux.instruction->operand_font_list= instruction->operand_font;
+		instructionListAux.instruction->operand_target_list= instruction->operand_target;
 		instructionListAux.label->name = label->name;
 		instructionListAux.label.pos = label->pos;
 		instructionListAux->next= NULL;
@@ -146,8 +171,8 @@ ILOC_instruction_list_t* insertIlocInstructionsElement(ILOC_instruction_t* instr
 		}
 		instructionListAux = malloc(sizeof(struct ILOC_instruction_list_t));
 		instructionListAux.instruction.operation= instruction->operation;
-		instructionListAux.instruction->operand_font= instruction->operand_font;
-		instructionListAux.instruction->operand_target= instruction->operand_target;
+		instructionListAux.instruction->operand_font_list= instruction->operand_font;
+		instructionListAux.instruction->operand_targe_listt= instruction->operand_target;
 		instructionListAux.label->name = label->name;
 		instructionListAux.label.pos = label->pos;
 		instructionListAux->next= NULL;

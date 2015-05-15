@@ -59,9 +59,17 @@ ILOC_operand_list_t* destroyIlocInstructionList(ILOC_operand_list_t* operandList
 */
 typedef struct ILOC_instruction{
 	ILOC_op_t operation;
-	ILOC_operand_list_t *operand_font;
-	ILOC_operand_list_t *operand_target;
+	ILOC_operand_list_t *operand_font_list;
+	ILOC_operand_list_t *operand_target_list;
 } ILOC_instruction_t;
+
+
+/*
+* newInstruction
+* entrada: ILOC_op_t, ILOC_operand, ILOC_operand, ILOC_operand, ILOC_operand
+* criação de uma nova instrução
+*/
+ILOC_instruction * newInstruction(ILOC_op_t op,ILOC_operand *operand_font1,ILOC_operand *operand_font2, ILOC_operand *operand_target1, ILOC_operand *operand_target2 ); 
 
 /*
 * ILOC_instruction_list
