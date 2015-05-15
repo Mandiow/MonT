@@ -10,7 +10,22 @@ void stack_initialize(stack_item* stack)
 {
 	return;
 }
-
+void setTypeSize(comp_dict_item_t* data_item)
+{
+	switch(data_item->iks_type)
+	{
+		case IKS_INT:
+			data_item->size = INT_SIZE;
+		case IKS_FLOAT:
+			data_item->size = FLOAT_SIZE;
+		case IKS_BOOL:
+			data_item->size = BOOL_SIZE;
+		case IKS_CHAR:
+			data_item->size = CHAR_SIZE;
+		case IKS_STRING:
+			data_item->size = CHAR_SIZE * strlen(data_item->key)+1;
+	}
+}
 
 int stack_push(stack_item **stack, comp_dict_item_t* data, stack_flag flag, int isDeclared)
 {
