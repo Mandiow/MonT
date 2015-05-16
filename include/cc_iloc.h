@@ -99,6 +99,14 @@ ILOC_operand_list_t* createIlocOperandList();
 ILOC_operand_list_t* insertIlocOperandElement(union ILOC_operand op, ILOC_operand_list_t* operandList);
 
 /*
+* copyOperandList
+* entrada: ILOC_operand_list_t saída: ILOC_operand_list_t
+* copia a lista de operando para outra lista de operandos
+* função utilizada para a lista de instruções
+*/
+ILOC_operand_list_t* copyOperandList(ILOC_operand_list_t* operandListSrc);
+
+/*
 * deleteIlocOperandElement
 * entrada: ILOC_operand saída: ILOC_operand_list_t
 * deleta elemento da lista de operandos

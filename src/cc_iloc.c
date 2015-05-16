@@ -43,6 +43,25 @@ ILOC_operand_list_t* insertIlocOperandElement(union ILOC_operand op,ILOC_operand
 }
 
 /*
+* copyOperandList
+* entrada: ILOC_operand_list_t saída: ILOC_operand_list_t
+* copia a lista de operando para outra lista de operandos
+* função utilizada para a lista de instruções
+*/
+ILOC_operand_list_t* copyOperandList(ILOC_operand_list_t* operandListSrc)
+{
+	ILOC_operand_list_t* operandListSrcAux, newOperandList;
+	newOperandList = createIlocOperandList();
+	operandListSrcAux = operandListSrc;
+	while(operandListSrcAux != NULL)
+	{
+		newOperandList = insertIlocOperandElement(operandListSrcAux->op,newOperandList);
+		operandListSrcAux = operandListSrcAux->next;
+	}
+	return newOperandList;
+}
+
+/*
 * deleteIlocOperandElement
 * entrada: ILOC_operand saída: ILOC_operand_list_t
 * deleta elemento da lista de operandos
@@ -294,8 +313,8 @@ ILOC_instruction_list_t* insertIlocInstructionsElement(ILOC_instruction_t* instr
 	{
 		instructionListAux = malloc(sizeof(struct ILOC_instruction_list));
 		instructionListAux->instruction.operation= instruction->operation;
-		//instructionListAux->instruction->operand_src_list= instruction->operand_src;
-		//instructionListAux->instruction->operand_dst_list= instruction->operand_dst;
+		instructionListAux->instruction->operand_src_list= copyOperandList(instruction->operand_src);
+		instructionListAux->instruction->operand_dst_list= copyOperandList(instruction->operand_dst);
 		instructionListAux->label = label;
 		instructionListAux->next= NULL;
 	}
@@ -307,8 +326,8 @@ ILOC_instruction_list_t* insertIlocInstructionsElement(ILOC_instruction_t* instr
 		}
 		instructionListAux = malloc(sizeof(struct ILOC_instruction_list));
 		instructionListAux->instruction.operation= instruction->operation;
-		//instructionListAux->instruction->operand_src_list= instruction->operand_src;
-		//instructionListAux->instruction->operand_targe_listt= instruction->operand_dst;
+		instructionListAux->instruction->operand_src_list= copyOperandList(instruction->operand_src);
+		instructionListAux->instruction->operand_targe_listt= copyOperandList( instruction->operand_dst);
 		instructionListAux->label = label;
 		instructionListAux->next= NULL;
 	}
