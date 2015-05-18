@@ -41,6 +41,9 @@ typedef char* ILOC_label_t;
 */
 typedef char* ILOC_register_t;
 
+
+ILOC_register_t rarp = "rarp"; // registrador que aponta para a pilha
+ILOC_register_t rbss = "rbss"; // registrador para dados globais
 /*
 * ILOC_operand
 * um operando pode ser um literal, um registrado ou um valor da memória
