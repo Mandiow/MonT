@@ -146,6 +146,13 @@ ILOC_instruction_list_t* createIlocInstructionsList(void);
 ILOC_instruction_list_t* insertIlocInstructionsElement(ILOC_instruction_t* instruction, ILOC_label_t label, ILOC_instruction_list_t* instructionList);
 
 /*
+* concatIlocInstructionsList
+* entrada: ILOC_instruction_t, ILOC_instruction_list_t saída: ILOC_instruction_list_t
+* concatena duas listas de instruções 
+*/
+ILOC_instruction_list_t* concatIlocInstructionsList(ILOC_instruction_list_t* startList, ILOC_instruction_list_t* endList);
+
+/*
 * deleteIlocInstructionsElement
 * entrada: ILOC_instruction_t saída: ILOC_instruction_list_t
 * deleta elemento da lista de instruções

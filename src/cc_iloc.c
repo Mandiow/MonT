@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "cc_iloc.h"
+#include "cc_ast.h"
+#include "cc_tree.h"
 
 
 /*
@@ -50,7 +52,7 @@ ILOC_operand_list_t* insertIlocOperandElement(union ILOC_operand op,ILOC_operand
 */
 ILOC_operand_list_t* copyOperandList(ILOC_operand_list_t* operandListSrc)
 {
-	ILOC_operand_list_t* operandListSrcAux, newOperandList;
+	ILOC_operand_list_t* operandListSrcAux, *newOperandList;
 	newOperandList = createIlocOperandList();
 	operandListSrcAux = operandListSrc;
 	while(operandListSrcAux != NULL)
@@ -305,7 +307,7 @@ ILOC_instruction_list_t* createIlocInstructionsList(void)
 * entrada: ILOC_instruction_t, ILOC_label_t saída: ILOC_instruction_list_t
 * insere um elemento na lista de instruções
 */
-ILOC_instruction_list_t* insertIlocInstructionsElement(ILOC_instruction_t* instruction, ILOC_label_t label,ILOC_instruction_list_t* instructionList)
+ILOC_instruction_list_t* insertIlocInstructionsElement(ILOC_instruction_t *instruction, ILOC_label_t label,ILOC_instruction_list_t* instructionList)
 {
 	ILOC_instruction_list_t* instructionListAux;
 	instructionListAux=instructionList;
@@ -313,8 +315,8 @@ ILOC_instruction_list_t* insertIlocInstructionsElement(ILOC_instruction_t* instr
 	{
 		instructionListAux = malloc(sizeof(struct ILOC_instruction_list));
 		instructionListAux->instruction.operation= instruction->operation;
-		instructionListAux->instruction->operand_src_list= copyOperandList(instruction->operand_src);
-		instructionListAux->instruction->operand_dst_list= copyOperandList(instruction->operand_dst);
+		instructionListAux->instruction.operand_src_list= copyOperandList(instruction->operand_src_list);
+		instructionListAux->instruction.operand_dst_list= copyOperandList(instruction->operand_src_list);
 		instructionListAux->label = label;
 		instructionListAux->next= NULL;
 	}
@@ -326,12 +328,38 @@ ILOC_instruction_list_t* insertIlocInstructionsElement(ILOC_instruction_t* instr
 		}
 		instructionListAux = malloc(sizeof(struct ILOC_instruction_list));
 		instructionListAux->instruction.operation= instruction->operation;
-		instructionListAux->instruction->operand_src_list= copyOperandList(instruction->operand_src);
-		instructionListAux->instruction->operand_targe_listt= copyOperandList( instruction->operand_dst);
+		instructionListAux->instruction.operand_src_list= copyOperandList(instruction->operand_src_list);
+		instructionListAux->instruction.operand_dst_list= copyOperandList(instruction->operand_dst_list);
 		instructionListAux->label = label;
 		instructionListAux->next= NULL;
 	}
 	return instructionList;
+}
+
+/*
+* concatIlocInstructionsList
+* entrada: ILOC_instruction_t, ILOC_instruction_list_t saída: ILOC_instruction_list_t
+* concatena duas listas de instruções 
+*/
+ILOC_instruction_list_t* concatIlocInstructionsList(ILOC_instruction_list_t* startList, ILOC_instruction_list_t* endList)
+{
+	ILOC_instruction_list_t* p;
+	if(startList == NULL){
+		if(endList == NULL)
+			return NULL;
+		return endList;
+	}
+	else
+		if (endList == NULL)
+			return startList;
+		else
+		{
+			p=startList;
+			while (p->next!=NULL)             
+                p=p->next;
+            p->next=endList;                            
+            return startList;
+		}
 }
 
 /*
@@ -395,7 +423,6 @@ ILOC_register_t createRegister()
 	registerControl++;
 	newRegister= strcat(prefix,sufix);
 	return newRegister;
-
 }
 
 /*
@@ -427,36 +454,43 @@ void code_ger(comp_tree_t** ast)
 	astNode = (*ast)->tableItem;
 	
 	switch(astNode->nodeType) {
-		case IKS_AST_PROGRAMA:
-		case IKS_AST_FUNCAO:
-		case IKS_AST_IF_ELSE:
-		case IKS_AST_DO_WHILE:
-		case IKS_AST_WHILE_DO:
-		case IKS_AST_INPUT:
-		case IKS_AST_OUTPUT:
-		case IKS_AST_ATRIBUICAO:
-		case IKS_AST_RETURN:
-		case IKS_AST_BLOCO:
-		case IKS_AST_IDENTIFICADOR:
-		case IKS_AST_LITERAL:
-		case IKS_AST_ARIM_SOMA:
-		case IKS_AST_ARIM_SUBTRACAO:
-		case IKS_AST_ARIM_MULTIPLICACAO:
-		case IKS_AST_ARIM_DIVISAO:
-		case IKS_AST_ARIM_INVERSAO:
-		case IKS_AST_LOGICO_E:
-		case IKS_AST_LOGICO_OU:
-		case IKS_AST_LOGICO_COMP_IGUAL:
-		case IKS_AST_LOGICO_COMP_DIF:
-		case IKS_AST_LOGICO_COMP_LE:
-		case IKS_AST_LOGICO_COMP_GE:
-		case IKS_AST_LOGICO_COMP_L:
-		case IKS_AST_LOGICO_COMP_G:
-		case IKS_AST_LOGICO_COMP_NEGACAO:
-		case IKS_AST_VETOR_INDEXADO:
-		case IKS_AST_CHAMADA_DE_FUNCAO:
+		case AST_PROGRAMA:
+			// caso o nodo seja a entrada do programa, a função do código do programa será realizado
+		case AST_FUNCAO:
+		case AST_IF_ELSE:
+		case AST_DO_WHILE:
+		case AST_WHILE_DO:
+		case AST_INPUT:
+		case AST_OUTPUT:
+		case AST_ATRIBUICAO:
+		case AST_RETURN:
+		case AST_BLOCO:
+		case AST_IDENTIFICADOR:
+		case AST_LITERAL:
+		case AST_ARIM_SOMA:
+		case AST_ARIM_SUBTRACAO:
+		case AST_ARIM_MULTIPLICACAO:
+		case AST_ARIM_DIVISAO:
+		case AST_ARIM_INVERSAO:
+		case AST_LOGICO_E:
+		case AST_LOGICO_OU:
+		case AST_LOGICO_COMP_IGUAL:
+		case AST_LOGICO_COMP_DIF:
+		case AST_LOGICO_COMP_LE:
+		case AST_LOGICO_COMP_GE:
+		case AST_LOGICO_COMP_L:
+		case AST_LOGICO_COMP_G:
+		case AST_LOGICO_COMP_NEGACAO:
+		case AST_VETOR_INDEXADO:
+		case AST_CHAMADA_DE_FUNCAO:
 		default:
 			fprintf(stderr,"erro na geracao de código\n");
 			break;
 	}
 }
+
+/*
+* 
+*
+*
+*/
