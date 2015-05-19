@@ -1,11 +1,14 @@
+#include "cc_iloc.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "cc_iloc.h"
 #include "cc_ast.h"
 #include "cc_tree.h"
 
-
+/*labelControl=0;
+registerControl=0;
+rarp = "rarp";
+rbss = "rbss";*/
 /*
 * createIlocOperandList
 * entrada: void, saída: ILOC_instruction_list_t
@@ -23,45 +26,26 @@ ILOC_operand_list_t* createIlocOperandList()
 */
 ILOC_operand_list_t* insertIlocOperandElement(union ILOC_operand op,ILOC_operand_list_t* operandList)
 {
-	ILOC_operand_list_t* operandListAux;
+	ILOC_operand_list_t* operandListAux,*newOperand;
 	operandListAux=operandList;
-	if(operandListAux == NULL)
+	newOperand = (ILOC_operand_list_t*)malloc(sizeof(struct ILOC_operand_list));
+	newOperand->next= NULL;
+	newOperand->op= op;
+	if(operandList == NULL)
 	{
-		operandListAux = malloc(sizeof(struct ILOC_operand_list));
-		operandListAux->op= op;
-		operandListAux->next= NULL;
+		return newOperand;
 	}
 	else
 	{
-		while(operandListAux!=NULL)
+		while(operandListAux->next!=NULL)
 		{
 			operandListAux=operandListAux->next;		
 		}
-		operandListAux = malloc(sizeof(struct ILOC_operand_list));
-		operandListAux->op= op;
-		operandListAux->next= NULL;
+		operandListAux->next= newOperand;	
 	}
 	return operandList;
 }
 
-/*
-* copyOperandList
-* entrada: ILOC_operand_list_t saída: ILOC_operand_list_t
-* copia a lista de operando para outra lista de operandos
-* função utilizada para a lista de instruções
-*/
-ILOC_operand_list_t* copyOperandList(ILOC_operand_list_t* operandListSrc)
-{
-	ILOC_operand_list_t* operandListSrcAux, *newOperandList;
-	newOperandList = createIlocOperandList();
-	operandListSrcAux = operandListSrc;
-	while(operandListSrcAux != NULL)
-	{
-		newOperandList = insertIlocOperandElement(operandListSrcAux->op,newOperandList);
-		operandListSrcAux = operandListSrcAux->next;
-	}
-	return newOperandList;
-}
 
 /*
 * deleteIlocOperandElement
@@ -78,20 +62,20 @@ ILOC_operand_list_t* deleteIlocOperandElement (union ILOC_operand op,ILOC_operan
 	}
 	else
 	{
-		if(operandListAux->op.reg == op.reg ||operandListAux->op.label == op.label || operandListAux->op.val == op.val)
+		if(operandListAux->op.reg == op.reg || operandListAux->op.label == op.label || operandListAux->op.val == op.val)
 		{
-			deletedOperand = operandListAux;
-			if(operandListAux->next!=NULL)
+			deletedOperand = operandList;
+			if(operandList->next!=NULL)
 			{
-				operandListAux= operandListAux->next;
 				operandList= operandList->next;
 				free(deletedOperand);
 			}
 			else
 			{	
-				operandListAux=NULL;
+				operandList=NULL;
 				free(deletedOperand);
 			}	
+			return operandList;
 		}
 		else
 		{
@@ -108,7 +92,7 @@ ILOC_operand_list_t* deleteIlocOperandElement (union ILOC_operand op,ILOC_operan
 			}
 
 		}
-		return operandListAux;
+		return operandList;
 	}
 }
 
@@ -125,7 +109,28 @@ ILOC_operand_list_t* destroyIlocOperandList(ILOC_operand_list_t* operandList)
 	{
 		operandListAux=deleteIlocOperandElement(operandListAux->op,operandListAux);
 	}
-	return operandList;
+	return operandListAux;
+}
+
+/*
+* copyOperandList
+* entrada: ILOC_operand_list_t saída: ILOC_operand_list_t
+* copia a lista de operando para outra lista de operandos
+* função utilizada para a lista de instruções
+*/
+ILOC_operand_list_t* copyOperandList(ILOC_operand_list_t* operandListSrc)
+{
+	ILOC_operand_list_t* operandListSrcAux, *newOperandList;
+	newOperandList = createIlocOperandList();
+	operandListSrcAux = operandListSrc;
+	if(operandListSrc==NULL)
+		return NULL;
+	while(operandListSrcAux != NULL && operandListSrcAux->op.reg != NULL && operandListSrcAux->op.label != NULL)
+	{
+		newOperandList = insertIlocOperandElement(operandListSrcAux->op,newOperandList);
+		operandListSrcAux = operandListSrcAux->next;
+	}
+	return newOperandList;
 }
 
 
@@ -137,7 +142,7 @@ ILOC_operand_list_t* destroyIlocOperandList(ILOC_operand_list_t* operandList)
 ILOC_instruction_t * newInstruction(ILOC_op_t operation,union ILOC_operand operand_src1,union ILOC_operand operand_src2, union ILOC_operand operand_dst1,union ILOC_operand operand_dst2 )
 {
 	ILOC_instruction_t *instruction;
-	instruction= malloc(sizeof(struct ILOC_instruction));
+	instruction= (ILOC_instruction_t*)malloc(sizeof(struct ILOC_instruction));
 	instruction->operation = operation;
 	instruction->operand_src_list= createIlocOperandList();
 	instruction->operand_dst_list= createIlocOperandList();
@@ -264,6 +269,7 @@ ILOC_instruction_t * newInstruction(ILOC_op_t operation,union ILOC_operand opera
 		{
 			if(operand_dst1.reg!=NULL)
 			{
+
 				instruction->operand_dst_list = insertIlocOperandElement(operand_dst1,instruction->operand_dst_list);
 				break;
 			}
@@ -309,29 +315,25 @@ ILOC_instruction_list_t* createIlocInstructionsList(void)
 */
 ILOC_instruction_list_t* insertIlocInstructionsElement(ILOC_instruction_t *instruction, ILOC_label_t label,ILOC_instruction_list_t* instructionList)
 {
-	ILOC_instruction_list_t* instructionListAux;
-	instructionListAux=instructionList;
-	if(instructionListAux == NULL)
+	ILOC_instruction_list_t* instructionListAux, *newInstruction;
+	newInstruction = malloc(sizeof(struct ILOC_instruction_list));
+	newInstruction->instruction.operation= instruction->operation;
+	newInstruction->instruction.operand_src_list= copyOperandList(instruction->operand_src_list);
+	newInstruction->instruction.operand_dst_list= copyOperandList(instruction->operand_src_list);
+	newInstruction->label = label;
+	newInstruction->next= NULL;
+	if(instructionList == NULL)
 	{
-		instructionListAux = malloc(sizeof(struct ILOC_instruction_list));
-		instructionListAux->instruction.operation= instruction->operation;
-		instructionListAux->instruction.operand_src_list= copyOperandList(instruction->operand_src_list);
-		instructionListAux->instruction.operand_dst_list= copyOperandList(instruction->operand_src_list);
-		instructionListAux->label = label;
-		instructionListAux->next= NULL;
+		return newInstruction;
 	}
 	else
 	{
-		while(instructionListAux!=NULL)
+		instructionListAux=instructionList;
+		while(instructionListAux->next!=NULL)
 		{
 			instructionListAux=instructionListAux->next;		
 		}
-		instructionListAux = malloc(sizeof(struct ILOC_instruction_list));
-		instructionListAux->instruction.operation= instruction->operation;
-		instructionListAux->instruction.operand_src_list= copyOperandList(instruction->operand_src_list);
-		instructionListAux->instruction.operand_dst_list= copyOperandList(instruction->operand_dst_list);
-		instructionListAux->label = label;
-		instructionListAux->next= NULL;
+		instructionListAux->next = newInstruction;
 	}
 	return instructionList;
 }
@@ -377,16 +379,15 @@ ILOC_instruction_list_t* deleteIlocInstructionsFirstElement(ILOC_instruction_lis
 	}
 	else
 	{
-		deletedInstruction = instructionListAux;
-		if(instructionListAux->next!=NULL)
+		deletedInstruction = instructionList;
+		if(instructionList->next!=NULL)
 		{
-			instructionListAux= instructionListAux->next;
 			instructionList= instructionList->next;
 			free(deletedInstruction);
 		}
 		else
 		{	
-			instructionListAux=NULL;
+			instructionList=NULL;
 			free(deletedInstruction);
 		}	
 		return instructionList;
@@ -406,7 +407,7 @@ ILOC_instruction_list_t* destroyIlocInstructionList(ILOC_instruction_list_t* ins
 	{
 		instructionListAux=deleteIlocInstructionsFirstElement(instructionListAux);
 	}
-	return instructionList;
+	return instructionListAux;
 }
 
 /*
@@ -416,12 +417,13 @@ ILOC_instruction_list_t* destroyIlocInstructionList(ILOC_instruction_list_t* ins
 */
 ILOC_register_t createRegister()
 {
-	ILOC_register_t newRegister;
-	char *prefix,*sufix;
-	prefix = "r";
-	sprintf(sufix, "%d", registerControl); 
+	
+	char prefix[2]="r", sufix[15]={ };
+	ILOC_register_t newRegister=malloc(strlen(prefix)+strlen(sufix));; 
+	sprintf(sufix,"%d",registerControl);
 	registerControl++;
-	newRegister= strcat(prefix,sufix);
+	strcpy(newRegister,prefix);
+	strcat(newRegister,sufix);
 	return newRegister;
 }
 
@@ -432,12 +434,12 @@ ILOC_register_t createRegister()
 */
 ILOC_label_t createLabel()
 {
-	ILOC_label_t newLabel;
-	char* prefix,*sufix;
-	prefix = "L";
-	sprintf(sufix, "%d", labelControl); 
+	char prefix[2]="L", sufix[15]={ };
+	ILOC_register_t newLabel=malloc(strlen(prefix)+strlen(sufix));; 
+	sprintf(sufix,"%d",labelControl);
 	labelControl++;
-	newLabel= strcat(prefix,sufix);
+	strcpy(newLabel,prefix);
+	strcat(newLabel,sufix);
 	return newLabel;
 }
 
@@ -448,6 +450,7 @@ ILOC_label_t createLabel()
 */
 void code_ger(comp_tree_t** ast)
 {
+
 	ILOC_instruction_list_t *code;
 	code =createIlocInstructionsList();
 	comp_dict_item_t *astNode;
