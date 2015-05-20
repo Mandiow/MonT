@@ -468,6 +468,231 @@ void code_program(comp_tree_t **ast) {
 }
 
 
+void code_literal(comp_tree_t **ast) {
+	comp_dict_item_t *S = (*ast)->tableItem;
+
+  	ILOC_instruction_list_t *instructionLst= createIlocInstructionsList();
+	ILOC_instruction *inst;
+  
+  	switch(S->iks_type) {
+	    /*falta booleanos*/
+    case SIMBOLO_LITERAL_INT:
+	    	S->tempName = createRegister();
+	    	inst= newInstruction(op_loadI,S->key,NULL,S->tempName,NULL,NULL);
+	    	instructionLst= insertIlocInstructionsElement(inst,NULL,instructionLst);
+	      	S->code=concatIlocInstructionsList(S->code,instructionLst);
+	    	break;
+	    case SIMBOLO_LITERAL_FLOAT:
+	    	printf("code_literal para TK_LIT_FLOAT não implementado\n");
+	    	break;
+	    case SIMBOLO_LITERAL_CHAR:
+	    	S->tempName = createRegister();
+	    	inst= newInstruction(op_loadI,S->key,NULL,S->tempName,NULL,NULL);
+	    	instructionLst= insertIlocInstructionsElement(inst,NULL,instructionLst);
+	      	S->code=concatIlocInstructionsList(S->code,instructionLst);
+	    	break;
+	    case SIMBOLO_LITERAL_STRING:
+				code_id_lits(ast);
+				break;
+	    default:
+	      fprintf(stderr,"error at code_literal: token type: %d\n",S->symbol->token_type);
+	  }
+}
+
+void code_id_lits(comp_tree_t **ast) {
+	comp_dict_item_t *E = (*ast)->tableItem;
+
+	// register that will receive memory content of id
+	E->tempName = createRegister();
+
+	// register that will receive the address of this id
+	char *reg_temp = createRegister();
+
+	char addr[10];
+	sprintf(addr,"%d",E.size);
+
+	ILOC_instruction_t *load,*loadAI;
+	ILOC_instruction_list_t *instLst=createIlocInstructionsList();
+	ILOC_register_t offset_reg;
+	/*if (==) {
+		offset_reg=rarp;
+	}
+	else {
+		offset_reg=rbss;
+	}*/
+	loadAI = newInstruction(op_loadAI,offset_reg,addr,reg_temp,NULL);
+	instLst=insertIlocInstructionsElement(loadAI,NULL,instLst);
+
+	// loading memory content to register E->temp.name
+	switch(E->iks_type) {
+		case IKS_INT:
+			load = newInstruction(op_load,reg_temp,NULL,E->tempName,NULL);
+			instLst=insertIlocInstructionsElement(load,NULL,instLst);
+			break;
+		
+		case IKS_CHAR:
+			load = newInstruction(op_load,reg_temp,NULL,E->tempName,NULL);
+			instLst=insertIlocInstructionsElement(load,NULL,instLst);
+			break;	
+	}	
+	E->code=concatIlocInstructionsList(E->code,instLst);
+}
+
+void code_arit_sum(comp_tree_t **ast) {
+	
+	comp_tree_t *E1t = (*ast)->childNodeList->firstNode;
+	comp_dict_item_t *E1 = E1t->tableItem;
+	code_ger(&E1t);
+
+	comp_tree_t *E2t = (*ast)->childNodeList->next->firstNode;
+	comp_dict_item_t *E2 = E2t->tableItem;
+	code_ger(&E2t);
+
+	comp_dict_item_t *B = (*ast)->tableItem;
+	B->code = concatIlocInstructionsList(E1->code,E2->code);
+	B->tempName = createRegister();
+
+	ILOC_instruction_list_t *arit_sum = createIlocInstructionsList();
+
+	ILOC_instruction_t *art_sum = newInstruction(op_add,E1->tempName,E2->tempName,B->tempName,NULL);
+	arit_sum=insertIlocInstructionsElement(art_sum,NULL,arit_sum);
+	B->code = concatIlocInstructionsList(B->code,arit_sum);	
+}
+
+
+void code_arit_sub(comp_tree_t **ast) {
+	
+	comp_tree_t *E1t = (*ast)->childNodeList->firstNode;
+	comp_dict_item_t *E1 = E1t->tableItem;
+	code_ger(&E1t);
+
+	comp_tree_t *E2t = (*ast)->childNodeList->next->firstNode;
+	comp_dict_item_t *E2 = E2t->tableItem;
+	code_ger(&E2t);
+
+	comp_dict_item_t *B = (*ast)->tableItem;
+	B->code = concatIlocInstructionsList(E1->code,E2->code);
+	B->tempName = createRegister();
+
+	ILOC_instruction_list_t *arit_sub = createIlocInstructionsList();
+
+	ILOC_instruction_t *art_sub = newInstruction(op_sub,E1->tempName,E2->tempName,B->tempName,NULL);
+	arit_sub=insertIlocInstructionsElement(art_sub,NULL,arit_sub);
+	B->code = concatIlocInstructionsList(B->code,arit_sub);	
+}
+
+
+void code_arit_mul(comp_tree_t **ast) {
+	
+	comp_tree_t *E1t = (*ast)->childNodeList->firstNode;
+	comp_dict_item_t *E1 = E1t->tableItem;
+	code_ger(&E1t);
+
+	comp_tree_t *E2t = (*ast)->childNodeList->next->firstNode;
+	comp_dict_item_t *E2 = E2t->tableItem;
+	code_ger(&E2t);
+
+	comp_dict_item_t *B = (*ast)->tableItem;
+	B->code = concatIlocInstructionsList(E1->code,E2->code);
+	B->tempName = createRegister();
+
+	ILOC_instruction_list_t *arit_mul = createIlocInstructionsList();
+
+	ILOC_instruction_t *art_mul = newInstruction(op_mult,E1->tempName,E2->tempName,B->tempName,NULL);
+	arit_mul=insertIlocInstructionsElement(art_mul,NULL,arit_mul);
+	B->code = concatIlocInstructionsList(B->code,arit_mul);	
+}
+
+
+void code_arit_div(comp_tree_t **ast) {
+	
+	comp_tree_t *E1t = (*ast)->childNodeList->firstNode;
+	comp_dict_item_t *E1 = E1t->tableItem;
+	code_ger(&E1t);
+
+	comp_tree_t *E2t = (*ast)->childNodeList->next->firstNode;
+	comp_dict_item_t *E2 = E2t->tableItem;
+	code_ger(&E2t);
+
+	comp_dict_item_t *B = (*ast)->tableItem;
+	B->code = concatIlocInstructionsList(E1->code,E2->code);
+	B->tempName = createRegister();
+
+	ILOC_instruction_list_t *arit_div = createIlocInstructionsList();
+
+	ILOC_instruction_t *art_div = newInstruction(op_div,E1->tempName,E2->tempName,B->tempName,NULL);
+	arit_div=insertIlocInstructionsElement(art_div,NULL,arit_div);
+	B->code = concatIlocInstructionsList(B->code,arit_div);
+}
+
+/*void code_arim_inv(comp_tree_t **ast) {
+	
+	comp_tree_t *E1t = (*ast)->childNodeList->firstNode;
+	comp_dict_item_t *E1 = E1t->tableItem;
+	code_ger(&E1t);
+
+	comp_dict_item_t *B = (*ast)->tableItem;
+	B->tempName = createRegister();
+
+	ILOC_instruction_list_t *arit_inv = createIlocInstructionsList();
+
+	ILOC_instruction_t *art_inv = newInstruction(op_i,E1->tempName,NULL,B->tempName,NULL);
+	arit_inv=insertIlocInstructionsElement(art_inv,NULL,arit_inv);
+	B->code = concatIlocInstructionsList(B->code,arit_inv);
+}*/
+
+void code_attr(comp_tree_t **ast) {
+	comp_dict_item_t *S = (*ast)->tableItem;
+	S->tempNext = createLabel();
+	
+	struct nodeList_t *first_child_in_list = (*ast)->childNodeList;
+	struct nodeList_t *second_child_in_list = (*ast)->childNodeList->nextNode;
+	struct nodeList_t *third_child_in_list = (*ast)->childNodeList->nextNode->nextNode;
+	
+	comp_tree_t *IDorIDV_tree = first_child_in_list->firstNode; 
+	comp_dict_item_t *IDorIDV = IDorIDV_tree->tableItem;
+
+	comp_tree_t *Et = (*ast)->childNodeList->nextNode->firstNode;
+	comp_dict_item_t *E = Et->tableItem;
+	code_ger(&Et);
+	
+	S->code = concatIlocInstructionsList(S->code,E->code);
+
+	ILOC_instruction_t *attr;
+	ILOC_instruction_list_t instLst = createIlocInstructionsList();
+	if(IDorIDV->type == IKS_AST_VETOR_INDEXADO) {
+		comp_dict_item_t *ID = (comp_dict_item_t *)IDorIDV_tree->childNodeList->firstNode;
+		code_ger(&IDorIDV_tree);
+		S->code = concatIlocInstructionsList(S->code,IDorIDV->code);
+		
+		char *offset_reg = NULL;
+		
+		attr =newInstruction(op_storeAI,E->tempName,NULL,offset_reg,IDorIDV->tempName);
+		instLst= insertIlocInstructionsElement(attr,NULL,instLst);
+	}
+	else {
+		comp_dict_item_t *ID = IDorIDV;
+		char addr[10];
+		sprintf(addr,"%d",E.size);
+		
+		char *offset_reg = NULL;
+		// ver offset
+		attr =newInstruction(op_storeAI,E->tempName,NULL,offset_reg,addr);
+		instLst= insertIlocInstructionsElement(attr,NULL,instLst);
+	}
+	
+	S->code = concatIlocInstructionsList(S->code,instLst);
+	
+	if(third_child_in_list != first_child_in_list) { // there's a command after this attribution
+		code_ger((comp_tree_t**)&third_child_in_list->firstNode);
+		comp_dict_item_t *next_command_tree = ((comp_tree_t *)third_child_in_list->firstNode)->tableItem;
+		S->code = concatIlocInstructionsList(S->code,next_command_tree->code);
+	}
+	
+}
+
+
+
 /*
 * função: code_ger
 * Entrada: comp_tree_t Saída: void
