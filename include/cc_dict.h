@@ -42,6 +42,7 @@ typedef struct comp_dict_item{  // item tabela de simbolos
     ILOC_register_t tempName; // name of the temp code
     ILOC_label_t tempBT, tempBF; // to logic operands
     ILOC_label_t tempNext;
+    ILOC_label_t tempBegin;
 }comp_dict_item_t;
 
 struct comp_dict_t { /* tabela de simbolos */

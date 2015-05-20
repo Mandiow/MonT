@@ -84,7 +84,7 @@ ILOC_operand_list_t* deleteIlocOperandElement (char* op,ILOC_operand_list_t* ope
 				operandListAux= operandListAux->next;
 				if(operandListAux->next->op == op)
 				{
-					deletedOperand= operandListAux->next;
+					deletedOperand= operandListAux->next
 					operandListAux->next= deletedOperand->next;
 					deletedOperand->next = NULL;
 					free(deletedOperand);
@@ -383,11 +383,15 @@ ILOC_instruction_list_t* deleteIlocInstructionsFirstElement(ILOC_instruction_lis
 		if(instructionList->next!=NULL)
 		{
 			instructionList= instructionList->next;
+			deletedInstruction->operand_src_list = destroyIlocOperandList(deletedInstruction->operand_src_list);
+			deletedInstruction->operand_dst_list = destroyIlocOperandList(deletedInstruction->operand_dst_list);
 			free(deletedInstruction);
 		}
 		else
 		{	
 			instructionList=NULL;
+			deletedInstruction->operand_src_list = destroyIlocOperandList(deletedInstruction->operand_src_list);
+			deletedInstruction->operand_dst_list = destroyIlocOperandList(deletedInstruction->operand_dst_list);
 			free(deletedInstruction);
 		}	
 		return instructionList;
@@ -462,8 +466,7 @@ void code_program(comp_tree_t **ast) {
 	    char* label = createLabel();
 	    inst= newInstruction(op_jumpI,NULL,NULL,label,NULL);
 	    instructionLst = insertIlocInstructionsElement(inst,NULL,instructionLst);
-	    /* dar apend no código de cada nodo
-		*/
+	    Program->code= concatIlocInstructionsList(Program->code,instructionLst);
 	}
 }
 
@@ -625,8 +628,8 @@ void code_arit_div(comp_tree_t **ast) {
 	B->code = concatIlocInstructionsList(B->code,arit_div);
 }
 
-/*void code_arim_inv(comp_tree_t **ast) {
-	
+void code_arim_inv(comp_tree_t **ast) 
+{
 	comp_tree_t *E1t = (*ast)->childNodeList->firstNode;
 	comp_dict_item_t *E1 = E1t->tableItem;
 	code_ger(&E1t);
@@ -636,10 +639,10 @@ void code_arit_div(comp_tree_t **ast) {
 
 	ILOC_instruction_list_t *arit_inv = createIlocInstructionsList();
 
-	ILOC_instruction_t *art_inv = newInstruction(op_i,E1->tempName,NULL,B->tempName,NULL);
+	ILOC_instruction_t *art_inv = newInstruction(op_mult,E1->tempName,"-1",B->tempName,NULL);
 	arit_inv=insertIlocInstructionsElement(art_inv,NULL,arit_inv);
 	B->code = concatIlocInstructionsList(B->code,arit_inv);
-}*/
+}
 
 void code_attr(comp_tree_t **ast) {
 	comp_dict_item_t *S = (*ast)->tableItem;
@@ -683,12 +686,357 @@ void code_attr(comp_tree_t **ast) {
 	
 	S->code = concatIlocInstructionsList(S->code,instLst);
 	
-	if(third_child_in_list != first_child_in_list) { // there's a command after this attribution
+	if(third_child_in_list != first_child_in_list) {
 		code_ger((comp_tree_t**)&third_child_in_list->firstNode);
 		comp_dict_item_t *next_command_tree = ((comp_tree_t *)third_child_in_list->firstNode)->tableItem;
 		S->code = concatIlocInstructionsList(S->code,next_command_tree->code);
 	}
 	
+}
+
+void code_comp_equal(comp_tree_t** ast)
+{	
+	comp_tree_t *B1t = (*ast)->childNodeList->firstNode;
+	comp_dict_item_t *B1 = B1t->tableItem;
+	code_ger(&B1t);
+
+	comp_tree_t *B2t = (*ast)->childNodeList->next->firstNode;
+	comp_dict_item_t *B2 = B2t->tableItem;
+	code_ger(&B2t);
+
+	comp_dict_item_t *B = (*ast)->tableItem;
+	B->code = concatIlocInstructionsList(B1->code,B2->code);
+	B->tempName = createRegister();
+
+	ILOC_instruction_list_t *logic_comp_eq = createIlocInstructionsList();
+
+	B->tempBT= createLabel();
+	B->tempBF= createLabel();
+	ILOC_instruction_t *logic_comp_equal = newInstruction(op_cmp_EQ,B1->tempName,B2->tempName,B->tempName,NULL);
+	logic_comp_eq=insertIlocInstructionsElement(logic_comp_equal,NULL,logic_comp_eq);
+	ILOC_instruction_t *conditionalJump = newInstruction(op_cbr,B->tempName,NULL,B->tempBT,B->tempBF);
+	logic_comp_eq=insertIlocInstructionsElement(conditionalJump,NULL,logic_comp_eq);
+	B->code=concatIlocInstructionsList(B->code,logic_comp_eq);
+}
+
+void code_comp_dif(comp_tree_t** ast)
+{	
+	comp_tree_t *B1t = (*ast)->childNodeList->firstNode;
+	comp_dict_item_t *B1 = B1t->tableItem;
+	code_ger(&B1t);
+
+	comp_tree_t *B2t = (*ast)->childNodeList->next->firstNode;
+	comp_dict_item_t *B2 = B2t->tableItem;
+	code_ger(&B2t);
+
+	comp_dict_item_t *B = (*ast)->tableItem;
+	B->code = concatIlocInstructionsList(B1->code,B2->code);
+	B->tempName = createRegister();
+
+	ILOC_instruction_list_t *logic_comp_dif = createIlocInstructionsList();
+
+	B->tempBT= createLabel();
+	B->tempBF= createLabel();
+	ILOC_instruction_t *logic_comp_different = newInstruction(op_cmp_NE,B1->tempName,B2->tempName,B->tempName,NULL);
+	logic_comp_eq=insertIlocInstructionsElement(logic_comp_different,NULL,logic_comp_dif);
+	ILOC_instruction_t *conditionalJump = newInstruction(op_cbr,B->tempName,NULL,B->tempBT,B->tempBF);
+	logic_comp_different=insertIlocInstructionsElement(conditionalJump,NULL,logic_comp_dif);
+	B->code=concatIlocInstructionsList(B->code,logic_comp_dif);
+}
+
+void code_comp_GreaterEqual(comp_tree_t** ast)
+{	
+	comp_tree_t *B1t = (*ast)->childNodeList->firstNode;
+	comp_dict_item_t *B1 = B1t->tableItem;
+	code_ger(&B1t);
+
+	comp_tree_t *B2t = (*ast)->childNodeList->next->firstNode;
+	comp_dict_item_t *B2 = B2t->tableItem;
+	code_ger(&B2t);
+
+	comp_dict_item_t *B = (*ast)->tableItem;
+	B->code = concatIlocInstructionsList(B1->code,B2->code);
+	B->tempName = createRegister();
+
+	ILOC_instruction_list_t *logic_comp_GE = createIlocInstructionsList();
+
+	B->tempBT= createLabel();
+	B->tempBF= createLabel();
+	ILOC_instruction_t *logic_comp_GreaterEqual = newInstruction(op_cmp_GE,B1->tempName,B2->tempName,B->tempName,NULL);
+	logic_comp_GE=insertIlocInstructionsElement(logic_comp_GreaterEqual,NULL,logic_comp_GE);
+	ILOC_instruction_t *conditionalJump = newInstruction(op_cbr,B->tempName,NULL,B->tempBT,B->tempBF);
+	logic_comp_GE=insertIlocInstructionsElement(conditionalJump,NULL,logic_comp_GE);
+	B->code=concatIlocInstructionsList(B->code,logic_comp_GE);
+}
+
+void code_comp_GreaterThan(comp_tree_t** ast)
+{	
+	comp_tree_t *B1t = (*ast)->childNodeList->firstNode;
+	comp_dict_item_t *B1 = B1t->tableItem;
+	code_ger(&B1t);
+
+	comp_tree_t *B2t = (*ast)->childNodeList->next->firstNode;
+	comp_dict_item_t *B2 = B2t->tableItem;
+	code_ger(&B2t);
+
+	comp_dict_item_t *B = (*ast)->tableItem;
+	B->code = concatIlocInstructionsList(B1->code,B2->code);
+	B->tempName = createRegister();
+
+	ILOC_instruction_list_t *logic_comp_GT = createIlocInstructionsList();
+
+	B->tempBT= createLabel();
+	B->tempBF= createLabel();
+	ILOC_instruction_t *logic_comp_greaterThan = newInstruction(op_cmp_GT,B1->tempName,B2->tempName,B->tempName,NULL);
+	logic_comp_GT=insertIlocInstructionsElement(logic_comp_greaterThan,NULL,logic_comp_GT);
+	ILOC_instruction_t *conditionalJump = newInstruction(op_cbr,B->tempName,NULL,B->tempBT,B->tempBF);
+	logic_comp_GT=insertIlocInstructionsElement(conditionalJump,NULL,logic_comp_GT);
+	B->code=concatIlocInstructionsList(B->code,logic_comp_GT);
+}
+
+void code_comp_LowerEqual(comp_tree_t** ast)
+{	
+	comp_tree_t *B1t = (*ast)->childNodeList->firstNode;
+	comp_dict_item_t *B1 = B1t->tableItem;
+	code_ger(&B1t);
+
+	comp_tree_t *B2t = (*ast)->childNodeList->next->firstNode;
+	comp_dict_item_t *B2 = B2t->tableItem;
+	code_ger(&B2t);
+
+	comp_dict_item_t *B = (*ast)->tableItem;
+	B->code = concatIlocInstructionsList(B1->code,B2->code);
+	B->tempName = createRegister();
+
+	ILOC_instruction_list_t *logic_comp_LE = createIlocInstructionsList();
+
+	B->tempBT= createLabel();
+	B->tempBF= createLabel();
+	ILOC_instruction_t *logic_comp_lowerEqual = newInstruction(op_cmp_LE,B1->tempName,B2->tempName,B->tempName,NULL);
+	logic_comp_LE=insertIlocInstructionsElement(logic_comp_lowerEqual,NULL,logic_comp_LE);
+	ILOC_instruction_t *conditionalJump = newInstruction(op_cbr,B->tempName,NULL,B->tempBT,B->tempBF);
+	logic_comp_LE=insertIlocInstructionsElement(conditionalJump,NULL,logic_comp_LE);
+	B->code=concatIlocInstructionsList(B->code,logic_comp_LE);
+}
+
+void code_comp_LowerThan(comp_tree_t** ast)
+{	
+	comp_tree_t *B1t = (*ast)->childNodeList->firstNode;
+	comp_dict_item_t *B1 = B1t->tableItem;
+	code_ger(&B1t);
+
+	comp_tree_t *B2t = (*ast)->childNodeList->next->firstNode;
+	comp_dict_item_t *B2 = B2t->tableItem;
+	code_ger(&B2t);
+
+	comp_dict_item_t *B = (*ast)->tableItem;
+	B->code = concatIlocInstructionsList(E1->code,E2->code);
+	B->tempName = createRegister();
+
+	ILOC_instruction_list_t *logic_comp_LT = createIlocInstructionsList();
+
+	B->tempBT= createLabel();
+	B->tempBF= createLabel();
+	ILOC_instruction_t *logic_comp_lowerThan = newInstruction(op_cmp_EQ,B1->tempName,B2->tempName,B->tempName,NULL);
+	logic_comp_LT=insertIlocInstructionsElement(logic_comp_lowerThan,NULL,logic_comp_LT);
+	ILOC_instruction_t *conditionalJump = newInstruction(op_cbr,B->tempName,NULL,B->tempBT,B->tempBF);
+	logic_comp_LT=insertIlocInstructionsElement(conditionalJump,NULL,logic_comp_LT);
+	B->code=concatIlocInstructionsList(B->code,logic_comp_LT);
+}
+
+void code_neg(comp_tree_t** ast)
+{
+	comp_dict_item_t *B = (*ast)->item;
+
+	comp_tree_t *E1t = (*ast)->childNodeList->firstNode;
+	comp_dict_item_t *E1 = E1t->tableItem;
+	E1->tempBT = B->tempBF;
+	E1->tempBF = B->tempBT;
+	code_ger(&E1t);
+	B->code = E1->code;	
+
+}
+
+
+void code_and(comp_tree_t** ast)
+{	
+	comp_dict_item_t *B = (*ast)->tableItem;
+	B->tempName = createRegister();
+
+	comp_tree_t *B1t = (*ast)->childNodeList->firstNode;
+	comp_dict_item_t *B1 = B1t->tableItem;
+	B1->tempBT=createLabel();
+	B1->tempBF=B->tempBF;
+	code_ger(&B1t);
+
+	comp_tree_t *B2t = (*ast)->childNodeList->next->firstNode;
+	comp_dict_item_t *B2 = B2t->tableItem;
+	B2->tempBT=B->tempBT;
+	B2->tempBF=B->tempBF;
+	code_ger(&B2t);
+
+	B2->code->label= B1->tempBT;
+	B->code = concatIlocInstructionsList(B1->code,B2->code);
+}
+
+void code_or(comp_tree_t** ast)
+{	
+	comp_dict_item_t *B = (*ast)->tableItem;
+	B->tempName = createRegister();
+
+	comp_tree_t *B1t = (*ast)->childNodeList->firstNode;
+	comp_dict_item_t *B1 = B1t->tableItem;
+	B1->tempBT=createLabel();
+	B1->tempBF=B->tempBF;
+	code_ger(&B1t);
+
+	comp_tree_t *B2t = (*ast)->childNodeList->next->firstNode;
+	comp_dict_item_t *B2 = B2t->tableItem;
+	B2->tempBT=B->tempBT;
+	B2->tempBF=B->tempBF;
+	code_ger(&B2t);
+
+	B2->code->label= B1->tempBF;
+	B->code = concatIlocInstructionsList(B1->code,B2->code);
+}
+
+void code_if_else(comp_tree_t **ast) {
+	comp_dict_item_t *S = (*ast)->tableItem;
+	S->tempNext = createLabel();
+
+	comp_tree_t *Bt = (*ast)->childNodeList->firstNode;
+	comp_dict_item_t *B = Bt->tableItem;
+	B->tempBT= createLabel();
+	B->tempBF = createLabel();
+	code_ger(&Bt);
+
+	comp_tree_t *S1t = (*ast)->childNodeList->nextNode->firstNode;
+	comp_dict_item_t *S1 = S1t->tableItem;
+	S1->tempNext = S->tempNext;
+	code_ger(&S1t);
+
+	if((*ast)->childNodeList->nextNode->nextNode != NULL)
+	{
+		comp_tree_t *S2t = (*ast)->childNodeList->nextNode->nextNode->firstNode;
+		comp_dict_item_t *S2 = S2t->tableItem;
+		S2->tempNext = S->tempNext;
+		code_ger(&S2t);
+	}
+	S1->code->label= B->tempBT;
+	S->code = concatIlocInstructionsList(B->code,S1->code);
+	ILOC_instruction_t *goto_S_next= newInstruction(op_jumpI,NULL,NULL,S->tempNext,NULL);
+	S->code=insertIlocInstructionsElement(goto_S_next,NULL,S->code);
+	S2->code->label=B->tempBF;
+	S->code = concatIlocInstructionsList(S->code,S2->code);
+	S->code->label=S->tempNext;
+	if((*ast)->childNodeList->nextNode->nextNode->nextNode!=NULL) {
+		comp_tree_t *Stnext = (*ast)->childNodeList->nextNode->nextNode->nextNode->firstNode;
+		code_ger(&Stnext);
+		comp_dict_item_t *Snext = Stnext->tableItem;
+		S->code = concatIlocInstructionsList(S->code,Snext->code);
+	}
+}
+
+
+
+void code_while_do(comp_tree_t **ast) 
+{
+	comp_dict_item_t *S = (*ast)->tableItem;
+	S->tempNext = createLabel();
+
+	comp_tree_t *Bt = (*ast)->childNodeList->firstNode;
+	comp_dict_item_t *B = Bt->tableItem;
+	B->tempBT = createLabel();
+	B->tempBF = S->tempNext;
+	code_ger(&Bt);
+
+	comp_tree_t *S1t = (*ast)->childNodeList->nextNode->firstNode;
+	comp_dict_item_t *S1 = S1t->tableItem;
+	S->tempBegin = createLabel();
+	S1->tempNext = S->tempBegin;
+	code_ger(&S1t);
+
+  	B->code->label=S->tempBegin;
+	S->code = concatIlocInstructionsList(S->code,B->code);
+
+  	S1->code->label=B->tempBT;
+	S->code = concatIlocInstructionsList(S->code,S1->code);
+
+	ILOC_instruction_t *goto_S_next= newInstruction(op_jumpI,NULL,NULL,S->tempBegin,NULL);
+	S->code=insertIlocInstructionsElement(goto_S_next,NULL,S->code);
+  	
+	S->code->label=S->tempNext;
+
+	// if there is next command
+	if((*ast)->childNodeList->nextNode->nextNode!=NULL) {
+		comp_tree_t *Stnext = (*ast)->childNodeList->nextNode->nextNode->nextNode->firstNode;
+		code_ger(&Stnext);
+		comp_dict_item_t *Snext = Stnext->tableItem;
+		S->code = concatIlocInstructionsList(S->code,Snext->code);
+	}
+}
+void code_do_while(comp_tree_t **ast) 
+{
+	comp_dict_item_t *S = (*ast)->tableItem;
+	S->tempNext = createLabel();
+
+	comp_tree_t *S1t = (*ast)->childNodeList->firstNode;
+	comp_dict_item_t *S1 = S1t->tableItem;
+	S->tempBegin = createLabel();
+	S1->tempNext = createLabel();
+	code_ger(&S1t);
+
+	comp_tree_t *Bt = (*ast)->childNodeList->nextNode->firstNode;
+	comp_dict_item_t *B = Bt->tableItem;
+	B->tempBT = S->tempBegin;
+	B->tempBF = S->tempNext;
+	code_ger(&Bt);
+
+  	S1->code->label=S->tempBegin;
+	S->code = concatIlocInstructionsList(S->code,S1->code);
+
+  	B->code->label=S1->tempNext;
+	S->code = concatIlocInstructionsList(S->code,B->code);
+
+	S->code->label=S->tempNext;
+
+	if((*ast)->childNodeList->nextNode->nextNode!=NULL) {
+		comp_tree_t *Stnext = (*ast)->childNodeList->nextNode->nextNode->nextNode->firstNode;
+		code_ger(&Stnext);
+		comp_dict_item_t *Snext = Stnext->tableItem;
+		S->code = concatIlocInstructionsList(S->code,Snext->code);
+	}
+}
+
+void code_vector(comp_tree_t **ast) {
+	comp_dict_item_t *IDn = ((comp_tree_t *)(*ast)->childNodeList->firstNode)->tableItem;
+	iks_grammar_symbol_t *IDs = IDn->symbol;
+	
+	ILOC_instruction_t *vector_code = createIlocInstructionsList();
+	
+	/*char *dk_reg = get_dk_reg(*ast, IDs->num_dimen, &vector_code);*/
+
+	char w[5]; 
+	sprintf(w,"%d",IDs->iks_size);
+	char *w_reg = createRegister();
+	ILOC_instruction_t = w_load = newInstruction(op_loadI,w,NULL,w_reg,NULL);
+	insertIlocInstructionsElement(w_load,NULL,vector_code);
+	
+	ILOC_instruction_t *multiply = newInstruction(op_mult,dk_reg,w_reg,dk_reg,NULL);
+	insertIlocInstructionsElement(multiply,NULL,vector_code);
+	
+	char base[5];
+	sprintf(base,"%d",IDs->addr_offset);
+	char *base_reg = createRegister();
+	ILOC_instruction_t *base_load = newInstruction(op_loadI,base,NULL,base_reg,NULL);
+	insertIlocInstructionsElement(base_load,NULL,vector_code);
+
+	ILOC_instruction_t *add =  newInstruction(op_add,base_reg,dk_reg,dk_reg,NULL);
+	iks_list_append(add,NULL,vector_code);
+	
+	comp_dict_item_t *IDVn = (*ast)->item;
+	IDVn->code = vector_code;
+	IDVn->tempName = dk_reg;
 }
 
 
@@ -747,3 +1095,120 @@ void code_ger(comp_tree_t** ast)
 *
 *
 */
+void ilocPrintInstructionLst(ILOC_instruction_list_t *instructions) {
+	ILOC_instruction_list_t *it;
+	it = instructions;
+	do 
+	{
+		ILOC_instruction_t *inst = it->instruction;
+		if (!inst) 
+			break;
+	    if(inst->operation!=op_nop) 
+	  		printf("\t");
+		switch(inst->operation) {
+			case op_nop:
+				break;
+			case op_inc:
+				printf("inc %s",inst->operand_src_list->op);
+				break;
+			case op_dec:
+				printf("dec %s",inst->operand_src_list->op);
+				break;
+			case op_tbl:
+				printf("tbl %s, %s",inst->operand_src_list->op,inst->operand_src_list->next->op);
+				break;
+			case op_add:
+				printf("add %s, %s => %s",inst->operand_src_list->inst,inst->operand_src_list->next->inst,inst->operand_dst_list->op);
+				break;
+			case op_addI:
+				printf("addI %s, %s => %s",inst->operand_src_list->op,inst->operand_src_list->next->op,inst->operand_dst_list->op);
+				break;
+			case op_multI:
+				printf("multI %s, %s => %s",inst->operand_src_list->op,inst->operand_src_list->next->op,inst->operand_dst_list->op);
+				break;
+			case op_sub:
+				printf("sub %s, %s => %s",inst->operand_src_list->op,inst->operand_src_list->next->op,inst->operand_dst_list->op);
+				break;
+			case op_subI:
+				printf("subI %s, %s => %s",inst->operand_src_list->op,inst->operand_src_list->next->inst,inst->operand_dst_list->op);
+				break;
+			case op_mult:
+				printf("mult %s, %s => %s",inst->operand_src_list->op,inst->operand_src_list->next->op,inst->operand_dst_list->op);
+				break;
+			case op_div:
+				printf("div %s, %s => %s",inst->operand_src_list->op,inst->operand_src_list->next->op,inst->operand_dst_list->op);
+				break;
+			case op_inv:
+				printf("inv %s, %s => %s",inst->operand_src_list->op,inst->operand_src_list->next->op,inst->operand_dst_list->op);
+				break;
+			case op_divI:
+				printf("divI %s, %s => %s",inst->operand_src_list->op,inst->operand_src_list->next->op,inst->operand_dst_list->op);
+				break;
+			case op_jump:
+				printf("jump -> %s",inst->operand_dst_list->op);
+				break;
+			case op_jumpI:
+				printf("jumpI -> %s",inst->operand_dst_list->op);
+				break;
+			case op_cmp_LT:
+				printf("cmp_LT %s, %s -> %s",inst->operand_src_list->op,inst->operand_src_list->next->op,inst->operand_dst_list->op);
+				break;
+			case op_cmp_LE:
+				printf("cmp_LE %s, %s -> %s",inst->operand_src_list->inst,inst->operand_src_list->next->op,inst->operand_dst_list->op);
+				break;
+			case op_cmp_EQ:
+				printf("cmp_EQ %s, %s -> %s",inst->operand_src_list->op,inst->operand_src_list->next->op,inst->operand_dst_list->op);
+				break;
+			case op_cmp_GE:
+				printf("cmp_GE %s, %s -> %s",inst->operand_src_list->op,inst->operand_src_list->next->op,inst->operand_dst_list->op);
+				break;
+			case op_cmp_GT:
+				printf("cmp_GT %s, %s -> %s",inst->operand_src_list->op,inst->operand_src_list->next->op,inst->operand_dst_list->op);
+				break;
+			case op_cmp_NE:
+				printf("cmp_NE %s, %s -> %s",inst->operand_src_list->op,inst->operand_src_list->next->op,inst->operand_dst_list->op);
+				break;
+			case op_cbr:
+				printf("cbr %s -> %s, %s",inst->operand_src_list->op,inst->operand_dst_list->op,inst->operand_dst_list->next->op);
+				break;
+		    case op_loadAI:
+		      	printf("loadAI %s, %s => %s",inst->operand_src_list->op,inst->operand_src_list->next->op,inst->operand_dst_list->op);
+		      	break;
+		    case op_loadI:
+		   		printf("loadI %s => %s",inst->operand_src_list->op,inst->operand_dst_list->op);
+		      	break;
+		    case op_load:
+		        printf("load %s => %s",	inst->operand_src_list->op,inst->operand_dst_list->op);
+		        break;
+		    case op_cload:
+		      	printf("cload %s => %s",inst->operand_src_list->op,inst->operand_dst_list->op);
+		      	break;
+		    case op_i2i:
+		        printf("i2i %s => %s",inst->operand_src_list->op,inst->operand_dst_list->op);
+		        break;
+		    case op_i2c:
+		        printf("i2c %s => %s",inst->operand_src_list->op,inst->operand_dst_list->op);
+		        break;
+		    case op_c2i:
+		        printf("c2i %s => %s",inst->operand_src_list->op,inst->operand_dst_list->op);
+		        break;
+		    case op_c2c:
+		        printf("c2c %s => %s",inst->operand_src_list->op,inst->operand_dst_list->op);
+		        break;
+		    case op_store:
+		      	printf("store %s => %s",inst->operand_src_list->op,inst->operand_dst_list->op);
+				break;
+	      	case op_storeAI:
+		      	printf("storeAI %s => %s, %s",inst->operand_src_list->op,inst->operand_dst_list->op,inst->operand_dst_list->next->op);
+				break;
+			default:
+				fprintf(stderr,"error at iloc_oper_print: op code: %d\n",inst->operation);
+	    }
+	    
+	    if(inst->operation!=op_nop) {
+	      printf("\n");
+	    }
+
+	    it = it->next;    
+	} while(it != instructions);
+}
