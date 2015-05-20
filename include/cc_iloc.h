@@ -44,23 +44,13 @@ typedef char* ILOC_register_t;
 
 ILOC_register_t rarp = "rarp"; // registrador que aponta para a pilha
 ILOC_register_t rbss = "rbss"; // registrador para dados globais
-/*
-* ILOC_operand
-* um operando pode ser um literal, um registrado ou um valor da memória
-* esse operando é usado para as operações da linguagem ILOC
-*/
-union ILOC_operand {
-	int val;
-	ILOC_register_t reg;
-	ILOC_label_t label;
-}ILOC_operand;
 
 /*
 * ILOC_operand_list_t
 * uma lista da operandos para a realização das instruções da linguagem ILOC
 */
 typedef struct ILOC_operand_list{
-	union ILOC_operand op;
+	char* op;
 	struct ILOC_operand_list *next;
 }ILOC_operand_list_t;
 
@@ -99,7 +89,7 @@ ILOC_operand_list_t* createIlocOperandList();
 * entrada: ILOC_operand saída: ILOC_operand_list_t
 * insere um elemento na lista de operandos
 */
-ILOC_operand_list_t* insertIlocOperandElement(union ILOC_operand op, ILOC_operand_list_t* operandList);
+ILOC_operand_list_t* insertIlocOperandElement(char* op, ILOC_operand_list_t* operandList);
 
 /*
 * copyOperandList
@@ -114,7 +104,7 @@ ILOC_operand_list_t* copyOperandList(ILOC_operand_list_t* operandListSrc);
 * entrada: ILOC_operand saída: ILOC_operand_list_t
 * deleta elemento da lista de operandos
 */
-ILOC_operand_list_t* deleteIlocOperandElement(union ILOC_operand op, ILOC_operand_list_t* operandList);
+ILOC_operand_list_t* deleteIlocOperandElement(char* op, ILOC_operand_list_t* operandList);
 
 /*
 * destroyIlocInstructionList
@@ -128,7 +118,7 @@ ILOC_operand_list_t* destroyIlocOperandList(ILOC_operand_list_t* operandList);
 * entrada: ILOC_op_t, ILOC_operand, ILOC_operand, ILOC_operand, ILOC_operand
 * criação de uma nova instrução
 */
-ILOC_instruction_t * newInstruction(ILOC_op_t operation,union ILOC_operand operand_src1,union ILOC_operand operand_src2, union ILOC_operand operand_dst1,union ILOC_operand operand_dst2 ); 
+ILOC_instruction_t * newInstruction(ILOC_op_t operation,char* operand_src1,char* operand_src2, char* operand_dst1,char* operand_dst2 ); 
 
 
 /*

@@ -1,8 +1,9 @@
 #ifndef __CC_TREE_H
 #define __CC_TREE_H
+#include "cc_dict.h"
 #include "cc_ast.h"
 #include "cc_gv.h"
-#include "cc_dict.h"
+
 
 // TAMANHOS
 #define INT_SIZE 4

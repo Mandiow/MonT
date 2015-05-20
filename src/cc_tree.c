@@ -1,4 +1,5 @@
 #include "cc_tree.h"
+#include "cc_iloc.h"
 #include <time.h>
 
 
@@ -34,7 +35,6 @@ comp_tree_t* createNode(int nodeType, comp_dict_item_t* tableItem)
 				default:
 					break;
 			}
-			
 	newNode->tableItem = tableItem;
 	newNode->tableItem->nodeType = nodeType;
 	newNode->nodeFather = NULL;

@@ -24,7 +24,7 @@ ILOC_operand_list_t* createIlocOperandList()
 * entrada: ILOC_operand saída: ILOC_operand_list_t
 * insere um elemento na lista de operandos
 */
-ILOC_operand_list_t* insertIlocOperandElement(union ILOC_operand op,ILOC_operand_list_t* operandList)
+ILOC_operand_list_t* insertIlocOperandElement(char* op,ILOC_operand_list_t* operandList)
 {
 	ILOC_operand_list_t* operandListAux,*newOperand;
 	operandListAux=operandList;
@@ -52,7 +52,7 @@ ILOC_operand_list_t* insertIlocOperandElement(union ILOC_operand op,ILOC_operand
 * entrada: ILOC_operand saída: ILOC_operand_list_t
 * deleta elemento da lista de operandos
 */
-ILOC_operand_list_t* deleteIlocOperandElement (union ILOC_operand op,ILOC_operand_list_t* operandList)
+ILOC_operand_list_t* deleteIlocOperandElement (char* op,ILOC_operand_list_t* operandList)
 {
 	ILOC_operand_list_t* operandListAux,*deletedOperand;
 	operandListAux=operandList;
@@ -62,7 +62,7 @@ ILOC_operand_list_t* deleteIlocOperandElement (union ILOC_operand op,ILOC_operan
 	}
 	else
 	{
-		if(operandListAux->op.reg == op.reg || operandListAux->op.label == op.label || operandListAux->op.val == op.val)
+		if(operandListAux->op == op)
 		{
 			deletedOperand = operandList;
 			if(operandList->next!=NULL)
@@ -82,7 +82,7 @@ ILOC_operand_list_t* deleteIlocOperandElement (union ILOC_operand op,ILOC_operan
 			while(operandListAux->next !=NULL)
 			{
 				operandListAux= operandListAux->next;
-				if(operandListAux->next->op.reg == op.reg ||operandListAux->next->op.label == op.label || operandListAux->next->op.val == op.val)
+				if(operandListAux->next->op == op)
 				{
 					deletedOperand= operandListAux->next;
 					operandListAux->next= deletedOperand->next;
@@ -125,7 +125,7 @@ ILOC_operand_list_t* copyOperandList(ILOC_operand_list_t* operandListSrc)
 	operandListSrcAux = operandListSrc;
 	if(operandListSrc==NULL)
 		return NULL;
-	while(operandListSrcAux != NULL && operandListSrcAux->op.reg != NULL && operandListSrcAux->op.label != NULL)
+	while(operandListSrcAux != NULL && operandListSrcAux->op != NULL && operandListSrcAux->op != NULL)
 	{
 		newOperandList = insertIlocOperandElement(operandListSrcAux->op,newOperandList);
 		operandListSrcAux = operandListSrcAux->next;
@@ -139,7 +139,7 @@ ILOC_operand_list_t* copyOperandList(ILOC_operand_list_t* operandListSrc)
 * entrada: ILOC_op_t, ILOC_operand, ILOC_operand, ILOC_operand, ILOC_operand
 * criação de uma nova instrução
 */
-ILOC_instruction_t * newInstruction(ILOC_op_t operation,union ILOC_operand operand_src1,union ILOC_operand operand_src2, union ILOC_operand operand_dst1,union ILOC_operand operand_dst2 )
+ILOC_instruction_t * newInstruction(ILOC_op_t operation,char* operand_src1,char* operand_src2, char* operand_dst1,char*operand_dst2 )
 {
 	ILOC_instruction_t *instruction;
 	instruction= (ILOC_instruction_t*)malloc(sizeof(struct ILOC_instruction));
@@ -166,7 +166,7 @@ ILOC_instruction_t * newInstruction(ILOC_op_t operation,union ILOC_operand opera
 		case op_cmp_GT: 
 		case op_cmp_NE:
 		{ 	
-			if(operand_src1.reg!=NULL && operand_src2.reg!=NULL && operand_dst1.reg!=NULL)
+			if(operand_src1=NULL && operand_src2!=NULL && operand_dst1=NULL)
 			{
 				instruction->operand_src_list = insertIlocOperandElement(operand_src1,instruction->operand_src_list);
 				instruction->operand_src_list = insertIlocOperandElement(operand_src2,instruction->operand_src_list);
@@ -190,7 +190,7 @@ ILOC_instruction_t * newInstruction(ILOC_op_t operation,union ILOC_operand opera
 		case op_loadAI:
 		case op_cloadAI:
 		{
-			if(operand_src1.reg!=NULL && operand_dst1.reg!=NULL)
+			if(operand_src1=NULL && operand_dst1=NULL)
 			{
 				instruction->operand_src_list = insertIlocOperandElement(operand_src1,instruction->operand_src_list);
 				instruction->operand_src_list = insertIlocOperandElement(operand_src2,instruction->operand_src_list);
@@ -209,7 +209,7 @@ ILOC_instruction_t * newInstruction(ILOC_op_t operation,union ILOC_operand opera
 		case op_c2i:
 		case op_i2c:
 		{
-			if(operand_src1.reg!=NULL && operand_dst1.reg!=NULL)
+			if(operand_src1=NULL && operand_dst1!=NULL)
 			{
 				instruction->operand_src_list = insertIlocOperandElement(operand_src1,instruction->operand_src_list);
 				instruction->operand_dst_list = insertIlocOperandElement(operand_dst1,instruction->operand_dst_list);
@@ -220,7 +220,7 @@ ILOC_instruction_t * newInstruction(ILOC_op_t operation,union ILOC_operand opera
 		}
 		case op_loadI:
 		{
-			if(operand_dst1.reg!=NULL)
+			if(operand_dst1!=NULL)
 			{
 				instruction->operand_src_list = insertIlocOperandElement(operand_src1,instruction->operand_src_list);
 				instruction->operand_dst_list = insertIlocOperandElement(operand_dst1,instruction->operand_dst_list);
@@ -232,7 +232,7 @@ ILOC_instruction_t * newInstruction(ILOC_op_t operation,union ILOC_operand opera
 		case op_storeAI:
 		case op_cstoreAI:
 		{
-			if(operand_src1.reg!=NULL && operand_dst1.reg!=NULL)
+			if(operand_src1=NULL && operand_dst1!=NULL)
 			{
 				instruction->operand_src_list = insertIlocOperandElement(operand_src1,instruction->operand_src_list);
 				instruction->operand_dst_list = insertIlocOperandElement(operand_dst1,instruction->operand_dst_list);
@@ -245,7 +245,7 @@ ILOC_instruction_t * newInstruction(ILOC_op_t operation,union ILOC_operand opera
 		case op_storeA0:
 		case op_cstoreA0:
 		{
-			if(operand_src1.reg!=NULL && operand_dst1.reg!=NULL && operand_dst2.reg!=NULL)
+			if(operand_src1!=NULL && operand_dst1!=NULL && operand_dst2!=NULL)
 			{
 				instruction->operand_src_list = insertIlocOperandElement(operand_src1,instruction->operand_src_list);
 				instruction->operand_dst_list = insertIlocOperandElement(operand_dst1,instruction->operand_dst_list);
@@ -257,7 +257,7 @@ ILOC_instruction_t * newInstruction(ILOC_op_t operation,union ILOC_operand opera
 		}
 		case op_jumpI:
 		{
-			if(operand_dst1.label!=NULL)
+			if(operand_dst1!=NULL)
 			{
 				instruction->operand_dst_list = insertIlocOperandElement(operand_dst1,instruction->operand_dst_list);
 				break;
@@ -267,7 +267,7 @@ ILOC_instruction_t * newInstruction(ILOC_op_t operation,union ILOC_operand opera
 		}
 		case op_jump:
 		{
-			if(operand_dst1.reg!=NULL)
+			if(operand_dst1!=NULL)
 			{
 
 				instruction->operand_dst_list = insertIlocOperandElement(operand_dst1,instruction->operand_dst_list);
@@ -278,7 +278,7 @@ ILOC_instruction_t * newInstruction(ILOC_op_t operation,union ILOC_operand opera
 		}
 		case op_cbr:
 		{
-			if(operand_src1.reg!=NULL && operand_dst1.label!=NULL && operand_dst2.label!=NULL)
+			if(operand_src1!=NULL && operand_dst1!=NULL && operand_dst2!=NULL)
 			{
 				instruction->operand_src_list = insertIlocOperandElement(operand_src1,instruction->operand_src_list);
 				instruction->operand_dst_list = insertIlocOperandElement(operand_dst1,instruction->operand_dst_list);
@@ -442,6 +442,31 @@ ILOC_label_t createLabel()
 	strcat(newLabel,sufix);
 	return newLabel;
 }
+
+/*
+* função: code_program
+* Entrada: comp_tree_t Saída: void
+* Gera código a partir da ast caso o código seja program
+*/
+void code_program(comp_tree_t **ast) {
+	comp_dict_item_t *Program = (*ast)->tableItem;
+	comp_tree_t *FirstChild = (*ast)->childNodeList->firstNode;
+
+	if(FirstChild) 
+	{
+		comp_dict_item_t *FirstChildDict = FirstChild->tableItem;
+		code_ger(&FirstChild); // recurção para a geração de código para filho do programa
+
+	    ILOC_instruction_list_t *instructionLst= createIlocInstructionsList();
+	    ILOC_instruction *inst;
+	    char* label = createLabel();
+	    inst= newInstruction(op_jumpI,NULL,NULL,label,NULL);
+	    instructionLst = insertIlocInstructionsElement(inst,NULL,instructionLst);
+	    /* dar apend no código de cada nodo
+		*/
+	}
+}
+
 
 /*
 * função: code_ger
