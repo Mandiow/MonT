@@ -10,6 +10,9 @@ int Func_type;
 int param = 0;
 int chamada = 0;
 int dimensions = 0;
+int attDimensions = 0;
+int globalOffset = 0;
+int frameOffset = 0; // Deixando pra etapa 6... LEMBRA DE ZERAR ESSA JOÇA
 %}
 %union
 {
@@ -107,11 +110,14 @@ int dimensions = 0;
 /* $$ = start 
    $1 = programa
 */
-start: programa {
+start:{;initializeList(&list_dimensions);} programa {
 					$$ = createNode(AST_PROGRAMA,NULL);
-					if($1 != NULL)appendChildNode($$,$1);
-					gv_create_initial_tree($$); 
+					if($2 != NULL)appendChildNode($$,$2);
 					syntaxTree = $$;
+					//showTree(syntaxTree);
+					gv_create_initial_tree($$); 
+					shortCircuit($$,NULL,NULL);
+					astCodeGenerate($$);
 					removeNode(syntaxTree);}
 	;
 /* $$ = programa 
@@ -129,14 +135,23 @@ programa
 	;
 
 declaracao_global
-	: especificador_tipo TK_IDENTIFICADOR '[' Array ']' {$2->iks_type = $1;$2->nodeType = AST_VETOR_INDEXADO;setTypeSize($2); stack_push(&main_stack,$2,data_item, 1);dimensions = 0;}
-	| especificador_tipo TK_IDENTIFICADOR {$2->iks_type = $1;$2->nodeType = AST_IDENTIFICADOR;setTypeSize($2); stack_push(&main_stack,$2,data_item, 1);}
-	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR '[' Array ']' { $3->iks_type = $2;$3->nodeType = AST_VETOR_INDEXADO;setTypeSize($3);stack_push(&main_stack,$3,data_item, 1);}
+	: especificador_tipo TK_IDENTIFICADOR '[' Array ']' {
+															$2->iks_type = $1;
+															copyList(list_dimensions,&$2->array);
+															$2->array->dimensions = dimensions;
+															stack_push(&main_stack,$2,data_item, 1);
+															dimensions = 0;
+															setTypeSize($2,$2->array,globalDeclaration);
+															deleteList(&list_dimensions);
+															printList($2->array);
+														}
+	| especificador_tipo TK_IDENTIFICADOR {$2->iks_type = $1;$2->nodeType = AST_IDENTIFICADOR;setTypeSize($2,NULL,globalDeclaration); stack_push(&main_stack,$2,data_item, 1);}
+	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR '[' Array ']' { $3->iks_type = $2;setTypeSize($3,$3->array,globalDeclaration);stack_push(&main_stack,$3,data_item, 1);dimensions = 0; deleteList(&list_dimensions);}
 	;
 
 Array
-	: TK_LIT_INT ',' Array {dimensions++;listAppendElem(list_dimensions,$1->token.integer);}
-	| TK_LIT_INT {if($1->token.integer > 0)$$ = $1;else exit(IKS_NULL_DIMENSION);listAppendElem(list_dimensions,$1->token.integer); dimensions ++;}
+	: TK_LIT_INT ',' Array {dimensions++;listAppendElem(&list_dimensions,$1->token.integer);}
+	| TK_LIT_INT {if($1->token.integer > 0)$$ = $1;else exit(IKS_NULL_DIMENSION);listAppendElem(&list_dimensions,$1->token.integer); dimensions ++;}
 	;
 
 declarar_funcao	
@@ -194,12 +209,12 @@ especificador_tipo
 	;
 
 declaracao_local
-	: especificador_tipo TK_IDENTIFICADOR   {$$ = NULL;$2->nodeType = AST_IDENTIFICADOR; $2->iks_type = $1;setTypeSize($2);stack_push(&main_stack,$2,data_item, 1);}
-	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;$2->nodeType = AST_IDENTIFICADOR; $2->iks_type = $1;setTypeSize($2);stack_push(&main_stack,$2,data_item, 1);typeCoercion($2,$4->tableItem,0);}
-	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR {$$ = NULL;$3->nodeType = AST_IDENTIFICADOR; $3->iks_type = $2;setTypeSize($3);stack_push(&main_stack,$3,data_item, 1);}
-	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;$3->nodeType = AST_IDENTIFICADOR; $3->iks_type = $2;setTypeSize($3);stack_push(&main_stack,$3,data_item, 1);typeCoercion($3,$5->tableItem,0);}
-	| TK_PR_STATIC TK_PR_CONST especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;$4->nodeType = AST_IDENTIFICADOR; $4->iks_type = $3;setTypeSize($4);stack_push(&main_stack,$4,data_item, 1);typeCoercion($4,$6->tableItem,0);}
-	| TK_PR_CONST especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;$3->nodeType = AST_IDENTIFICADOR; $3->iks_type = $2;setTypeSize($3);stack_push(&main_stack,$3,data_item, 1);typeCoercion($3,$5->tableItem,0);}
+	: especificador_tipo TK_IDENTIFICADOR   {$$ = NULL;$2->nodeType = AST_IDENTIFICADOR; $2->iks_type = $1;setTypeSize($2,NULL,localDeclaration);stack_push(&main_stack,$2,data_item, 1);}
+	| especificador_tipo TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;$2->nodeType = AST_IDENTIFICADOR; $2->iks_type = $1;setTypeSize($2,NULL,localDeclaration);stack_push(&main_stack,$2,data_item, 1);typeCoercion($2,$4->tableItem,0);}
+	| TK_PR_STATIC especificador_tipo TK_IDENTIFICADOR {$$ = NULL;$3->nodeType = AST_IDENTIFICADOR; $3->iks_type = $2;setTypeSize($3,NULL,localDeclaration);stack_push(&main_stack,$3,data_item, 1);}
+	| TK_PR_STATIC especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;$3->nodeType = AST_IDENTIFICADOR; $3->iks_type = $2;setTypeSize($3,NULL,localDeclaration);stack_push(&main_stack,$3,data_item, 1);typeCoercion($3,$5->tableItem,0);}
+	| TK_PR_STATIC TK_PR_CONST especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;$4->nodeType = AST_IDENTIFICADOR; $4->iks_type = $3;setTypeSize($4,NULL,localDeclaration);stack_push(&main_stack,$4,data_item, 1);typeCoercion($4,$6->tableItem,0);}
+	| TK_PR_CONST especificador_tipo  TK_IDENTIFICADOR TK_OC_LE valor {$$ = NULL;$3->nodeType = AST_IDENTIFICADOR; $3->iks_type = $2;setTypeSize($3,NULL,localDeclaration);stack_push(&main_stack,$3,data_item, 1);typeCoercion($3,$5->tableItem,0);}
 	;
 
 valor
@@ -208,13 +223,21 @@ valor
 	;
 
 ID
-	: TK_IDENTIFICADOR {stack_isDeclared(main_stack,$1,AST_IDENTIFICADOR);$$ = createNode(AST_IDENTIFICADOR,$1);}
-	| TK_IDENTIFICADOR  '[' Exparray ']' {	$$ = createNode(AST_VETOR_INDEXADO,NULL);
+	: TK_IDENTIFICADOR { stack_isDeclared(main_stack,$1,AST_IDENTIFICADOR);$$ = createNode(AST_IDENTIFICADOR,$1);$$->iks_type = $1->iks_type;}
+	| TK_IDENTIFICADOR  '[' Exparray ']' {	
+											if (attDimensions != $1->array->dimensions)
+											{
+												exit(IKS_VECTOR_INVALID_ACCESS);
+											}
+											$$ = createNode(AST_VETOR_INDEXADO,NULL);
+											$1->nodeType = AST_VETOR_INDEXADO;
 											stack_isDeclared(main_stack,$1,AST_VETOR_INDEXADO);
-											if ($3->tableItem->iks_type == IKS_STRING) exit(IKS_ERROR_STRING_TO_X);
-											if ($3->tableItem->iks_type == IKS_CHAR) exit(IKS_ERROR_CHAR_TO_X);
+											$1->nodeType = AST_IDENTIFICADOR;
+											if ($3->iks_type == IKS_STRING) exit(IKS_ERROR_STRING_TO_X);
+											if ($3->iks_type == IKS_CHAR) exit(IKS_ERROR_CHAR_TO_X);
 											appendChildNode($$,createNode(AST_IDENTIFICADOR,$1));
 											appendChildNode($$,$3);
+											attDimensions = 0;
 											
 										   }
 	;
@@ -225,8 +248,9 @@ Exparray
 								{
 									appendChildNode($$,$3);
 								}
+								attDimensions++;
 							}
-	| expressao {$$ = $1;}
+	| expressao {$$ = $1;attDimensions++;}
 	;
 
 atribuicao 
@@ -238,7 +262,7 @@ atribuicao
 	;
 
 retorno
-	: TK_PR_RETURN expressao {$$ = createNode(AST_RETURN,NULL); $$->tableItem->iks_type = Func_type;appendChildNode($$,$2);typeCoercion($$->tableItem,$2->tableItem,1);}
+	: TK_PR_RETURN expressao {$$ = createNode(AST_RETURN,NULL); $$->iks_type = Func_type;appendChildNode($$,$2);returnCoercion(Func_type,$2);}// LOOK AT THIS SHIT!
 	| TK_PR_RETURN {$$ = createNode(AST_RETURN,NULL); }
 	;
 
@@ -264,16 +288,17 @@ entrada
 	;
 
 saida
-	: TK_PR_OUTPUT lista_expressoes	 {$$ = createNode(AST_OUTPUT,NULL);appendChildNode($$,$2);if($2->tableItem->iks_type == IKS_CHAR)exit(IKS_WRONG_PAR_OUTPUT);}
+	: TK_PR_OUTPUT lista_expressoes	 {$$ = createNode(AST_OUTPUT,NULL);appendChildNode($$,$2);printf("%d\n",$2->iks_type ); if($2->iks_type == IKS_CHAR)exit(IKS_WRONG_PAR_OUTPUT);}
 	;
 
 lista_vazia
-	: lista_expressoes {$$ = $1;}
+	: lista_expressoes {$$ = $1;$$->iks_type = $1->iks_type;}
 	| {$$ = NULL;}
 	;
 
 lista_expressoes
-	: expressao mais_de_uma {	$$ = $1; 
+	: expressao mais_de_uma {	$$ = $1;
+								$$->iks_type = $1->iks_type; 
 								stack_push(&call_stack, $1->tableItem,param_item, 0);
 								if($2 != NULL)
 								{
@@ -289,30 +314,33 @@ mais_de_uma
 	;
 
 controle_fluxo
-	: TK_PR_IF '(' expressao ')'  TK_PR_THEN comando TK_PR_ELSE comando {$$ = createNode(AST_IF_ELSE,NULL); appendChildNode($$,$3);appendChildNode($$,$6);appendChildNode($$,$8);}
-	| TK_PR_IF '(' expressao ')'  TK_PR_THEN comando %prec LOWER_THAN_ELSE {$$ = createNode(AST_IF_ELSE,NULL); appendChildNode($$,$3);appendChildNode($$,$6);}
+	: TK_PR_IF '(' expressao ')'  TK_PR_THEN comando TK_PR_ELSE comando {$$ = createNode(AST_IF_ELSE,NULL); appendChildNode($$,$3);appendChildNode($$,$6);appendChildNode($$,$8);$$->ifThenElse = 1;}
+	| TK_PR_IF '(' expressao ')'  TK_PR_THEN comando %prec LOWER_THAN_ELSE {$$ = createNode(AST_IF_ELSE,NULL); appendChildNode($$,$3);appendChildNode($$,$6);$$->ifThenElse = 0;}
 	| TK_PR_WHILE '(' expressao ')' TK_PR_DO comando {$$ = createNode(AST_WHILE_DO,NULL); appendChildNode($$,$3);appendChildNode($$,$6);}
 	| TK_PR_DO comando TK_PR_WHILE '(' expressao ')' {$$ = createNode(AST_DO_WHILE,NULL); appendChildNode($$,$2);appendChildNode($$,$5);}
 	;
 
 chamada_funcao
-	: nome  '(' lista_vazia ')' {Function_Comparsion(chamada,main_stack,call_stack); $$ = createNode(AST_CHAMADA_DE_FUNCAO,NULL); appendChildNode($$,$1);if($3 != NULL) {appendChildNode($$,$3);}$$->tableItem->iks_type = getFunctionType(main_stack,call_stack); chamada = 0;}
+	: nome  '(' lista_vazia ')' {Function_Comparsion(chamada,main_stack,call_stack); $$ = createNode(AST_CHAMADA_DE_FUNCAO,NULL);$$->iks_type = $1->iks_type; appendChildNode($$,$1);if($3 != NULL) {appendChildNode($$,$3);}$$->iks_type = getFunctionType(main_stack,call_stack);chamada = 0;}
 	;
 
-nome: TK_IDENTIFICADOR {stack_isDeclared(main_stack,$1,AST_FUNCAO);$$ = createNode(AST_IDENTIFICADOR,$1);stack_push(&call_stack,$1,func_item, 0);}
+nome: TK_IDENTIFICADOR { stack_isDeclared(main_stack,$1,AST_FUNCAO);$$ = createNode(AST_IDENTIFICADOR,$1);stack_push(&call_stack,$1,func_item, 0);}
 	;
 
 expressao 
 	: TK_IDENTIFICADOR {stack_isDeclared(main_stack,$1,AST_IDENTIFICADOR);$$ = createNode(AST_IDENTIFICADOR,$1);}
 	| TK_IDENTIFICADOR  '[' expressao ']' {	$$ = createNode(AST_VETOR_INDEXADO,NULL);
+											$$->iks_type = $1->iks_type;
+											$1->nodeType = AST_VETOR_INDEXADO;
 											stack_isDeclared(main_stack,$1,AST_VETOR_INDEXADO);
-											if ($3->tableItem->iks_type == IKS_STRING) exit(IKS_ERROR_STRING_TO_X);
-											if ($3->tableItem->iks_type == IKS_CHAR) exit(IKS_ERROR_CHAR_TO_X);
+											$1->nodeType = AST_IDENTIFICADOR;
+											if ($3->iks_type == IKS_STRING) exit(IKS_ERROR_STRING_TO_X);
+											if ($3->iks_type == IKS_CHAR) exit(IKS_ERROR_CHAR_TO_X);
 											appendChildNode($$,createNode(AST_IDENTIFICADOR,$1));
 											appendChildNode($$,$3);
 											
 										   }
-	| literal 								{$$ = $1;}
+	| literal 								{$$ = $1;$$->iks_type = $1->iks_type;}
 	| expressao '/' expressao				{$$ = createNode(AST_ARIM_DIVISAO, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
 	| expressao '*' expressao				{$$ = createNode(AST_ARIM_MULTIPLICACAO, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
 	| expressao '-' expressao				{$$ = createNode(AST_ARIM_SUBTRACAO, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
@@ -328,7 +356,7 @@ expressao
 	| expressao TK_OC_AND expressao			{$$ = createNode(AST_LOGICO_E, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
 	| expressao TK_OC_OR expressao			{$$ = createNode(AST_LOGICO_OU, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
 	| '(' expressao ')'						{$$ = $2;}
-	| chamada_funcao 						{$$ = $1;}
+	| chamada_funcao 						{$$ = $1;printf("%d\n",$$->iks_type );}
 	;
 
 %%

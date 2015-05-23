@@ -1,6 +1,7 @@
 #include "cc_stack.h"
 #include "cc_error.h"
 #include "cc_ast.h"
+#include "cc_list.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,21 +11,47 @@ void stack_initialize(stack_item* stack)
 {
 	return;
 }
-void setTypeSize(comp_dict_item_t* data_item)
+void setTypeSize(comp_dict_item_t* data_item, cc_list_t* list, int typeDeclaration)
 {
 	switch(data_item->iks_type)
 	{
 		case IKS_INT:
 			data_item->size = INT_SIZE;
+			if(list!=NULL)
+			{
+				cc_list_t* aux_list;
+				aux_list = list;
+				while(aux_list != NULL)
+				{
+					data_item->size = aux_list->value * data_item->size;
+					aux_list = aux_list->nextElem;
+				}
+			}
+			break;
 		case IKS_FLOAT:
 			data_item->size = FLOAT_SIZE;
+			break;
 		case IKS_BOOL:
 			data_item->size = BOOL_SIZE;
+			break;
 		case IKS_CHAR:
 			data_item->size = CHAR_SIZE;
+			break;
 		case IKS_STRING:
 			data_item->size = CHAR_SIZE * strlen(data_item->key)+1;
+			break;
 	}
+	if(typeDeclaration == globalDeclaration)
+	{
+		data_item->offset = globalOffset;
+		globalOffset += data_item->size;
+	}
+	else
+	{
+		data_item->offset = localOffset;
+		localOffset += data_item->size;	
+	}
+
 }
 
 int stack_push(stack_item **stack, comp_dict_item_t* data, stack_flag flag, int isDeclared)
@@ -156,26 +183,282 @@ void stack_popBlock(stack_item **stack)
 	//printStack(*stack);
 }
 
+int returnCoercion(int returnType, comp_tree_t* rightElement)
+{
+	if (rightElement->tableItem != NULL)
+		switch(returnType)
+		{
+			case IKS_INT:
+				switch(rightElement->tableItem->iks_type)
+				{
+					case IKS_INT:
+						//printf("CHEGUEI AQUI\n");
+						return IKS_SUCCESS;
+					case IKS_FLOAT:
+						convertValue(COERCION_TO_INT,rightElement->tableItem);
+						return IKS_SUCCESS;
+					case IKS_BOOL:
+						rightElement->tableItem->coercion = COERCION_TO_INT;
+						convertValue(COERCION_TO_INT,rightElement->tableItem);
+						return IKS_SUCCESS;
+					case SIMBOLO_LITERAL_CHAR:
+								exit(IKS_WRONG_PAR_RETURN);
+					case SIMBOLO_LITERAL_STRING:
+								exit(IKS_WRONG_PAR_RETURN);
+
+				}
+			case SIMBOLO_LITERAL_FLOAT:
+				switch(rightElement->tableItem->iks_type)
+				{
+					case IKS_INT:
+						rightElement->tableItem->coercion = COERCION_TO_FLOAT;
+						convertValue(COERCION_TO_FLOAT,rightElement->tableItem);
+						return IKS_SUCCESS;
+					case IKS_FLOAT:
+						return IKS_SUCCESS;
+					case IKS_BOOL:
+						rightElement->tableItem->coercion = COERCION_TO_FLOAT;
+						convertValue(COERCION_TO_FLOAT,rightElement->tableItem);
+						return IKS_SUCCESS;
+					case SIMBOLO_LITERAL_CHAR:
+								exit(IKS_WRONG_PAR_RETURN);
+					case SIMBOLO_LITERAL_STRING:
+								exit(IKS_WRONG_PAR_RETURN);
+				}
+			case SIMBOLO_LITERAL_BOOL:
+				switch(rightElement->tableItem->iks_type)
+				{
+					case IKS_INT:
+						convertValue(COERCION_TO_BOOL,rightElement->tableItem);
+						return IKS_SUCCESS;
+					case IKS_FLOAT:
+						convertValue(COERCION_TO_BOOL,rightElement->tableItem);
+						return IKS_SUCCESS;
+					case IKS_BOOL:
+						return IKS_SUCCESS;
+					case SIMBOLO_LITERAL_CHAR:
+								exit(IKS_WRONG_PAR_RETURN);
+					case SIMBOLO_LITERAL_STRING:
+								exit(IKS_WRONG_PAR_RETURN);
+				}
+			case SIMBOLO_LITERAL_CHAR:
+				switch(rightElement->tableItem->iks_type)
+				{
+					case IKS_INT:
+					case IKS_FLOAT:
+					case IKS_BOOL:
+						exit(IKS_WRONG_PAR_RETURN);
+					case SIMBOLO_LITERAL_CHAR:
+						return IKS_SUCCESS;
+					case SIMBOLO_LITERAL_STRING:
+						exit(IKS_WRONG_PAR_RETURN);
+				}
+			case SIMBOLO_LITERAL_STRING:
+				switch(rightElement->tableItem->iks_type)
+				{
+					case IKS_INT:
+					case IKS_FLOAT:
+					case IKS_BOOL:
+					case SIMBOLO_LITERAL_CHAR:
+						exit(IKS_WRONG_PAR_RETURN);
+					case SIMBOLO_LITERAL_STRING:
+						return IKS_SUCCESS;
+				}
+			default: return -1;
+		}
+	else
+		switch(returnType)
+		{
+			case IKS_INT:
+				switch(rightElement->iks_type)
+				{
+					case IKS_INT:
+						//printf("CHEGUEI AQUI\n");
+						return IKS_SUCCESS;
+					case IKS_FLOAT:
+						return IKS_SUCCESS;
+					case IKS_BOOL:
+						return IKS_SUCCESS;
+					case SIMBOLO_LITERAL_CHAR:
+								exit(IKS_WRONG_PAR_RETURN);
+					case SIMBOLO_LITERAL_STRING:
+								exit(IKS_WRONG_PAR_RETURN);
+
+				}
+			case SIMBOLO_LITERAL_FLOAT:
+				switch(rightElement->iks_type)
+				{
+					case IKS_INT:
+						return IKS_SUCCESS;
+					case IKS_FLOAT:
+						return IKS_SUCCESS;
+					case IKS_BOOL:
+						return IKS_SUCCESS;
+					case SIMBOLO_LITERAL_CHAR:
+								exit(IKS_WRONG_PAR_RETURN);
+					case SIMBOLO_LITERAL_STRING:
+								exit(IKS_WRONG_PAR_RETURN);
+				}
+			case SIMBOLO_LITERAL_BOOL:
+				switch(rightElement->iks_type)
+				{
+					case IKS_INT:
+						return IKS_SUCCESS;
+					case IKS_FLOAT:
+						return IKS_SUCCESS;
+					case IKS_BOOL:
+						return IKS_SUCCESS;
+					case SIMBOLO_LITERAL_CHAR:
+								exit(IKS_WRONG_PAR_RETURN);
+					case SIMBOLO_LITERAL_STRING:
+								exit(IKS_WRONG_PAR_RETURN);
+				}
+			case SIMBOLO_LITERAL_CHAR:
+				switch(rightElement->iks_type)
+				{
+					case IKS_INT:
+					case IKS_FLOAT:
+					case IKS_BOOL:
+						exit(IKS_WRONG_PAR_RETURN);
+					case SIMBOLO_LITERAL_CHAR:
+						return IKS_SUCCESS;
+					case SIMBOLO_LITERAL_STRING:
+						exit(IKS_WRONG_PAR_RETURN);
+				}
+			case SIMBOLO_LITERAL_STRING:
+				switch(rightElement->iks_type)
+				{
+					case IKS_INT:
+					case IKS_FLOAT:
+					case IKS_BOOL:
+					case SIMBOLO_LITERAL_CHAR:
+						exit(IKS_WRONG_PAR_RETURN);
+					case SIMBOLO_LITERAL_STRING:
+						return IKS_SUCCESS;
+				}
+			default: return -1;
+		}
+}
+
 int typeInference(comp_tree_t* leftNode, comp_tree_t* rightNode)
 {
 	//printf("%d,%d\n",leftNode->tableItem->iks_type,rightNode->tableItem->iks_type );
-	switch(leftNode->tableItem->iks_type)
+	if(leftNode->tableItem == NULL || rightNode->tableItem == NULL)
+	{	
+		switch(leftNode->iks_type)
+		{
+			case IKS_INT:
+				switch(rightNode->iks_type)
+				{
+					case IKS_INT:
+						leftNode->nodeFather->iks_type = IKS_INT;
+						return IKS_SUCCESS;
+						/*father recieves IKS_INT*/
+					case IKS_FLOAT:
+						//leftNode->coercion = COERCION_TO_FLOAT;
+						leftNode->nodeFather->iks_type = IKS_FLOAT;
+						//convertValue(COERCION_TO_FLOAT,leftNode);
+						return IKS_SUCCESS;
+					case IKS_BOOL:
+						//rightNode->coercion = COERCION_TO_INT;
+						leftNode->nodeFather->iks_type = IKS_INT;
+						//convertValue(COERCION_TO_INT,rightNode);
+						return IKS_SUCCESS;
+					case IKS_CHAR:
+						exit(IKS_ERROR_CHAR_TO_X);
+					case IKS_STRING:
+						exit(IKS_ERROR_STRING_TO_X);
+				}
+			case SIMBOLO_LITERAL_FLOAT:
+				switch(rightNode->iks_type)
+				{
+					case IKS_INT:
+						//rightNode->coercion = COERCION_TO_FLOAT;
+						leftNode->nodeFather->iks_type = IKS_FLOAT;
+						//convertValue(COERCION_TO_FLOAT,rightNode);
+						return IKS_SUCCESS;
+						/*father recieves IKS_INT*/
+					case IKS_FLOAT:
+						leftNode->nodeFather->iks_type = IKS_FLOAT;
+						return IKS_SUCCESS;
+					case IKS_BOOL:
+						//rightNode->coercion = COERCION_TO_FLOAT;
+						leftNode->nodeFather->iks_type = IKS_FLOAT;
+						//convertValue(COERCION_TO_FLOAT,rightNode);
+						return IKS_SUCCESS;
+					case SIMBOLO_LITERAL_CHAR:
+						exit(IKS_ERROR_CHAR_TO_X);
+					case SIMBOLO_LITERAL_STRING:
+						exit(IKS_ERROR_STRING_TO_X);
+				}
+			case SIMBOLO_LITERAL_BOOL:
+				switch(rightNode->iks_type)
+				{
+					case IKS_INT:
+						//leftNode->coercion = COERCION_TO_INT;
+						leftNode->nodeFather->iks_type = IKS_INT;
+						//convertValue(COERCION_TO_INT,rightNode);
+						return IKS_SUCCESS;
+						/*father recieves IKS_INT*/
+					case IKS_FLOAT:
+						//leftNode->coercion = COERCION_TO_FLOAT;
+						leftNode->nodeFather->iks_type = IKS_FLOAT;
+						//convertValue(COERCION_TO_FLOAT,rightNode);
+						return IKS_SUCCESS;
+					case IKS_BOOL:
+						leftNode->nodeFather->iks_type = IKS_BOOL;
+						return IKS_SUCCESS;
+					case SIMBOLO_LITERAL_CHAR:
+						exit(IKS_ERROR_CHAR_TO_X);
+					case SIMBOLO_LITERAL_STRING:
+						exit(IKS_ERROR_STRING_TO_X);
+				}
+			case SIMBOLO_LITERAL_CHAR:
+				switch(rightNode->iks_type)
+				{
+					case IKS_INT:
+					case IKS_FLOAT:
+					case IKS_BOOL:
+						exit(IKS_ERROR_WRONG_TYPE);
+					case SIMBOLO_LITERAL_CHAR:
+						return IKS_SUCCESS;
+					case SIMBOLO_LITERAL_STRING:
+						exit(IKS_ERROR_STRING_TO_X);
+				}
+			case SIMBOLO_LITERAL_STRING:
+				switch(rightNode->iks_type)
+				{
+					case IKS_INT:
+					case IKS_FLOAT:
+					case IKS_BOOL:
+						exit(IKS_ERROR_WRONG_TYPE);
+					case SIMBOLO_LITERAL_CHAR:
+						exit(IKS_ERROR_CHAR_TO_X);
+					case SIMBOLO_LITERAL_STRING:
+						return IKS_SUCCESS;
+				}
+			default: break;
+		}
+	}
+	else
 	{
+		switch(leftNode->tableItem->iks_type)
+		{
 		case IKS_INT:
 			switch(rightNode->tableItem->iks_type)
 			{
 				case IKS_INT:
-					leftNode->nodeFather->tableItem->iks_type = IKS_INT;
+					leftNode->nodeFather->iks_type = IKS_INT;
 					return IKS_SUCCESS;
 					/*father recieves IKS_INT*/
 				case IKS_FLOAT:
 					//leftNode->coercion = COERCION_TO_FLOAT;
-					leftNode->nodeFather->tableItem->iks_type = IKS_FLOAT;
+					leftNode->nodeFather->iks_type = IKS_FLOAT;
 					//convertValue(COERCION_TO_FLOAT,leftNode);
 					return IKS_SUCCESS;
 				case IKS_BOOL:
 					//rightNode->coercion = COERCION_TO_INT;
-					leftNode->nodeFather->tableItem->iks_type = IKS_INT;
+					leftNode->nodeFather->iks_type = IKS_INT;
 					//convertValue(COERCION_TO_INT,rightNode);
 					return IKS_SUCCESS;
 				case IKS_CHAR:
@@ -188,16 +471,16 @@ int typeInference(comp_tree_t* leftNode, comp_tree_t* rightNode)
 			{
 				case IKS_INT:
 					//rightNode->coercion = COERCION_TO_FLOAT;
-					leftNode->nodeFather->tableItem->iks_type = IKS_FLOAT;
+					leftNode->nodeFather->iks_type = IKS_FLOAT;
 					//convertValue(COERCION_TO_FLOAT,rightNode);
 					return IKS_SUCCESS;
 					/*father recieves IKS_INT*/
 				case IKS_FLOAT:
-					leftNode->nodeFather->tableItem->iks_type = IKS_FLOAT;
+					leftNode->nodeFather->iks_type = IKS_FLOAT;
 					return IKS_SUCCESS;
 				case IKS_BOOL:
 					//rightNode->coercion = COERCION_TO_FLOAT;
-					leftNode->nodeFather->tableItem->iks_type = IKS_FLOAT;
+					leftNode->nodeFather->iks_type = IKS_FLOAT;
 					//convertValue(COERCION_TO_FLOAT,rightNode);
 					return IKS_SUCCESS;
 				case SIMBOLO_LITERAL_CHAR:
@@ -210,17 +493,17 @@ int typeInference(comp_tree_t* leftNode, comp_tree_t* rightNode)
 			{
 				case IKS_INT:
 					//leftNode->coercion = COERCION_TO_INT;
-					leftNode->nodeFather->tableItem->iks_type = IKS_INT;
+					leftNode->nodeFather->iks_type = IKS_INT;
 					//convertValue(COERCION_TO_INT,rightNode);
 					return IKS_SUCCESS;
 					/*father recieves IKS_INT*/
 				case IKS_FLOAT:
 					//leftNode->coercion = COERCION_TO_FLOAT;
-					leftNode->nodeFather->tableItem->iks_type = IKS_FLOAT;
+					leftNode->nodeFather->iks_type = IKS_FLOAT;
 					//convertValue(COERCION_TO_FLOAT,rightNode);
 					return IKS_SUCCESS;
 				case IKS_BOOL:
-					leftNode->nodeFather->tableItem->iks_type = IKS_BOOL;
+					leftNode->nodeFather->iks_type = IKS_BOOL;
 					return IKS_SUCCESS;
 				case SIMBOLO_LITERAL_CHAR:
 					exit(IKS_ERROR_CHAR_TO_X);
@@ -251,7 +534,8 @@ int typeInference(comp_tree_t* leftNode, comp_tree_t* rightNode)
 				case SIMBOLO_LITERAL_STRING:
 					return IKS_SUCCESS;
 			}
-		default: break;
+		default: break;	
+		}
 	}
 }
 

@@ -1,9 +1,8 @@
 #ifndef __CC_TREE_H
 #define __CC_TREE_H
-#include "cc_dict.h"
 #include "cc_ast.h"
 #include "cc_gv.h"
-
+#include "cc_dict.h"
 
 // TAMANHOS
 #define INT_SIZE 4
@@ -25,10 +24,17 @@ struct nodeList_t{
 };
 
 struct comp_tree_t {
-							// As defined id cc_ast.h
+	char reg[100];
+	char code[1024];				// As defined id cc_ast.h
+	char labelTrue[100];
+	char labelFalse[100];
+	int nodeType;
+	int iks_type;
+	int ifThenElse;
 	comp_dict_item_t* tableItem;	// The pointer in the Table to the item related in this node
     nodeList* childNodeList; 	// A list of this node siblings, (maximum varies depending on comp_tree_t.type)
     comp_tree_t* nodeFather;		// It's father in the ast
+
 }; 
 
 

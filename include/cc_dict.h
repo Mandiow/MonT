@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "cc_iloc.h"
+#include "cc_list.h"
 #define SIMBOLO_LITERAL_INT    1
 #define SIMBOLO_LITERAL_FLOAT  2
 #define SIMBOLO_LITERAL_CHAR   3
@@ -26,23 +26,21 @@ union magic_token{
 
 	}magic_token; // DEPOIS EU MUDO =.=
 
+enum declarationType { localDeclaration = 0 , globalDeclaration = 1};
 
-typedef struct comp_dict_item{  // item tabela de simbolos
+typedef struct comp_dict_item_t{  // item tabela de simbolos
     int line; // ultima linha de aparição do lexema
     int tipo;																		//char *token; // token do lexema  // ETAPA 2 Isso tem que vazar pro union aparecer
     int iks_type;                           // Type of the correspondent literal
     int coercion;                       // If coercion is used, exactly as it is defined in this file.
     int size;                           // As defined in this file.
+    int offset;
     int param;
     int nodeType;
+    cc_list_t* array;
     union magic_token token;
     struct comp_dict_item_t *next; /* prox item da tabela de simbols */
     char *key; /* chave  para consultar o simbolo o lexical*/
-    ILOC_instruction_list_t *code;  // code of the node             
-    ILOC_register_t tempName; // name of the temp code
-    ILOC_label_t tempBT, tempBF; // to logic operands
-    ILOC_label_t tempNext;
-    ILOC_label_t tempBegin;
 }comp_dict_item_t;
 
 struct comp_dict_t { /* tabela de simbolos */
