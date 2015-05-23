@@ -25,7 +25,7 @@ struct nodeList_t{
 
 struct comp_tree_t {
 	char reg[100];
-	char code[1024];				// As defined id cc_ast.h
+	char code[2048];				// As defined id cc_ast.h
 	char labelTrue[100];
 	char labelFalse[100];
 	int nodeType;

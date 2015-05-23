@@ -1,0 +1,29 @@
+loadi 0 => rbss
+loadi 0 => rarp
+L4:
+load 0 => r4
+load 4 => r6
+load 8 => r7
+add r6,r7 => r5
+load 4 => r9
+load 0 => r11
+load 8 => r12
+add r11,r12 => r10
+and r3,r8 => r2
+cbr r2 => L3,L1
+L3:
+load 8 => r14
+load 4 => r16
+load 0 => r17
+add r16,r17 => r15
+and r2,r13 => r1
+cbr r1 => L2,L1
+L2:
+cbr r1 => L0,L1
+L0:
+loadi É um triangulo => r18
+jumpi L5
+L1:
+loadi Não é um triangulo => r19
+L5:
+

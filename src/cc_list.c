@@ -1,5 +1,4 @@
-#ifndef __CC_LIST_H
-#define __CC_LIST_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "cc_list.h"
@@ -115,4 +114,3 @@ void listCopyAppendElem(cc_list_t **list, int newValue)
 	auxList->nextElem = newListElem;
 	return;
 }
-#endif

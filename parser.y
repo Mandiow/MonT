@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <math.h>
 #include "main.h"
-#include "cc_misc.h"
 int Func_type;
 int param = 0;
 int chamada = 0;
@@ -117,8 +116,7 @@ start:{;initializeList(&list_dimensions);} programa {
 					//showTree(syntaxTree);
 					gv_create_initial_tree($$); 
 					shortCircuit($$,NULL,NULL);
-					astCodeGenerate($$);
-					removeNode(syntaxTree);}
+					}
 	;
 /* $$ = programa 
    $1 = declaracao_global

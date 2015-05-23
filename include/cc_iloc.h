@@ -3,14 +3,14 @@
 #include "cc_ast.h"
 #include "cc_tree.h"
 
-int labelControl=0; 	// numero do próxima label, será utilizado para a criação de labels
-int registerControl=0; 	// numero do próximo registrador, será utilizado para a criação de registradores
+extern int labelControl; 	// numero do próxima label, será utilizado para a criação de labels
+extern int registerControl; 	// numero do próximo registrador, será utilizado para a criação de registradores
 
 typedef char* ILOC_label_t;
 typedef char* ILOC_register_t;
 
-ILOC_register_t rarp = "rarp"; // registrador que aponta para a pilha
-ILOC_register_t rbss = "rbss"; // registrador para dados globais
+extern ILOC_register_t rarp; // registrador que aponta para a pilha
+extern ILOC_register_t rbss; // registrador para dados globais
   
 //Lista de operações possiveis na linguagem ILOC o enum serve para facilitar o acesso para a geração de código ILOC
 
@@ -23,6 +23,10 @@ enum ILOC_op {
 	op_label=47
  };
 typedef enum ILOC_op ILOC_op_t;
+
+
+
+
 
 char* createRegister();
 char* createLabel();

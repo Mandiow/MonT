@@ -1,9 +1,7 @@
 #include "cc_misc.h"
-#include "cc_dict.h"
-#include "cc_stack.h"
 
+FILE *fOutput;
 extern lineNumber;
-
 int getLineNumber (void)
 {
   return lineNumber;
@@ -17,6 +15,10 @@ void yyerror (char const *mensagem)
 void main_init (int argc, char **argv)
 {
   //implemente esta função com rotinas de inicialização, se necessário
+	if(argc != 2)
+	{
+		fOutput = fopen(argv[2], "w");
+	}
 	dict_create(100);
 	//stack_initialize(main_stack);
 }
@@ -24,5 +26,15 @@ void main_init (int argc, char **argv)
 void main_finalize (void)
 {
   //implemente esta função com rotinas de inicialização, se necessário
-  dict_release(hashtable);
+	char ilocCodeOutput[2048];
+	strcpy(ilocCodeOutput,"");
+  	
+  	if(!fOutput)
+  	{
+  		printf("Erro no arquivo de saída, Terminando...\n");
+  		abort();
+  	}
+  		fprintf(fOutput, "%s\n", astCodeGenerate(syntaxTree));
+  	removeNode(syntaxTree);
+  	dict_release(hashtable);
 }

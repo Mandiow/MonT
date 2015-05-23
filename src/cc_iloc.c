@@ -4,6 +4,17 @@
 #include "cc_iloc.h"
 #include "cc_tree.h"
 
+
+int labelControl=0; 	// numero do próxima label, será utilizado para a criação de labels
+int registerControl=0; 	// numero do próximo registrador, será utilizado para a criação de registradores
+ILOC_register_t rarp = "rarp"; // registrador que aponta para a pilha
+ILOC_register_t rbss = "rbss"; // registrador para dados globais
+  
+
+
+
+
+
 char* createRegister()
 {
 	char string[311];
@@ -23,7 +34,7 @@ char* createLabel()
 
 char* basicCodeGeneration(ILOC_op_t operation, char* firstOperant, char* secondOperant, char* thirdOperant)
 {
-	char generatedCode[1000];
+	char generatedCode[2048];
 	switch(operation)
 	{
 		case op_add:
@@ -606,7 +617,6 @@ char* astCodeGenerate(comp_tree_t* ast)
 			{
 				// Soma o contador a cada nodo filho do [] do vetor indexado
 				counter++;
-				printf("AONDE VOCÊ FOI? %d\n",counter );
 				if(auxNode->nodeType >= AST_ARIM_SOMA && auxNode->nodeType <= AST_LOGICO_COMP_NEGACAO)
 				{
 					if(counter == 2)
@@ -683,7 +693,6 @@ char* astCodeGenerate(comp_tree_t* ast)
 			strcat(createdCode,basicCodeGeneration(op_load,lastRegister,NULL,ast->reg));
 			sprintf(test,"\n");
 			strcat(createdCode,test);
-			//TODO: Montar código específico da operação.
 			break;
 
 		case AST_CHAMADA_DE_FUNCAO:
@@ -702,7 +711,6 @@ char* astCodeGenerate(comp_tree_t* ast)
 			break;
 	}
 	
-	printf("Estou Gerando code para um %d:\n%sPonteiro em: %p\n", ast->nodeType, createdCode,ast);
 	return strdup(createdCode);
 }
 
