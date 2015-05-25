@@ -17,7 +17,7 @@ void main_init (int argc, char **argv)
   //implemente esta função com rotinas de inicialização, se necessário
 	if(argc != 2)
 	{
-		fOutput = fopen(argv[2], "w");
+	  fOutput = stdout;////fopen(argv[2], "w");
 	}
 	dict_create(100);
 	//stack_initialize(main_stack);
