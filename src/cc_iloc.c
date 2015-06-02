@@ -441,6 +441,9 @@ char* astCodeGenerate(comp_tree_t* ast)
 			strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 			
 			strcat(createdCode,astCodeGenerate(auxNodeList->nextNode->firstNode));
+			strcat(createdCode,basicCodeGeneration(op_cbr,auxNodeList->firstNode->reg,ast->labelTrue,ast->labelFalse));
+			strcat(createdCode,basicCodeGeneration(op_label,ast->labelTrue,NULL,NULL));
+
 			if(ast->childNodeList->nextNode->firstNode->tableItem != NULL)
 				if(ast->childNodeList->nextNode->firstNode->tableItem->tipo == SIMBOLO_IDENTIFICADOR)
 					strcat(createdCode,basicCodeGeneration(op_and,auxNodeList->firstNode->reg,auxNodeList->nextNode->firstNode->reg,ast->reg));
@@ -448,21 +451,12 @@ char* astCodeGenerate(comp_tree_t* ast)
 					strcat(createdCode,basicCodeGeneration(op_andI,auxNodeList->firstNode->reg,auxNodeList->nextNode->firstNode->tableItem->key,ast->reg));
 			else 
 				strcat(createdCode,basicCodeGeneration(op_and,auxNodeList->firstNode->reg,auxNodeList->nextNode->firstNode->reg,ast->reg));
-			if(ast->childNodeList->firstNode->nodeType == AST_LOGICO_OU)
-				{
-					strcat(createdCode,basicCodeGeneration(op_cbr,ast->reg,ast->labelTrue,ast->labelTrue));
-				}
-			else
-				strcat(createdCode,basicCodeGeneration(op_cbr,ast->reg,ast->labelTrue,ast->labelFalse));
-			strcat(createdCode,basicCodeGeneration(op_label,ast->labelTrue,NULL,NULL));
-
+			
 			break;
 
 		case AST_LOGICO_OU:
-			if(ast->childNodeList->nextNode->firstNode->nodeType == AST_LOGICO_E)
-				{
-					strcpy(ast->childNodeList->nextNode->firstNode->labelFalse,ast->childNodeList->nextNode->firstNode->labelTrue);
-				}
+			strcat(createdCode,basicCodeGeneration(op_cbr,auxNodeList->firstNode->reg,ast->labelTrue,ast->labelFalse));
+			strcat(createdCode,basicCodeGeneration(op_label,ast->labelFalse,NULL,NULL));
 			strcpy(ast->reg,createRegister());
 			strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 			strcat(createdCode,astCodeGenerate(auxNodeList->nextNode->firstNode));
@@ -475,8 +469,7 @@ char* astCodeGenerate(comp_tree_t* ast)
 				strcat(createdCode,basicCodeGeneration(op_or,auxNodeList->firstNode->reg,auxNodeList->nextNode->firstNode->reg,ast->reg));
 			
 				
-			strcat(createdCode,basicCodeGeneration(op_cbr,ast->reg,ast->labelTrue,ast->labelFalse));
-			strcat(createdCode,basicCodeGeneration(op_label,ast->labelFalse,NULL,NULL));
+			
 			//TODO: Montar código específico da operação.
 			break;
 
