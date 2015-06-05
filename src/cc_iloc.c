@@ -298,12 +298,20 @@ char* astCodeGenerate(comp_tree_t* ast)
 			break;
 
 		case AST_ATRIBUICAO:
+			
+			
+			
+			strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
+			auxNodeList = auxNodeList->nextNode;
+			strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
+			auxNodeList = auxNodeList->nextNode;
+			strcat(createdCode,basicCodeGeneration(op_store,ast->childNodeList->nextNode->firstNode->reg,NULL,ast->childNodeList->firstNode->reg));
 			while(auxNodeList != NULL && auxNodeList->firstNode != NULL)
 			{
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 				auxNodeList = auxNodeList->nextNode;
 			}
-			strcat(createdCode,basicCodeGeneration(op_store,ast->childNodeList->nextNode->firstNode->reg,NULL,ast->childNodeList->firstNode->reg));
+			
 			break;
 
 		case AST_RETURN:
@@ -353,16 +361,13 @@ char* astCodeGenerate(comp_tree_t* ast)
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 				auxNodeList = auxNodeList->nextNode;
 			}
-			if(ast->childNodeList->nextNode->firstNode->tableItem != NULL)
+			if(ast->childNodeList->nextNode->firstNode->reg != NULL)
 			{
-				if(ast->childNodeList->nextNode->firstNode->tableItem->tipo == SIMBOLO_IDENTIFICADOR)
-					strcat(createdCode,basicCodeGeneration(op_add,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
-				else 
-					strcat(createdCode,basicCodeGeneration(op_addI,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->tableItem->key,ast->reg));
+				strcat(createdCode,basicCodeGeneration(op_add,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
 			}
 			else
 			{
-				strcat(createdCode,basicCodeGeneration(op_add,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
+				strcat(createdCode,basicCodeGeneration(op_addI,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->tableItem->key,ast->reg));
 			}
 			break;
 
@@ -399,11 +404,13 @@ char* astCodeGenerate(comp_tree_t* ast)
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 				auxNodeList = auxNodeList->nextNode;
 			}
-			if(ast->childNodeList->nextNode->firstNode->tableItem != NULL)
-				if(ast->childNodeList->nextNode->firstNode->tableItem->tipo == SIMBOLO_IDENTIFICADOR)
-					strcat(createdCode,basicCodeGeneration(op_mult,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
-				else 
-					strcat(createdCode,basicCodeGeneration(op_multI,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->tableItem->key,ast->reg));
+			if(ast->childNodeList->nextNode->firstNode->reg != NULL)
+			{
+				strcat(createdCode,basicCodeGeneration(op_mult,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
+			}
+			else 
+				strcat(createdCode,basicCodeGeneration(op_multI,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->tableItem->key,ast->reg));
+			
 			//TODO: Montar código específico da operação.
 			break;
 
@@ -414,15 +421,16 @@ char* astCodeGenerate(comp_tree_t* ast)
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 				auxNodeList = auxNodeList->nextNode;
 			}
-			if(ast->childNodeList->nextNode->firstNode->tableItem->tipo == SIMBOLO_IDENTIFICADOR)
-			{	
-				if (ast->childNodeList->firstNode->tableItem->tipo == SIMBOLO_IDENTIFICADOR)
-					strcat(createdCode,basicCodeGeneration(op_div,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
+			if(ast->childNodeList->nextNode->firstNode->tableItem != NULL)
+				if(ast->childNodeList->nextNode->firstNode->tableItem->tipo == SIMBOLO_IDENTIFICADOR)
+				{	
+					if (ast->childNodeList->firstNode->tableItem->tipo == SIMBOLO_IDENTIFICADOR)
+						strcat(createdCode,basicCodeGeneration(op_div,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
+					else 
+						strcat(createdCode,basicCodeGeneration(op_rdivI,ast->childNodeList->nextNode->firstNode->tableItem->key,ast->childNodeList->firstNode->reg,ast->reg));
+				}
 				else 
-					strcat(createdCode,basicCodeGeneration(op_rdivI,ast->childNodeList->nextNode->firstNode->tableItem->key,ast->childNodeList->firstNode->reg,ast->reg));
-			}
-			else 
-				strcat(createdCode,basicCodeGeneration(op_divI,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->tableItem->key,ast->reg));
+					strcat(createdCode,basicCodeGeneration(op_divI,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->tableItem->key,ast->reg));
 			//TODO: Montar código específico da operação.
 			break;
 
@@ -455,11 +463,11 @@ char* astCodeGenerate(comp_tree_t* ast)
 			break;
 
 		case AST_LOGICO_OU:
-			strcat(createdCode,basicCodeGeneration(op_cbr,auxNodeList->firstNode->reg,ast->labelTrue,ast->labelFalse));
-			strcat(createdCode,basicCodeGeneration(op_label,ast->labelFalse,NULL,NULL));
 			strcpy(ast->reg,createRegister());
 			strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 			strcat(createdCode,astCodeGenerate(auxNodeList->nextNode->firstNode));
+			strcat(createdCode,basicCodeGeneration(op_cbr,auxNodeList->firstNode->reg,ast->labelTrue,ast->labelFalse));
+			strcat(createdCode,basicCodeGeneration(op_label,ast->labelFalse,NULL,NULL));
 			if(ast->childNodeList->nextNode->firstNode->tableItem != NULL)
 				if(ast->childNodeList->nextNode->firstNode->tableItem->tipo == SIMBOLO_IDENTIFICADOR)
 					strcat(createdCode,basicCodeGeneration(op_or,auxNodeList->firstNode->reg,auxNodeList->nextNode->firstNode->reg,ast->reg));
