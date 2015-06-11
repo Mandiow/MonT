@@ -1,8 +1,7 @@
 #ifndef __CC_TREE_H
 #define __CC_TREE_H
-#include "cc_ast.h"
-#include "cc_gv.h"
 #include "cc_dict.h"
+#include "cc_ast.h"
 
 // TAMANHOS
 #define INT_SIZE 4
@@ -15,15 +14,14 @@
 #define COERCION_TO_FLOAT 2
 #define COERCION_TO_BOOL 5
 
-typedef struct comp_tree_t comp_tree_t;
-typedef struct nodeList_t nodeList;
 
-struct nodeList_t{
+
+typedef struct nodeList_t{
 	struct comp_tree_t* firstNode;
 	struct nodeList_t* nextNode;
-};
+}nodeList;
 
-struct comp_tree_t {
+typedef struct comp_tree_t {
 	char reg[100];
 	char code[2048];				// As defined id cc_ast.h
 	char labelTrue[100];
@@ -31,23 +29,25 @@ struct comp_tree_t {
 	int nodeType;
 	int iks_type;
 	int ifThenElse;
+	int IWANNAABOOLEAN;
+	struct stack_item* callBackupStack;
 	comp_dict_item_t* tableItem;	// The pointer in the Table to the item related in this node
     nodeList* childNodeList; 	// A list of this node siblings, (maximum varies depending on comp_tree_t.type)
-    comp_tree_t* nodeFather;		// It's father in the ast
-
-}; 
-
+    struct comp_tree_t* nodeFather;		// It's father in the ast
+}compTree; 
 
 
-comp_tree_t* syntaxTree;
 
-comp_tree_t* createNode(int itemType, comp_dict_item_t* tableItem);
-void *appendChildNode(comp_tree_t* t, comp_tree_t* newChild);
-void removeNode(comp_tree_t* node);						
-int searchTree (comp_tree_t* t, int data);
-void gv_create_initial_tree(comp_tree_t* tree);
-void __gv_create_subtree(comp_tree_t* father, comp_tree_t* node);
-//void showTree(comp_tree_t* node);
+compTree* syntaxTree;
+
+compTree* createNode(int itemType, comp_dict_item_t* tableItem);
+void *appendChildNode(compTree* t, compTree* newChild);
+void removeNode(compTree* node);						
+int searchTree (compTree* t, int data);
+void gv_create_initial_tree(compTree* tree);
+void __gv_create_subtree(compTree* father, compTree* node);
+//void showTree(compTree* node);
 
 
+#include "cc_stack.h"
 #endif

@@ -2,11 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include "cc_iloc.h"
-#include "cc_tree.h"
 
 
 int labelControl=0; 	// numero do próxima label, será utilizado para a criação de labels
 int registerControl=0; 	// numero do próximo registrador, será utilizado para a criação de registradores
+char* labelMain;
+int ilocCodeLineNumber=0;
 ILOC_register_t rarp = "rarp"; // registrador que aponta para a pilha
 ILOC_register_t rbss = "rbss"; // registrador para dados globais
   
@@ -184,32 +185,50 @@ char* basicCodeGeneration(ILOC_op_t operation, char* firstOperant, char* secondO
 	return strdup(generatedCode);
 }
 
-char* astCodeGenerate(comp_tree_t* ast)
+char* astCodeGenerate(compTree* ast)
 {
 	if(ast == NULL)
 		return "ERRRROOOOOO - FAUSTAO";
 	nodeList* auxNodeList;
 	auxNodeList = ast->childNodeList;
 	char createdCode[1024];
+	char tempCode[1024];
 	char label[100];
-	char labele[100];
+	char *regRet;
 	strcpy(createdCode,"");
+	strcpy(tempCode,"");
 
 	switch(ast->nodeType)
 	{
 		case AST_PROGRAMA:
-			strcat(createdCode,basicCodeGeneration(op_loadI,"0",NULL,"rbss"));
-			strcat(createdCode,basicCodeGeneration(op_loadI,"0",NULL,"rarp"));
-
+			ilocCodeLineNumber+=4;
 			while(auxNodeList != NULL && auxNodeList->firstNode != NULL)
 			{
-				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
+				strcat(tempCode,astCodeGenerate(auxNodeList->firstNode));
 				auxNodeList = auxNodeList->nextNode;
 			}
+
+			strcat(createdCode,basicCodeGeneration(op_loadI,integerToString(ilocCodeLineNumber),NULL,"rbss"));
+			strcat(createdCode,basicCodeGeneration(op_loadI,"2048",NULL,"sp"));
+			strcat(createdCode,basicCodeGeneration(op_loadI,"2048",NULL,"fp"));
+			strcat(createdCode,basicCodeGeneration(op_jumpI,labelMain,NULL,NULL));
+			strcat(createdCode,tempCode);
+
+			//printf("ILOC CODE LINE NUMBER: %d\n",ilocCodeLineNumber );
 			break;
 
 		case AST_FUNCAO:
-			strcpy(createdCode,basicCodeGeneration(op_label,createLabel(),NULL,NULL));
+			if(strcmp(ast->tableItem->key,"main") == 0)
+			{
+				labelMain = createLabel();
+				strcpy(createdCode,basicCodeGeneration(op_label,labelMain,NULL,NULL));
+
+			}
+			else 
+			{
+				ast->tableItem->functionLabel = createLabel();
+				strcpy(createdCode,basicCodeGeneration(op_label,ast->tableItem->functionLabel,NULL,NULL));
+			}
 			// Parâmetros vão ficar voando pra sempre zzzz(Gabriel)
 			// Mas na 6ª eles voltam, relaxa ;3(Caiã)
 			while(auxNodeList != NULL && auxNodeList->firstNode != NULL)
@@ -218,6 +237,102 @@ char* astCodeGenerate(comp_tree_t* ast)
 				auxNodeList = auxNodeList->nextNode;
 			}
 			break;
+		case AST_CHAMADA_DE_FUNCAO:
+			regRet = createRegister();
+			//Executa o código das expressões da chamada de função
+			while(auxNodeList != NULL && auxNodeList->firstNode != NULL)
+			{
+				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
+				auxNodeList = auxNodeList->nextNode;
+			}
+			strcat(createdCode,basicCodeGeneration(op_storeAI,"fp","sp","4"));
+			ilocCodeLineNumber++;
+			strcat(createdCode,basicCodeGeneration(op_i2i,"sp",NULL,"fp"));
+			ilocCodeLineNumber++;
+			//Processar os parâmetros que estão salvos no nodo da AST.
+			int paramOffset = 8;
+			stack_item* aux_stack;
+			aux_stack = ast->callBackupStack;
+			int paramCounter = 0;
+			int paramCounter2= 0;
+			while(aux_stack != NULL)
+			{
+				auxNodeList = ast->childNodeList;
+				switch(aux_stack->data->iks_type)
+				{
+					case IKS_INT:
+						paramOffset += 4;
+						paramCounter++;
+						break;
+					case IKS_FLOAT:
+						paramOffset += 8;
+						paramCounter++;
+						break;
+					case IKS_CHAR:
+						paramOffset += 1;
+						paramCounter++;
+						break;
+					case IKS_STRING:
+						paramOffset += 1; //Não sei como implementar isso na verdade
+						paramCounter++;
+						break;
+					case IKS_BOOL:
+						paramOffset += 1;
+						paramCounter++;
+						break;
+				}
+				while(auxNodeList != NULL && auxNodeList->firstNode != NULL)
+				{
+					if(auxNodeList->firstNode->IWANNAABOOLEAN == 1)
+					{
+						paramCounter2++;
+					}
+					if(paramCounter2 == paramCounter)
+						{
+							break;
+						}
+					if(auxNodeList->nextNode == NULL )
+						auxNodeList = auxNodeList->firstNode->childNodeList;
+					else auxNodeList = auxNodeList->nextNode;
+				}
+				strcat(createdCode,basicCodeGeneration(op_storeAI,auxNodeList->firstNode->reg, "fp",integerToString(paramOffset))); //reg: registrador que armazena o resultado da expressao
+				ilocCodeLineNumber++;
+				aux_stack = aux_stack->prev;
+				paramCounter2 = 0;
+			}
+			strcat(createdCode,basicCodeGeneration(op_loadI,integerToString(paramOffset),NULL,"sp"));
+			ilocCodeLineNumber+=3;
+			strcat(createdCode,basicCodeGeneration(op_loadI,integerToString(ilocCodeLineNumber),NULL,regRet));// essa merda do caralho, tem que ter o número de linhas correto =.=
+			strcat(createdCode,basicCodeGeneration(op_store, regRet,NULL, "fp")); //salva o endereco da proxima instrucao no registro de ativacao
+
+
+			//Jump para função
+			printf("%s\n", ast->childNodeList->firstNode->tableItem->functionLabel);
+			strcat(createdCode,basicCodeGeneration(op_jumpI,ast->childNodeList->firstNode->tableItem->functionLabel,NULL,NULL));
+
+			/*
+			*/
+
+			break;
+		case AST_RETURN:
+			regRet = createRegister();//FODA_SE
+			 /*
+			fatherCode =  createCode(fatherCode, ILOC_I2I, 2, aux->sonList->node->code->reg, "rt"); //carrega valor produzido pela expressao para o registrador de retorno de funcao
+			*/
+			while(auxNodeList != NULL && auxNodeList->firstNode != NULL)
+			{
+				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
+				auxNodeList = auxNodeList->nextNode;
+			}
+			strcat(createdCode,basicCodeGeneration(op_i2i,ast->childNodeList->firstNode->reg,NULL,"lamb"));
+			strcat(createdCode,basicCodeGeneration(op_load,"fp",NULL,regRet));
+			strcat(createdCode,basicCodeGeneration(op_i2i, "fp",NULL,"sp"));
+			strcat(createdCode,basicCodeGeneration(op_loadAI,"fp",integerToString(ast->iks_type),"fp"));
+			strcat(createdCode,basicCodeGeneration(op_jump,regRet,NULL,NULL));
+
+			//TODO: Montar código específico da operação.
+			break;
+			
 		case AST_IF_ELSE:
 			//If statment
 			strcpy(ast->reg,createRegister());
@@ -241,9 +356,13 @@ char* astCodeGenerate(comp_tree_t* ast)
 				strcat(createdCode,basicCodeGeneration(op_label,ast->labelFalse,NULL,NULL));
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 				strcat(createdCode,basicCodeGeneration(op_label,label,NULL,NULL));
+				ilocCodeLineNumber+=2;
 			}
 			else
+			{
 				strcat(createdCode,basicCodeGeneration(op_label,ast->labelFalse,NULL,NULL));
+				ilocCodeLineNumber++;
+			}
 
 			break;
 
@@ -255,6 +374,7 @@ char* astCodeGenerate(comp_tree_t* ast)
 			//Statement
 			strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));			
 			strcat(createdCode,basicCodeGeneration(op_cbr,auxNodeList->firstNode->reg,ast->labelTrue,ast->labelFalse));
+			ilocCodeLineNumber++;
 			auxNodeList = auxNodeList->nextNode;
 			strcat(createdCode,basicCodeGeneration(op_label,ast->labelFalse,NULL,NULL));
 			//TODO: Montar código específico da operação.
@@ -268,10 +388,12 @@ char* astCodeGenerate(comp_tree_t* ast)
 			strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));			
 			auxNodeList = auxNodeList->nextNode;
 			strcat(createdCode,basicCodeGeneration(op_cbr,ast->childNodeList->firstNode->reg,ast->labelTrue,ast->labelFalse));
+			ilocCodeLineNumber++;
 			strcat(createdCode,basicCodeGeneration(op_label,ast->labelTrue,NULL,NULL));
 			strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 			auxNodeList = auxNodeList->nextNode;
 			strcat(createdCode,basicCodeGeneration(op_jumpI,label,NULL,NULL));
+			ilocCodeLineNumber++;
 			strcat(createdCode,basicCodeGeneration(op_label,ast->labelFalse,NULL,NULL));
 
 			//TODO: Montar código específico da operação.
@@ -306,6 +428,7 @@ char* astCodeGenerate(comp_tree_t* ast)
 			strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 			auxNodeList = auxNodeList->nextNode;
 			strcat(createdCode,basicCodeGeneration(op_store,ast->childNodeList->nextNode->firstNode->reg,NULL,ast->childNodeList->firstNode->reg));
+			ilocCodeLineNumber++;
 			while(auxNodeList != NULL && auxNodeList->firstNode != NULL)
 			{
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
@@ -314,14 +437,6 @@ char* astCodeGenerate(comp_tree_t* ast)
 			
 			break;
 
-		case AST_RETURN:
-			while(auxNodeList != NULL && auxNodeList->firstNode != NULL)
-			{
-				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
-				auxNodeList = auxNodeList->nextNode;
-			}
-			//TODO: Montar código específico da operação.
-			break;
 
 		case AST_BLOCO:
 			while(auxNodeList != NULL && auxNodeList->firstNode != NULL)
@@ -339,9 +454,8 @@ char* astCodeGenerate(comp_tree_t* ast)
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 				auxNodeList = auxNodeList->nextNode;
 			}
-			char idoffset[100];
-			sprintf(idoffset,"%d",ast->tableItem->offset);
-			strcat(createdCode,basicCodeGeneration(op_load,idoffset,NULL,ast->reg));
+			strcat(createdCode,basicCodeGeneration(op_loadAI,"fp",integerToString(ast->tableItem->offset),ast->reg));
+			ilocCodeLineNumber++;
 			break;
 
 		case AST_LITERAL:
@@ -352,6 +466,7 @@ char* astCodeGenerate(comp_tree_t* ast)
 				auxNodeList = auxNodeList->nextNode;
 			}
 			strcat(createdCode,basicCodeGeneration(op_loadI,ast->tableItem->key,NULL,ast->reg));
+			ilocCodeLineNumber++;
 			break;
 
 		case AST_ARIM_SOMA:
@@ -364,10 +479,12 @@ char* astCodeGenerate(comp_tree_t* ast)
 			if(ast->childNodeList->nextNode->firstNode->reg != NULL)
 			{
 				strcat(createdCode,basicCodeGeneration(op_add,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
+				ilocCodeLineNumber++;
 			}
 			else
 			{
 				strcat(createdCode,basicCodeGeneration(op_addI,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->tableItem->key,ast->reg));
+				ilocCodeLineNumber++;
 			}
 			break;
 
@@ -383,16 +500,26 @@ char* astCodeGenerate(comp_tree_t* ast)
 				if(ast->childNodeList->nextNode->firstNode->tableItem->tipo == SIMBOLO_IDENTIFICADOR)
 				{	
 					if (ast->childNodeList->firstNode->tableItem->tipo == SIMBOLO_IDENTIFICADOR)
+					{	
 						strcat(createdCode,basicCodeGeneration(op_sub,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
-					else 
+						ilocCodeLineNumber++;
+					}
+					else
+					{
 						strcat(createdCode,basicCodeGeneration(op_rsubI,ast->childNodeList->nextNode->firstNode->tableItem->key,ast->childNodeList->firstNode->reg,ast->reg));
+						ilocCodeLineNumber++;
+					}
 				}
-				else 
+				else
+				{
 					strcat(createdCode,basicCodeGeneration(op_subI,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->tableItem->key,ast->reg));
+					ilocCodeLineNumber++;
+				}
 			}
 			else
 			{
 				strcat(createdCode,basicCodeGeneration(op_sub,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
+				ilocCodeLineNumber++;
 			}
 			//TODO: Montar código específico da operação.
 			break;
@@ -407,9 +534,13 @@ char* astCodeGenerate(comp_tree_t* ast)
 			if(ast->childNodeList->nextNode->firstNode->reg != NULL)
 			{
 				strcat(createdCode,basicCodeGeneration(op_mult,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
+				ilocCodeLineNumber++;
 			}
-			else 
+			else
+			{ 
 				strcat(createdCode,basicCodeGeneration(op_multI,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->tableItem->key,ast->reg));
+				ilocCodeLineNumber++;
+			}
 			
 			//TODO: Montar código específico da operação.
 			break;
@@ -425,12 +556,21 @@ char* astCodeGenerate(comp_tree_t* ast)
 				if(ast->childNodeList->nextNode->firstNode->tableItem->tipo == SIMBOLO_IDENTIFICADOR)
 				{	
 					if (ast->childNodeList->firstNode->tableItem->tipo == SIMBOLO_IDENTIFICADOR)
+					{
 						strcat(createdCode,basicCodeGeneration(op_div,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
+						ilocCodeLineNumber++;
+					}
 					else 
+					{
 						strcat(createdCode,basicCodeGeneration(op_rdivI,ast->childNodeList->nextNode->firstNode->tableItem->key,ast->childNodeList->firstNode->reg,ast->reg));
+						ilocCodeLineNumber++;
+					}
 				}
 				else 
+				{
 					strcat(createdCode,basicCodeGeneration(op_divI,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->tableItem->key,ast->reg));
+					ilocCodeLineNumber++;
+				}
 			//TODO: Montar código específico da operação.
 			break;
 
@@ -450,15 +590,25 @@ char* astCodeGenerate(comp_tree_t* ast)
 			
 			strcat(createdCode,astCodeGenerate(auxNodeList->nextNode->firstNode));
 			strcat(createdCode,basicCodeGeneration(op_cbr,auxNodeList->firstNode->reg,ast->labelTrue,ast->labelFalse));
+			ilocCodeLineNumber++;
 			strcat(createdCode,basicCodeGeneration(op_label,ast->labelTrue,NULL,NULL));
 
 			if(ast->childNodeList->nextNode->firstNode->tableItem != NULL)
 				if(ast->childNodeList->nextNode->firstNode->tableItem->tipo == SIMBOLO_IDENTIFICADOR)
+				{
 					strcat(createdCode,basicCodeGeneration(op_and,auxNodeList->firstNode->reg,auxNodeList->nextNode->firstNode->reg,ast->reg));
+					ilocCodeLineNumber++;
+				}
 				else 
+				{
 					strcat(createdCode,basicCodeGeneration(op_andI,auxNodeList->firstNode->reg,auxNodeList->nextNode->firstNode->tableItem->key,ast->reg));
+					ilocCodeLineNumber++;
+				}
 			else 
+			{
 				strcat(createdCode,basicCodeGeneration(op_and,auxNodeList->firstNode->reg,auxNodeList->nextNode->firstNode->reg,ast->reg));
+				ilocCodeLineNumber++;
+			}
 			
 			break;
 
@@ -467,14 +617,24 @@ char* astCodeGenerate(comp_tree_t* ast)
 			strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 			strcat(createdCode,astCodeGenerate(auxNodeList->nextNode->firstNode));
 			strcat(createdCode,basicCodeGeneration(op_cbr,auxNodeList->firstNode->reg,ast->labelTrue,ast->labelFalse));
+			ilocCodeLineNumber++;
 			strcat(createdCode,basicCodeGeneration(op_label,ast->labelFalse,NULL,NULL));
 			if(ast->childNodeList->nextNode->firstNode->tableItem != NULL)
 				if(ast->childNodeList->nextNode->firstNode->tableItem->tipo == SIMBOLO_IDENTIFICADOR)
+				{
 					strcat(createdCode,basicCodeGeneration(op_or,auxNodeList->firstNode->reg,auxNodeList->nextNode->firstNode->reg,ast->reg));
+					ilocCodeLineNumber++;
+				}
 				else 
+				{
 					strcat(createdCode,basicCodeGeneration(op_orI,auxNodeList->firstNode->reg,auxNodeList->nextNode->firstNode->tableItem->key,ast->reg));
+					ilocCodeLineNumber++;
+				}
 			else 
+			{
 				strcat(createdCode,basicCodeGeneration(op_or,auxNodeList->firstNode->reg,auxNodeList->nextNode->firstNode->reg,ast->reg));
+				ilocCodeLineNumber++;
+			}
 			
 				
 			
@@ -506,6 +666,7 @@ char* astCodeGenerate(comp_tree_t* ast)
 			if(ast->childNodeList->nextNode->firstNode->tableItem != NULL)
 				{
 					strcat(createdCode,basicCodeGeneration(op_cmp_NE,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
+					ilocCodeLineNumber++;
 					
 				}
 			//TODO: Montar código específico da operação.
@@ -521,6 +682,7 @@ char* astCodeGenerate(comp_tree_t* ast)
 			if(ast->childNodeList->nextNode->firstNode->tableItem != NULL)
 				{
 					strcat(createdCode,basicCodeGeneration(op_cmp_LE,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
+					ilocCodeLineNumber++;
 					
 				}
 			//TODO: Montar código específico da operação.
@@ -536,6 +698,7 @@ char* astCodeGenerate(comp_tree_t* ast)
 			if(ast->childNodeList->nextNode->firstNode->tableItem != NULL)
 				{
 					strcat(createdCode,basicCodeGeneration(op_cmp_GE,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
+					ilocCodeLineNumber++;
 					
 				}
 			//TODO: Montar código específico da operação.
@@ -551,6 +714,7 @@ char* astCodeGenerate(comp_tree_t* ast)
 			if(ast->childNodeList->nextNode->firstNode->tableItem != NULL)
 				{
 					strcat(createdCode,basicCodeGeneration(op_cmp_LT,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
+					ilocCodeLineNumber++;
 					
 				}
 			break;
@@ -565,6 +729,7 @@ char* astCodeGenerate(comp_tree_t* ast)
 			if(ast->childNodeList->nextNode->firstNode->tableItem != NULL)
 				{
 					strcat(createdCode,basicCodeGeneration(op_cmp_GT,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
+					ilocCodeLineNumber++;
 					
 				}
 			//TODO: Montar código específico da operação.
@@ -598,7 +763,7 @@ char* astCodeGenerate(comp_tree_t* ast)
 			char lastRegister[100];
 			char tempRegister[100];
 			nodeList* auxNodeListVectors;
-			comp_tree_t* auxNode;
+			compTree* auxNode;
 			cc_list_t* dimList;
 			dimList = ast->childNodeList->firstNode->tableItem->array;
 			auxNode = ast->childNodeList->nextNode->firstNode;
@@ -612,6 +777,7 @@ char* astCodeGenerate(comp_tree_t* ast)
 				limitDimensions--;
 				strcpy(lastRegister,createRegister());
 				strcat(createdCode,basicCodeGeneration(op_load,auxNode->reg,NULL,lastRegister));
+				ilocCodeLineNumber++;
 			}
 
 			while(limitDimensions > 0 && auxNodeListVectors != NULL)
@@ -624,10 +790,13 @@ char* astCodeGenerate(comp_tree_t* ast)
 					{
 						strcpy(tempRegister,createRegister());
 						strcat(createdCode,basicCodeGeneration(op_load,auxNode->reg,NULL,tempRegister));
+						ilocCodeLineNumber++;
 						if(limitDimensions < control)
 						{
 							strcat(createdCode,basicCodeGeneration(op_multI,lastRegister,integerToString(dimList->value),tempRegister));
+							ilocCodeLineNumber++;
 							strcat(createdCode,basicCodeGeneration(op_add,tempRegister,lastRegister,tempRegister));
+							ilocCodeLineNumber++;
 						}
 						dimList = dimList->nextElem;
 						
@@ -647,10 +816,13 @@ char* astCodeGenerate(comp_tree_t* ast)
 						
 						strcpy(tempRegister,createRegister());
 						strcat(createdCode,basicCodeGeneration(op_load,auxNode->reg,NULL,tempRegister));
+						ilocCodeLineNumber++;
 						if(limitDimensions < control)
 						{
 							strcat(createdCode,basicCodeGeneration(op_multI,lastRegister,integerToString(dimList->value),tempRegister));
+							ilocCodeLineNumber++;
 							strcat(createdCode,basicCodeGeneration(op_add,tempRegister,lastRegister,tempRegister));
+							ilocCodeLineNumber++;
 						}
 						dimList = dimList->nextElem;
 
@@ -668,10 +840,13 @@ char* astCodeGenerate(comp_tree_t* ast)
 					{
 						strcpy(tempRegister,createRegister());
 						strcat(createdCode,basicCodeGeneration(op_load,auxNode->reg,NULL,tempRegister));
+						ilocCodeLineNumber++;
 						if(limitDimensions < control)
 						{
 							strcat(createdCode,basicCodeGeneration(op_multI,lastRegister,integerToString(dimList->value),tempRegister));
+							ilocCodeLineNumber++;
 							strcat(createdCode,basicCodeGeneration(op_add,tempRegister,lastRegister,tempRegister));
+							ilocCodeLineNumber++;
 						}
 						dimList = dimList->nextElem;
 
@@ -688,23 +863,17 @@ char* astCodeGenerate(comp_tree_t* ast)
 				update = 0;
 			}
 			strcat(createdCode,basicCodeGeneration(op_multI,lastRegister,integerToString(ast->childNodeList->firstNode->tableItem->iks_type),lastRegister));
+			ilocCodeLineNumber++;
 			char test[100];
 
 			strcat(createdCode,basicCodeGeneration(op_addI,lastRegister,integerToString(ast->childNodeList->firstNode->tableItem->offset),lastRegister));
+			ilocCodeLineNumber++;
 			strcat(createdCode,basicCodeGeneration(op_load,lastRegister,NULL,ast->reg));
+			ilocCodeLineNumber++;
 			sprintf(test,"\n");
 			strcat(createdCode,test);
 			break;
 
-		case AST_CHAMADA_DE_FUNCAO:
-			while(auxNodeList != NULL && auxNodeList->firstNode != NULL)
-			{
-				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
-				auxNodeList = auxNodeList->nextNode;
-			}
-			//TODO: Montar código específico da operação.
-
-			break;
 		
 
 		default:
@@ -722,7 +891,7 @@ char* integerToString(int x)
 	return strdup(stringTemp);
 }
 
-void shortCircuit(comp_tree_t* ast, char* lTrue, char* lFalse)
+void shortCircuit(compTree* ast, char* lTrue, char* lFalse)
 {
 	if(ast == NULL)
 		return;

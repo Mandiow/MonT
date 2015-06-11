@@ -221,7 +221,7 @@ valor
 	;
 
 ID
-	: TK_IDENTIFICADOR { stack_isDeclared(main_stack,$1,AST_IDENTIFICADOR);$$ = createNode(AST_IDENTIFICADOR,$1);$$->iks_type = $1->iks_type;}
+	: TK_IDENTIFICADOR { stack_isDeclared(main_stack,$1,AST_IDENTIFICADOR);$$ = createNode(AST_IDENTIFICADOR,$1);$$->iks_type = $1->iks_type; printf("%s\n",$$->tableItem->key);}
 	| TK_IDENTIFICADOR  '[' Exparray ']' {	
 											if (attDimensions != $1->array->dimensions)
 											{
@@ -298,10 +298,12 @@ lista_expressoes
 	: expressao mais_de_uma {	$$ = $1;
 								$$->iks_type = $1->iks_type; 
 								stack_push(&call_stack, $1->tableItem,param_item, 0);
+								$1->IWANNAABOOLEAN = 1;
 								if($2 != NULL)
 								{
 									appendChildNode($$,$2);
 									stack_push(&call_stack, $2->tableItem,param_item, 0);
+									$2->IWANNAABOOLEAN = 1;
 								}
 							}
 	;
@@ -319,7 +321,7 @@ controle_fluxo
 	;
 
 chamada_funcao
-	: nome  '(' lista_vazia ')' {Function_Comparsion(chamada,main_stack,call_stack); $$ = createNode(AST_CHAMADA_DE_FUNCAO,NULL);$$->iks_type = $1->iks_type; appendChildNode($$,$1);if($3 != NULL) {appendChildNode($$,$3);}$$->iks_type = getFunctionType(main_stack,call_stack);chamada = 0;}
+	: nome  '(' lista_vazia ')' {$$ = createNode(AST_CHAMADA_DE_FUNCAO,NULL);Function_Comparsion(chamada,main_stack,call_stack,$$); $$->iks_type = $1->iks_type; appendChildNode($$,$1);if($3 != NULL) {appendChildNode($$,$3);}$$->iks_type = getFunctionType(main_stack,call_stack);chamada = 0;}
 	;
 
 nome: TK_IDENTIFICADOR { stack_isDeclared(main_stack,$1,AST_FUNCAO);$$ = createNode(AST_IDENTIFICADOR,$1);stack_push(&call_stack,$1,func_item, 0);}
@@ -354,7 +356,7 @@ expressao
 	| expressao TK_OC_AND expressao			{$$ = createNode(AST_LOGICO_E, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
 	| expressao TK_OC_OR expressao			{$$ = createNode(AST_LOGICO_OU, NULL);appendChildNode($$,$1);appendChildNode($$,$3);typeInference($1,$3);}
 	| '(' expressao ')'						{$$ = $2;}
-	| chamada_funcao 						{$$ = $1;printf("%d\n",$$->iks_type );}
+	| chamada_funcao 						{$$ = $1;}
 	;
 
 %%

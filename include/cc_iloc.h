@@ -1,7 +1,7 @@
 #ifndef __CC_ILOC_H__
 #define __CC_ILOC_H__
-#include "cc_ast.h"
 #include "cc_tree.h"
+
 
 extern int labelControl; 	// numero do próxima label, será utilizado para a criação de labels
 extern int registerControl; 	// numero do próximo registrador, será utilizado para a criação de registradores
@@ -32,7 +32,7 @@ char* createRegister();
 char* createLabel();
 char* integerToString(int x);
 char* basicCodeGeneration(ILOC_op_t operation, char* firstOperant, char* secondOperant, char* thirdOperant);
-char* astCodeGenerate(comp_tree_t* ast);
-void shortCircuit(comp_tree_t* ast, char* lTrue, char* lFalse);
+char* astCodeGenerate(compTree* ast);
+void shortCircuit(compTree* ast, char* lTrue, char* lFalse);
 
 #endif

@@ -3,9 +3,9 @@
 
 
 // Create a single node with the designed tableItem->nodeType and pointer to it's element in the table
-comp_tree_t* createNode(int nodeType, comp_dict_item_t* tableItem)
+compTree* createNode(int nodeType, comp_dict_item_t* tableItem)
 {
-	comp_tree_t* newNode = (comp_tree_t*)malloc(sizeof(comp_tree_t));
+	compTree* newNode = (compTree*)malloc(sizeof(compTree));
 	newNode->childNodeList = (nodeList*)malloc(sizeof(nodeList)); 		// Initialise it's list of siblings as NULL
 	//newNode->childNodeList->nextNode = (nodeList*)malloc(sizeof(nodeList));
 	newNode->childNodeList->firstNode = NULL;
@@ -51,7 +51,7 @@ comp_tree_t* createNode(int nodeType, comp_dict_item_t* tableItem)
 }
 
 // Inserts the desired node (newChild) as a sibling of the desired node (father)
-void *appendChildNode(comp_tree_t* father, comp_tree_t* newChild)
+void *appendChildNode(compTree* father, compTree* newChild)
 {
 	int count = 1;
 	if (newChild != NULL)
@@ -83,7 +83,7 @@ void *appendChildNode(comp_tree_t* father, comp_tree_t* newChild)
 }
 
 // Recursive function that removes the whole subtree (node) of a father passed as argument
-/*void removeNode(comp_tree_t* father ,comp_tree_t* node)
+/*void removeNode(compTree* father ,compTree* node)
 {
 	nodeList* deletedNodeList = node->childNodeList;
 	nodeList* auxNodeList = father->childNodeList;
@@ -100,7 +100,7 @@ void *appendChildNode(comp_tree_t* father, comp_tree_t* newChild)
 	}
 	free(node->childNodeList);
 }*/
-void removeNode(comp_tree_t* node)
+void removeNode(compTree* node)
 {
 	if(node != NULL)
 	{
@@ -119,13 +119,13 @@ void removeNode(comp_tree_t* node)
 		//free(node->childNodeList);
 	}
 }
-void gv_create_initial_tree(comp_tree_t* tree)
+void gv_create_initial_tree(compTree* tree)
 {
 	
 	if (tree == NULL)
 		return;
-	gv_init(NULL);
-	comp_tree_t* auxNode = tree;
+	//gv_init(NULL);
+	compTree* auxNode = tree;
 	switch(tree->nodeType)
 	{
 		case AST_IDENTIFICADOR:
@@ -150,7 +150,7 @@ void gv_create_initial_tree(comp_tree_t* tree)
 		
 
 }
-void __gv_create_subtree(comp_tree_t* father, comp_tree_t* node)
+void __gv_create_subtree(compTree* father, compTree* node)
 {
 	if (node != NULL)
 	{
@@ -177,7 +177,7 @@ void __gv_create_subtree(comp_tree_t* father, comp_tree_t* node)
 		}
 		gv_connect(father,node);
 
-		comp_tree_t* auxNode = node;
+		compTree* auxNode = node;
 		nodeList* auxNodeList = node->childNodeList;
 
 		while(auxNodeList != NULL)
@@ -192,7 +192,7 @@ void __gv_create_subtree(comp_tree_t* father, comp_tree_t* node)
 	}
 }
 
-void showTree(comp_tree_t* tree)
+void showTree(compTree* tree)
 {
 	if(tree->tableItem != NULL)
 		printf("%p\n",tree);	
@@ -218,13 +218,13 @@ void showTree(comp_tree_t* tree)
 
 /*
 // Remove the desired node of the tree passed as argument
-void removeNode(comp_tree_t* tree ,comp_tree_t* node)
+void removeNode(compTree* tree ,compTree* node)
 {
 	int removido = 0;
-	comp_tree_t auxNode = tree;
+	compTree auxNode = tree;
 	nodeList auxNodeList = tree->childNodeList;
-	comp_tree_t acutalNode = tree;
-	comp_tree_t oldNode = tree;
+	compTree acutalNode = tree;
+	compTree oldNode = tree;
 	nodeList auxNodeList2 = NULL;
 	while(auxNode != node)
  	{

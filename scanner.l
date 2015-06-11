@@ -34,8 +34,8 @@
 %x comment
 
 %{
-		#include "parser.h" //arquivo automaticamente gerado pelo bison
 		#include "main.h"
+    #include "parser.h" //arquivo automaticamente gerado pelo bison
 		int lineNumber = 1;
 		
 		
@@ -90,12 +90,12 @@ static				 {return TK_PR_STATIC;}
 <comment>"*/"          {BEGIN(INITIAL);}
 
 "//".*					   {}
-{LIT_INT}				   {yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_INT,lineNumber); return TK_LIT_INT;}
-{LIT_FLOAT}				   {yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_FLOAT,lineNumber); return TK_LIT_FLOAT;}
-{LIT_CHAR}				   {yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_CHAR,lineNumber); return TK_LIT_CHAR;}
+{LIT_INT}				   {yylval.valor_simbolo_lexico->token.integer = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_INT,lineNumber); return TK_LIT_INT;}
+{LIT_FLOAT}				   {yylval.valor_simbolo_lexico->token.floating_point = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_FLOAT,lineNumber); return TK_LIT_FLOAT;}
+{LIT_CHAR}				   {yylval.valor_simbolo_lexico->token.single_char = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_CHAR,lineNumber); return TK_LIT_CHAR;}
 {LIT_STRING}			   {yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext, SIMBOLO_LITERAL_STRING,lineNumber); return TK_LIT_STRING;}
-false					   {yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_BOOL,lineNumber); return TK_LIT_FALSE;}
-true					   {yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_BOOL,lineNumber); return TK_LIT_TRUE;}
+false					   {yylval.valor_simbolo_lexico->token.boolean = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_BOOL,lineNumber); return TK_LIT_FALSE;}
+true					   {yylval.valor_simbolo_lexico->token.boolean = dict_insert(hashtable,yytext,SIMBOLO_LITERAL_BOOL,lineNumber); return TK_LIT_TRUE;}
 {ID}					   {yylval.valor_simbolo_lexico = dict_insert(hashtable,yytext,SIMBOLO_IDENTIFICADOR,lineNumber); return TK_IDENTIFICADOR;}
 
 

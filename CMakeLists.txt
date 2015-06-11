@@ -18,6 +18,7 @@ ADD_EXECUTABLE(main
   src/cc_tree.c
   src/cc_stack.c
   src/cc_iloc.c
+  src/cc_semantic.c
 )
 TARGET_LINK_LIBRARIES(main ${FLEX_LIBRARIES})
 
@@ -35,12 +36,12 @@ FOREACH(file ${tests})
   ADD_TEST(${etapa}_${testname} perl -I ./tests/scripts ./tests/scripts/tesh ${file})
 ENDFOREACH()
 
-OPTION(ETAPA_1 "The Etapa 1 compilation" ON)
+OPTION(ETAPA_1 "The Etapa 1 compilation" OFF)
 OPTION(ETAPA_2 "The Etapa 2 compilation" OFF)
 OPTION(ETAPA_3 "The Etapa 3 compilation" OFF)
 OPTION(ETAPA_4 "The Etapa 4 compilation" OFF)
 OPTION(ETAPA_5 "The Etapa 5 compilation" OFF)
-OPTION(ETAPA_6 "The Etapa 6 compilation" OFF)
+OPTION(ETAPA_6 "The Etapa 6 compilation" ON)
 OPTION(ETAPA_7 "The Etapa 7 compilation" OFF)
 
 IF(ETAPA_1)

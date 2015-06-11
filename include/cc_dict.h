@@ -39,6 +39,7 @@ typedef struct comp_dict_item_t{  // item tabela de simbolos
     int nodeType;
     cc_list_t* array;
     union magic_token token;
+    char *functionLabel;            // Usado na chamada de função da etapa 6;
     struct comp_dict_item_t *next; /* prox item da tabela de simbols */
     char *key; /* chave  para consultar o simbolo o lexical*/
 }comp_dict_item_t;

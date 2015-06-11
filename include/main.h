@@ -7,10 +7,13 @@
 #define __MAIN_H
 #include <stdio.h>
 #include "cc_dict.h"
-#include "cc_list.h"
-#include "cc_tree.h"
 #include "cc_stack.h"
+#include "cc_tree.h"
+#include "cc_ast.h"
+#include "cc_error.h"
+#include "cc_list.h"
 #include "parser.h"
+
 
 /*
   Constantes a serem utilizadas como valor de retorno no caso de
