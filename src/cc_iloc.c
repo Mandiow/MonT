@@ -231,6 +231,7 @@ char* astCodeGenerate(compTree* ast)
 			}
 			// Parâmetros vão ficar voando pra sempre zzzz(Gabriel)
 			// Mas na 6ª eles voltam, relaxa ;3(Caiã)
+			// ELES VOLTARAM!!!!!! e me zoaram hard (Gabriel)
 			while(auxNodeList != NULL && auxNodeList->firstNode != NULL)
 			{
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
@@ -238,6 +239,7 @@ char* astCodeGenerate(compTree* ast)
 			}
 			break;
 		case AST_CHAMADA_DE_FUNCAO:
+			strcpy(ast->reg,"Rt");
 			regRet = createRegister();
 			//Executa o código das expressões da chamada de função
 			while(auxNodeList != NULL && auxNodeList->firstNode != NULL)
@@ -307,7 +309,6 @@ char* astCodeGenerate(compTree* ast)
 
 
 			//Jump para função
-			printf("%s\n", ast->childNodeList->firstNode->tableItem->functionLabel);
 			strcat(createdCode,basicCodeGeneration(op_jumpI,ast->childNodeList->firstNode->tableItem->functionLabel,NULL,NULL));
 
 			/*
@@ -316,21 +317,19 @@ char* astCodeGenerate(compTree* ast)
 			break;
 		case AST_RETURN:
 			regRet = createRegister();//FODA_SE
-			 /*
-			fatherCode =  createCode(fatherCode, ILOC_I2I, 2, aux->sonList->node->code->reg, "rt"); //carrega valor produzido pela expressao para o registrador de retorno de funcao
-			*/
+			
 			while(auxNodeList != NULL && auxNodeList->firstNode != NULL)
 			{
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 				auxNodeList = auxNodeList->nextNode;
 			}
-			strcat(createdCode,basicCodeGeneration(op_i2i,ast->childNodeList->firstNode->reg,NULL,"lamb"));
+			strcat(createdCode,basicCodeGeneration(op_i2i,ast->childNodeList->firstNode->reg,NULL,"Rt"));
 			strcat(createdCode,basicCodeGeneration(op_load,"fp",NULL,regRet));
 			strcat(createdCode,basicCodeGeneration(op_i2i, "fp",NULL,"sp"));
 			strcat(createdCode,basicCodeGeneration(op_loadAI,"fp",integerToString(ast->iks_type),"fp"));
 			strcat(createdCode,basicCodeGeneration(op_jump,regRet,NULL,NULL));
 
-			//TODO: Montar código específico da operação.
+
 			break;
 			
 		case AST_IF_ELSE:
@@ -377,7 +376,7 @@ char* astCodeGenerate(compTree* ast)
 			ilocCodeLineNumber++;
 			auxNodeList = auxNodeList->nextNode;
 			strcat(createdCode,basicCodeGeneration(op_label,ast->labelFalse,NULL,NULL));
-			//TODO: Montar código específico da operação.
+
 			break;
 
 		case AST_WHILE_DO:
@@ -396,7 +395,7 @@ char* astCodeGenerate(compTree* ast)
 			ilocCodeLineNumber++;
 			strcat(createdCode,basicCodeGeneration(op_label,ast->labelFalse,NULL,NULL));
 
-			//TODO: Montar código específico da operação.
+
 			break;
 
 
@@ -407,7 +406,7 @@ char* astCodeGenerate(compTree* ast)
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 				auxNodeList = auxNodeList->nextNode;
 			}
-			//TODO: Montar código específico da operação.
+
 			break;
 
 		case AST_OUTPUT:
@@ -416,13 +415,10 @@ char* astCodeGenerate(compTree* ast)
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 				auxNodeList = auxNodeList->nextNode;
 			}
-			//TODO: Montar código específico da operação.
+
 			break;
 
 		case AST_ATRIBUICAO:
-			
-			
-			
 			strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 			auxNodeList = auxNodeList->nextNode;
 			strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
@@ -444,7 +440,7 @@ char* astCodeGenerate(compTree* ast)
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 				auxNodeList = auxNodeList->nextNode;
 			}
-			//TODO: Montar código específico da operação.
+
 			break;
 
 		case AST_IDENTIFICADOR:
@@ -454,7 +450,10 @@ char* astCodeGenerate(compTree* ast)
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 				auxNodeList = auxNodeList->nextNode;
 			}
-			strcat(createdCode,basicCodeGeneration(op_loadAI,"fp",integerToString(ast->tableItem->offset),ast->reg));
+			if(ast->tableItem->scopeType == 0) // IF THE DOESNT HAVE A LOCAL SCOPE
+				strcat(createdCode,basicCodeGeneration(op_loadAI,"bss",integerToString(ast->tableItem->offset),ast->reg));
+			if(ast->tableItem->scopeType == 1)
+				strcat(createdCode,basicCodeGeneration(op_loadAI,"fp",integerToString(ast->tableItem->offset),ast->reg));
 			ilocCodeLineNumber++;
 			break;
 
@@ -521,7 +520,7 @@ char* astCodeGenerate(compTree* ast)
 				strcat(createdCode,basicCodeGeneration(op_sub,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
 				ilocCodeLineNumber++;
 			}
-			//TODO: Montar código específico da operação.
+
 			break;
 
 		case AST_ARIM_MULTIPLICACAO:
@@ -542,7 +541,7 @@ char* astCodeGenerate(compTree* ast)
 				ilocCodeLineNumber++;
 			}
 			
-			//TODO: Montar código específico da operação.
+
 			break;
 
 		case AST_ARIM_DIVISAO:
@@ -571,7 +570,7 @@ char* astCodeGenerate(compTree* ast)
 					strcat(createdCode,basicCodeGeneration(op_divI,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->tableItem->key,ast->reg));
 					ilocCodeLineNumber++;
 				}
-			//TODO: Montar código específico da operação.
+
 			break;
 
 		case AST_ARIM_INVERSAO:
@@ -580,7 +579,7 @@ char* astCodeGenerate(compTree* ast)
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 				auxNodeList = auxNodeList->nextNode;
 			}
-			//TODO: Montar código específico da operação.
+
 			break;
 
 		case AST_LOGICO_E:
@@ -638,7 +637,7 @@ char* astCodeGenerate(compTree* ast)
 			
 				
 			
-			//TODO: Montar código específico da operação.
+
 			break;
 
 		case AST_LOGICO_COMP_IGUAL:
@@ -653,7 +652,7 @@ char* astCodeGenerate(compTree* ast)
 					strcat(createdCode,basicCodeGeneration(op_cmp_EQ,ast->childNodeList->firstNode->reg,ast->childNodeList->nextNode->firstNode->reg,ast->reg));
 					
 				}
-			//TODO: Montar código específico da operação.
+
 			break;
 
 		case AST_LOGICO_COMP_DIF:
@@ -669,7 +668,7 @@ char* astCodeGenerate(compTree* ast)
 					ilocCodeLineNumber++;
 					
 				}
-			//TODO: Montar código específico da operação.
+
 			break;
 
 		case AST_LOGICO_COMP_LE:
@@ -685,7 +684,7 @@ char* astCodeGenerate(compTree* ast)
 					ilocCodeLineNumber++;
 					
 				}
-			//TODO: Montar código específico da operação.
+
 			break;
 
 		case AST_LOGICO_COMP_GE:
@@ -701,7 +700,7 @@ char* astCodeGenerate(compTree* ast)
 					ilocCodeLineNumber++;
 					
 				}
-			//TODO: Montar código específico da operação.
+
 			break;
 
 		case AST_LOGICO_COMP_L:
@@ -732,7 +731,7 @@ char* astCodeGenerate(compTree* ast)
 					ilocCodeLineNumber++;
 					
 				}
-			//TODO: Montar código específico da operação.
+
 			break;
 
 		case AST_LOGICO_COMP_NEGACAO:
@@ -741,7 +740,7 @@ char* astCodeGenerate(compTree* ast)
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 				auxNodeList = auxNodeList->nextNode;
 			}
-			//TODO: Montar código específico da operação.
+
 			break;
 
 		case AST_VETOR_INDEXADO:

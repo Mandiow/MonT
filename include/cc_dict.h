@@ -37,6 +37,7 @@ typedef struct comp_dict_item_t{  // item tabela de simbolos
     int offset;
     int param;
     int nodeType;
+    int scopeType;                      // If the variable does have a local scope or if it is global (0 == Global, 1 == Have Local Scope) 
     cc_list_t* array;
     union magic_token token;
     char *functionLabel;            // Usado na chamada de função da etapa 6;

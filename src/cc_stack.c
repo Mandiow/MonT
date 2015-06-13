@@ -37,11 +37,13 @@ void setTypeSize(comp_dict_item_t* data_item, cc_list_t* list, int typeDeclarati
 	if(typeDeclaration == globalDeclaration)
 	{
 		data_item->offset = globalOffset;
+		data_item->scopeType = 0;	//Global scope definition
 		globalOffset += data_item->size;
 	}
 	else
 	{
 		data_item->offset = localOffset;
+		data_item->scopeType = 1;	//Have local scope definition
 		localOffset += data_item->size;	
 	}
 

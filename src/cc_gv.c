@@ -86,7 +86,7 @@ static inline char *__gv_description_from_type (int tipo)
  */
 void gv_init (const char *filename)
 {
-  return;
+  //return;
   //verificar se gv_init já foi chamada
   if (fp){
     fprintf (stderr, "%s:%d já foi chamada, abort()\n", __FUNCTION__, __LINE__);
@@ -115,7 +115,7 @@ void gv_init (const char *filename)
  */
 void gv_close (void)
 {
-  return;
+  //return;
   __gv_test_valid_fp (__FUNCTION__);
   fprintf (fp, "}\n");
   fclose(fp);
@@ -141,7 +141,7 @@ void gv_close (void)
  */
 void gv_declare (const int tipo, const void *pointer, char *name)
 {
-  return;
+  //return;
   __gv_test_valid_fp (__FUNCTION__);
   __gv_test_valid_ast_pointer (__FUNCTION__, pointer);
 
@@ -208,7 +208,7 @@ void gv_declare (const int tipo, const void *pointer, char *name)
  */
 void gv_connect (const void *p1, const void *p2)
 {
-  return;
+  //return;
   __gv_test_valid_fp (__FUNCTION__);
   __gv_test_valid_ast_pointer (__FUNCTION__, p1);
   __gv_test_valid_ast_pointer (__FUNCTION__, p2);

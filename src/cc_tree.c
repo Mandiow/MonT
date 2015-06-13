@@ -124,7 +124,7 @@ void gv_create_initial_tree(compTree* tree)
 	
 	if (tree == NULL)
 		return;
-	//gv_init(NULL);
+	gv_init(NULL);
 	compTree* auxNode = tree;
 	switch(tree->nodeType)
 	{

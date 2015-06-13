@@ -520,6 +520,8 @@ int Function_Comparsion(int chamada,stack_item* stack, stack_item* call_stack, c
 
 	stack_item* callParamStack;
 	stack_item* mainParamStack;
+	int countmain=0;
+	int countcall=0;
 
 	callParamStack = NULL;
 	mainParamStack = NULL;
@@ -532,6 +534,7 @@ int Function_Comparsion(int chamada,stack_item* stack, stack_item* call_stack, c
 		if(aux_call_stack->flag == param_item)
 		{
 			stack_push(&callParamStack,aux_call_stack->data,param_item,0);
+			countcall++;
 			//printf("CALL PARAM STACK POINTER: %p %s\n", callParamStack->data, aux_call_stack->data->key);
 		}
 		aux_call_stack = aux_call_stack->prev;
@@ -543,6 +546,7 @@ int Function_Comparsion(int chamada,stack_item* stack, stack_item* call_stack, c
 			if(aux_stack->flag == param_item)
 			{	
 				stack_push(&mainParamStack,aux_stack->data,param_item,0);
+				countmain++;
 			}
 			if(aux_stack->data != NULL)
 				if (aux_stack->data->key != aux_call_stack->data->key)
@@ -570,6 +574,11 @@ int Function_Comparsion(int chamada,stack_item* stack, stack_item* call_stack, c
 	{
 		exit(IKS_ERROR_MISSING_ARGS);
 	}
+	/*printf("main:%d\n COM ELEMENTOS:\n", countmain);
+	printStack(mainParamStack);
+	printf("call:%d\n COM ELEMENTOS:\n",countcall );
+	printStack(callParamStack);*/
+
 	stack_item* aux_stack123;
 	aux_stack123 = mainParamStack;
 	while(callParamStack != NULL && mainParamStack != NULL)

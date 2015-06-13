@@ -14,8 +14,6 @@
 #define COERCION_TO_FLOAT 2
 #define COERCION_TO_BOOL 5
 
-
-
 typedef struct nodeList_t{
 	struct comp_tree_t* firstNode;
 	struct nodeList_t* nextNode;
@@ -36,10 +34,7 @@ typedef struct comp_tree_t {
     struct comp_tree_t* nodeFather;		// It's father in the ast
 }compTree; 
 
-
-
 compTree* syntaxTree;
-
 compTree* createNode(int itemType, comp_dict_item_t* tableItem);
 void *appendChildNode(compTree* t, compTree* newChild);
 void removeNode(compTree* node);						
