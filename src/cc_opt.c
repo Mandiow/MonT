@@ -49,7 +49,25 @@ int appendBlock(basicBlock* block, basicBlockList* blockList)
 	auxList->nextBlock = newBlockListElem;
 	return 0;
 }
-
+int appendloopBlockList(int start, intList* interior, intList* end)
+{
+	loopBlockList auxList;
+	loopBlockList newLoopBlockListElem = (*loopBlockList) malloc(sizeof(loopBlockList));
+	//Return -1 if malloc fails zzz
+	newLoopBlockListElem->nextLoop = NULL;
+	newLoopBlockListElem->block = block;
+	if(auxList == NULL)
+	{
+		blockList = newLoopBlockListElem;
+		return 0;
+	}
+	while(auxList->nextLoop != NULL)
+	{
+		auxList = auxList->nextLoop;
+	}
+	auxList->nextLoop = newLoopBlockListElem;
+	return 0;
+}
 // Returns: -1 = block not found on list
 // 0 = Found and removed;
 int removeBlock(basicBlock* block, basicBlockList* blockList)
@@ -184,7 +202,7 @@ int getCodeLines(char* originalCode);	//Saves in global optCode
 }
 
 /** Optimization operations **/
-void searchForDominants();			//Uses global optCode and global dominantList
+void searchForLeaders();			//Uses global optCode and global dominantList
 {
 	codeLineList* auxCodeList;
 	auxCodeList = optCode;
@@ -345,9 +363,56 @@ void linkBlocks()
 	}
 }
 
+void searchForDominants()
+{
+/*
+// dominator of the start node is the start itself
+Dom(n0) = {n0}
+// for all other nodes, set all nodes as the dominators
+for each n in N - {n0}
+ Dom(n) = N;
+// iteratively eliminate nodes that are not dominators
+while changes in any Dom(n)
+	for each n in N - {n0}:
+        Dom(n) = {n} union with intersection over Dom(p) for all p in pred(n)*/
+}
+
+/*//Search for loops in the basicBlockList
+//Uses global basicBlocks and loopList;
+void loopSearch(basicBlock* startBlock,basicBlock* actualBlock , loopBlockList* actualLoopList, basicBlockList* interiors)					
+{
+	if(actualBlock == NULL)
+		actalBlock = startBlock;
+	intList* auxIntList;
+	auxIntList = actualBlock->nextBlockList;
+	//If my actualBlock contains an exit to the first block of the possible loop, it is a loop and the loop is added to the loop list with it's interiors
+	while(auxIntList != NULL)
+	{
+		if(auxIntList->item == startBlock->id)
+		{
+			
+		}
+		auxIntList = auxIntList->next;
+	}
+	//Now check it's sons in the list, going over them using this function recursively
+}*/
 //ok now the shady stuff comes in
 void optimizeCode()
 {
-	//stuff that is shadier than Eminem goes here
-
+	//stuff that is shadier than Eminem goes here	
+	Premissa P = {
+		Movimentação de código para fora do laço L é válida se:
+		1. O bloco B que contém s domina todas as saídas de L;
+		2. Nenhum outro comando no laço atribui um valor à x;
+		3. Todos os usos de x dentro de L são feitos na definição em S;
+	}
+	Para cada linha de código C pertencente à intersecção de (bloco B pertencente à basicBlocks) e (loopList)
+		Se C aceita a premissa P
+			Se existe um bloco B2 que tem como saida B.startBlock
+				Realoca C para o final deste bloco B2;
+			Se não
+				//Caso onde estou tentando realocar uma linha de código de um bloco que está no início do programa, 
+				//logo não tem nenhum bloco anterior a este no qual posso realocar o código C	
+				Cria novo bloco básico B3 e realoca C para este bloco basico
+				Faz com que este bloco básico seja o início da lista de blocos
 }
