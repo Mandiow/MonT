@@ -11,13 +11,14 @@ int chamada = 0;
 int dimensions = 0;
 int attDimensions = 0;
 int globalOffset = 0;
-int frameOffset = 0; // Deixando pra etapa 6... LEMBRA DE ZERAR ESSA JOÇA
+int frameOffset = 0; // Deixando pra etapa 6... LEMBRA DE ZERAR ESSA JOÇA // EU ADORO LER DEPOIS DE ME FUDER =.=
 %}
 %union
 {
 	struct comp_tree_t *syntaxTree;
 	struct stack_item *main_stack;
 	struct stack_item *call_stack;
+	struct stack_item *lazyStack;
 	struct comp_dict_item_t *valor_simbolo_lexico;
 	struct comp_list_t *list_dimensions;
 	int type;
@@ -159,7 +160,12 @@ declarar_funcao
 									{stack_push(&main_stack,$6,block_item,0);}
 								bloco_comando 
 									'}' 
-									{ $$ = $1;
+									{ 
+										$$->tableItem->scopeType = 3;
+										$1->frame = frameOffset + localOffset;
+										localOffset = 0;
+										frameOffset = 0;
+										$$ = $1;
 										if($8 !=NULL)
 											appendChildNode($$,$8);
 										
@@ -175,7 +181,7 @@ escopo
 	;
 
 parametros_vazio
-	: parametros 
+	: parametros
 	| 
 	;
 
@@ -185,7 +191,12 @@ parametros
 	;
 	
 lista_parametros 
-	: especificador_tipo TK_IDENTIFICADOR {$2->iks_type = $1; stack_push(&main_stack,$2,param_item, 1); param++;setTypeSize($2,NULL,localDeclaration);}
+	: especificador_tipo TK_IDENTIFICADOR { $2->iks_type = $1; 
+										    stack_push(&main_stack,$2,param_item, 1); 
+										    param++;
+										    setTypeSize($2,NULL,4);
+										    frameOffset+=$2->size;
+										  }
 	| TK_PR_CONST especificador_tipo TK_IDENTIFICADOR {$3->iks_type = $2;stack_push(&main_stack,$3,param_item, 1); param++;}
 	;
 
@@ -260,8 +271,8 @@ atribuicao
 	;
 
 retorno
-	: TK_PR_RETURN expressao {$$ = createNode(AST_RETURN,NULL); $$->iks_type = Func_type;appendChildNode($$,$2);returnCoercion(Func_type,$2);}// LOOK AT THIS SHIT!
-	| TK_PR_RETURN {$$ = createNode(AST_RETURN,NULL); }
+	: TK_PR_RETURN expressao {$$ = createNode(AST_RETURN,NULL); $$->iks_type = Func_type;appendChildNode($$,$2);returnCoercion(Func_type,$2);$$->frame = frameOffset + localOffset;}// LOOK AT THIS SHIT!
+	| TK_PR_RETURN {$$ = createNode(AST_RETURN,NULL);$$->frame = frameOffset + localOffset; }
 	;
 
 bloco_comando
@@ -322,10 +333,18 @@ controle_fluxo
 	;
 
 chamada_funcao
-	: nome  '(' lista_vazia ')' {$$ = createNode(AST_CHAMADA_DE_FUNCAO,NULL);Function_Comparsion(chamada,main_stack,call_stack,$$); $$->iks_type = $1->iks_type; appendChildNode($$,$1);if($3 != NULL) {appendChildNode($$,$3);}$$->iks_type = getFunctionType(main_stack,call_stack);chamada = 0;}
+	: nome  '(' lista_vazia ')' {$$ = createNode(AST_CHAMADA_DE_FUNCAO,NULL);Function_Comparsion(chamada,main_stack,call_stack,$$); $$->iks_type = $1->iks_type; appendChildNode($$,$1);if($3 != NULL) {appendChildNode($$,$3);}$$->iks_type = getFunctionType(main_stack,call_stack);
+									copyStack(call_stack,&lazyStack);
+
+									while(call_stack != NULL)
+										stack_pop(&call_stack);
+									copyStack(lazyStack,&$$->functionStack);
+									while(lazyStack != NULL)
+										stack_pop(&lazyStack);
+									 chamada = 0;}
 	;
 
-nome: TK_IDENTIFICADOR { stack_isDeclared(main_stack,$1,AST_FUNCAO);$$ = createNode(AST_IDENTIFICADOR,$1);stack_push(&call_stack,$1,func_item, 0);}
+nome: TK_IDENTIFICADOR {$1->scopeType = 3; stack_isDeclared(main_stack,$1,AST_FUNCAO);$$ = createNode(AST_IDENTIFICADOR,$1);stack_push(&call_stack,$1,func_item, 0);}
 	;
 
 expressao 

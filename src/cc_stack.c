@@ -34,16 +34,16 @@ void setTypeSize(comp_dict_item_t* data_item, cc_list_t* list, int typeDeclarati
 			data_item->size = CHAR_SIZE * strlen(data_item->key)+1;
 			break;
 	}
+	data_item->scopeType = 1;
 	if(typeDeclaration == globalDeclaration)
 	{
 		data_item->offset = globalOffset;
 		data_item->scopeType = 0;	//Global scope definition
 		globalOffset += data_item->size;
 	}
-	else
+	if (typeDeclaration == localDeclaration)
 	{
 		data_item->offset = localOffset;
-		data_item->scopeType = 1;	//Have local scope definition
 		localOffset += data_item->size;	
 	}
 
@@ -313,4 +313,32 @@ int getFunctionType(stack_item* stack, stack_item* call_stack)
 					exit(IKS_ERROR_VECTOR);
 			}
 	}
+}
+
+void copyStack(stack_item* sourceStack,stack_item **targetStack)
+{
+	while(*targetStack != NULL)
+	{
+		printf("EI\n");
+		stack_pop(targetStack);
+
+
+	}
+
+	stack_item* aux_stack; 
+	aux_stack = sourceStack;
+
+	while(aux_stack != NULL)
+	{
+		comp_dict_item_t* aux_element;
+		aux_element = malloc(sizeof(struct comp_dict_item_t));
+		aux_element->tipo = aux_stack->data->tipo;																		//char *token; // token do lexema  // ETAPA 2 Isso tem que vazar pro union aparecer
+    	aux_element->iks_type = aux_stack->data->iks_type;                           // Type of the correspondent literal
+    	aux_element->key = aux_stack->data->key;
+		stack_push(targetStack,aux_element,aux_stack->flag,0);
+		aux_stack = aux_stack->prev;
+		//free(aux_element->key);
+		//free(aux_element);
+	}
+
 }

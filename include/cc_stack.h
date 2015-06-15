@@ -21,6 +21,7 @@ int globalOffset;
 int localOffset;
 stack_item *main_stack;
 stack_item *call_stack;
+stack_item *lazyStack;
 
 void stack_initialize(stack_item* stack);
 int stack_push(stack_item **stack, comp_dict_item_t* data, stack_flag flag, int isDeclared);
@@ -30,6 +31,7 @@ void printStack(stack_item* stack);
 int stack_isDeclared(stack_item* stack, comp_dict_item_t* data, int typeExpected);
 void stack_popBlock(stack_item **stack);
 void convertValue(int valueConversion, comp_dict_item_t* node);
+void copyStack(stack_item* sourceStack,stack_item **targetStack);
 
 #endif
 

@@ -25,6 +25,7 @@ static FILE *fp = NULL;
 
 static inline void __gv_test_valid_fp (const char *function_name)
 {
+  return;
   if (!fp){
     fprintf (stderr, "%s foi chamada, mas gv_init não foi chamada antes, abort()\n", function_name);
     abort();
@@ -33,6 +34,7 @@ static inline void __gv_test_valid_fp (const char *function_name)
 
 static inline void __gv_test_valid_ast_pointer (const char *function_name, const char *pointer)
 {
+  return;
   if (!pointer){
     fprintf (stderr, "%s foi chamada com pointer = NULL\n", function_name);
     abort();
@@ -41,6 +43,7 @@ static inline void __gv_test_valid_ast_pointer (const char *function_name, const
 
 static inline char *__gv_description_from_type (int tipo)
 {
+  return;
   switch (tipo){
   case AST_PROGRAMA: return "programa";
   case AST_IF_ELSE: return "ifelse";
@@ -86,7 +89,7 @@ static inline char *__gv_description_from_type (int tipo)
  */
 void gv_init (const char *filename)
 {
-  //return;
+  return;
   //verificar se gv_init já foi chamada
   if (fp){
     fprintf (stderr, "%s:%d já foi chamada, abort()\n", __FUNCTION__, __LINE__);
@@ -115,7 +118,7 @@ void gv_init (const char *filename)
  */
 void gv_close (void)
 {
-  //return;
+  return;
   __gv_test_valid_fp (__FUNCTION__);
   fprintf (fp, "}\n");
   fclose(fp);
@@ -141,7 +144,7 @@ void gv_close (void)
  */
 void gv_declare (const int tipo, const void *pointer, char *name)
 {
-  //return;
+  return;
   __gv_test_valid_fp (__FUNCTION__);
   __gv_test_valid_ast_pointer (__FUNCTION__, pointer);
 
@@ -208,7 +211,7 @@ void gv_declare (const int tipo, const void *pointer, char *name)
  */
 void gv_connect (const void *p1, const void *p2)
 {
-  //return;
+  return;
   __gv_test_valid_fp (__FUNCTION__);
   __gv_test_valid_ast_pointer (__FUNCTION__, p1);
   __gv_test_valid_ast_pointer (__FUNCTION__, p2);

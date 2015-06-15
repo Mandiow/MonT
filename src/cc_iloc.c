@@ -8,6 +8,7 @@ int labelControl=0; 	// numero do próxima label, será utilizado para a criaç�
 int registerControl=0; 	// numero do próximo registrador, será utilizado para a criação de registradores
 char* labelMain;
 int ilocCodeLineNumber=0;
+int activationReg=0;
 ILOC_register_t rarp = "rarp"; // registrador que aponta para a pilha
 ILOC_register_t rbss = "rbss"; // registrador para dados globais
   
@@ -194,7 +195,7 @@ char* astCodeGenerate(compTree* ast)
 	char createdCode[1024];
 	char tempCode[1024];
 	char label[100];
-	char *regRet;
+	char *regParam;
 	strcpy(createdCode,"");
 	strcpy(tempCode,"");
 
@@ -222,12 +223,22 @@ char* astCodeGenerate(compTree* ast)
 			{
 				labelMain = createLabel();
 				strcpy(createdCode,basicCodeGeneration(op_label,labelMain,NULL,NULL));
+				strcat(createdCode,basicCodeGeneration(op_addI,"sp",integerToString(ast->frame),"sp"));
+				ilocCodeLineNumber++;
+				activationReg = 1;
 
 			}
 			else 
 			{
+				int functionOffset = 12;
+				functionOffset += ast->frame;
 				ast->tableItem->functionLabel = createLabel();
 				strcpy(createdCode,basicCodeGeneration(op_label,ast->tableItem->functionLabel,NULL,NULL));
+				strcat(createdCode,basicCodeGeneration(op_i2i,"sp",NULL,"fp"));
+				ilocCodeLineNumber++;
+				strcat(createdCode,basicCodeGeneration(op_addI,"sp",integerToString(functionOffset),"sp"));
+				ilocCodeLineNumber++;
+				activationReg = 0;
 			}
 			// Parâmetros vão ficar voando pra sempre zzzz(Gabriel)
 			// Mas na 6ª eles voltam, relaxa ;3(Caiã)
@@ -239,24 +250,23 @@ char* astCodeGenerate(compTree* ast)
 			}
 			break;
 		case AST_CHAMADA_DE_FUNCAO:
-			strcpy(ast->reg,"Rt");
-			regRet = createRegister();
+			regParam = createRegister();
+			strcpy(ast->reg,regParam);
 			//Executa o código das expressões da chamada de função
+
 			while(auxNodeList != NULL && auxNodeList->firstNode != NULL)
 			{
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 				auxNodeList = auxNodeList->nextNode;
 			}
-			strcat(createdCode,basicCodeGeneration(op_storeAI,"fp","sp","4"));
-			ilocCodeLineNumber++;
-			strcat(createdCode,basicCodeGeneration(op_i2i,"sp",NULL,"fp"));
-			ilocCodeLineNumber++;
+			
 			//Processar os parâmetros que estão salvos no nodo da AST.
 			int paramOffset = 8;
 			stack_item* aux_stack;
 			aux_stack = ast->callBackupStack;
 			int paramCounter = 0;
 			int paramCounter2= 0;
+			int lastparam = 0;
 			while(aux_stack != NULL)
 			{
 				auxNodeList = ast->childNodeList;
@@ -264,22 +274,27 @@ char* astCodeGenerate(compTree* ast)
 				{
 					case IKS_INT:
 						paramOffset += 4;
+						lastparam = 4;
 						paramCounter++;
 						break;
 					case IKS_FLOAT:
 						paramOffset += 8;
+						lastparam = 8;
 						paramCounter++;
 						break;
 					case IKS_CHAR:
 						paramOffset += 1;
+						lastparam = 1;
 						paramCounter++;
 						break;
 					case IKS_STRING:
 						paramOffset += 1; //Não sei como implementar isso na verdade
+						lastparam = 1;
 						paramCounter++;
 						break;
 					case IKS_BOOL:
 						paramOffset += 1;
+						lastparam = 1;
 						paramCounter++;
 						break;
 				}
@@ -297,38 +312,51 @@ char* astCodeGenerate(compTree* ast)
 						auxNodeList = auxNodeList->firstNode->childNodeList;
 					else auxNodeList = auxNodeList->nextNode;
 				}
-				strcat(createdCode,basicCodeGeneration(op_storeAI,auxNodeList->firstNode->reg, "fp",integerToString(paramOffset))); //reg: registrador que armazena o resultado da expressao
+				strcat(createdCode,basicCodeGeneration(op_storeAI,auxNodeList->firstNode->reg, "sp",integerToString(paramOffset))); //reg: registrador que armazena o resultado da expressao
 				ilocCodeLineNumber++;
 				aux_stack = aux_stack->prev;
 				paramCounter2 = 0;
 			}
-			strcat(createdCode,basicCodeGeneration(op_loadI,integerToString(paramOffset),NULL,"sp"));
-			ilocCodeLineNumber+=3;
-			strcat(createdCode,basicCodeGeneration(op_loadI,integerToString(ilocCodeLineNumber),NULL,regRet));// essa merda do caralho, tem que ter o número de linhas correto =.=
-			strcat(createdCode,basicCodeGeneration(op_store, regRet,NULL, "fp")); //salva o endereco da proxima instrucao no registro de ativacao
-
+			strcat(createdCode,basicCodeGeneration(op_storeAI,integerToString(ilocCodeLineNumber+5),"sp","0"));
+			ilocCodeLineNumber++;
+			strcat(createdCode,basicCodeGeneration(op_storeAI,"sp","sp","4"));
+			ilocCodeLineNumber++;
+			strcat(createdCode,basicCodeGeneration(op_storeAI,"fp","sp","8"));
+			ilocCodeLineNumber++;
 
 			//Jump para função
 			strcat(createdCode,basicCodeGeneration(op_jumpI,ast->childNodeList->firstNode->tableItem->functionLabel,NULL,NULL));
+			ilocCodeLineNumber++;
+			strcat(createdCode,basicCodeGeneration(op_loadAI,"sp",integerToString(paramOffset+lastparam),ast->reg));
 
-			/*
-			*/
-
+			
 			break;
 		case AST_RETURN:
-			regRet = createRegister();//FODA_SE
+			regParam = createRegister();//FODA_SE
+			char* fp = createRegister();
+			char* sp = createRegister();
 			
 			while(auxNodeList != NULL && auxNodeList->firstNode != NULL)
 			{
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 				auxNodeList = auxNodeList->nextNode;
 			}
-			strcat(createdCode,basicCodeGeneration(op_i2i,ast->childNodeList->firstNode->reg,NULL,"Rt"));
-			strcat(createdCode,basicCodeGeneration(op_load,"fp",NULL,regRet));
-			strcat(createdCode,basicCodeGeneration(op_i2i, "fp",NULL,"sp"));
-			strcat(createdCode,basicCodeGeneration(op_loadAI,"fp",integerToString(ast->iks_type),"fp"));
-			strcat(createdCode,basicCodeGeneration(op_jump,regRet,NULL,NULL));
-
+			int returnOffset=12;
+			returnOffset += ast->frame;
+			strcat(createdCode,basicCodeGeneration(op_storeAI,ast->childNodeList->firstNode->reg,"fp",integerToString(returnOffset)));
+			ilocCodeLineNumber++;
+			strcat(createdCode,basicCodeGeneration(op_loadAI,"fp","0",regParam));
+			ilocCodeLineNumber++;
+			strcat(createdCode,basicCodeGeneration(op_loadAI,"fp","4",sp));
+			ilocCodeLineNumber++;
+			strcat(createdCode,basicCodeGeneration(op_loadAI,"fp","8",fp));
+			ilocCodeLineNumber++;
+			strcat(createdCode,basicCodeGeneration(op_store,fp,NULL,"fp"));
+			ilocCodeLineNumber++;
+			strcat(createdCode,basicCodeGeneration(op_store,sp,NULL,"sp"));
+			ilocCodeLineNumber++;
+			strcat(createdCode,basicCodeGeneration(op_jump,regParam,NULL,NULL));
+			ilocCodeLineNumber++;
 
 			break;
 			
@@ -423,8 +451,23 @@ char* astCodeGenerate(compTree* ast)
 			auxNodeList = auxNodeList->nextNode;
 			strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
 			auxNodeList = auxNodeList->nextNode;
-			strcat(createdCode,basicCodeGeneration(op_store,ast->childNodeList->nextNode->firstNode->reg,NULL,ast->childNodeList->firstNode->reg));
-			ilocCodeLineNumber++;
+			if(ast->tableItem->scopeType == 0) // IF THE DOESNT HAVE A LOCAL SCOPE
+			{
+
+				strcat(createdCode,basicCodeGeneration(op_storeAI,ast->childNodeList->nextNode->firstNode->reg,"bss",integerToString(ast->tableItem->offset)));
+				ilocCodeLineNumber++;
+			}	
+			
+			if(ast->tableItem->scopeType == 1 && activationReg == 0)
+			{
+				strcat(createdCode,basicCodeGeneration(op_storeAI,ast->childNodeList->nextNode->firstNode->reg,"fp",integerToString(ast->tableItem->offset+12)));
+				ilocCodeLineNumber++;	
+			}
+			if(ast->tableItem->scopeType == 1 && activationReg == 1)
+			{
+				strcat(createdCode,basicCodeGeneration(op_storeAI,ast->childNodeList->nextNode->firstNode->reg,"fp",integerToString(ast->tableItem->offset)));
+				ilocCodeLineNumber++;	
+			}
 			while(auxNodeList != NULL && auxNodeList->firstNode != NULL)
 			{
 				strcat(createdCode,astCodeGenerate(auxNodeList->firstNode));
@@ -451,10 +494,22 @@ char* astCodeGenerate(compTree* ast)
 				auxNodeList = auxNodeList->nextNode;
 			}
 			if(ast->tableItem->scopeType == 0) // IF THE DOESNT HAVE A LOCAL SCOPE
+			{
+
 				strcat(createdCode,basicCodeGeneration(op_loadAI,"bss",integerToString(ast->tableItem->offset),ast->reg));
-			if(ast->tableItem->scopeType == 1)
+				ilocCodeLineNumber++;
+			}	
+			
+			if(ast->tableItem->scopeType == 1 && activationReg == 0)
+			{
+				strcat(createdCode,basicCodeGeneration(op_loadAI,"fp",integerToString(ast->tableItem->offset+12),ast->reg));
+				ilocCodeLineNumber++;	
+			}
+			if(ast->tableItem->scopeType == 1 && activationReg == 1)
+			{
 				strcat(createdCode,basicCodeGeneration(op_loadAI,"fp",integerToString(ast->tableItem->offset),ast->reg));
-			ilocCodeLineNumber++;
+				ilocCodeLineNumber++;	
+			}
 			break;
 
 		case AST_LITERAL:
@@ -879,7 +934,6 @@ char* astCodeGenerate(compTree* ast)
 			fprintf(stderr,"Erro na geracao de codigo! (Tipo do Nodo da AST não identificado)\n");
 			break;
 	}
-	
 	return strdup(createdCode);
 }
 

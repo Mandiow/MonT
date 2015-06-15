@@ -27,8 +27,10 @@ typedef struct comp_tree_t {
 	int nodeType;
 	int iks_type;
 	int ifThenElse;
+	int frame;
 	int IWANNAABOOLEAN;
 	struct stack_item* callBackupStack;
+	struct stack_item* functionStack;
 	comp_dict_item_t* tableItem;	// The pointer in the Table to the item related in this node
     nodeList* childNodeList; 	// A list of this node siblings, (maximum varies depending on comp_tree_t.type)
     struct comp_tree_t* nodeFather;		// It's father in the ast
