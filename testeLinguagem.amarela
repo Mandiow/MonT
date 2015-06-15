@@ -1,0 +1,1 @@
+int f(int y) { y = 2; return y; } int main() { int x; x = f(x); }

@@ -175,6 +175,9 @@ char* basicCodeGeneration(ILOC_op_t operation, char* firstOperant, char* secondO
 		case op_label:
 			sprintf(generatedCode, "%s:\n",firstOperant);
 			break;
+		case op_halt:
+			sprintf(generatedCode, "halt\n");
+			break;
 		default: 
 			return NULL;
 	}
@@ -197,7 +200,7 @@ char* astCodeGenerate(compTree* ast)
 	switch(ast->nodeType)
 	{
 		case AST_PROGRAMA:
-			ilocCodeLineNumber+=4;
+			ilocCodeLineNumber+=5;
 			while(auxNodeList != NULL && auxNodeList->firstNode != NULL)
 			{
 				strcat(tempCode,astCodeGenerate(auxNodeList->firstNode));
@@ -209,7 +212,7 @@ char* astCodeGenerate(compTree* ast)
 			strcat(createdCode,basicCodeGeneration(op_loadI,"2048",NULL,"fp"));
 			strcat(createdCode,basicCodeGeneration(op_jumpI,labelMain,NULL,NULL));
 			strcat(createdCode,tempCode);
-
+			strcat(createdCode,basicCodeGeneration(op_halt,NULL,NULL,NULL));
 			//printf("ILOC CODE LINE NUMBER: %d\n",ilocCodeLineNumber );
 			break;
 
