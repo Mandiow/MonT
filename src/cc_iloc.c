@@ -11,11 +11,6 @@ int ilocCodeLineNumber=0;
 int activationReg=0;
 ILOC_register_t rarp = "rarp"; // registrador que aponta para a pilha
 ILOC_register_t rbss = "rbss"; // registrador para dados globais
-  
-
-
-
-
 
 char* createRegister()
 {
@@ -332,7 +327,7 @@ char* astCodeGenerate(compTree* ast)
 			
 			break;
 		case AST_RETURN:
-			regParam = createRegister();//FODA_SE
+			regParam = createRegister();
 			char* fp = createRegister();
 			char* sp = createRegister();
 			
@@ -343,7 +338,10 @@ char* astCodeGenerate(compTree* ast)
 			}
 			int returnOffset=12;
 			returnOffset += ast->frame;
-			strcat(createdCode,basicCodeGeneration(op_storeAI,ast->childNodeList->firstNode->reg,"fp",integerToString(returnOffset)));
+
+			strcat(createdCode,basicCodeGeneration(op_load,ast->childNodeList->firstNode->reg,NULL,regParam));
+			ilocCodeLineNumber++;
+			strcat(createdCode,basicCodeGeneration(op_storeAI,regParam,"fp",integerToString(returnOffset)));
 			ilocCodeLineNumber++;
 			strcat(createdCode,basicCodeGeneration(op_loadAI,"fp","0",regParam));
 			ilocCodeLineNumber++;
