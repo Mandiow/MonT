@@ -114,8 +114,8 @@ start:{;initializeList(&list_dimensions);} programa {
 					$$ = createNode(AST_PROGRAMA,NULL);
 					if($2 != NULL)appendChildNode($$,$2);
 					syntaxTree = $$;
-					//showTree(syntaxTree);
-					gv_create_initial_tree($$); 
+					//showTree($$);
+					//gv_create_initial_tree($$); 
 					shortCircuit($$,NULL,NULL);
 					}
 	;

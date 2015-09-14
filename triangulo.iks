@@ -1,4 +1,3 @@
-/*Triangulo */
 int main()
 {
 	int L1;

@@ -15,10 +15,16 @@ void yyerror (char const *mensagem)
 void main_init (int argc, char **argv)
 {
   //implemente esta função com rotinas de inicialização, se necessário
-	if(argc != 2)
+  
+	if(argv[1] == NULL)
 	{
-	  fOutput = stdout;////fopen(argv[2], "w");
+	  fOutput = stdout;////;
 	}
+  else
+  {
+    fopen(argv[2], "r");
+    fOutput = stdout;
+  }
 	dict_create(100);
 	//stack_initialize(main_stack);
 }
