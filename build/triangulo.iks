@@ -1,0 +1,16 @@
+/*Triangulo */
+int main()
+{
+	int L1;
+	int L2;
+	int L3;
+	if (L1 <= L2+L3 && L2 <= L1+L3 && L3 <= L2+L1)
+		then
+		{
+			output "É um triangulo";
+		}
+		else
+		{
+			output "Não é um triangulo";
+		}
+}
